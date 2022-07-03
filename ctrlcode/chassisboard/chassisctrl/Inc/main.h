@@ -32,7 +32,11 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "motlib.h"
+#include "math.h"
+#include "fifo.h"
+#include "pid.h"
+#include "crc8_crc16.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
