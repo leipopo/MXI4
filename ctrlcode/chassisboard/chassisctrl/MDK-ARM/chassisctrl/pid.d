@@ -1,41 +1,38 @@
-chassisctrl\pid.o: ..\User\Src\pid.c
-chassisctrl\pid.o: ../Inc/main.h
-chassisctrl\pid.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
-chassisctrl\pid.o: ../Inc/stm32f4xx_hal_conf.h
-chassisctrl\pid.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h
-chassisctrl\pid.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h
-chassisctrl\pid.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
-chassisctrl\pid.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f427xx.h
-chassisctrl\pid.o: ../Drivers/CMSIS/Include/core_cm4.h
-chassisctrl\pid.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-chassisctrl\pid.o: ../Drivers/CMSIS/Include/cmsis_version.h
-chassisctrl\pid.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
-chassisctrl\pid.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
-chassisctrl\pid.o: ../Drivers/CMSIS/Include/mpu_armv7.h
-chassisctrl\pid.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h
-chassisctrl\pid.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
-chassisctrl\pid.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
-chassisctrl\pid.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-chassisctrl\pid.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h
-chassisctrl\pid.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h
-chassisctrl\pid.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h
-chassisctrl\pid.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h
-chassisctrl\pid.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h
-chassisctrl\pid.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h
-chassisctrl\pid.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h
-chassisctrl\pid.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_can.h
-chassisctrl\pid.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h
-chassisctrl\pid.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h
-chassisctrl\pid.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h
-chassisctrl\pid.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h
-chassisctrl\pid.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h
-chassisctrl\pid.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
-chassisctrl\pid.o: ..\User\Inc\motlib.h
-chassisctrl\pid.o: ../Inc/main.h
-chassisctrl\pid.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
-chassisctrl\pid.o: ..\User\Inc\fifo.h
-chassisctrl\pid.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
-chassisctrl\pid.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
-chassisctrl\pid.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
-chassisctrl\pid.o: ..\User\Inc\pid.h
-chassisctrl\pid.o: ..\User\Inc\crc8_crc16.h
+chassisctrl/pid.o: ..\User\Src\pid.c ..\Inc\main.h \
+  ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h \
+  ..\Inc\stm32f4xx_hal_conf.h \
+  ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h \
+  ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_def.h \
+  ..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h \
+  ..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f427xx.h \
+  ..\Drivers\CMSIS\Include\core_cm4.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h \
+  ..\Drivers\CMSIS\Include\cmsis_version.h \
+  ..\Drivers\CMSIS\Include\cmsis_compiler.h \
+  ..\Drivers\CMSIS\Include\cmsis_armclang.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\arm_compat.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\arm_acle.h \
+  ..\Drivers\CMSIS\Include\mpu_armv7.h \
+  ..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h \
+  ..\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stddef.h \
+  ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc_ex.h \
+  ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_gpio.h \
+  ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_gpio_ex.h \
+  ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_exti.h \
+  ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_dma.h \
+  ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_dma_ex.h \
+  ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_cortex.h \
+  ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_can.h \
+  ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash.h \
+  ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash_ex.h \
+  ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash_ramfunc.h \
+  ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr.h \
+  ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h \
+  ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h \
+  ..\User\Inc\motlib.h C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\math.h \
+  ..\User\Inc\fifo.h C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdlib.h ..\User\Inc\pid.h \
+  ..\User\Inc\crc8_crc16.h ..\User\Inc\can_bsp.h ..\Inc\can.h \
+  ..\Inc\main.h ..\User\Inc\dma_bsp.h ..\Inc\usart.h

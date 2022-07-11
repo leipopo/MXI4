@@ -37,6 +37,9 @@ extern "C" {
 #include "fifo.h"
 #include "pid.h"
 #include "crc8_crc16.h"
+#include "can_bsp.h"
+#include "dma_bsp.h"
+#include "canbus.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
