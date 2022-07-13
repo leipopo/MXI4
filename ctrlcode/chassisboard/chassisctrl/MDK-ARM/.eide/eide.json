@@ -2,7 +2,7 @@
   "name": "MDK-ARM",
   "type": "ARM",
   "mode": "chassisctrl",
-  "toolchain": "AC6",
+  "toolchain": "AC5",
   "dependenceList": [
     {
       "groupName": "custom",
@@ -15,12 +15,16 @@
             "./../Inc",
             "./../Drivers/STM32F4xx_HAL_Driver/Inc",
             "./../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy",
+            "./../Middlewares/Third_Party/FreeRTOS/Source/include",
+            "./../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2",
+            "./../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F",
             "./../Drivers/CMSIS/Device/ST/STM32F4xx/Include",
             "./../Drivers/CMSIS/Include",
-            "./../User/Inc",
-            "./../User",
+            "./.cmsis/dsp_lib",
+            "./.cmsis/include",
             "./RTE/_chassisctrl",
-            "./.eide/deps"
+            "./.eide/deps",
+            "./../User/Inc"
           ],
           "defineList": [
             "USE_HAL_DRIVER",
@@ -42,7 +46,7 @@
           "id": 1,
           "mem": {
             "startAddr": "0x20000000",
-            "size": "0x00030000"
+            "size": "0x20000"
           },
           "isChecked": true,
           "noInit": false
@@ -52,7 +56,7 @@
           "id": 2,
           "mem": {
             "startAddr": "0x10000000",
-            "size": "0x00010000"
+            "size": "0x10000"
           },
           "isChecked": true,
           "noInit": false
@@ -63,8 +67,8 @@
           "tag": "IROM",
           "id": 1,
           "mem": {
-            "startAddr": "0x08000000",
-            "size": "0x00200000"
+            "startAddr": "0x8000000",
+            "size": "0x100000"
           },
           "isChecked": true,
           "isStartup": true
@@ -75,17 +79,13 @@
   },
   "uploader": "STLink",
   "srcDirs": [
-    "./.eide/deps"
+    "./.eide/deps",
+    "./../User"
   ],
   "virtualFolder": {
     "name": "<virtual_root>",
     "files": [],
     "folders": [
-      {
-        "name": "::CMSIS",
-        "files": [],
-        "folders": []
-      },
       {
         "name": "Application",
         "files": [],
@@ -103,51 +103,33 @@
             "name": "User",
             "files": [
               {
-                "path": "../Src/main.c"
-              },
-              {
-                "path": "../Src/gpio.c"
-              },
-              {
                 "path": "../Src/can.c"
               },
               {
                 "path": "../Src/dma.c"
               },
               {
-                "path": "../Src/usart.c"
+                "path": "../Src/freertos.c"
+              },
+              {
+                "path": "../Src/gpio.c"
+              },
+              {
+                "path": "../Src/main.c"
+              },
+              {
+                "path": "../Src/stm32f4xx_hal_msp.c"
               },
               {
                 "path": "../Src/stm32f4xx_it.c"
               },
               {
-                "path": "../Src/stm32f4xx_hal_msp.c"
+                "path": "../Src/usart.c"
               }
             ],
             "folders": []
           }
         ]
-      },
-      {
-        "name": "bsps",
-        "files": [
-          {
-            "path": "../User/Src/dma_bsp.c"
-          },
-          {
-            "path": "../User/Src/can_bsp.c"
-          }
-        ],
-        "folders": []
-      },
-      {
-        "name": "devices",
-        "files": [
-          {
-            "path": "../User/Src/canbus.c"
-          }
-        ],
-        "folders": []
       },
       {
         "name": "Drivers",
@@ -222,33 +204,52 @@
         ]
       },
       {
-        "name": "libs",
-        "files": [
-          {
-            "path": "../User/Src/crc8_crc16.c"
-          },
-          {
-            "path": "../User/Src/fifo.c"
-          },
-          {
-            "path": "../User/Src/motlib.c"
-          },
-          {
-            "path": "../User/Src/pid.c"
-          }
-        ],
-        "folders": []
-      },
-      {
-        "name": "tasks",
+        "name": "Middlewares",
         "files": [],
-        "folders": []
+        "folders": [
+          {
+            "name": "FreeRTOS",
+            "files": [
+              {
+                "path": "../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c"
+              },
+              {
+                "path": "../Middlewares/Third_Party/FreeRTOS/Source/croutine.c"
+              },
+              {
+                "path": "../Middlewares/Third_Party/FreeRTOS/Source/event_groups.c"
+              },
+              {
+                "path": "../Middlewares/Third_Party/FreeRTOS/Source/list.c"
+              },
+              {
+                "path": "../Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c"
+              },
+              {
+                "path": "../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F/port.c"
+              },
+              {
+                "path": "../Middlewares/Third_Party/FreeRTOS/Source/queue.c"
+              },
+              {
+                "path": "../Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c"
+              },
+              {
+                "path": "../Middlewares/Third_Party/FreeRTOS/Source/tasks.c"
+              },
+              {
+                "path": "../Middlewares/Third_Party/FreeRTOS/Source/timers.c"
+              }
+            ],
+            "folders": []
+          }
+        ]
       }
     ]
   },
   "excludeList": [],
   "outDir": "build",
-  "deviceName": "STM32F427IIHx",
+  "deviceName": null,
   "packDir": ".pack/Keil/STM32F4xx_DFP.2.14.0",
   "uploadConfig": {
     "bin": "",
@@ -256,7 +257,7 @@
     "resetMode": "default",
     "runAfterProgram": true,
     "speed": 4000,
-    "address": "0x08000000",
+    "address": "0x8000000",
     "elFile": "None",
     "optionBytes": ".eide/chassisctrl.st.option.bytes.ini",
     "otherCmds": ""
@@ -275,7 +276,7 @@
     }
   },
   "miscInfo": {
-    "uid": "8671e4e7a67672aa310930f506e6a8fa"
+    "uid": "ca3be08e428cb1c942648457f4d9a879"
   },
   "targets": {
     "chassisctrl": {
@@ -320,8 +321,8 @@
               "tag": "IRAM",
               "id": 1,
               "mem": {
-                "startAddr": "0x20000000",
-                "size": "0x30000"
+                "startAddr": "0x0",
+                "size": "0x0"
               },
               "isChecked": true,
               "noInit": false
@@ -330,8 +331,8 @@
               "tag": "IRAM",
               "id": 2,
               "mem": {
-                "startAddr": "0x10000000",
-                "size": "0x10000"
+                "startAddr": "0x0",
+                "size": "0x0"
               },
               "isChecked": true,
               "noInit": false
@@ -372,8 +373,8 @@
               "tag": "IROM",
               "id": 1,
               "mem": {
-                "startAddr": "0x8000000",
-                "size": "0x200000"
+                "startAddr": "",
+                "size": ""
               },
               "isChecked": true,
               "isStartup": true
@@ -385,7 +386,7 @@
                 "startAddr": "0x0",
                 "size": "0x0"
               },
-              "isChecked": false,
+              "isChecked": true,
               "isStartup": false
             }
           ]
@@ -405,7 +406,7 @@
         "otherCmds": ""
       },
       "uploadConfigMap": {},
-      "toolchain": "AC6",
+      "toolchain": "AC5",
       "custom_dep": {
         "name": "default",
         "sourceDirList": [],
@@ -414,10 +415,13 @@
           "../Inc",
           "../Drivers/STM32F4xx_HAL_Driver/Inc",
           "../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy",
+          "../Middlewares/Third_Party/FreeRTOS/Source/include",
+          "../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2",
+          "../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F",
           "../Drivers/CMSIS/Device/ST/STM32F4xx/Include",
           "../Drivers/CMSIS/Include",
-          "../User/Inc",
-          "../User",
+          ".cmsis/dsp_lib",
+          ".cmsis/include",
           "RTE/_chassisctrl"
         ],
         "defineList": [
