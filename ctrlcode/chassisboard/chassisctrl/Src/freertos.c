@@ -157,4 +157,3 @@ __weak void devmonitor(void *argument)
 
 /* USER CODE END Application */
 
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
