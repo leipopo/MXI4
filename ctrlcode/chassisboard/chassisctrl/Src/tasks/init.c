@@ -14,10 +14,7 @@ void chasmotinit()
     {
         whe[i]             = motparainit(m3508);
         whe[i].setup.motid = wheid + i;
-    }
 
-    for (int8_t i = 0; i < 4; i++)
-    {
         ste[i]             = motparainit(gm6020);
         ste[i].setup.motid = serid(steid, i);
     }

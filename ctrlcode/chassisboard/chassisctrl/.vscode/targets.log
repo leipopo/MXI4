@@ -7,7 +7,7 @@ make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --quest
 # There is NO WARRANTY, to the extent permitted by law.
  
 
-# Make data base, printed on Sat Jul 16 13:05:04 2022
+# Make data base, printed on Sun Jul 17 21:02:57 2022
 
 # Variables
 
@@ -27,6 +27,8 @@ MAKEFLAGS = pqrR
 TARGET = chassisctrl
 # automatic
 ?D = $(patsubst %/,%,$(patsubst %\,%,$(dir $?)))
+# environment
+PLATFORMIO_IDE = 2.5.0
 # makefile (from 'Makefile', line 118)
 AS_DEFS = 
 # environment
@@ -42,7 +44,7 @@ HOMEDRIVE = C:
 # automatic
 ^D = $(patsubst %/,%,$(patsubst %\,%,$(dir $^)))
 # makefile
-CURDIR := c:/MXI4/MXI4/ctrlcode/chassisboard/chassisctrl
+CURDIR := e:/MXI4/ctrlcode/chassisboard/chassisctrl
 # default
 SHELL := C:/Users/94736/.eide/bin/builder/msys/bin/sh.exe
 # makefile (from 'Makefile', line 99)
@@ -50,8 +52,7 @@ BIN = $(CP) -O binary -S
 # environment
 WINDIR = C:\WINDOWS
 # environment
-VSCODE_NLS_CONFIG = {"locale":"zh-cn","availableLanguages":{"*":"zh-cn"},"_languagePackId":"1d735750dbb1b9066c7513078396ba0f.zh-cn","_translationsConfigFile":"C:\\Users\\94736\\AppData\\Roaming\\Code\\clp\\1d735750dbb1b9066c7513078396ba0f.zh-cn\\tcf.json","_cacheRoot":"C:\\Users\\94736\\AppData\\Roaming\\Code\\clp\\1d735750dbb1b9066c7513078396ba0f.zh-cn","_resolvedLanguagePackCoreLocation":"C:\\Users\\94736\\AppData\\Roaming\\Code\\clp\\1d735750dbb1b9066c7513078396ba0f 
-.zh-cn\\b06ae3b2d2dbfe28bca3134cc6be65935cdfea6a","_corruptedFile":"C:\\Users\\94736\\AppData\\Roaming\\Code\\clp\\1d735750dbb1b9066c7513078396ba0f.zh-cn\\corrupted.info","_languagePackSupport":true}
+VSCODE_NLS_CONFIG = {"locale":"zh-cn","availableLanguages":{"*":"zh-cn"},"_languagePackId":"1d735750dbb1b9066c7513078396ba0f.zh-cn","_translationsConfigFile":"C:\\Users\\94736\\AppData\\Roaming\\Code\\clp\\1d735750dbb1b9066c7513078396ba0f.zh-cn\\tcf.json","_cacheRoot":"C:\\Users\\94736\\AppData\\Roaming\\Code\\clp\\1d735750dbb1b9066c7513078396ba0f.zh-cn","_resolvedLanguagePackCoreLocation":"C:\\Users\\94736\\AppData\\Roaming\\Code\\clp\\1d735750dbb1b9066c7513078396ba0f.zh-cn\\b06ae3b2d2dbfe28bca3134cc6be65935cdfea6a","_corruptedFile":"C:\\Users\\94736\\AppData\\Roaming\\Code\\clp\\1d735750dbb1b9066c7513078396ba0f.zh-cn\\corrupted.info","_languagePackSupport":true}
 # makefile (from 'Makefile', line 96)
 SZ = $(PREFIX)size
 # makefile (from 'Makefile', line 153)
@@ -62,6 +63,8 @@ ONEDRIVE = C:\Users\94736\OneDrive
 PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
 # makefile (from 'Makefile', line 1)
 MAKEFILE_LIST :=  Makefile
+# environment
+FPS_BROWSER_USER_PROFILE_STRING = Default
 # makefile (from 'Makefile', line 95)
 CP = $(PREFIX)objcopy
 # makefile (from 'Makefile', line 23)
@@ -79,7 +82,7 @@ VSCODE_CWD = C:\Users\94736\AppData\Local\Programs\Microsoft VS Code
 # default
 MAKE_HOST := x86_64-w64-mingw32
 # environment
-PATH = C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\usbipd-win\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files (x86)\STMicroelectronics\STM32 ST-LINK Utility\ST-LINK Utility;C:\Users\94736\AppData\Local\Microsoft\WindowsApps;C:\Users\94736\AppData\Local\Programs\Microsoft VS Code\bin;C:\msys64\mingw64\bin;;C:\Users\94736\.eide\bin\builder\bin;C:\Users\94736\.eide\bin\builder\utils;C:\Users\94736\.eide\bin\scripts;C:\Users\94736\.eide\tools\gcc_arm\bin;C:\Users\94736\.eide\tools\gcc_riscv\bin;C:\Users\94736\.eide\bin\builder\msys\bin
+NO_PROXY = 127.0.0.1
 # environment
 COMMONPROGRAMW6432 = C:\Program Files\Common Files
 # environment
@@ -93,19 +96,22 @@ NUMBER_OF_PROCESSORS = 12
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # makefile (from 'Makefile', line 165)
-LDFLAGS = $(MCU) -specs=nano.specs -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections
+LDFLAGS = $(MCU) -specs=n 
+ano.specs -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync
 # automatic
 %F = $(notdir $%)
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_11372_MGTBHXKVHWPMZWDX
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_11736_DYZFBIBGXBUDAOBM
 # makefile (from 'Makefile', line 77)
 ASM_SOURCES = startup_stm32f427xx.s
 # makefile (from 'Makefile', line 25)
 OPT = -Og
 # environment
-COMPUTERNAME = DESKTOP-CTQBUVL
+PLATFORMIO_PATH = C:\Users\94736\.platformio\python3;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Polyspace\R2021a\runtime\win64;C:\Program Files\Polyspace\R2021a\bin;C:\Program Files\Polyspace\R2021a\polyspace\bin;C:\Program Files\MSC.Software\Adams\2020_711253\bin;C:\Program Files\Git\cmd;C:\Program Files\usbipd-win\;C:\Program Files\dotnet\;C:\Program Files (x86)\STMicroelectronics\STM32 ST-LINK Utility\ST-LINK Utility;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Users\94736\AppData\Local\Microsoft\WindowsApps;C:\Users\94736\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\94736\AppData\Local\GitHubDesktop\bin;C:\msys64\mingw64\bin;C:\Program Files (x86)\Arm GNU Toolchain arm-none-eabi\11.2 2022.02\bin;C:\openocd-20211118\OpenOCD-20211118-0.11.0\bin;C:\Program Files (x86)\GNU Arm Embedded Toolchain\10 2021.10\bin;;C:\Users\94736\.eide\bin\builder\bin;C:\Users\94736\.eide\bin\builder\utils;C:\Users\94736\.eide\bin\scripts;C:\Users\94736\.eide\tools\gcc_arm\bin;C:\openocd-20211118\OpenOCD-20211118-0.11.0\bin;C:\Users\94736\.eide\tools\gcc_riscv\bin;C:\Users\94736\.eide\bin\builder\msys\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Polyspace\R2021a\runtime\win64;C:\Program Files\Polyspace\R2021a\bin;C:\Program Files\Polyspace\R2021a\polyspace\bin;C:\Program Files\MSC.Software\Adams\2020_711253\bin;C:\Program Files\Git\cmd;C:\Program Files\usbipd-win\;C:\Program Files\dotnet\;C:\Program Files (x86)\STMicroelectronics\STM32 ST-LINK Utility\ST-LINK Utility;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Users\94736\AppData\Local\Microsoft\WindowsApps;C:\Users\94736\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\94736\AppData\Local\GitHubDesktop\bin;C:\msys64\mingw64\bin;C:\Program Files (x86)\Arm GNU Toolchain arm-none-eabi\11.2 2022.02\bin;C:\openocd-20211118\OpenOCD-20211118-0.11.0\bin;C:\Program Files (x86)\GNU Arm Embedded Toolchain\10 2021.10\bin;;C:\Users\94736\.eide\bin\builder\bin;C:\Users\94736\.eide\bin\builder\utils;C:\Users\94736\.eide\bin\scripts;C:\Users\94736\.eide\tools\gcc_arm\bin;C:\openocd-20211118\OpenOCD-20211118-0.11.0\bin;C:\Users\94736\.eide\tools\gcc_riscv\bin;C:\Users\94736\.eide\bin\builder\msys\bin
+# environment
+COMPUTERNAME = DESKTOP-Q62RD8I
 # environment
 PROGRAMFILES = C:\Program Files
 # default
@@ -123,11 +129,11 @@ VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
 VSCODE_CODE_CACHE_PATH = C:\Users\94736\AppData\Roaming\Code\CachedData\b06ae3b2d2dbfe28bca3134cc6be65935cdfea6a
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # environment
 COMMONPROGRAMFILES = C:\Program Files\Common Files
 # environment
-LOGONSERVER = \\DESKTOP-CTQBUVL
+LOGONSERVER = \\DESKTOP-Q62RD8I
 # makefile (from 'Makefile', line 84)
 PREFIX = arm-none-eabi-
 # environment
@@ -135,19 +141,21 @@ ONEDRIVECONSUMER = C:\Users\94736\OneDrive
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # environment
-USERDOMAIN = DESKTOP-CTQBUVL
+USERDOMAIN = DESKTOP-Q62RD8I
 # makefile (from 'Makefile', line 121)
 C_DEFS = -DUSE_HAL_DRIVER -DSTM32F427xx
 # environment
 MAKELEVEL := 0
 # makefile (from 'Makefile', line 114)
 MCU = $(CPU) -mthumb $(FPU) $(FLOAT-ABI)
-# makefile (from 'Makefile', line 131)
-C_INCLUDES = -IInc -IDrivers/STM32F4xx_HAL_Driver/Inc -IDrivers/STM32F4xx_HAL_Driver/Inc/Legacy -IMiddlewares/Third_Party/FreeRTOS/Source/include -IMiddlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -IMiddlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -IDrivers/CMSIS/Device/ST/STM32F4xx/Include -IDrivers/CMSIS/Include
+# environment
+EIDE_TOOL_OPENOCD = C:\openocd-20211118\OpenOCD-20211118-0.11.0\bin
 # default
 MAKE = $(MAKE_COMMAND)
 # default
 MAKECMDGOALS := all
+# environment
+PATH = C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Polyspace\R2021a\runtime\win64;C:\Program Files\Polyspace\R2021a\bin;C:\Program Files\Polyspace\R2021a\polyspace\bin;C:\Program Files\MSC.Software\Adams\2020_711253\bin;C:\Program Files\Git\cmd;C:\Program Files\usbipd-win\;C:\Program Files\dotnet\;C:\Program Files (x86)\STMicroelectronics\STM32 ST-LINK Utility\ST-LINK Utility;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Users\94736\AppData\Local\Microsoft\WindowsApps;C:\Users\94736\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\94736\AppData\Local\GitHubDesktop\bin;C:\msys64\mingw64\bin;C:\Program Files (x86)\Arm GNU Toolchain arm-none-eabi\11.2 2022.02\bin;C:\openocd-20211118\OpenOCD-20211118-0.11.0\bin;C:\Program Files (x86)\GNU Arm Embedded Toolchain\10 2021.10\bin;;C:\Users\94736\.eide\bin\builder\bin;C:\Users\94736\.eide\bin\builder\utils;C:\Users\94736\.eide\bin\scripts;C:\Users\94736\.eide\tools\gcc_arm\bin;C:\openocd-20211118\OpenOCD-20211118-0.11.0\bin;C:\Users\94736\.eide\tools\gcc_riscv\bin;C:\Users\94736\.eide\bin\builder\msys\bin
 # makefile (from 'Makefile', line 111)
 FLOAT-ABI = -mfloat-abi=hard
 # makefile (from 'Makefile', line 98)
@@ -185,7 +193,7 @@ LIBDIR =
 # automatic
 *F = $(notdir $*)
 # environment
-PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 166 Stepping 0, GenuineIntel
+PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 158 Stepping 13, GenuineIntel
 # environment
 OS = Windows_NT
 # environment
@@ -206,18 +214,26 @@ SYSTEMROOT = C:\WINDOWS
 +D = $(patsubst %/,%,$(patsubst %\,%,$(dir $+)))
 # environment
 EIDE_TOOL_GCC_ARM = C:\Users\94736\.eide\tools\gcc_arm\bin
+# environment
+MSCLIC_INI = C:\Program Files\MSC.Software\MSC Licensing\Helium\msclic.ini
 # automatic
 +F = $(notdir $+)
 # environment
 APPDATA = C:\Users\94736\AppData\Roaming
 # environment
+__COMPAT_LAYER = DetectorsShimLog
+# environment
 TEMP = C:\Users\94736\AppData\Local\Temp
+# makefile (from 'Makefile', line 131)
+C_INCLUDES = -IInc -IDrivers/STM32F4xx_HAL_Driver/Inc -IDrivers/STM32F4xx_HAL_Driver/Inc/Legacy -IMiddlewares/Third_Party/FreeRTOS/Source/include -IMiddlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -IMiddlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -IDrivers/CMSIS/Device/ST/STM32F4xx/Include -IDrivers/CMSIS/Include
 # environment
 COMSPEC = C:\WINDOWS\system32\cmd.exe
 # default
 MAKEFILES := 
 # automatic
 <F = $(notdir $<)
+# environment
+PLATFORMIO_CALLER = vscode
 # environment
 LC_ALL = C
 # makefile (from 'Makefile', line 163)
@@ -233,7 +249,7 @@ SYSTEMDRIVE = C:
 # environment
 SESSIONNAME = Console
 # environment
-PROCESSOR_REVISION = a600
+PROCESSOR_REVISION = 9e0d
 # default
 .RECIPEPREFIX := 
 # makefile (from 'Makefile', line 178)
@@ -243,13 +259,15 @@ LANG = C
 # environment
 PROCESSOR_LEVEL = 6
 # environment
-VSCODE_PID = 11372
+FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
+# environment
+VSCODE_PID = 11736
 # environment
 DOTNET_CLI_TELEMETRY_OPTOUT = 1
 # environment
-USERDOMAIN_ROAMINGPROFILE = DESKTOP-CTQBUVL
+USERDOMAIN_ROAMINGPROFILE = DESKTOP-Q62RD8I
 # variable set hash-table stats:
-# Load=118/1024=12%, Rehash=0, Collisions=19/188=10%
+# Load=127/1024=12%, Rehash=0, Collisions=25/197=13%
 
 # Pattern-specific Variable Values
 
@@ -257,14 +275,14 @@ USERDOMAIN_ROAMINGPROFILE = DESKTOP-CTQBUVL
 
 # Directories
 
-# . (key c:/MXI4/MXI4/ctrlcode/chassisboard/chassisctrl, mtime 1657947781): 19 files, no impossibilities.
+# . (key e:/MXI4/ctrlcode/chassisboard/chassisctrl, mtime 1657960257): 19 files, no impossibilities.
 # Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F: could not be stat'd.
-# Src (key c:/MXI4/MXI4/ctrlcode/chassisboard/chassisctrl/Src, mtime 1657947777): 11 files, no impossibilities so far.
-# build (key c:/MXI4/MXI4/ctrlcode/chassisboard/chassisctrl/build, mtime 1657878632): 3 files, no impossibilities.
-# Middlewares/Third_Party/FreeRTOS/Source (key c:/MXI4/MXI4/ctrlcode/chassisboard/chassisctrl/Middlewares/Third_Party/FreeRTOS/Source, mtime 1657947778): 13 files, no impossibilities.
-# Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 (key c:/MXI4/MXI4/ctrlcode/chassisboard/chassisctrl/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2, mtime 1657947778): 7 files, no impossibilities.
-# Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang (key c:/MXI4/MXI4/ctrlcode/chassisboard/chassisctrl/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang, mtime 1657947778): 3 files, no impossibilities.
-# Drivers/STM32F4xx_HAL_Driver/Src (key c:/MXI4/MXI4/ctrlcode/chassisboard/chassisctrl/Drivers/STM32F4xx_HAL_Driver/Src, mtime 1657947778): 19 files, no impossibilities.
+# Src (key e:/MXI4/ctrlcode/chassisboard/chassisctrl/Src, mtime 1657960053): 11 files, no impossibilities so far.
+# build (key e:/MXI4/ctrlcode/chassisboard/chassisctrl/build, mtime 1657960257): 3 files, no impossibilities.
+# Middlewares/Third_Party/FreeRTOS/Source (key e:/MXI4/ctrlcode/chassisboard/chassisctrl/Middlewares/Third_Party/FreeRTOS/Source, mtime 1657960053): 13 files, no impossibilities.
+# Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 (key e:/MXI4/ctrlcode/chassisboard/chassisctrl/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2, mtime 1657720597): 7 files, no impossibilities.
+# Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang (key e:/MXI4/ctrlcode/chassisboard/chassisctrl/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang, mtime 1657720597): 3 files, no impossibilities.
+# Drivers/STM32F4xx_HAL_Driver/Src (key e:/MXI4/ctrlcode/chassisboard/chassisctrl/Drivers/STM32F4xx_HAL_Driver/Src, mtime 1657960052): 19 files, no impossibilities.
 
 # 75 files, no impossibilities in 8 directories.
 
@@ -403,7 +421,7 @@ build/stm32f4xx_hal.o:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-16 12:57:47
+#  Last modified 2022-07-16 16:27:33
 #  File has been updated.
 #  Successfully updated.
 
@@ -433,7 +451,7 @@ build/stm32f4xx_hal_exti.o:
 
 build:
 #  Implicit rule search has not been done.
-#  Last modified 2022-07-15 17:50:32
+#  Last modified 2022-07-16 16:30:57
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 198):
@@ -448,7 +466,7 @@ build/stm32f4xx_hal_flash_ramfunc.o:
 # Not a target:
 Src/main.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-14 17:15:56
+#  Last modified 2022-07-16 16:27:33
 #  File has been updated.
 #  Successfully updated.
 
@@ -483,7 +501,8 @@ build/stm32f4xx_hal_rcc_ex.o:
 #  File has not been updated.
 
 # Not a target:
-build/stm32f4xx_hal_rcc.o:
+build/stm32f4xx_hal_r 
+cc.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -618,6 +637,6 @@ vpath %.c Drivers/STM32F4xx_HAL_Driver/Src;Middlewares/Third_Party/FreeRTOS/Sour
 # strcache performance: lookups = 167 / hit rate = 28%
 # hash-table stats:
 # Load=120/8192=1%, Rehash=0, Collisions=8/167=5%
-# Finished Make data base on Sat Jul 16 13:05:04 2022
+# Finished Make data base on Sun Jul 17 21:02:57 2022
 
  

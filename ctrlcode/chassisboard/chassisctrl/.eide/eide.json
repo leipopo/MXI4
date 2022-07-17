@@ -77,9 +77,7 @@
     "options": "null"
   },
   "uploader": "STLink",
-  "srcDirs": [
-    "./.eide/deps"
-  ],
+  "srcDirs": [],
   "virtualFolder": {
     "name": "<virtual_root>",
     "files": [],
