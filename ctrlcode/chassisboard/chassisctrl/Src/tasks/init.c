@@ -1,9 +1,7 @@
 #include "main.h"
-MotorInfo yaw, pit, whe[4], ste[4];
-MotorInfo *can1motlist[8];
+MotorInfo yaw, pit, whe[4];
 void chasmotinit()
 {
-    can1motlist[0]  = whe;
     yaw             = motparainit(gm6020);
     yaw.setup.motid = yawmotid;
 
@@ -14,13 +12,9 @@ void chasmotinit()
     {
         whe[i]             = motparainit(m3508);
         whe[i].setup.motid = wheid + i;
-
-        ste[i]             = motparainit(gm6020);
-        ste[i].setup.motid = serid(steid, i);
     }
 }
 
 void devices_init()
 {
-    
 }
