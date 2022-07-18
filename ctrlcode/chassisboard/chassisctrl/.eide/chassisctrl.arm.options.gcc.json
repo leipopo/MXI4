@@ -7,18 +7,14 @@
         "output-debug-info": "enable"
     },
     "c/cpp-compiler": {
-        "language-c": "c11",
-        "language-cpp": "c++11",
+        "language-c": "c99",
+        "language-cpp": "c++14",
         "optimization": "level-debug",
         "warnings": "all-warnings",
         "one-elf-section-per-function": true,
-        "one-elf-section-per-data": true,
-        "C_FLAGS": "",
-        "CXX_FLAGS": ""
+        "one-elf-section-per-data": true
     },
-    "asm-compiler": {
-        "ASM_FLAGS": ""
-    },
+    "asm-compiler": {},
     "linker": {
         "output-format": "elf",
         "remove-unused-input-sections": true,

@@ -2,7 +2,7 @@
   "name": "chassisctrl",
   "type": "ARM",
   "mode": "chassisctrl",
-  "toolchain": "AC5",
+  "toolchain": "GCC",
   "dependenceList": [
     {
       "groupName": "custom",
@@ -17,13 +17,13 @@
             "./Drivers/STM32F4xx_HAL_Driver/Inc/Legacy",
             "./Middlewares/Third_Party/FreeRTOS/Source/include",
             "./Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2",
-            "./Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F",
             "./Drivers/CMSIS/Device/ST/STM32F4xx/Include",
             "./Drivers/CMSIS/Include",
             "./.cmsis/dsp_lib",
             "./.cmsis/include",
             "./MDK-ARM/RTE/_chassisctrl",
-            "./.eide/deps"
+            "./.eide/deps",
+            "./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F"
           ],
           "defineList": [
             "USE_HAL_DRIVER",
@@ -37,7 +37,7 @@
     "cpuType": "Cortex-M4",
     "floatingPointHardware": "single",
     "useCustomScatterFile": false,
-    "scatterFilePath": "undefined",
+    "scatterFilePath": "STM32F427IIHx_FLASH.ld",
     "storageLayout": {
       "RAM": [
         {
@@ -45,17 +45,7 @@
           "id": 1,
           "mem": {
             "startAddr": "0x20000000",
-            "size": "0x30000"
-          },
-          "isChecked": true,
-          "noInit": false
-        },
-        {
-          "tag": "IRAM",
-          "id": 2,
-          "mem": {
-            "startAddr": "0x10000000",
-            "size": "0x10000"
+            "size": "0x5000"
           },
           "isChecked": true,
           "noInit": false
@@ -66,8 +56,8 @@
           "tag": "IROM",
           "id": 1,
           "mem": {
-            "startAddr": "0x8000000",
-            "size": "0x200000"
+            "startAddr": "0x08000000",
+            "size": "0x10000"
           },
           "isChecked": true,
           "isStartup": true
@@ -77,7 +67,9 @@
     "options": "null"
   },
   "uploader": "STLink",
-  "srcDirs": [],
+  "srcDirs": [
+    "./.eide/deps"
+  ],
   "virtualFolder": {
     "name": "<virtual_root>",
     "files": [],
@@ -90,7 +82,7 @@
             "name": "MDK-ARM",
             "files": [
               {
-                "path": "MDK-ARM/startup_stm32f427xx.s"
+                "path": "MDK-ARM/startup_stm32f427xx.S"
               }
             ],
             "folders": []
@@ -187,6 +179,15 @@
         "files": [],
         "folders": [
           {
+            "name": "CMSIS",
+            "files": [
+              {
+                "path": "Src/system_stm32f4xx.c"
+              }
+            ],
+            "folders": []
+          },
+          {
             "name": "STM32F4xx_HAL_Driver",
             "files": [
               {
@@ -242,15 +243,6 @@
               }
             ],
             "folders": []
-          },
-          {
-            "name": "CMSIS",
-            "files": [
-              {
-                "path": "Src/system_stm32f4xx.c"
-              }
-            ],
-            "folders": []
           }
         ]
       },
@@ -262,6 +254,9 @@
             "name": "FreeRTOS",
             "files": [
               {
+                "path": "Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c"
+              },
+              {
                 "path": "Middlewares/Third_Party/FreeRTOS/Source/croutine.c"
               },
               {
@@ -269,6 +264,12 @@
               },
               {
                 "path": "Middlewares/Third_Party/FreeRTOS/Source/list.c"
+              },
+              {
+                "path": "Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c"
+              },
+              {
+                "path": "Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c"
               },
               {
                 "path": "Middlewares/Third_Party/FreeRTOS/Source/queue.c"
@@ -281,15 +282,6 @@
               },
               {
                 "path": "Middlewares/Third_Party/FreeRTOS/Source/timers.c"
-              },
-              {
-                "path": "Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c"
-              },
-              {
-                "path": "Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c"
-              },
-              {
-                "path": "Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F/port.c"
               }
             ],
             "folders": []
@@ -308,7 +300,7 @@
     "resetMode": "default",
     "runAfterProgram": true,
     "speed": 4000,
-    "address": "0x8000000",
+    "address": "0x08000000",
     "elFile": "None",
     "optionBytes": ".eide/chassisctrl.st.option.bytes.ini",
     "otherCmds": ""

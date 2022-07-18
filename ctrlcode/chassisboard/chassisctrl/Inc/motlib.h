@@ -77,7 +77,7 @@ typedef struct _Motor_Info
 		0x00, \
 		0x00, \
 		0x00, \
-		0x0000, \
+		0x00000000, \
 		0.f, \
 		{-180.f,180.f}, \
 		0.f, \
@@ -86,7 +86,7 @@ typedef struct _Motor_Info
 		0.f, \
 	}, \
 	{ \
-		0.f, \
+		{0.f,0.f} \
 	}, \
 	{ \
 		0.f, \
@@ -108,7 +108,7 @@ typedef struct _Motor_Info
 		0x00, \
 		0x00, \
 		0x00, \
-		0x0000, \
+		0x00000000, \
 		0.f, \
 		{-180.f,180.f}, \
 		maxspeed_3508, \
@@ -117,7 +117,7 @@ typedef struct _Motor_Info
 		gearratio_3508, \
 	}, \
 	{ \
-		0.f, \
+		{0.f,0.f} \
 	}, \
 	{ \
 		0.f, \
@@ -137,7 +137,7 @@ typedef struct _Motor_Info
 		0x01, \
 		0x00, \
 		0x00, \
-		0x0000, \
+		0x00000000, \
 		0.f, \
 		{-180.f,180.f}, \
 		maxspeed_2006, \
@@ -146,7 +146,7 @@ typedef struct _Motor_Info
 		gearratio_2006, \
 	}, \
 	{ \
-		0.f, \
+		{0.f,0.f} \
 	}, \
 	{ \
 		0.f, \
@@ -166,7 +166,7 @@ typedef struct _Motor_Info
 		0x02, \
 		0x00, \
 		0x00, \
-		0x0000, \
+		0x00000000, \
 		0.f, \
 		{-180.f,180.f}, \
 		maxspeed_6020, \
@@ -175,7 +175,7 @@ typedef struct _Motor_Info
 		gearratio_6020, \
 	}, \
 	{ \
-		0.f, \
+		{0.f,0.f} \
 	}, \
 	{ \
 		0.f, \
