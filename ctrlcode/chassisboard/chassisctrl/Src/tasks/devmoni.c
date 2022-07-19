@@ -20,7 +20,11 @@ void devmonitor()
 {
     for (;;)
     {
-        zerostate();
-        osDelayUntil(500);
+        if (can1devsta == 0x11)
+        {
+            // HAL_IWDG_Refresh(&hiwdg);
+            zerostate(can1devsta);
+        }
+        osDelayUntil(1000);
     }
 }

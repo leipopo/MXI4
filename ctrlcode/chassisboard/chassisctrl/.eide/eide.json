@@ -290,7 +290,10 @@
       }
     ]
   },
-  "excludeList": [],
+  "excludeList": [
+    "<virtual_root>/Application/MDK-ARM/startup_stm32f427xx.S",
+    "<virtual_root>/Application/MDK-ARM"
+  ],
   "outDir": "build",
   "deviceName": null,
   "packDir": null,

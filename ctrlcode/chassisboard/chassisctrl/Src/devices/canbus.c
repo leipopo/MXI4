@@ -40,7 +40,7 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
             can1devsta = can_probe(pit.setup.motid, can1_idlist);
         }
 
-        // HAL_IWDG_Refresh(&hiwdg);
+       
     }
     else if (hcan->Instance == CAN2)
     {

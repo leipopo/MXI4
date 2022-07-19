@@ -15,6 +15,14 @@ void chasmotinit()
     }
 }
 
-void devices_init()
+void devinit()
 {
+    RC_INIT();
+    can_filter_init();
+}
+
+void uinit()
+{
+    devinit();
+    motorinit();
 }

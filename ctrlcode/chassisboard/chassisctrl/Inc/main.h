@@ -33,6 +33,7 @@ extern "C"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "cmsis_os2.h"
 #include "usart.h"
 #include "stdint.h"
 #include "motlib.h"
