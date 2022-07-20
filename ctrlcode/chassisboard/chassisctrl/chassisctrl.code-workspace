@@ -2,10 +2,6 @@
     "folders": [
         {
             "path": "."
-        },
-        {
-            "name": "gimbctrl",
-            "path": "..\\..\\gimbalboard\\gimbctrl"
         }
     ],
     "settings": {

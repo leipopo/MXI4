@@ -21,7 +21,6 @@
             "./Drivers/CMSIS/Include",
             "./.cmsis/dsp_lib",
             "./.cmsis/include",
-            "./MDK-ARM/RTE/_chassisctrl",
             "./.eide/deps",
             "./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F"
           ],
@@ -78,15 +77,6 @@
         "name": "Application",
         "files": [],
         "folders": [
-          {
-            "name": "MDK-ARM",
-            "files": [
-              {
-                "path": "MDK-ARM/startup_stm32f427xx.S"
-              }
-            ],
-            "folders": []
-          },
           {
             "name": "User",
             "files": [
@@ -176,7 +166,11 @@
       },
       {
         "name": "Drivers",
-        "files": [],
+        "files": [
+          {
+            "path": "startup_stm32f427xx.s"
+          }
+        ],
         "folders": [
           {
             "name": "CMSIS",
@@ -295,8 +289,8 @@
     "<virtual_root>/Application/MDK-ARM"
   ],
   "outDir": "build",
-  "deviceName": null,
-  "packDir": null,
+  "deviceName": "STM32F427IIHx",
+  "packDir": ".pack/Keil/STM32F4xx_DFP.2.14.0",
   "uploadConfig": {
     "bin": "",
     "proType": "SWD",
@@ -319,6 +313,23 @@
       "proType": 1,
       "speed": 8000,
       "otherCmds": ""
+    },
+    "STLink": {
+      "bin": "",
+      "proType": "SWD",
+      "resetMode": "default",
+      "runAfterProgram": true,
+      "speed": 4000,
+      "address": "0x08000000",
+      "elFile": "None",
+      "optionBytes": ".eide/chassisctrl.st.option.bytes.ini",
+      "otherCmds": ""
+    },
+    "OpenOCD": {
+      "bin": "",
+      "target": "stm32f1x",
+      "interface": "stlink",
+      "baseAddr": "0x08000000"
     }
   },
   "miscInfo": {

@@ -24,5 +24,5 @@ void devinit()
 void uinit()
 {
     devinit();
-    motorinit();
+    chasmotinit();
 }
