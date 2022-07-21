@@ -16,14 +16,16 @@ uint8_t can_probe(uint32_t id, uint32_t idlist[8])
     return candevsta;
 }
 
-void devmonitor()
+void devmoni()
 {
     for (;;)
     {
-        if (can1devsta == 0x11)
+        if (can1devsta == 0x11 && can2devsta == 0x11 && RC_ON == 0x01)
         {
             // HAL_IWDG_Refresh(&hiwdg);
             zerostate(can1devsta);
+            zerostate(can2devsta);
+            RC_ON = 0x00;
         }
         osDelayUntil(1000);
     }

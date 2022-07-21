@@ -47,6 +47,17 @@ extern "C" {
 #include "robconfig.h"
 #include "init.h"
 #include "rc.h"
+#include "reftask.h"
+#include "ref.h"
+#include "gimbctrl.h"
+#include "chasctrl.h"
+#include "UIdrawer.h"
+#include "comutask.h"
+#include "capsctrl.h" 
+#include "string.h"
+#include "stdio.h"
+#include "protocol.h"
+
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/

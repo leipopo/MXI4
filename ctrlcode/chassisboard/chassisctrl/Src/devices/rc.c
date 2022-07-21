@@ -1,6 +1,6 @@
 #include "main.h"
 
-int RC_READY = 0;
+int8_t RC_ON = 0;
 RC_DATA RC_Data;
 RC_DATA RC_Last_Data;
 KEY Key;
@@ -9,7 +9,7 @@ uint8_t sbus_rx_buf[2][SBUS_RX_BUF_NUM];
 
 void RC_INIT(void)
 {
-    DMA_RX_INIT(&Dhuart1, &hdma_usart1_rx, sbus_rx_buf[0], sbus_rx_buf[1], SBUS_RX_BUF_NUM);
+    DMA_RX_INIT(&huart1, &hdma_usart1_rx, sbus_rx_buf[0], sbus_rx_buf[1], SBUS_RX_BUF_NUM);
 }
 
 void RC_RX_Decoder(uint8_t *sbus_buf, RC_DATA *rc_data, KEY *key)
@@ -58,8 +58,7 @@ void RC_RX_Decoder(uint8_t *sbus_buf, RC_DATA *rc_data, KEY *key)
     key->key_c = (rc_data->key.v & 0x2000) >> 13;
     key->key_v = (rc_data->key.v & 0x4000) >> 14;
     key->key_b = (rc_data->key.v & 0x8000) >> 15;
-
-    RC_READY = 1;
+    RC_ON = 1;
 }
 
 void USART1_IRQHandler(void)

@@ -13,4 +13,13 @@
 #define mpuid 0x00000123
 #define capsid 0x00000211
 
+#define mottaskperi 2
+#define comutaskperi 1
+#define reftaskperi 10
+#define UIdrawperi 50
+#define capstaskperi 100
+
+#define fre(peri) 1000/peri
+
+
 #endif // !ROBCFG_H

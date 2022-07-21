@@ -144,6 +144,9 @@
                   },
                   {
                     "path": "Src/libs/pid.c"
+                  },
+                  {
+                    "path": "Src/libs/ref.c"
                   }
                 ],
                 "folders": []
@@ -152,10 +155,28 @@
                 "name": "tasks",
                 "files": [
                   {
+                    "path": "Src/tasks/capsctrl.c"
+                  },
+                  {
+                    "path": "Src/tasks/chasctrl.c"
+                  },
+                  {
+                    "path": "Src/tasks/comutask.c"
+                  },
+                  {
                     "path": "Src/tasks/devmoni.c"
                   },
                   {
+                    "path": "Src/tasks/gimbctrl.c"
+                  },
+                  {
                     "path": "Src/tasks/init.c"
+                  },
+                  {
+                    "path": "Src/tasks/reftask.c"
+                  },
+                  {
+                    "path": "Src/tasks/UIdrawer.c"
                   }
                 ],
                 "folders": []

@@ -2,8 +2,8 @@
 #define DEVINIT_H
 #include "robconfig.h"
 
-#define zerostate(state)    state=0x00
-#define serid(id, num)   id + num
+#define zerostate(state) state = 0x00
+#define serid(id, num) id + num
 
 #define can1idlist                    \
     {                                 \

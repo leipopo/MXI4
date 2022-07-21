@@ -5,9 +5,8 @@ make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --quest
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
- 
 
-# Make data base, printed on Wed Jul 20 20:00:26 2022
+# Make data base, printed on Thu Jul 21 14:04:39 2022
 
 # Variables
 
@@ -46,7 +45,7 @@ HOMEDRIVE = C:
 # makefile
 CURDIR := c:/MXI4/MXI4/ctrlcode/chassisboard/chassisctrl
 # default
-SHELL := C:/Users/94736/.eide/bin/builder/msys/bin/sh.exe
+SHELL := C:/Program Files/Git/usr/bin/sh.exe
 # makefile (from 'Makefile', line 99)
 BIN = $(CP) -O binary -S
 # environment
@@ -59,13 +58,10 @@ SZ = $(PREFIX)size
 CFLAGS = $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections -g -gdwarf-2 -MMD -MP -MF"$(@:%.o=%.d)"
 # environment
 ONEDRIVE = C:\Users\94736\OneDrive
-# 
- environment
+# environment
 PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
 # makefile (from 'Makefile', line 1)
 MAKEFILE_LIST :=  Makefile
-# environment
-FPS_BROWSER_USER_PROFILE_STRING = Default
 # makefile (from 'Makefile', line 95)
 CP = $(PREFIX)objcopy
 # makefile (from 'Makefile', line 23)
@@ -107,13 +103,13 @@ LDFLAGS = $(MCU) -specs=nano.specs -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BU
 # automatic
 %F = $(notdir $%)
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_4284_TDZOOCIPJVFWBCSJ
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_14552_UAFTDEREHBNZURLD
 # makefile (from 'Makefile', line 77)
 ASM_SOURCES = startup_stm32f427xx.s
 # environment
 EIDE_TOOL_SDCC = C:\Users\94736\.eide\tools\sdcc\bin
 # environment
-PLATFORMIO_PATH = C:\Users\94736\.platformio\penv\Scripts;C:\Users\94736\.platformio\penv;C:\Users\94736\.platformio\python3;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\usbipd-win\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files (x86)\STMicroelectronics\STM32 ST-LINK Utility\ST-LINK Utility;C:\Users\94736\AppData\Local\Microsoft\WindowsApps;C:\Users\94736\AppData\Local\Programs\Microsoft VS Code\bin;C:\msys64\mingw64\bin;C:\Program Files (x86)\GNU Arm Embedded Toolchain\10 2021.10\bin;C:\openocd-20211118\OpenOCD-20211118-0.11.0\bin;;C:\Users\94736\.eide\bin\builder\bin;C:\Users\94736\.eide\bin\builder\utils;C:\Users\94736\.eide\bin\scripts;C:\Program Files (x86)\GNU Arm Embedded Toolchain\10 2021.10\bin;C:\Users\94736\.eide\tools\jlink;C:\Users\94736\.eide\tools\openocd\bin;C:\Users\94736\.eide\tools\gcc_riscv\bin;C:\Users\94736\.eide\tools\sdcc\bin;C:\Users\94736\.eide\tools\st_cube_programer\bin;C:\Users\94736\.eide\bin\builder\msys\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\usbipd-win\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files (x86)\STMicroelectronics\STM32 ST-LINK Utility\ST-LINK Utility;C:\Users\94736\AppData\Local\Microsoft\WindowsApps;C:\Users\94736\AppData\Local\Programs\Microsoft VS Code\bin;C:\msys64\mingw64\bin;C:\Program Files (x86)\GNU Arm Embedded Toolchain\10 2021.10\bin;C:\openocd-20211118\OpenOCD-20211118-0.11.0\bin;;C:\Users\94736\.eide\bin\builder\bin;C:\Users\94736\.eide\bin\builder\utils;C:\Users\94736\.eide\bin\scripts;C:\Program Files (x86)\GNU Arm Embedded Toolchain\10 2021.10\bin;C:\Users\94736\.eide\tools\jlink;C:\Users\94736\.eide\tools\openocd\bin;C:\Users\94736\.eide\tools\gcc_riscv\bin;C:\Users\94736\.eide\tools\sdcc\bin;C:\Users\94736\.eide\tools\st_cube_programer\bin;C:\Users\94736\.eide\bin\builder\msys\bin
+PLATFORMIO_PATH = C:\Users\94736\.platformio\python3;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\usbipd-win\;C:\Program Files\dotnet\;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files (x86)\STMicroelectronics\STM32 ST-LINK Utility\ST-LINK Utility;C:\Program Files\Git\cmd;C:\Users\94736\AppData\Local\Microsoft\WindowsApps;C:\Users\94736\AppData\Local\Programs\Microsoft VS Code\bin;C:\msys64\mingw64\bin;C:\Program Files (x86)\GNU Arm Embedded Toolchain\10 2021.10\bin;C:\openocd-20211118\OpenOCD-20211118-0.11.0\bin;C:\Program Files\Git\usr\bin;C:\Users\94736\.eide\bin\builder\bin;C:\Users\94736\.eide\bin\builder\utils;C:\Users\94736\.eide\bin\scripts;C:\Users\94736\.eide\tools\gcc_arm\bin;C:\Users\94736\.eide\tools\jlink;C:\Users\94736\.eide\tools\openocd\bin;C:\Users\94736\.eide\tools\gcc_riscv\bin;C:\Users\94736\.eide\tools\sdcc\bin;C:\Users\94736\.eide\tools\st_cube_programer\bin;C:\Users\94736\.eide\bin\builder\msys\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\usbipd-win\;C:\Program Files\dotnet\;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files (x86)\STMicroelectronics\STM32 ST-LINK Utility\ST-LINK Utility;C:\Program Files\Git\cmd;C:\Users\94736\AppData\Local\Microsoft\WindowsApps;C:\Users\94736\AppData\Local\Programs\Microsoft VS Code\bin;C:\msys64\mingw64\bin;C:\Program Files (x86)\GNU Arm Embedded Toolchain\10 2021.10\bin;C:\openocd-20211118\OpenOCD-20211118-0.11.0\bin;C:\Program Files\Git\usr\bin;C:\Users\94736\.eide\bin\builder\bin;C:\Users\94736\.eide\bin\builder\utils;C:\Users\94736\.eide\bin\scripts;C:\Users\94736\.eide\tools\gcc_arm\bin;C:\Users\94736\.eide\tools\jlink;C:\Users\94736\.eide\tools\openocd\bin;C:\Users\94736\.eide\tools\gcc_riscv\bin;C:\Users\94736\.eide\tools\sdcc\bin;C:\Users\94736\.eide\tools\st_cube_programer\bin;C:\Users\94736\.eide\bin\builder\msys\bin
 # environment
 COMPUTERNAME = DESKTOP-CTQBUVL
 # environment
@@ -133,7 +129,7 @@ VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
 VSCODE_CODE_CACHE_PATH = C:\Users\94736\AppData\Roaming\Code\CachedData\3b889b090b5ad5793f524b5d1d39fda662b96a2a
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # environment
 COMMONPROGRAMFILES = C:\Program Files\Common Files
 # environment
@@ -159,7 +155,7 @@ MAKE = $(MAKE_COMMAND)
 # default
 MAKECMDGOALS := all
 # environment
-PATH = C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\usbipd-win\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files (x86)\STMicroelectronics\STM32 ST-LINK Utility\ST-LINK Utility;C:\Users\94736\AppData\Local\Microsoft\WindowsApps;C:\Users\94736\AppData\Local\Programs\Microsoft VS Code\bin;C:\msys64\mingw64\bin;C:\Program Files (x86)\GNU Arm Embedded Toolchain\10 2021.10\bin;C:\openocd-20211118\OpenOCD-20211118-0.11.0\bin;;C:\Users\94736\.eide\bin\builder\bin;C:\Users\94736\.eide\bin\builder\utils;C:\Users\94736\.eide\bin\scripts;C:\Program Files (x86)\GNU Arm Embedded Toolchain\10 2021.10\bin;C:\Users\94736\.eide\tools\jlink;C:\Users\94736\.eide\tools\openocd\bin;C:\Users\94736\.eide\tools\gcc_riscv\bin;C:\Users\94736\.eide\tools\sdcc\bin;C:\Users\94736\.eide\tools\st_cube_programer\bin;C:\Users\94736\.eide\bin\builder\msys\bin
+PATH = C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\usbipd-win\;C:\Program Files\dotnet\;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files (x86)\STMicroelectronics\STM32 ST-LINK Utility\ST-LINK Utility;C:\Program Files\Git\cmd;C:\Users\94736\AppData\Local\Microsoft\WindowsApps;C:\Users\94736\AppData\Local\Programs\Microsoft VS Code\bin;C:\msys64\mingw64\bin;C:\Program Files (x86)\GNU Arm Embedded Toolchain\10 2021.10\bin;C:\openocd-20211118\OpenOCD-20211118-0.11.0\bin;C:\Program Files\Git\usr\bin;C:\Users\94736\.eide\bin\builder\bin;C:\Users\94736\.eide\bin\builder\utils;C:\Users\94736\.eide\bin\scripts;C:\Users\94736\.eide\tools\gcc_arm\bin;C:\Users\94736\.eide\tools\jlink;C:\Users\94736\.eide\tools\openocd\bin;C:\Users\94736\.eide\tools\gcc_riscv\bin;C:\Users\94736\.eide\tools\sdcc\bin;C:\Users\94736\.eide\tools\st_cube_programer\bin;C:\Users\94736\.eide\bin\builder\msys\bin
 # makefile (from 'Makefile', line 111)
 FLOAT-ABI = -mfloat-abi=hard
 # makefile (from 'Makefile', line 98)
@@ -223,6 +219,8 @@ EIDE_TOOL_GCC_ARM = C:\Users\94736\.eide\tools\gcc_arm\bin
 # environment
 APPDATA = C:\Users\94736\AppData\Roaming
 # environment
+__COMPAT_LAYER = RunAsAdmin
+# environment
 TEMP = C:\Users\94736\AppData\Local\Temp
 # makefile (from 'Makefile', line 131)
 C_INCLUDES = -IInc -IDrivers/STM32F4xx_HAL_Driver/Inc -IDrivers/STM32F4xx_HAL_Driver/Inc/Legacy -IMiddlewares/Third_Party/FreeRTOS/Source/include -IMiddlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -IMiddlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -IDrivers/CMSIS/Device/ST/STM32F4xx/Include -IDrivers/CMSIS/Include
@@ -247,8 +245,6 @@ SUFFIXES :=
 # environment
 SYSTEMDRIVE = C:
 # environment
-SESSIONNAME = Console
-# environment
 PROCESSOR_REVISION = a600
 # default
 .RECIPEPREFIX := 
@@ -259,9 +255,7 @@ LANG = C
 # environment
 PROCESSOR_LEVEL = 6
 # environment
-FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
-# environment
-VSCODE_PID = 4284
+VSCODE_PID = 14552
 # environment
 EIDE_TOOL_ST_CUBE_PROGRAMER = C:\Users\94736\.eide\tools\st_cube_programer\bin
 # environment
@@ -269,7 +263,7 @@ DOTNET_CLI_TELEMETRY_OPTOUT = 1
 # environment
 USERDOMAIN_ROAMINGPROFILE = DESKTOP-CTQBUVL
 # variable set hash-table stats:
-# Load=128/1024=13%, Rehash=0, Collisions=28/198=14%
+# Load=126/1024=12%, Rehash=0, Collisions=28/196=14%
 
 # Pattern-specific Variable Values
 
@@ -638,6 +632,6 @@ vpath %.c Drivers/STM32F4xx_HAL_Driver/Src;Middlewares/Third_Party/FreeRTOS/Sour
 # strcache performance: lookups = 171 / hit rate = 28%
 # hash-table stats:
 # Load=122/8192=1%, Rehash=0, Collisions=9/171=5%
-# Finished Make data base on Wed Jul 20 20:00:26 2022
+# Finished Make data base on Thu Jul 21 14:04:39 2022
 
  
