@@ -7,14 +7,14 @@
 
 #define can1idlist                    \
     {                                 \
-        wheid,                        \
+        serid(wheid, 0x00000000),     \
             serid(wheid, 0x00000001), \
             serid(wheid, 0x00000002), \
             serid(wheid, 0x00000003), \
             yawmotid,                 \
             pitmotid,                 \
             mpuid,                    \
-            capsid,                   \
+            capsid                    \
     }
 
 #define can2idlist      \

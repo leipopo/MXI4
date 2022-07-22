@@ -15,6 +15,7 @@
 
 #define mottaskperi 2
 #define comutaskperi 1
+#define infotaskperi 1
 #define reftaskperi 10
 #define UIdrawperi 50
 #define capstaskperi 100

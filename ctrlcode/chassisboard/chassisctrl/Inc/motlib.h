@@ -1,25 +1,22 @@
 #ifndef MOTOR_LIB
 #define MOTOR_LIB
-#include "main.h"
+#include "stdint.h"
+#include "pid.h"
 
-//µ¥Î»
-// deg
-// rpm
-// A
 
 // 3508 parameter
 #define m3508 0x00
-#define maxspeed_3508 500.f
+#define maxspeed_3508 9600.f
 #define maxcurrent_3508 20.f
-#define current_maxvalue_3508 0x4fff
-#define currenttotorque_2006 1.f / 3.f
+#define maxcurrent_value_3508 0x4fff
+#define currenttotorque_3508 1.f / 2.5f
 #define gearratio_3508 3591.f / 187.f
 
 // 2006 parameter
 #define m2006 0x01
-#define maxspeed_2006 500.f
+#define maxspeed_2006 18000.f
 #define maxcurrent_2006 10.f
-#define current_maxvalue_2006 10000
+#define maxcurrent_value_2006 10000
 #define currenttotorque_2006 1.f / 3.f
 #define gearratio_2006 36.f
 
@@ -27,7 +24,7 @@
 #define gm6020 0x02
 #define maxspeed_6020 300.f
 #define maxcurrent_6020 2.f
-#define current_maxvalue_6020 30000
+#define maxcurrent_value_6020 30000
 #define currenttotorque_6020 1.f / 2.f
 #define gearratio_6020 1.f
 
@@ -36,16 +33,17 @@ typedef struct _Motor_Info
     struct
     {
         uint8_t motname;
-        uint8_t sumangle; // 0x1ÀÛ¼Æ½Ç¶È
-        uint8_t reversed; // 0x1·´×°
+        uint8_t sumangle; // 0x01ç´¯è®¡è§’åº¦
+        uint8_t reversed; /*0x01åè½¬ è½´çº¿å‚ç›´æ—¶ä»ä¸Šå¾€ä¸‹çœ‹é€†æ—¶é’ˆä¸ºæ­£
+                            è½´çº¿æ°´å¹³æ—¶ä»å‡ºè½´å¾€ç”µæœºå±è‚¡çœ‹é€†æ—¶é’ˆä¸ºæ­£*/
         uint32_t motid;
 
-        float installationangle; //°²×°½Ç¶È£¬¼´µç»ú¹éÁãÊ±µÄ½Ç¶È£¬
-        float angle_limit[2];    //½Ç¶ÈÏŞÖÆ£¬ÎŞÏŞÖÆÔòÎª{-180£¬180}£¬´úÂëÄÚÊ¹ÓÃµ¥Î»¶È
-        float speed_limit;       //ËÙ¶ÈÏŞÖÆ£¬²éÑ¯µç»úµçµ÷Ì××°ÊÖ²á£¬´úÂëÄÚÊ¹ÓÃµ¥Î»rpm
-        float current_limit;     //µçÁ÷ÏŞÖÆ£¬²éÑ¯µç»úµçµ÷Ì××°ÊÖ²á£¬´úÂëÄÚÊ¹ÓÃµ¥Î»A
-        float inpositioncurrent; //×²ÏŞÎ»µÄµçÁ÷Öµ£¬Ê¹ÓÃµ¥Î»A
-        float reductionratio;    //µç»úËùÔÚ»ú¹¹¹¹³ÉµÄ¼õËÙ±¶ÂÊ£¬¼õËÙÊ±´úÂëÄÚ´ËÖµÓ¦´óÓÚÒ»
+        float installationangle;   //å®‰è£…è§’åº¦6020æ ‡å®šç”¨
+        float angle_limit[2];      //æ— é™ä½ä¸º{-180ï¼Œ180}
+        float speed_limit;         // rpm
+        float current_value_limit; //å‘ç”µè°ƒè¾“å‡ºå€¼
+        float inpositioncurrent;   // A
+        float reductionratio;      //
 
     } setup;
 
@@ -82,7 +80,7 @@ typedef struct _Motor_Info
             0.f,                           \
             0.f,                           \
             0.f,                           \
-            0.f,                           \
+            1.f,                           \
         },                                 \
             {{0.f, 0.f}},                  \
             {                              \
@@ -104,10 +102,10 @@ typedef struct _Motor_Info
             0x00,                          \
             0x00,                          \
             0x00000000,                    \
-            0.f,                           \
+            1.f,                           \
             {-180.f, 180.f},               \
             maxspeed_3508,                 \
-            maxcurrent_3508,               \
+            maxcurrent_value_3508,         \
             0.f,                           \
             gearratio_3508,                \
         },                                 \
@@ -134,7 +132,7 @@ typedef struct _Motor_Info
             0.f,                           \
             {-180.f, 180.f},               \
             maxspeed_2006,                 \
-            maxcurrent_2006,               \
+            maxcurrent_value_2006,         \
             0.f,                           \
             gearratio_2006,                \
         },                                 \
@@ -161,7 +159,7 @@ typedef struct _Motor_Info
             0.f,                           \
             {-180.f, 180.f},               \
             maxspeed_6020,                 \
-            maxcurrent_6020,               \
+            maxcurrent_value_6020,         \
             0.f,                           \
             gearratio_6020,                \
         },                                 \
@@ -183,4 +181,7 @@ MotorInfo motparainit(uint8_t motname);
 void gearmotorangle_calc(MotorInfo *mi);
 uint32_t getmotid(MotorInfo *mi);
 void canrx2motinfo(uint8_t rx[8], MotorInfo *mi);
+void clac_mot_aspid(PID_regulator *apid,
+                     PID_regulator *spid,
+                     uint8_t outcircrate);
 #endif

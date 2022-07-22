@@ -57,7 +57,8 @@ extern "C" {
 #include "string.h"
 #include "stdio.h"
 #include "protocol.h"
-
+#include "infoupdate.h"
+#include "flash_bsp.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/

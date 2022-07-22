@@ -1,4 +1,3 @@
-#include "main.h"
 /**
   ****************************(C) COPYRIGHT 2019 DJI****************************
   * @file       referee_usart_task.c/h
@@ -17,10 +16,6 @@
   */
 
 #include "main.h"
-#include "CRC8_CRC16.h"
-#include "fifo.h"
-#include "protocol.h"
-#include "ref.h"
 
 /**
  * @brief          single byte upacked

@@ -4,36 +4,36 @@ MotorInfo motparainit(uint8_t motname)
 {
     switch (motname)
     {
-        case m3508:
-        {
-            MotorInfo mi = m3508_default_config;
-            return mi;
-        }
-        case m2006:
-        {
-            MotorInfo mi = m2006_default_config;
-            return mi;
-        }
-        case gm6020:
-        {
-            MotorInfo mi = gm6020_default_config;
-            return mi;
-        }
-        default:
-        {
-            MotorInfo mi = motor_default_config;
-            return mi;
-        }
+    case m3508:
+    {
+        MotorInfo mi = m3508_default_config;
+        return mi;
+    }
+    case m2006:
+    {
+        MotorInfo mi = m2006_default_config;
+        return mi;
+    }
+    case gm6020:
+    {
+        MotorInfo mi = gm6020_default_config;
+        return mi;
+    }
+    default:
+    {
+        MotorInfo mi = motor_default_config;
+        return mi;
+    }
     }
 }
 
 void canrx2motinfo(uint8_t rx[8], MotorInfo *mi)
 {
-    float dir         = (((float)mi->setup.reversed) - 0.5f) * 2.f;
+    float dir = (((float)mi->setup.reversed) - 0.5f) * 2.f;
     mi->temp.angle[1] = ((int16_t)((rx[0] << 8) | (rx[1]))) / 0x1fff * dir;
     gearmotorangle_calc(mi);
-    mi->curmotorinfo.speed      = ((int16_t)((rx[2] << 8) | (rx[3]))) / 0x1fff * dir;
-    mi->curmotorinfo.current[4] = ((int16_t)((rx[2] << 8) | (rx[3]))) / 0x1fff * dir;
+    mi->curmotorinfo.speed = ((int16_t)((rx[2] << 8) | (rx[3]))) / 0x1fff / mi->setup.reductionratio * dir;
+    // mi->curmotorinfo.current[4] = ((int16_t)((rx[2] << 8) | (rx[3]))) / 0x1fff * dir;
 }
 
 void gearmotorangle_calc(MotorInfo *mi)
@@ -55,6 +55,26 @@ void gearmotorangle_calc(MotorInfo *mi)
     mi->temp.angle[0] = mi->temp.angle[1];
 }
 
+void clac_mot_aspid(PID_regulator *apid,
+                     PID_regulator *spid,
+                     uint8_t outcircrate)
+{
+    static int8_t outcirccount;
+    if (outcirccount == outcircrate)
+    {
+        PID_angle_calc(apid, 1, 300.f);
+    }
+    else if (outcirccount >= 0 && outcirccount < outcircrate)
+    {
+        outcirccount++;
+    }
+    else
+    {
+        outcirccount = 0;
+    }
+    PID_calc(spid, 1);
+}
+
 float numcircle(float max, float min, float num)
 {
     float rang = max - min;
@@ -73,3 +93,5 @@ uint32_t getmotid(MotorInfo *mi)
 {
     return mi->setup.motid;
 }
+
+

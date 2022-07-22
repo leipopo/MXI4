@@ -1,5 +1,5 @@
 #include "main.h"
-MotorInfo yaw, pit, whe[4];
+MotorInfo whe[4];
 void chasmotinit()
 {
     yaw = motparainit(gm6020);
@@ -19,10 +19,4 @@ void devinit()
 {
     RC_INIT();
     can_filter_init();
-}
-
-void uinit()
-{
-    devinit();
-    chasmotinit();
 }

@@ -114,6 +114,9 @@
                   },
                   {
                     "path": "Src/bsps/dma_bsp.c"
+                  },
+                  {
+                    "path": "Src/bsps/flash_bsp.c"
                   }
                 ],
                 "folders": []
@@ -168,6 +171,9 @@
                   },
                   {
                     "path": "Src/tasks/gimbctrl.c"
+                  },
+                  {
+                    "path": "Src/tasks/infoupdate.c"
                   },
                   {
                     "path": "Src/tasks/init.c"

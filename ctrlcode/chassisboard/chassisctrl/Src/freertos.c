@@ -51,51 +51,58 @@
 /* Definitions for refereeread */
 osThreadId_t refereereadHandle;
 const osThreadAttr_t refereeread_attributes = {
-    .name = "refereeread",
-    .stack_size = 128 * 4,
-    .priority = (osPriority_t)osPriorityNormal,
+  .name = "refereeread",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityNormal,
 };
 /* Definitions for devmonitor */
 osThreadId_t devmonitorHandle;
 const osThreadAttr_t devmonitor_attributes = {
-    .name = "devmonitor",
-    .stack_size = 128 * 4,
-    .priority = (osPriority_t)osPriorityNormal,
+  .name = "devmonitor",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityNormal,
 };
 /* Definitions for gimbalcontrol */
 osThreadId_t gimbalcontrolHandle;
 const osThreadAttr_t gimbalcontrol_attributes = {
-    .name = "gimbalcontrol",
-    .stack_size = 128 * 4,
-    .priority = (osPriority_t)osPriorityNormal,
+  .name = "gimbalcontrol",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityRealtime,
 };
 /* Definitions for chassiscontrol */
 osThreadId_t chassiscontrolHandle;
 const osThreadAttr_t chassiscontrol_attributes = {
-    .name = "chassiscontrol",
-    .stack_size = 128 * 4,
-    .priority = (osPriority_t)osPriorityNormal,
+  .name = "chassiscontrol",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityRealtime,
 };
 /* Definitions for boardcommunicat */
 osThreadId_t boardcommunicatHandle;
 const osThreadAttr_t boardcommunicat_attributes = {
-    .name = "boardcommunicat",
-    .stack_size = 128 * 4,
-    .priority = (osPriority_t)osPriorityLow,
+  .name = "boardcommunicat",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityRealtime,
 };
 /* Definitions for UIdraw */
 osThreadId_t UIdrawHandle;
 const osThreadAttr_t UIdraw_attributes = {
-    .name = "UIdraw",
-    .stack_size = 128 * 4,
-    .priority = (osPriority_t)osPriorityNormal,
+  .name = "UIdraw",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityNormal,
 };
 /* Definitions for capsctrol */
 osThreadId_t capsctrolHandle;
 const osThreadAttr_t capsctrol_attributes = {
-    .name = "capsctrol",
-    .stack_size = 128 * 4,
-    .priority = (osPriority_t)osPriorityNormal,
+  .name = "capsctrol",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityNormal,
+};
+/* Definitions for roboinfoupdate */
+osThreadId_t roboinfoupdateHandle;
+const osThreadAttr_t roboinfoupdate_attributes = {
+  .name = "roboinfoupdate",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityRealtime,
 };
 
 /* Private function prototypes -----------------------------------------------*/
@@ -110,16 +117,16 @@ void chasctrl(void *argument);
 void comutask(void *argument);
 void UIdrawer(void *argument);
 void capsctrl(void *argument);
+void robinfoupdater(void *argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
 /**
- * @brief  FreeRTOS initialization
- * @param  None
- * @retval None
- */
-void MX_FREERTOS_Init(void)
-{
+  * @brief  FreeRTOS initialization
+  * @param  None
+  * @retval None
+  */
+void MX_FREERTOS_Init(void) {
   /* USER CODE BEGIN Init */
 
   /* USER CODE END Init */
@@ -162,6 +169,9 @@ void MX_FREERTOS_Init(void)
   /* creation of capsctrol */
   capsctrolHandle = osThreadNew(capsctrl, NULL, &capsctrol_attributes);
 
+  /* creation of roboinfoupdate */
+  roboinfoupdateHandle = osThreadNew(robinfoupdater, NULL, &roboinfoupdate_attributes);
+
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
   /* USER CODE END RTOS_THREADS */
@@ -169,6 +179,7 @@ void MX_FREERTOS_Init(void)
   /* USER CODE BEGIN RTOS_EVENTS */
   /* add events, ... */
   /* USER CODE END RTOS_EVENTS */
+
 }
 
 /* USER CODE BEGIN Header_reftask */
@@ -297,7 +308,26 @@ __weak void capsctrl(void *argument)
   /* USER CODE END capsctrl */
 }
 
+/* USER CODE BEGIN Header_robinfoupdater */
+/**
+* @brief Function implementing the roboinfoupdate thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_robinfoupdater */
+__weak void robinfoupdater(void *argument)
+{
+  /* USER CODE BEGIN robinfoupdater */
+  /* Infinite loop */
+  for(;;)
+  {
+    osDelay(1);
+  }
+  /* USER CODE END robinfoupdater */
+}
+
 /* Private application code --------------------------------------------------*/
 /* USER CODE BEGIN Application */
 
 /* USER CODE END Application */
+
