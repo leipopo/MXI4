@@ -1,0 +1,130 @@
+{
+    "name": "gimbctrl",
+    "target": "gimbctrl",
+    "toolchain": "GCC",
+    "toolchainLocation": "C:\\Users\\94736\\.eide\\tools\\gcc_arm",
+    "toolchainCfgFile": "..\\cfg\\arm.gcc.model.json",
+    "buildMode": "fast|multhread",
+    "showRepathOnLog": true,
+    "threadNum": 12,
+    "rootDir": "c:\\MXI4\\MXI4\\ctrlcode\\gimbalboard\\gimbctrl",
+    "dumpPath": "build\\gimbctrl",
+    "outDir": "build\\gimbctrl",
+    "ram": 20480,
+    "rom": 65536,
+    "incDirs": [
+        "Inc",
+        "Drivers/STM32F4xx_HAL_Driver/Inc",
+        "Drivers/STM32F4xx_HAL_Driver/Inc/Legacy",
+        "Middlewares/Third_Party/FreeRTOS/Source/include",
+        "Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2",
+        "Drivers/CMSIS/Device/ST/STM32F4xx/Include",
+        "Drivers/CMSIS/Include",
+        ".cmsis/dsp_lib",
+        ".cmsis/include",
+        ".eide/deps",
+        "Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F"
+    ],
+    "libDirs": [],
+    "defines": [
+        "USE_HAL_DRIVER",
+        "STM32F407xx"
+    ],
+    "sourceList": [
+        "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c",
+        "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.c",
+        "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c",
+        "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c",
+        "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c",
+        "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c",
+        "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c",
+        "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c",
+        "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c",
+        "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c",
+        "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c",
+        "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.c",
+        "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c",
+        "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c",
+        "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c",
+        "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c",
+        "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c",
+        "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c",
+        "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c",
+        "Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c",
+        "Middlewares/Third_Party/FreeRTOS/Source/croutine.c",
+        "Middlewares/Third_Party/FreeRTOS/Source/event_groups.c",
+        "Middlewares/Third_Party/FreeRTOS/Source/list.c",
+        "Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c",
+        "Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c",
+        "Middlewares/Third_Party/FreeRTOS/Source/queue.c",
+        "Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c",
+        "Middlewares/Third_Party/FreeRTOS/Source/tasks.c",
+        "Middlewares/Third_Party/FreeRTOS/Source/timers.c",
+        "Src/can.c",
+        "Src/dma.c",
+        "Src/freertos.c",
+        "Src/gpio.c",
+        "Src/i2c.c",
+        "Src/main.c",
+        "Src/spi.c",
+        "Src/stm32f4xx_hal_msp.c",
+        "Src/stm32f4xx_it.c",
+        "Src/system_stm32f4xx.c",
+        "Src/tim.c",
+        "startup_stm32f407xx.s"
+    ],
+    "sourceParams": {},
+    "sourceParamsMtime": 1658506148422.1113,
+    "options": {
+        "version": 4,
+        "beforeBuildTasks": [],
+        "afterBuildTasks": [
+            {
+                "name": "copy program file",
+                "disable": false,
+                "abortAfterFailed": false,
+                "command": "mkdir .\\dist & copy /B \"${OutDir}\\${targetName}.hex\" .\\dist\\ & copy /B \"${OutDir}\\${targetName}.bin\" .\\dist\\"
+            }
+        ],
+        "global": {
+            "$float-abi-type": "hard",
+            "output-debug-info": "enable",
+            "toolPrefix": "arm-none-eabi-",
+            "microcontroller-cpu": "cortex-m4-sp",
+            "microcontroller-fpu": "cortex-m4-sp",
+            "microcontroller-float": "cortex-m4-sp",
+            "target": "cortex-m4-sp"
+        },
+        "c/cpp-compiler": {
+            "language-c": "c99",
+            "language-cpp": "c++14",
+            "optimization": "level-debug",
+            "warnings": "all-warnings",
+            "one-elf-section-per-function": true,
+            "one-elf-section-per-data": true,
+            "C_FLAGS": "-ffunction-sections -fdata-sections",
+            "CXX_FLAGS": "-ffunction-sections -fdata-sections"
+        },
+        "asm-compiler": {
+            "ASM_FLAGS": "-ffunction-sections -fdata-sections"
+        },
+        "linker": {
+            "output-format": "elf",
+            "remove-unused-input-sections": true,
+            "LD_FLAGS": "--specs=nosys.specs --specs=nano.specs",
+            "LIB_FLAGS": "-lm",
+            "link-scatter": [
+                "\"c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl/STM32F407IGHx_FLASH.ld\""
+            ]
+        }
+    },
+    "sha": {
+        "c/cpp-defines": "6fb1138e1eb34669ca45eb53f4ff62b9",
+        "beforeBuildTasks": "d751713988987e9331980363e24189ce",
+        "afterBuildTasks": "3e961d3be94ffe030fcfcc533f533500",
+        "global": "530378f6177fce883a69f2f1add1ae45",
+        "c/cpp-compiler": "fa206523009341103d48c3b84fda4537",
+        "asm-compiler": "4e936c1650c2f18609e37408d1cfbb9f",
+        "linker": "b0a7d2642a9d2249aed1f777322f457d"
+    }
+}

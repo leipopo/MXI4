@@ -21,6 +21,13 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
     flash_write_single_address(ADDR_FLASH_SECTOR_11,(uint32_t *)yawinstallangle_toflash,(2 + 3) / 4);
 }
 
+void init_robinfo(RobInfo *ri)
+{
+    while(ri->cur.yawangle==0.f)
+    ri->tar.yawangle = ri->cur.yawangle;
+    osDelayUntil(10);
+}
+
 void get_limits(RobInfo *ri)
 {
     get_chassis_power_and_buffer(&ri->cur.chaspower, &ri->cur.powerbuffer, &ri->lim.chaspower_limit);
@@ -50,7 +57,7 @@ void get_zrelangle(RobInfo *ri)
 
 void robinfoupdater()
 {
-    
+    init_robinfo(&robinfo);
     for (;;)
     {
         robinfo.robid = get_robot_id();

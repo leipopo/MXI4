@@ -1,0 +1,35 @@
+{
+    "version": 4,
+    "beforeBuildTasks": [],
+    "afterBuildTasks": [
+        {
+            "name": "copy program file",
+            "disable": false,
+            "abortAfterFailed": false,
+            "command": "mkdir .\\dist & copy /B \"${OutDir}\\${targetName}.hex\" .\\dist\\ & copy /B \"${OutDir}\\${targetName}.bin\" .\\dist\\"
+        }
+    ],
+    "global": {
+        "$float-abi-type": "hard",
+        "output-debug-info": "enable"
+    },
+    "c/cpp-compiler": {
+        "language-c": "c99",
+        "language-cpp": "c++14",
+        "optimization": "level-debug",
+        "warnings": "all-warnings",
+        "one-elf-section-per-function": true,
+        "one-elf-section-per-data": true,
+        "C_FLAGS": "-ffunction-sections -fdata-sections",
+        "CXX_FLAGS": "-ffunction-sections -fdata-sections"
+    },
+    "asm-compiler": {
+        "ASM_FLAGS": "-ffunction-sections -fdata-sections"
+    },
+    "linker": {
+        "output-format": "elf",
+        "remove-unused-input-sections": true,
+        "LD_FLAGS": "--specs=nosys.specs --specs=nano.specs",
+        "LIB_FLAGS": "-lm"
+    }
+}
