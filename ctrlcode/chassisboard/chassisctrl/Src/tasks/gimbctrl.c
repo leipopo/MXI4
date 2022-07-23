@@ -89,11 +89,18 @@ void clac_yawmot_aspid(PID_regulator *yapid,
 }
 
 int16_t can1_mes20x2ff[4];
-
 void pack_pymot_ctrlmes(int16_t mes[4])
 {
-    mes[0] = yawspid.output;
-    mes[1] = pitspid.output;
+    if (robinfo.comd.moton==0x01)
+    {
+        mes[0] = yawspid.output;
+        mes[1] = pitspid.output;
+    }
+    else
+    {
+        mes[0]=0x0000;
+        mes[1]=0x0000;
+    }
 }
 
 void gimbctrl()

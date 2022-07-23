@@ -1,23 +1,28 @@
 #ifndef COMUTASK_H
 #define COMUTASK_H
 
+#include "infoupdate.h"
+
 typedef struct _COMU_INFO
 {
-    struct 
+    struct
     {
         float yawangle;
         float pitangle;
         float yawspeed;
         float pitspeed;
-    }rx_imu;
+    } rx_imu;
 
-    struct 
+    struct
     {
-        uint8_t fricwheelon;//0x01 on
-        uint8_t triggeron;//0x01 on
-        uint8_t magopen;//0x01 open
-    }tx_shootcommend;
+        float yawangle;
+        float pitangle;
+    } rx_cv;
 
-}ComuInfo;
+    Comd tx_comd;
+
+} ComuInfo;
+
+
 extern ComuInfo comuinfo;
 #endif

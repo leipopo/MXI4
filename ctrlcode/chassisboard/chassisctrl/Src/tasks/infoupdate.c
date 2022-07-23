@@ -1,6 +1,20 @@
 #include "main.h"
 RobInfo robinfo;
 float yawzeroangle[2];
+
+//遥控器逻辑
+// 1 1 关电机 --> 1 3 开电机/关弹舱/关摩擦轮 --> 1 2 开弹舱
+//                     ||
+//                     ||
+//                     \/
+// 3 1 开摩擦轮 --> 3 3 开电机无动作 --> 3 2 发弹
+//                     ||
+//                     ||
+//                     \/
+// 2 1 开自瞄 --> 2 3 开电机无动作 --> 2 2 开小陀螺
+
+// 3 3 开电机无动作-->2 3 开电机无动作  切换自瞄模式
+
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
 
@@ -35,6 +49,74 @@ void get_limits(RobInfo *ri)
     get_chassis_power_and_buffer(&ri->cur.chaspower, &ri->cur.powerbuffer, &ri->lim.chaspower_limit);
     get_shoot_heat0_limit_and_heat0(&ri->lim.heat0_limit, &ri->cur.heat0);
     // get_shoot_heat1_limit_and_heat0(ri->lim.heat1_limit,ri->cur.heat1);
+}
+
+void get_comd_rc(RobInfo *ri)
+{
+
+    if (RC_Data.rc.s[0] == 1 && RC_Data.rc.s[1] == 1)
+    {
+        ri->comd.moton = 0x00;
+    }
+    else
+    {
+        ri->comd.moton = 0x01;
+    }
+
+    if ((Key.key_r == 0x01) || (RC_Data.rc.s[0] == 1 && RC_Data.rc.s[1] == 2))
+    {
+        ri->comd.magopen = 0x01;
+        ri->comd.fricwheelon = 0x00;
+    }
+    else
+    {
+        ri->comd.magopen = 0x00;
+    }
+
+    if (RC_Data.rc.s[0] == 3 && RC_Data.rc.s[1] == 1)
+    {
+        ri->comd.fricwheelon = 0x01;
+    }
+
+    if ((RC_Data.mouse.press_l == 0x01) || (RC_Data.rc.s[0] == 3 && RC_Data.rc.s[1] == 2))
+    {
+        ri->comd.triggeron = 0x01;
+        ri->comd.fricwheelon = 0x01;
+    }
+    else
+    {
+        ri->comd.triggeron = 0x00;
+    }
+
+    if ((RC_Data.rc.s[0] == 2 && RC_Data.rc.s[1] == 1) || (RC_Data.mouse.press_r == 0x00))
+    {
+        ri->comd.cvon |= 0x01;
+    }
+    else
+    {
+        ri->comd.cvon = ri->comd.cvon >> 4;
+        ri->comd.cvon = ri->comd.cvon << 4;
+    }
+
+    if ((RC_Data.rc.s[0] == 2 && RC_Last_Data.rc.s[0] != 3 && RC_Data.rc.s[1] != 3))
+    {
+        if (ri->comd.cvon == 0x00)
+        {
+            ri->comd.cvon = 0x10;
+        }
+        else
+        {
+            ri->comd.cvon = 0x00;
+        }
+    }
+}
+
+void get_gimbtarangle_cv(RobInfo *ri)
+{
+
+    ri->tar.yawangle += comuinfo.rx_cv.yawangle;
+    ri->tar.pitangle += comuinfo.rx_cv.pitangle;
+    ri->tar.pitangle = LIMIT(ri->tar.pitangle, pit.setup.angle_limit[0], pit.setup.angle_limit[1]);
 }
 
 void get_gimbtarangle_rc(RobInfo *ri)

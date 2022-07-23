@@ -176,7 +176,16 @@
                 "name": "tasks",
                 "files": [
                   {
+                    "path": "src/tasks/comutask.c"
+                  },
+                  {
+                    "path": "src/tasks/devmoni.c"
+                  },
+                  {
                     "path": "src/tasks/INS_task.c"
+                  },
+                  {
+                    "path": "src/tasks/shoottask.c"
                   }
                 ],
                 "folders": []

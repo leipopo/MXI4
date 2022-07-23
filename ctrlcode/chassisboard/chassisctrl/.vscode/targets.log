@@ -7,7 +7,7 @@ make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --quest
 # There is NO WARRANTY, to the extent permitted by law.
  
 
-# Make data base, printed on Sat Jul 23 00:10:17 2022
+# Make data base, printed on Sat Jul 23 20:10:18 2022
 
 # Variables
 
@@ -52,7 +52,8 @@ BIN = $(CP) -O binary -S
 # environment
 WINDIR = C:\WINDOWS
 # environment
-VSCODE_NLS_CONFIG = {"locale":"zh-cn","availableLanguages":{"*":"zh-cn"},"_languagePackId":"1d735750dbb1b9066c7513078396ba0f.zh-cn","_translationsConfigFile":"C:\\Users\\94736\\AppData\\Roaming\\Code\\clp\\1d735750dbb1b9066c7513078396ba0f.zh-cn\\tcf.json","_cacheRoot":"C:\\Users\\94736\\AppData\\Roaming\\Code\\clp\\1d735750dbb1b9066c7513078396ba0f.zh-cn","_resolvedLanguagePackCoreLocation":"C:\\Users\\94736\\AppData\\Roaming\\Code\\clp\\1d735750dbb1b9066c7513078396ba0f.zh-cn\\3b889b090b5ad5793f524b5d1d39fda662b96a2a","_corruptedFile":"C:\\Users\\94736\\AppData\\Roaming\\Code\\clp\\1d735750dbb1b9066c7513078396ba0f.zh-cn\\corrupted.info","_languagePackSupport":true}
+VSCODE_NLS_CONFIG = {"locale":"zh-cn","availableLanguages":{"*":"zh-cn"},"_languagePackId":"1d735750dbb1b9066c7513078396ba0f.zh-cn","_translationsConfigFile":"C:\\Users\\94736\\AppData\\Roaming\\Code\\clp\\1d735750dbb1b9066c7513078396ba0f.zh-cn\\tcf.json","_cacheRoot":"C:\\Users\\94736\\AppData\\Roaming\\Code\\clp\\1d735750dbb1b9066c7513078396ba0f.zh-cn","_resolvedLanguagePackCoreLocation":"C:\\Users\\94736\\AppData\\Roaming\\Code\\clp\\1d735750 
+dbb1b9066c7513078396ba0f.zh-cn\\3b889b090b5ad5793f524b5d1d39fda662b96a2a","_corruptedFile":"C:\\Users\\94736\\AppData\\Roaming\\Code\\clp\\1d735750dbb1b9066c7513078396ba0f.zh-cn\\corrupted.info","_languagePackSupport":true}
 # makefile (from 'Makefile', line 96)
 SZ = $(PREFIX)size
 # makefile (from 'Makefile', line 153)
@@ -104,7 +105,7 @@ LDFLAGS = $(MCU) -specs=nano.specs -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BU
 # automatic
 %F = $(notdir $%)
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_1824_OOKDAMZGTRKFWHWJ
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_1784_ZATDADAVQIFQDKVC
 # makefile (from 'Makefile', line 77)
 ASM_SOURCES = startup_stm32f427xx.s
 # environment
@@ -130,7 +131,7 @@ VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
 VSCODE_CODE_CACHE_PATH = C:\Users\94736\AppData\Roaming\Code\CachedData\3b889b090b5ad5793f524b5d1d39fda662b96a2a
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # environment
 COMMONPROGRAMFILES = C:\Program Files\Common Files
 # environment
@@ -194,8 +195,7 @@ LIBDIR =
 # automatic
 *F = $(notdir $*)
 # environment
-PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 166 Stepping 0, GenuineIntel 
-
+PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 166 Stepping 0, GenuineIntel
 # environment
 OS = Windows_NT
 # environment
@@ -257,7 +257,7 @@ LANG = C
 # environment
 PROCESSOR_LEVEL = 6
 # environment
-VSCODE_PID = 1824
+VSCODE_PID = 1784
 # environment
 EIDE_TOOL_ST_CUBE_PROGRAMER = C:\Users\94736\.eide\tools\st_cube_programer\bin
 # environment
@@ -634,6 +634,6 @@ vpath %.c Drivers/STM32F4xx_HAL_Driver/Src;Middlewares/Third_Party/FreeRTOS/Sour
 # strcache performance: lookups = 171 / hit rate = 28%
 # hash-table stats:
 # Load=122/8192=1%, Rehash=0, Collisions=9/171=5%
-# Finished Make data base on Sat Jul 23 00:10:17 2022
+# Finished Make data base on Sat Jul 23 20:10:18 2022
 
  
