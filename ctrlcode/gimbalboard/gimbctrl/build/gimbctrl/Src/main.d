@@ -28,7 +28,6 @@ build/gimbctrl/Src/main.o: Src/main.c Inc/main.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
- Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h \
  Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
  Inc/FreeRTOSConfig.h \
  Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h \
@@ -39,4 +38,11 @@ build/gimbctrl/Src/main.o: Src/main.c Inc/main.h \
  Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
  Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
  Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h \
- Inc/can.h Inc/main.h Inc/dma.h Inc/i2c.h Inc/spi.h Inc/tim.h Inc/gpio.h
+ Inc/can_bsp.h Inc/can.h Inc/main.h Inc/flash_bsp.h Inc/bsp_delay.h \
+ Inc/bsp_imu_pwm.h Inc/struct_typedef.h Inc/bsp_spi.h Inc/canbus.h \
+ Inc/motlib.h Inc/pid.h Inc/MahonyAHRS.h Inc/user_lib.h \
+ Inc/ist8310driver.h Inc/ist8310driver_middleware.h \
+ Inc/BMI088Middleware.h Inc/BMI088driver.h Inc/INS_task.h \
+ Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h \
+ Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h \
+ Inc/can.h Inc/dma.h Inc/i2c.h Inc/spi.h Inc/tim.h Inc/gpio.h

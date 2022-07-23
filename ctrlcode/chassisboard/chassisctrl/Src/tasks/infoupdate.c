@@ -16,16 +16,18 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
         yawzeroangle[0] = 0;
     }
     uint8_t yawinstallangle_toflash[2];
-    yawinstallangle_toflash[0] = (uint16_t)yaw.setup.installationangle>>8;
+    yawinstallangle_toflash[0] = (uint16_t)yaw.setup.installationangle >> 8;
     yawinstallangle_toflash[1] = (uint16_t)yaw.setup.installationangle;
-    flash_write_single_address(ADDR_FLASH_SECTOR_11,(uint32_t *)yawinstallangle_toflash,(2 + 3) / 4);
+    flash_write_single_address(ADDR_FLASH_SECTOR_11, (uint32_t *)yawinstallangle_toflash, (2 + 3) / 4);
 }
 
 void init_robinfo(RobInfo *ri)
 {
-    while(ri->cur.yawangle==0.f)
+    while (ri->cur.yawangle == 0.f)
+    {
+        osDelayUntil(10);
+    }
     ri->tar.yawangle = ri->cur.yawangle;
-    osDelayUntil(10);
 }
 
 void get_limits(RobInfo *ri)
@@ -65,7 +67,7 @@ void robinfoupdater()
         get_gimbtarangle_rc(&robinfo);
         get_gimbcurangle_imu(&robinfo);
         get_zrelangle(&robinfo);
-        
+
         osDelayUntil(infotaskperi);
     }
 }

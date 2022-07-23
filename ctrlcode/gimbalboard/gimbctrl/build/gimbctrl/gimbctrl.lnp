@@ -40,4 +40,19 @@
 ./build/gimbctrl/Src/stm32f4xx_it.o
 ./build/gimbctrl/Src/system_stm32f4xx.o
 ./build/gimbctrl/Src/tim.o
+./build/gimbctrl/src/bsps/bsp_delay.o
+./build/gimbctrl/src/bsps/bsp_imu_pwm.o
+./build/gimbctrl/src/bsps/bsp_spi.o
+./build/gimbctrl/src/bsps/can_bsp.o
+./build/gimbctrl/src/bsps/flash_bsp.o
+./build/gimbctrl/src/devices/BMI088Middleware.o
+./build/gimbctrl/src/devices/BMI088driver.o
+./build/gimbctrl/src/devices/canbus.o
+./build/gimbctrl/src/devices/ist8310driver.o
+./build/gimbctrl/src/devices/ist8310driver_middleware.o
+./build/gimbctrl/src/libs/MahonyAHRS.o
+./build/gimbctrl/src/libs/motlib.o
+./build/gimbctrl/src/libs/pid.o
+./build/gimbctrl/src/libs/user_lib.o
+./build/gimbctrl/src/tasks/INS_task.o
 ./build/gimbctrl/startup_stm32f407xx.o -lm

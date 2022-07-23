@@ -1,67 +1,38 @@
-[2022-07-23 00:24:38]	link failed !, exit code: 1
+[2022-07-23 16:44:23]	compilation failed at : "c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl\Src\freertos.c", exit code: 1
+   at unify_builder.Program.compileByMulThread(Int32 thrNum, CmdInfo[] cmds, List`1 errLogs)
    at unify_builder.Program.Main(String[] args_)
 ---
-Memory region         Used Size  Region Size  %age Used
-             RAM:       20864 B       128 KB     15.92%
-          CCMRAM:          0 GB        64 KB      0.00%
-c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/queue.o: in function `prvIsQueueFull':
-c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl/./Middlewares/Third_Party/FreeRTOS/Source/queue.c:2335: undefined reference to `vPortEnterCritical'
-c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/bin/ld.exe: c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl/./Middlewares/Third_Party/FreeRTOS/Source/queue.c:2346: undefined reference to `vPortExitCritical'
-c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/queue.o: in function `prvIsQueueEmpty':
-c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl/./Middlewares/Third_Party/FreeRTOS/Source/queue.c:2295: undefined reference to `vPortEnterCritical'
-c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/bin/ld.exe: c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl/./Middlewares/Third_Party/FreeRTOS/Source/queue.c:2306: undefined reference to `vPortExitCritical'
-c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/queue.o: in function `prvUnlockQueue':
-c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl/./Middlewares/Third_Party/FreeRTOS/Source/queue.c:2179: undefined reference to `vPortEnterCritical'
-c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/bin/ld.exe: c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl/./Middlewares/Third_Party/FreeRTOS/Source/queue.c:2257: undefined reference to `vPortExitCritical'
-c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/bin/ld.exe: c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl/./Middlewares/Third_Party/FreeRTOS/Source/queue.c:2260: undefined reference to `vPortEnterCritical'
-c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/bin/ld.exe: c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl/./Middlewares/Third_Party/FreeRTOS/Source/queue.c:2287: undefined reference to `vPortExitCritical'
-c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/queue.o: in function `xQueueGenericReset':
-c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl/./Middlewares/Third_Party/FreeRTOS/Source/queue.c:261: undefined reference to `vPortEnterCritical'
-c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/bin/ld.exe: c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl/./Middlewares/Third_Party/FreeRTOS/Source/queue.c:300: undefined reference to `vPortExitCritical'
-c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/queue.o: in function `xQueueGenericSend':
-c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl/./Middlewares/Third_Party/FreeRTOS/Source/queue.c:867: undefined reference to `vPortExitCritical'
-c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/bin/ld.exe: c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl/./Middlewares/Third_Party/FreeRTOS/Source/queue.c:876: undefined reference to `vPortExitCritical'
-c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/bin/ld.exe: c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl/./Middlewares/Third_Party/FreeRTOS/Source/queue.c:761: undefined reference to `vPortEnterCritical'
-c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/bin/ld.exe: c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl/./Middlewares/Third_Party/FreeRTOS/Source/queue.c:897: undefined reference to `vPortExitCritical'
-c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/bin/ld.exe: c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl/./Middlewares/Third_Party/FreeRTOS/Source/queue.c:903: undefined reference to `vPortEnterCritical'
-c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/bin/ld.exe: c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl/./Middlewares/Third_Party/FreeRTOS/Source/queue.c:903: undefined reference to `vPortExitCritical'
-c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/queue.o: in function `xQueueGenericSendFromISR':
-c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl/./Middlewares/Third_Party/FreeRTOS/Source/queue.c:974: undefined reference to `vPortValidateInterruptPriority'
-c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/queue.o: in function `xQueueReceive':
-c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl/./Middlewares/Third_Party/FreeRTOS/Source/queue.c:1335: undefined reference to `vPortExitCritical'
-c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/bin/ld.exe: c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl/./Middlewares/Third_Party/FreeRTOS/Source/queue.c:1344: undefined reference to `vPortExitCritical'
-c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/bin/ld.exe: c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl/./Middlewares/Third_Party/FreeRTOS/Source/queue.c:1303: undefined reference to `vPortEnterCritical'
-c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/bin/ld.exe: c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl/./Middlewares/Third_Party/FreeRTOS/Source/queue.c:1362: undefined reference to `vPortExitCritical'
-c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/bin/ld.exe: c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl/./Middlewares/Third_Party/FreeRTOS/Source/queue.c:1368: undefined reference to `vPortEnterCritical'
-c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/bin/ld.exe: c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl/./Middlewares/Third_Party/FreeRTOS/Source/queue.c:1368: undefined reference to `vPortExitCritical'
-c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/queue.o: in function `vQueueWaitForMessageRestricted':
-c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl/./Middlewares/Third_Party/FreeRTOS/Source/queue.c:2755: undefined reference to `vPortEnterCritical'
-c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/bin/ld.exe: c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl/./Middlewares/Third_Party/FreeRTOS/Source/queue.c:2755: undefined reference to `vPortExitCritical'
-c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o: in function `prvInitialiseNewTask':
-c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl/./Middlewares/Third_Party/FreeRTOS/Source/tasks.c:1058: undefined reference to `pxPortInitialiseStack'
-c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o: in function `prvAddNewTaskToReadyList':
-c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl/./Middlewares/Third_Party/FreeRTOS/Source/tasks.c:1081: undefined reference to `vPortEnterCritical'
-c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/bin/ld.exe: c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl/./Middlewares/Third_Party/FreeRTOS/Source/tasks.c:1138: undefined reference to `vPortExitCritical'
-c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o: in function `prvCheckTasksWaitingTermination':
-c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl/./Middlewares/Third_Party/FreeRTOS/Source/tasks.c:3652: undefined reference to `vPortEnterCritical'
-c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/bin/ld.exe: c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl/./Middlewares/Third_Party/FreeRTOS/Source/tasks.c:3659: undefined reference to `vPortExitCritical'
-c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o: in function `vTaskStartScheduler':
-c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl/./Middlewares/Third_Party/FreeRTOS/Source/tasks.c:2075: undefined reference to `xPortStartScheduler'
-c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o: in function `xTaskResumeAll':
-c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl/./Middlewares/Third_Party/FreeRTOS/Source/tasks.c:2208: undefined reference to `vPortEnterCritical'
-c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/bin/ld.exe: c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl/./Middlewares/Third_Party/FreeRTOS/Source/tasks.c:2298: undefined reference to `vPortExitCritical'
-c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o: in function `xTaskCheckForTimeOut':
-c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl/./Middlewares/Third_Party/FreeRTOS/Source/tasks.c:3281: undefined reference to `vPortEnterCritical'
-c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/bin/ld.exe: c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl/./Middlewares/Third_Party/FreeRTOS/Source/tasks.c:3331: undefined reference to `vPortExitCritical'
-c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/timers.o: in function `prvCheckForValidListAndQueue':
-c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl/./Middlewares/Third_Party/FreeRTOS/Source/timers.c:946: undefined reference to `vPortEnterCritical'
-c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/bin/ld.exe: c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl/./Middlewares/Third_Party/FreeRTOS/Source/timers.c:988: undefined reference to `vPortExitCritical'
-c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/Src/stm32f4xx_it.o: in function `SysTick_Handler':
-c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl/./Src/stm32f4xx_it.c:170: undefined reference to `xPortSysTickHandler'
-collect2.exe: error: ld returned 1 exit status
-           FLASH:       15544 B         1 MB      1.48%
+./Src/freertos.c:63:6: error: conflicting types for 'INS_task'
+ void INS_task(void *argument);
+      ^~~~~~~~
+In file included from Inc/main.h:52,
+                 from ./Src/freertos.c:23:
+Inc/INS_task.h:85:13: note: previous declaration of 'INS_task' was here
+ extern void INS_task(void const *pvParameters);
+             ^~~~~~~~
+./Src/freertos.c:114:13: error: conflicting types for 'INS_task'
+ __weak void INS_task(void *argument)
+             ^~~~~~~~
+In file included from Inc/main.h:52,
+                 from ./Src/freertos.c:23:
+Inc/INS_task.h:85:13: note: previous declaration of 'INS_task' was here
+ extern void INS_task(void const *pvParameters);
+             ^~~~~~~~
 
+[2022-07-23 16:48:59]	compilation failed at : "c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl\src\tasks\INS_task.c", exit code: 1
+   at unify_builder.Program.compileByMulThread(Int32 thrNum, CmdInfo[] cmds, List`1 errLogs)
+   at unify_builder.Program.Main(String[] args_)
+---
+./src/tasks/INS_task.c: In function 'INS_task':
+./src/tasks/INS_task.c:103:1: error: number of arguments doesn't match prototype
+ {
+ ^
+In file included from Inc/main.h:52,
+                 from ./src/tasks/INS_task.c:24:
+Inc/INS_task.h:85:13: error: prototype declaration
+ extern void INS_task(void const *pvParameters);
+             ^~~~~~~~
 
-[2022-07-23 00:29:29]	[done]
+[2022-07-23 16:49:55]	[done]
 	build successfully !
 

@@ -31,6 +31,28 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "FreeRTOS.h"
+#include "task.h"
+#include "cmsis_os2.h"
+#include "can_bsp.h"
+#include "flash_bsp.h"
+#include "bsp_delay.h"
+#include "bsp_imu_pwm.h"
+#include "bsp_spi.h"
+#include "canbus.h"
+#include "motlib.h"
+#include "pid.h"
+#include "struct_typedef.h"
+#include "MahonyAHRS.h"
+#include "user_lib.h"
+#include "ist8310driver.h"
+#include "ist8310driver_middleware.h"
+#include "BMI088Middleware.h"
+#include "BMI088driver.h"
+#include "INS_task.h"
+#include "string.h"
+#include "math.h"
+
 
 /* USER CODE END Includes */
 

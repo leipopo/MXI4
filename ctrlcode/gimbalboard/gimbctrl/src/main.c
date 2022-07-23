@@ -98,7 +98,7 @@ int main(void)
   MX_CAN1_Init();
   MX_CAN2_Init();
   /* USER CODE BEGIN 2 */
-
+  delay_init();
   /* USER CODE END 2 */
 
   /* Init scheduler */

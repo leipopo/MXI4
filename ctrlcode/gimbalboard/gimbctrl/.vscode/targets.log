@@ -7,7 +7,7 @@ make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --quest
 # There is NO WARRANTY, to the extent permitted by law.
  
 
-# Make data base, printed on Sat Jul 23 00:09:13 2022
+# Make data base, printed on Sat Jul 23 12:50:58 2022
 
 # Variables
 
@@ -60,7 +60,8 @@ CFLAGS = $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-
 # environment
 ONEDRIVE = C:\Users\94736\OneDrive
 # environment
-PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+PATHE 
+XT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
 # makefile (from 'Makefile', line 1)
 MAKEFILE_LIST :=  Makefile
 # makefile (from 'Makefile', line 109)
@@ -76,8 +77,7 @@ PROGRAMW6432 = C:\Program Files
 # environment
 PROGRAMDATA = C:\ProgramData
 # environment
-VSCODE_CWD = C:\Users\94736\AppData\Local\Pr 
-ograms\Microsoft VS Code
+VSCODE_CWD = C:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl
 # makefile (from 'Makefile', line 25)
 OPT = -Og
 # default
@@ -105,7 +105,7 @@ LDFLAGS = $(MCU) -specs=nano.specs -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BU
 # automatic
 %F = $(notdir $%)
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_1824_OOKDAMZGTRKFWHWJ
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_3152_XQJKZXXKBKYQNIGH
 # makefile (from 'Makefile', line 91)
 ASM_SOURCES = startup_stm32f407xx.s
 # environment
@@ -257,7 +257,7 @@ LANG = C
 # environment
 PROCESSOR_LEVEL = 6
 # environment
-VSCODE_PID = 1824
+VSCODE_PID = 3152
 # environment
 EIDE_TOOL_ST_CUBE_PROGRAMER = C:\Users\94736\.eide\tools\st_cube_programer\bin
 # environment
@@ -265,7 +265,7 @@ DOTNET_CLI_TELEMETRY_OPTOUT = 1
 # environment
 USERDOMAIN_ROAMINGPROFILE = DESKTOP-CTQBUVL
 # variable set hash-table stats:
-# Load=126/1024=12%, Rehash=0, Collisions=24/185=13%
+# Load=126/1024=12%, Rehash=0, Collisions=28/196=14%
 
 # Pattern-specific Variable Values
 
@@ -273,17 +273,17 @@ USERDOMAIN_ROAMINGPROFILE = DESKTOP-CTQBUVL
 
 # Directories
 
-# . (key c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl, mtime 1658506148): 20 files, no impossibilities.
-# Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F: could not be stat'd.
-# Src (key c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl/Src, mtime 1658506097): 8 files, no impossibilities so far.
-# build: could not be stat'd.
-# Middlewares/Third_Party/FreeRTOS/Source (key c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source, mtime 1658506098): 13 files, no impossibilities.
-# Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 (key c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2, mtime 1658506098): 7 files, no impossibilities.
-# Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang (key c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang, mtime 1658506098): 3 files, no impossibilities.
-# src (key c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl/src, mtime 1658506097): No files, no impossibilities so far.
-# Drivers/STM32F4xx_HAL_Driver/Src (key c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src, mtime 1658506098): 21 files, no impossibilities.
+# . (key c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl, mtime 1658507369): 20 files, no impossibilities.
+# Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F (key c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F, mtime 1658507244): 4 files, no impossibilities.
+# Src (key c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl/Src, mtime 1658507243): 11 files, no impossibilities so far.
+# build (key c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl/build, mtime 1658506562): 3 files, no impossibilities.
+# Middlewares/Third_Party/FreeRTOS/Source (key c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source, mtime 1658507244): 13 files, no impossibilities.
+# Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 (key c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2, mtime 1658507244): 7 files, no impossibilities.
+# Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang (key c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang, mtime 1658507244): 3 files, no impossibilities.
+# src (key c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl/src, mtime 1658507243): No files, no impossibilities so far.
+# Drivers/STM32F4xx_HAL_Driver/Src (key c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src, mtime 1658507244): 21 files, no impossibilities.
 
-# 72 files, no impossibilities in 9 directories.
+# 82 files, no impossibilities in 9 directories.
 
 # Implicit Rules
 
@@ -321,8 +321,24 @@ build/main.o: Src/main.c Makefile | build
 #  File does not exist.
 #  File has been updated.
 #  Needs to be updated (-q is set).
+# automatic
+# @ := build/main.o
+# automatic
+# % := 
+# automatic
+# * := main
+# automatic
+# + := Src/main.c Makefile
+# automatic
+# | := build
+# automatic
+# < := Src/main.c
+# automatic
+# ^ := Src/main.c Makefile
+# automatic
+# ? := Src/main.c Makefile
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/3=0%
+# Load=8/32=25%, Rehash=0, Collisions=1/26=4%
 #  recipe to execute (from 'Makefile', line 196):
 	$(CC) -c $(CFLAGS) -Wa,-a,-ad,-alms=$(BUILD_DIR)/$(notdir $(<:.c=.lst)) $< -o $@
 
@@ -350,7 +366,7 @@ build/gimbctrl.elf: build/main.o build/gpio.o build/freertos.o build/can.o build
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/3=0%
+# Load=0/32=0%, Rehash=0, Collisions=0/14=0%
 #  recipe to execute (from 'Makefile', line 202):
 	$(CC) $(OBJECTS) $(LDFLAGS) -o $@
 	$(SZ) $@
@@ -362,7 +378,7 @@ all: build/gimbctrl.elf build/gimbctrl.hex build/gimbctrl.bin
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/3=0%
+# Load=0/32=0%, Rehash=0, Collisions=0/14=0%
 
 # Not a target:
 build/stm32f4xx_hal_flash_ex.o:
@@ -413,15 +429,9 @@ build/stm32f4xx_hal.o:
 #  File has not been updated.
 
 # Not a target:
-.SUFFIXES:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-23 00:06:27
+#  Last modified 2022-07-23 00:27:26
 #  File has been updated.
 #  Successfully updated.
 
@@ -457,28 +467,9 @@ build/gimbctrl.bin:
 
 build:
 #  Implicit rule search has not been done.
-#  Implicit/static pattern stem: ''
-#  File does not exist.
+#  Last modified 2022-07-23 00:16:02
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := build
-# automatic
-# % := 
-# automatic
-# * := 
-# automatic
-# + := 
-# automatic
-# | := 
-# automatic
-# < := 
-# automatic
-# ^ := 
-# automatic
-# ? := 
-# variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=1/12=8%
+#  Successfully updated.
 #  recipe to execute (from 'Makefile', line 212):
 	mkdir $@		
 
@@ -653,21 +644,22 @@ build/list.o:
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=51/1024=5%, Rehash=0, Collisions=8/142=6%
+# Load=51/1024=5%, Rehash=0, Collisions=8/141=6%
 # VPATH Search Paths
 
 vpath %.c Drivers/STM32F4xx_HAL_Driver/Src;Middlewares/Third_Party/FreeRTOS/Source;Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2;Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F;Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang;Src;src
 
 # 1 'vpath' search paths.
 
-# No general ('VPATH' variable) search path.
+# No general ('VPATH' variab 
+le) search path.
 
-# strcache buffers: 1 (0) / strings = 124 / storage = 2142 B / avg = 17 B
-# current buf: size = 8162 B / used = 2142 B / count = 124 / avg = 17 B
+# strcache buffers: 1 (0) / strings = 130 / storage = 2187 B / avg = 16 B
+# current buf: size = 8162 B / used = 2187 B / count = 130 / avg = 16 B
 
-# strcache performance: lookups = 181 / hit rate = 31%
+# strcache performance: lookups = 190 / hit rate = 31%
 # hash-table stats:
-# Load=124/8192=2%, Rehash=0, Collisions=8/181=4%
-# Finished Make data base on Sat Jul 23 00:09:13 2022
+# Load=130/8192=2%, Rehash=0, Collisions=10/190=5%
+# Finished Make data base on Sat Jul 23 12:50:58 2022
 
  
