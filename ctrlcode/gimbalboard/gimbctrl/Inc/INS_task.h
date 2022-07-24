@@ -177,4 +177,7 @@ extern const fp32 *get_accel_data_point(void);
   */
 extern const fp32 *get_mag_data_point(void);
 
+extern fp32 INS_angle[3];
+extern bmi088_real_data_t bmi088_real_data;
+
 #endif

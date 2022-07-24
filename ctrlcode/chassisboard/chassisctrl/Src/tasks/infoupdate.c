@@ -139,7 +139,7 @@ void get_zrelangle(RobInfo *ri)
     ri->cur.zrelangle = yaw.curmotorinfo.angle - yaw.setup.installationangle;
 }
 
-void robinfoupdater()
+void infoupdate()
 {
     init_robinfo(&robinfo);
     for (;;)

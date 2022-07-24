@@ -13,6 +13,9 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
     }
     else if (hcan->Instance == CAN2)
     {
-        
+        if(rx_header.StdId==chasboardid)
+        {
+            canrx2comuinfo_comd(rx_data,&comuinfo);
+        }
     }
 }

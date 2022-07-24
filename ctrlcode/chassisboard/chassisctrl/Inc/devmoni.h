@@ -13,20 +13,20 @@
             serid(wheid, 0x00000003), \
             yawmotid,                 \
             pitmotid,                 \
-            mpuid,                    \
-            capsid                    \
+            0x00000000,               \
+            0x00000000                \
     }
 
-#define can2idlist      \
-    {                   \
-        0x00000000,     \
-            0x00000000, \
-            0x00000000, \
-            0x00000000, \
-            0x00000000, \
-            0x00000000, \
-            0x00000000, \
-            0x00000000  \
+#define can2idlist           \
+    {                        \
+        capsid,              \
+            gimbboardid_imu, \
+            gimbboardid_cv,  \
+            0x00000000,      \
+            0x00000000,      \
+            0x00000000,      \
+            0x00000000,      \
+            0x00000000       \
     }
 
 extern uint32_t can1_idlist[8], can2_idlist[8];

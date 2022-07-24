@@ -53,14 +53,14 @@ osThreadId_t refereereadHandle;
 const osThreadAttr_t refereeread_attributes = {
   .name = "refereeread",
   .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityNormal,
+  .priority = (osPriority_t) osPriorityRealtime,
 };
 /* Definitions for devmonitor */
 osThreadId_t devmonitorHandle;
 const osThreadAttr_t devmonitor_attributes = {
   .name = "devmonitor",
   .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityNormal,
+  .priority = (osPriority_t) osPriorityRealtime,
 };
 /* Definitions for gimbalcontrol */
 osThreadId_t gimbalcontrolHandle;
@@ -88,14 +88,14 @@ osThreadId_t UIdrawHandle;
 const osThreadAttr_t UIdraw_attributes = {
   .name = "UIdraw",
   .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityNormal,
+  .priority = (osPriority_t) osPriorityRealtime,
 };
 /* Definitions for capsctrol */
 osThreadId_t capsctrolHandle;
 const osThreadAttr_t capsctrol_attributes = {
   .name = "capsctrol",
   .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityNormal,
+  .priority = (osPriority_t) osPriorityRealtime,
 };
 /* Definitions for roboinfoupdate */
 osThreadId_t roboinfoupdateHandle;
@@ -117,7 +117,7 @@ void chasctrl(void *argument);
 void comutask(void *argument);
 void UIdrawer(void *argument);
 void capsctrl(void *argument);
-void robinfoupdater(void *argument);
+void infoupdate(void *argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -170,7 +170,7 @@ void MX_FREERTOS_Init(void) {
   capsctrolHandle = osThreadNew(capsctrl, NULL, &capsctrol_attributes);
 
   /* creation of roboinfoupdate */
-  roboinfoupdateHandle = osThreadNew(robinfoupdater, NULL, &roboinfoupdate_attributes);
+  roboinfoupdateHandle = osThreadNew(infoupdate, NULL, &roboinfoupdate_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -308,22 +308,22 @@ __weak void capsctrl(void *argument)
   /* USER CODE END capsctrl */
 }
 
-/* USER CODE BEGIN Header_robinfoupdater */
+/* USER CODE BEGIN Header_infoupdate */
 /**
 * @brief Function implementing the roboinfoupdate thread.
 * @param argument: Not used
 * @retval None
 */
-/* USER CODE END Header_robinfoupdater */
-__weak void robinfoupdater(void *argument)
+/* USER CODE END Header_infoupdate */
+__weak void infoupdate(void *argument)
 {
-  /* USER CODE BEGIN robinfoupdater */
+  /* USER CODE BEGIN infoupdate */
   /* Infinite loop */
   for(;;)
   {
     osDelay(1);
   }
-  /* USER CODE END robinfoupdater */
+  /* USER CODE END infoupdate */
 }
 
 /* Private application code --------------------------------------------------*/

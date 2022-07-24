@@ -34,6 +34,8 @@ extern "C" {
 #include "FreeRTOS.h"
 #include "task.h"
 #include "cmsis_os2.h"
+#include "string.h"
+#include "math.h"
 #include "can_bsp.h"
 #include "flash_bsp.h"
 #include "bsp_delay.h"
@@ -50,8 +52,12 @@ extern "C" {
 #include "BMI088Middleware.h"
 #include "BMI088driver.h"
 #include "INS_task.h"
-#include "string.h"
-#include "math.h"
+#include "comutask.h"
+#include "devmoni.h"
+#include "infoupdate.h"
+#include "shoottask.h"
+
+
 
 
 /* USER CODE END Includes */

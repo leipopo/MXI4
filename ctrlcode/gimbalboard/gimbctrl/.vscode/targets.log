@@ -7,7 +7,7 @@ make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --quest
 # There is NO WARRANTY, to the extent permitted by law.
  
 
-# Make data base, printed on Sat Jul 23 12:50:58 2022
+# Make data base, printed on Sun Jul 24 14:19:52 2022
 
 # Variables
 
@@ -77,7 +77,7 @@ PROGRAMW6432 = C:\Program Files
 # environment
 PROGRAMDATA = C:\ProgramData
 # environment
-VSCODE_CWD = C:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl
+VSCODE_CWD = C:\Users\94736\AppData\Local\Programs\Microsoft VS Code
 # makefile (from 'Makefile', line 25)
 OPT = -Og
 # default
@@ -105,13 +105,13 @@ LDFLAGS = $(MCU) -specs=nano.specs -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BU
 # automatic
 %F = $(notdir $%)
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_3152_XQJKZXXKBKYQNIGH
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_8412_MPCNUJEEBSHAEMWS
 # makefile (from 'Makefile', line 91)
 ASM_SOURCES = startup_stm32f407xx.s
 # environment
 EIDE_TOOL_SDCC = C:\Users\94736\.eide\tools\sdcc\bin
 # environment
-PLATFORMIO_PATH = C:\Users\94736\.platformio\python3;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\usbipd-win\;C:\Program Files\dotnet\;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files (x86)\STMicroelectronics\STM32 ST-LINK Utility\ST-LINK Utility;C:\Program Files\Git\cmd;C:\Users\94736\AppData\Local\Microsoft\WindowsApps;C:\Users\94736\AppData\Local\Programs\Microsoft VS Code\bin;C:\msys64\mingw64\bin;C:\Program Files (x86)\GNU Arm Embedded Toolchain\10 2021.10\bin;C:\openocd-20211118\OpenOCD-20211118-0.11.0\bin;C:\Program Files\Git\usr\bin;C:\Users\94736\.eide\bin\builder\bin;C:\Users\94736\.eide\bin\builder\utils;C:\Users\94736\.eide\bin\scripts;C:\Users\94736\.eide\tools\gcc_arm\bin;C:\Users\94736\.eide\tools\jlink;C:\Users\94736\.eide\tools\openocd\bin;C:\Users\94736\.eide\tools\gcc_riscv\bin;C:\Users\94736\.eide\tools\sdcc\bin;C:\Users\94736\.eide\tools\st_cube_programer\bin;C:\Users\94736\.eide\bin\builder\msys\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\usbipd-win\;C:\Program Files\dotnet\;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files (x86)\STMicroelectronics\STM32 ST-LINK Utility\ST-LINK Utility;C:\Program Files\Git\cmd;C:\Users\94736\AppData\Local\Microsoft\WindowsApps;C:\Users\94736\AppData\Local\Programs\Microsoft VS Code\bin;C:\msys64\mingw64\bin;C:\Program Files (x86)\GNU Arm Embedded Toolchain\10 2021.10\bin;C:\openocd-20211118\OpenOCD-20211118-0.11.0\bin;C:\Program Files\Git\usr\bin;C:\Users\94736\.eide\bin\builder\bin;C:\Users\94736\.eide\bin\builder\utils;C:\Users\94736\.eide\bin\scripts;C:\Users\94736\.eide\tools\gcc_arm\bin;C:\Users\94736\.eide\tools\jlink;C:\Users\94736\.eide\tools\openocd\bin;C:\Users\94736\.eide\tools\gcc_riscv\bin;C:\Users\94736\.eide\tools\sdcc\bin;C:\Users\94736\.eide\tools\st_cube_programer\bin;C:\Users\94736\.eide\bin\builder\msys\bin
+PLATFORMIO_PATH = C:\Users\94736\.platformio\penv\Scripts;C:\Users\94736\.platformio\penv;C:\Users\94736\.platformio\python3;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\usbipd-win\;C:\Program Files\dotnet\;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files (x86)\STMicroelectronics\STM32 ST-LINK Utility\ST-LINK Utility;C:\Program Files\Git\cmd;C:\Users\94736\AppData\Local\Microsoft\WindowsApps;C:\Users\94736\AppData\Local\Programs\Microsoft VS Code\bin;C:\msys64\mingw64\bin;C:\Program Files (x86)\GNU Arm Embedded Toolchain\10 2021.10\bin;C:\openocd-20211118\OpenOCD-20211118-0.11.0\bin;C:\Program Files\Git\usr\bin;C:\Users\94736\.eide\bin\builder\bin;C:\Users\94736\.eide\bin\builder\utils;C:\Users\94736\.eide\bin\scripts;C:\Users\94736\.eide\tools\gcc_arm\bin;C:\Users\94736\.eide\tools\jlink;C:\Users\94736\.eide\tools\openocd\bin;C:\Users\94736\.eide\tools\gcc_riscv\bin;C:\Users\94736\.eide\tools\sdcc\bin;C:\Users\94736\.eide\tools\st_cube_programer\bin;C:\Users\94736\.eide\bin\builder\msys\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\usbipd-win\;C:\Program Files\dotnet\;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files (x86)\STMicroelectronics\STM32 ST-LINK Utility\ST-LINK Utility;C:\Program Files\Git\cmd;C:\Users\94736\AppData\Local\Microsoft\WindowsApps;C:\Users\94736\AppData\Local\Programs\Microsoft VS Code\bin;C:\msys64\mingw64\bin;C:\Program Files (x86)\GNU Arm Embedded Toolchain\10 2021.10\bin;C:\openocd-20211118\OpenOCD-20211118-0.11.0\bin;C:\Program Files\Git\usr\bin;C:\Users\94736\.eide\bin\builder\bin;C:\Users\94736\.eide\bin\builder\utils;C:\Users\94736\.eide\bin\scripts;C:\Users\94736\.eide\tools\gcc_arm\bin;C:\Users\94736\.eide\tools\jlink;C:\Users\94736\.eide\tools\openocd\bin;C:\Users\94736\.eide\tools\gcc_riscv\bin;C:\Users\94736\.eide\tools\sdcc\bin;C:\Users\94736\.eide\tools\st_cube_programer\bin;C:\Users\94736\.eide\bin\builder\msys\bin
 # environment
 COMPUTERNAME = DESKTOP-CTQBUVL
 # environment
@@ -257,7 +257,7 @@ LANG = C
 # environment
 PROCESSOR_LEVEL = 6
 # environment
-VSCODE_PID = 3152
+VSCODE_PID = 8412
 # environment
 EIDE_TOOL_ST_CUBE_PROGRAMER = C:\Users\94736\.eide\tools\st_cube_programer\bin
 # environment
@@ -273,15 +273,15 @@ USERDOMAIN_ROAMINGPROFILE = DESKTOP-CTQBUVL
 
 # Directories
 
-# . (key c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl, mtime 1658507369): 20 files, no impossibilities.
-# Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F (key c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F, mtime 1658507244): 4 files, no impossibilities.
-# Src (key c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl/Src, mtime 1658507243): 11 files, no impossibilities so far.
+# . (key c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl, mtime 1658643346): 20 files, no impossibilities.
+# Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F (key c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F, mtime 1658643343): 4 files, no impossibilities.
+# Src (key c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl/Src, mtime 1658643342): 11 files, no impossibilities so far.
 # build (key c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl/build, mtime 1658506562): 3 files, no impossibilities.
-# Middlewares/Third_Party/FreeRTOS/Source (key c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source, mtime 1658507244): 13 files, no impossibilities.
-# Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 (key c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2, mtime 1658507244): 7 files, no impossibilities.
-# Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang (key c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang, mtime 1658507244): 3 files, no impossibilities.
-# src (key c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl/src, mtime 1658507243): No files, no impossibilities so far.
-# Drivers/STM32F4xx_HAL_Driver/Src (key c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src, mtime 1658507244): 21 files, no impossibilities.
+# Middlewares/Third_Party/FreeRTOS/Source (key c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source, mtime 1658643343): 13 files, no impossibilities.
+# Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 (key c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2, mtime 1658643343): 7 files, no impossibilities.
+# Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang (key c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang, mtime 1658643343): 3 files, no impossibilities.
+# src (key c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl/src, mtime 1658643342): No files, no impossibilities so far.
+# Drivers/STM32F4xx_HAL_Driver/Src (key c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src, mtime 1658643343): 21 files, no impossibilities.
 
 # 82 files, no impossibilities in 9 directories.
 
@@ -431,7 +431,7 @@ build/stm32f4xx_hal.o:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-23 00:27:26
+#  Last modified 2022-07-24 14:15:46
 #  File has been updated.
 #  Successfully updated.
 
@@ -482,7 +482,7 @@ build/stm32f4xx_hal_flash_ramfunc.o:
 # Not a target:
 Src/main.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-19 11:53:45
+#  Last modified 2022-07-23 16:33:17
 #  File has been updated.
 #  Successfully updated.
 
@@ -651,8 +651,7 @@ vpath %.c Drivers/STM32F4xx_HAL_Driver/Src;Middlewares/Third_Party/FreeRTOS/Sour
 
 # 1 'vpath' search paths.
 
-# No general ('VPATH' variab 
-le) search path.
+# No general ('VPATH' variable) search path.
 
 # strcache buffers: 1 (0) / strings = 130 / storage = 2187 B / avg = 16 B
 # current buf: size = 8162 B / used = 2187 B / count = 130 / avg = 16 B
@@ -660,6 +659,6 @@ le) search path.
 # strcache performance: lookups = 190 / hit rate = 31%
 # hash-table stats:
 # Load=130/8192=2%, Rehash=0, Collisions=10/190=5%
-# Finished Make data base on Sat Jul 23 12:50:58 2022
+# Finished Make data base on Sun Jul 24 14:19:52 2022
 
  

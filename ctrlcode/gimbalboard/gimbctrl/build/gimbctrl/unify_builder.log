@@ -36,3 +36,573 @@ Inc/INS_task.h:85:13: error: prototype declaration
 [2022-07-23 16:49:55]	[done]
 	build successfully !
 
+[2022-07-24 14:19:58]	compilation failed at : "c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl\src\tasks\devmoni.c", exit code: 1
+   at unify_builder.Program.compileByMulThread(Int32 thrNum, CmdInfo[] cmds, List`1 errLogs)
+   at unify_builder.Program.Main(String[] args_)
+---
+./src/tasks/devmoni.c:3:27: error: 'can1idlist' undeclared here (not in a function); did you mean 'can1_idlist'?
+ uint32_t can1_idlist[8] = can1idlist, can2_idlist[8] = can2idlist;
+                           ^~~~~~~~~~
+                           can1_idlist
+./src/tasks/devmoni.c:3:56: error: 'can2idlist' undeclared here (not in a function); did you mean 'can2_idlist'?
+ uint32_t can1_idlist[8] = can1idlist, can2_idlist[8] = can2idlist;
+                                                        ^~~~~~~~~~
+                                                        can2_idlist
+./src/tasks/devmoni.c: In function 'devmoni':
+./src/tasks/devmoni.c:23:57: error: 'RC_ON' undeclared (first use in this function)
+         if (can1devsta == 0x11 && can2devsta == 0x11 && RC_ON == 0x01)
+                                                         ^~~~~
+./src/tasks/devmoni.c:23:57: note: each undeclared identifier is reported only once for each function it appears in
+./src/tasks/devmoni.c:26:13: warning: implicit declaration of function 'zerostate' [-Wimplicit-function-declaration]
+             zerostate(can1devsta);
+             ^~~~~~~~~
+
+[2022-07-24 14:23:38]	compilation failed at : "c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl\Src\spi.c", exit code: 1
+   at unify_builder.Program.compileByMulThread(Int32 thrNum, CmdInfo[] cmds, List`1 errLogs)
+   at unify_builder.Program.Main(String[] args_)
+---
+In file included from Inc/can.h:29,
+                 from ./Src/can.c:21:
+Inc/main.h:57:10: fatal error: shoottasks.h: No such file or directory
+ #include "shoottasks.h"
+          ^~~~~~~~~~~~~~
+compilation terminated.
+In file included from Inc/gpio.h:29,
+                 from ./Src/gpio.c:22:
+Inc/main.h:57:10: fatal error: shoottasks.h: No such file or directory
+ #include "shoottasks.h"
+          ^~~~~~~~~~~~~~
+compilation terminated.
+In file included from ./src/bsps/bsp_spi.c:2:
+Inc/main.h:57:10: fatal error: shoottasks.h: No such file or directory
+ #include "shoottasks.h"
+          ^~~~~~~~~~~~~~
+compilation terminated.
+In file included from Inc/tim.h:29,
+                 from ./Src/tim.c:21:
+Inc/main.h:57:10: fatal error: shoottasks.h: No such file or directory
+ #include "shoottasks.h"
+          ^~~~~~~~~~~~~~
+compilation terminated.
+In file included from ./src/devices/BMI088Middleware.c:2:
+Inc/main.h:57:10: fatal error: shoottasks.h: No such file or directory
+ #include "shoottasks.h"
+          ^~~~~~~~~~~~~~
+compilation terminated.
+In file included from Inc/spi.h:29,
+                 from ./Src/spi.c:21:
+Inc/main.h:57:10: fatal error: shoottasks.h: No such file or directory
+ #include "shoottasks.h"
+          ^~~~~~~~~~~~~~
+compilation terminated.
+
+[2022-07-24 14:23:49]	compilation failed at : "c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl\src\tasks\devmoni.c", exit code: 1
+   at unify_builder.Program.compileByMulThread(Int32 thrNum, CmdInfo[] cmds, List`1 errLogs)
+   at unify_builder.Program.Main(String[] args_)
+---
+./src/tasks/devmoni.c: In function 'devmoni':
+./src/tasks/devmoni.c:23:57: error: 'RC_ON' undeclared (first use in this function)
+         if (can1devsta == 0x11 && can2devsta == 0x11 && RC_ON == 0x01)
+                                                         ^~~~~
+./src/tasks/devmoni.c:23:57: note: each undeclared identifier is reported only once for each function it appears in
+
+[2022-07-24 15:06:58]	compilation failed at : "c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl\src\tasks\devmoni.c", exit code: 1
+   at unify_builder.Program.compileByMulThread(Int32 thrNum, CmdInfo[] cmds, List`1 errLogs)
+   at unify_builder.Program.Main(String[] args_)
+---
+In file included from Inc/main.h:55,
+                 from Inc/i2c.h:29,
+                 from ./Src/i2c.c:21:
+Inc/comutask.h:4:10: fatal error: infoupdate.h: No such file or directory
+ #include "infoupdate.h"
+          ^~~~~~~~~~~~~~
+compilation terminated.
+In file included from Inc/main.h:55,
+                 from ./Src/stm32f4xx_it.c:21:
+Inc/comutask.h:4:10: fatal error: infoupdate.h: No such file or directory
+ #include "infoupdate.h"
+          ^~~~~~~~~~~~~~
+compilation terminated.
+In file included from Inc/main.h:55,
+                 from ./Src/freertos.c:23:
+Inc/comutask.h:4:10: fatal error: infoupdate.h: No such file or directory
+ #include "infoupdate.h"
+          ^~~~~~~~~~~~~~
+compilation terminated.
+In file included from Inc/main.h:55,
+                 from ./src/bsps/flash_bsp.c:2:
+Inc/comutask.h:4:10: fatal error: infoupdate.h: No such file or directory
+ #include "infoupdate.h"
+          ^~~~~~~~~~~~~~
+compilation terminated.
+In file included from Inc/main.h:55,
+                 from ./src/bsps/bsp_spi.c:2:
+Inc/comutask.h:4:10: fatal error: infoupdate.h: No such file or directory
+ #include "infoupdate.h"
+          ^~~~~~~~~~~~~~
+compilation terminated.
+In file included from Inc/main.h:55,
+                 from Inc/can.h:29,
+                 from ./Src/can.c:21:
+Inc/comutask.h:4:10: fatal error: infoupdate.h: No such file or directory
+ #include "infoupdate.h"
+          ^~~~~~~~~~~~~~
+compilation terminated.
+In file included from Inc/main.h:55,
+                 from Inc/spi.h:29,
+                 from ./Src/spi.c:21:
+Inc/comutask.h:4:10: fatal error: infoupdate.h: No such file or directory
+ #include "infoupdate.h"
+          ^~~~~~~~~~~~~~
+compilation terminated.
+In file included from Inc/main.h:55,
+                 from ./src/libs/motlib.c:1:
+Inc/comutask.h:4:10: fatal error: infoupdate.h: No such file or directory
+ #include "infoupdate.h"
+          ^~~~~~~~~~~~~~
+compilation terminated.
+In file included from Inc/main.h:55,
+                 from ./src/bsps/bsp_delay.c:2:
+Inc/comutask.h:4:10: fatal error: infoupdate.h: No such file or directory
+ #include "infoupdate.h"
+          ^~~~~~~~~~~~~~
+compilation terminated.
+In file included from Inc/main.h:55,
+                 from ./src/devices/canbus.c:1:
+Inc/comutask.h:4:10: fatal error: infoupdate.h: No such file or directory
+ #include "infoupdate.h"
+          ^~~~~~~~~~~~~~
+compilation terminated.
+In file included from Inc/main.h:55,
+                 from ./src/tasks/INS_task.c:24:
+Inc/comutask.h:4:10: fatal error: infoupdate.h: No such file or directory
+ #include "infoupdate.h"
+          ^~~~~~~~~~~~~~
+compilation terminated.
+In file included from Inc/main.h:55,
+                 from ./src/tasks/devmoni.c:1:
+Inc/comutask.h:4:10: fatal error: infoupdate.h: No such file or directory
+ #include "infoupdate.h"
+          ^~~~~~~~~~~~~~
+compilation terminated.
+
+[2022-07-24 15:14:05]	compilation failed at : "c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl\src\tasks\comutask.c", exit code: 1
+   at unify_builder.Program.compileByMulThread(Int32 thrNum, CmdInfo[] cmds, List`1 errLogs)
+   at unify_builder.Program.Main(String[] args_)
+---
+./src/tasks/comutask.c: In function 'comutask':
+./src/tasks/comutask.c:16:37: error: 'can2_mes2gimbboard' undeclared (first use in this function)
+         CAN_send(0x00000233, hcan2, can2_mes2gimbboard);
+                                     ^~~~~~~~~~~~~~~~~~
+./src/tasks/comutask.c:16:37: note: each undeclared identifier is reported only once for each function it appears in
+
+[2022-07-24 15:14:48]	compilation failed at : "c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl\src\tasks\devmoni.c", exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+In file included from Inc/main.h:56,
+                 from ./src/tasks/devmoni.c:1:
+Inc/devmoni.h:16:13: error: 'mpuid' undeclared here (not in a function)
+             mpuid,                    \
+             ^~~~~
+./src/tasks/devmoni.c:3:27: note: in expansion of macro 'can1idlist'
+ uint32_t can1_idlist[8] = can1idlist, can2_idlist[8] = can2idlist;
+                           ^~~~~~~~~~
+./src/tasks/devmoni.c: In function 'devmoni':
+./src/tasks/devmoni.c:28:13: error: 'RC_ON' undeclared (first use in this function)
+             RC_ON = 0x00;
+             ^~~~~
+./src/tasks/devmoni.c:28:13: note: each undeclared identifier is reported only once for each function it appears in
+
+[2022-07-24 15:15:12]	compilation failed at : "c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl\src\tasks\devmoni.c", exit code: 1
+   at unify_builder.Program.compileByMulThread(Int32 thrNum, CmdInfo[] cmds, List`1 errLogs)
+   at unify_builder.Program.Main(String[] args_)
+---
+./src/tasks/devmoni.c: In function 'devmoni':
+./src/tasks/devmoni.c:28:13: error: 'RC_ON' undeclared (first use in this function)
+             RC_ON = 0x00;
+             ^~~~~
+./src/tasks/devmoni.c:28:13: note: each undeclared identifier is reported only once for each function it appears in
+
+[2022-07-24 15:15:21]	compilation failed at : "c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl\src\tasks\shoottask.c", exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+./src/tasks/shoottask.c:1:10: fatal error: main.c: No such file or directory
+ #include "main.c"
+          ^~~~~~~~
+compilation terminated.
+
+[2022-07-24 15:15:38]	[done]
+	build successfully !
+
+[2022-07-24 15:49:18]	compilation failed at : "c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl\src\devices\canbus.c", exit code: 1
+   at unify_builder.Program.compileByMulThread(Int32 thrNum, CmdInfo[] cmds, List`1 errLogs)
+   at unify_builder.Program.Main(String[] args_)
+---
+./src/devices/canbus.c: In function 'HAL_CAN_RxFifo0MsgPendingCallback':
+./src/devices/canbus.c:18:41: error: incompatible type for argument 2 of 'canrx2comuinfo_comd'
+             canrx2comuinfo_comd(rx_data,comuinfo);
+                                         ^~~~~~~~
+In file included from Inc/main.h:55,
+                 from ./src/devices/canbus.c:1:
+Inc/comutask.h:27:51: note: expected 'ComuInfo *' {aka 'struct _COMU_INFO *'} but argument is of type 'ComuInfo' {aka 'struct _COMU_INFO'}
+ void canrx2comuinfo_comd(uint8_t rx[8], ComuInfo *ci);
+                                         ~~~~~~~~~~^~
+
+[2022-07-24 15:50:26]	compilation failed at : "c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl\src\tasks\shoottask.c", exit code: 1
+   at unify_builder.Program.compileByMulThread(Int32 thrNum, CmdInfo[] cmds, List`1 errLogs)
+   at unify_builder.Program.Main(String[] args_)
+---
+./src/tasks/shoottask.c: In function 'shoottask':
+./src/tasks/shoottask.c:5:8: error: expected '(' before '{' token
+     for{;;}
+        ^
+        (
+
+[2022-07-24 15:50:41]	[done]
+	build successfully !
+
+[2022-07-24 15:52:04]	[done]
+	build successfully !
+
+[2022-07-24 16:15:56]	compilation failed at : "c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl\src\devices\canbus.c", exit code: 1
+   at unify_builder.Program.compileByMulThread(Int32 thrNum, CmdInfo[] cmds, List`1 errLogs)
+   at unify_builder.Program.Main(String[] args_)
+---
+In file included from Inc/main.h:55,
+                 from Inc/can.h:29,
+                 from ./Src/can.c:21:
+Inc/comutask.h:6:1: error: duplicate 'typedef'
+ typedef struct _COMU_INFO
+ ^~~~~~~
+Inc/comutask.h:6:9: error: expected ';', identifier or '(' before 'struct'
+ typedef struct _COMU_INFO
+         ^~~~~~
+Inc/comutask.h:16:17: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'comuinfo'
+ extern ComuInfo comuinfo;
+                 ^~~~~~~~
+Inc/comutask.h:17:41: error: expected declaration specifiers or '...' before 'ComuInfo'
+ void canrx2comuinfo_comd(uint8_t rx[8], ComuInfo *ci);
+                                         ^~~~~~~~
+In file included from Inc/main.h:55,
+                 from ./Src/freertos.c:23:
+Inc/comutask.h:6:1: error: duplicate 'typedef'
+ typedef struct _COMU_INFO
+ ^~~~~~~
+Inc/comutask.h:6:9: error: expected ';', identifier or '(' before 'struct'
+ typedef struct _COMU_INFO
+         ^~~~~~
+Inc/comutask.h:16:17: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'comuinfo'
+ extern ComuInfo comuinfo;
+                 ^~~~~~~~
+Inc/comutask.h:17:41: error: expected declaration specifiers or '...' before 'ComuInfo'
+ void canrx2comuinfo_comd(uint8_t rx[8], ComuInfo *ci);
+                                         ^~~~~~~~
+In file included from Inc/main.h:55,
+                 from Inc/i2c.h:29,
+                 from ./Src/i2c.c:21:
+Inc/comutask.h:6:1: error: duplicate 'typedef'
+ typedef struct _COMU_INFO
+ ^~~~~~~
+Inc/comutask.h:6:9: error: expected ';', identifier or '(' before 'struct'
+ typedef struct _COMU_INFO
+         ^~~~~~
+Inc/comutask.h:16:17: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'comuinfo'
+ extern ComuInfo comuinfo;
+                 ^~~~~~~~
+Inc/comutask.h:17:41: error: expected declaration specifiers or '...' before 'ComuInfo'
+ void canrx2comuinfo_comd(uint8_t rx[8], ComuInfo *ci);
+                                         ^~~~~~~~
+In file included from Inc/main.h:55,
+                 from ./src/libs/motlib.c:1:
+Inc/comutask.h:6:1: error: duplicate 'typedef'
+ typedef struct _COMU_INFO
+ ^~~~~~~
+Inc/comutask.h:6:9: error: expected ';', identifier or '(' before 'struct'
+ typedef struct _COMU_INFO
+         ^~~~~~
+Inc/comutask.h:16:17: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'comuinfo'
+ extern ComuInfo comuinfo;
+                 ^~~~~~~~
+Inc/comutask.h:17:41: error: expected declaration specifiers or '...' before 'ComuInfo'
+ void canrx2comuinfo_comd(uint8_t rx[8], ComuInfo *ci);
+                                         ^~~~~~~~
+In file included from Inc/main.h:55,
+                 from ./src/bsps/bsp_spi.c:2:
+Inc/comutask.h:6:1: error: duplicate 'typedef'
+ typedef struct _COMU_INFO
+ ^~~~~~~
+Inc/comutask.h:6:9: error: expected ';', identifier or '(' before 'struct'
+ typedef struct _COMU_INFO
+         ^~~~~~
+Inc/comutask.h:16:17: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'comuinfo'
+ extern ComuInfo comuinfo;
+                 ^~~~~~~~
+Inc/comutask.h:17:41: error: expected declaration specifiers or '...' before 'ComuInfo'
+ void canrx2comuinfo_comd(uint8_t rx[8], ComuInfo *ci);
+                                         ^~~~~~~~
+In file included from Inc/main.h:55,
+                 from ./src/bsps/flash_bsp.c:2:
+Inc/comutask.h:6:1: error: duplicate 'typedef'
+ typedef struct _COMU_INFO
+ ^~~~~~~
+Inc/comutask.h:6:9: error: expected ';', identifier or '(' before 'struct'
+ typedef struct _COMU_INFO
+         ^~~~~~
+Inc/comutask.h:16:17: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'comuinfo'
+ extern ComuInfo comuinfo;
+                 ^~~~~~~~
+Inc/comutask.h:17:41: error: expected declaration specifiers or '...' before 'ComuInfo'
+ void canrx2comuinfo_comd(uint8_t rx[8], ComuInfo *ci);
+                                         ^~~~~~~~
+In file included from Inc/main.h:55,
+                 from ./src/bsps/bsp_delay.c:2:
+Inc/comutask.h:6:1: error: duplicate 'typedef'
+ typedef struct _COMU_INFO
+ ^~~~~~~
+Inc/comutask.h:6:9: error: expected ';', identifier or '(' before 'struct'
+ typedef struct _COMU_INFO
+         ^~~~~~
+Inc/comutask.h:16:17: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'comuinfo'
+ extern ComuInfo comuinfo;
+                 ^~~~~~~~
+Inc/comutask.h:17:41: error: expected declaration specifiers or '...' before 'ComuInfo'
+ void canrx2comuinfo_comd(uint8_t rx[8], ComuInfo *ci);
+                                         ^~~~~~~~
+In file included from Inc/main.h:55,
+                 from ./src/tasks/devmoni.c:1:
+Inc/comutask.h:6:1: error: duplicate 'typedef'
+ typedef struct _COMU_INFO
+ ^~~~~~~
+Inc/comutask.h:6:9: error: expected ';', identifier or '(' before 'struct'
+ typedef struct _COMU_INFO
+         ^~~~~~
+Inc/comutask.h:16:17: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'comuinfo'
+ extern ComuInfo comuinfo;
+                 ^~~~~~~~
+Inc/comutask.h:17:41: error: expected declaration specifiers or '...' before 'ComuInfo'
+ void canrx2comuinfo_comd(uint8_t rx[8], ComuInfo *ci);
+                                         ^~~~~~~~
+In file included from Inc/main.h:55,
+                 from Inc/spi.h:29,
+                 from ./Src/spi.c:21:
+Inc/comutask.h:6:1: error: duplicate 'typedef'
+ typedef struct _COMU_INFO
+ ^~~~~~~
+Inc/comutask.h:6:9: error: expected ';', identifier or '(' before 'struct'
+ typedef struct _COMU_INFO
+         ^~~~~~
+Inc/comutask.h:16:17: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'comuinfo'
+ extern ComuInfo comuinfo;
+                 ^~~~~~~~
+Inc/comutask.h:17:41: error: expected declaration specifiers or '...' before 'ComuInfo'
+ void canrx2comuinfo_comd(uint8_t rx[8], ComuInfo *ci);
+                                         ^~~~~~~~
+In file included from Inc/main.h:55,
+                 from ./src/tasks/INS_task.c:24:
+Inc/comutask.h:6:1: error: duplicate 'typedef'
+ typedef struct _COMU_INFO
+ ^~~~~~~
+Inc/comutask.h:6:9: error: expected ';', identifier or '(' before 'struct'
+ typedef struct _COMU_INFO
+         ^~~~~~
+Inc/comutask.h:16:17: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'comuinfo'
+ extern ComuInfo comuinfo;
+                 ^~~~~~~~
+Inc/comutask.h:17:41: error: expected declaration specifiers or '...' before 'ComuInfo'
+ void canrx2comuinfo_comd(uint8_t rx[8], ComuInfo *ci);
+                                         ^~~~~~~~
+In file included from Inc/main.h:55,
+                 from ./Src/stm32f4xx_it.c:21:
+Inc/comutask.h:6:1: error: duplicate 'typedef'
+ typedef struct _COMU_INFO
+ ^~~~~~~
+Inc/comutask.h:6:9: error: expected ';', identifier or '(' before 'struct'
+ typedef struct _COMU_INFO
+         ^~~~~~
+Inc/comutask.h:16:17: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'comuinfo'
+ extern ComuInfo comuinfo;
+                 ^~~~~~~~
+Inc/comutask.h:17:41: error: expected declaration specifiers or '...' before 'ComuInfo'
+ void canrx2comuinfo_comd(uint8_t rx[8], ComuInfo *ci);
+                                         ^~~~~~~~
+In file included from Inc/main.h:55,
+                 from ./src/devices/canbus.c:1:
+Inc/comutask.h:6:1: error: duplicate 'typedef'
+ typedef struct _COMU_INFO
+ ^~~~~~~
+Inc/comutask.h:6:9: error: expected ';', identifier or '(' before 'struct'
+ typedef struct _COMU_INFO
+         ^~~~~~
+Inc/comutask.h:16:17: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'comuinfo'
+ extern ComuInfo comuinfo;
+                 ^~~~~~~~
+Inc/comutask.h:17:41: error: expected declaration specifiers or '...' before 'ComuInfo'
+ void canrx2comuinfo_comd(uint8_t rx[8], ComuInfo *ci);
+                                         ^~~~~~~~
+./src/devices/canbus.c: In function 'HAL_CAN_RxFifo0MsgPendingCallback':
+./src/devices/canbus.c:18:13: warning: implicit declaration of function 'canrx2comuinfo_comd'; did you mean 'canrx2motinfo'? [-Wimplicit-function-declaration]
+             canrx2comuinfo_comd(rx_data,&comuinfo);
+             ^~~~~~~~~~~~~~~~~~~
+             canrx2motinfo
+./src/devices/canbus.c:18:42: error: 'comuinfo' undeclared (first use in this function); did you mean 'ComuInfo'?
+             canrx2comuinfo_comd(rx_data,&comuinfo);
+                                          ^~~~~~~~
+                                          ComuInfo
+./src/devices/canbus.c:18:42: note: each undeclared identifier is reported only once for each function it appears in
+
+[2022-07-24 16:17:09]	compilation failed at : "c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl\src\tasks\comutask.c", exit code: 1
+   at unify_builder.Program.compileByMulThread(Int32 thrNum, CmdInfo[] cmds, List`1 errLogs)
+   at unify_builder.Program.Main(String[] args_)
+---
+./src/tasks/comutask.c: In function 'get_comuinfo_robinfo':
+./src/tasks/comutask.c:16:24: error: expected expression before ';' token
+     comuinfo->tx_imu = ;
+                        ^
+
+[2022-07-24 16:22:16]	compilation failed at : "c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl\src\tasks\comutask.c", exit code: 1
+   at unify_builder.Program.compileByMulThread(Int32 thrNum, CmdInfo[] cmds, List`1 errLogs)
+   at unify_builder.Program.Main(String[] args_)
+---
+./src/tasks/comutask.c: In function 'get_comuinfo_robinfo':
+./src/tasks/comutask.c:16:24: error: 'gimbinfo' undeclared (first use in this function); did you mean 'comuinfo'?
+     comuinfo->tx_imu = gimbinfo;
+                        ^~~~~~~~
+                        comuinfo
+./src/tasks/comutask.c:16:24: note: each undeclared identifier is reported only once for each function it appears in
+
+[2022-07-24 17:03:14]	[done]
+	build successfully !
+
+[2022-07-24 17:38:42]	compilation failed at : "c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl\src\tasks\infoupdate.c", exit code: 1
+   at unify_builder.Program.compileByMulThread(Int32 thrNum, CmdInfo[] cmds, List`1 errLogs)
+   at unify_builder.Program.Main(String[] args_)
+---
+./src/tasks/infoupdate.c: In function 'infoupdate':
+./src/tasks/infoupdate.c:8:9: warning: implicit declaration of function 'osDelayUntil' [-Wimplicit-function-declaration]
+         osDelayUntil(infotaskperi);
+         ^~~~~~~~~~~~
+./src/tasks/infoupdate.c:8:22: error: 'infotaskperi' undeclared (first use in this function)
+         osDelayUntil(infotaskperi);
+                      ^~~~~~~~~~~~
+./src/tasks/infoupdate.c:8:22: note: each undeclared identifier is reported only once for each function it appears in
+
+[2022-07-24 17:39:06]	[done]
+	build successfully !
+
+[2022-07-24 18:16:17]	compilation failed at : "c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl\src\tasks\infoupdate.c", exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+./src/tasks/infoupdate.c: In function 'get_comuinfo_imu':
+./src/tasks/infoupdate.c:5:25: error: incompatible types when assigning to type 'float' from type 'const fp32 * (*)(void)' {aka 'const float * (*)(void)'}
+     ci->tx_imu.yawangle =*(get_INS_angle_point+INS_YAW_ADDRESS_OFFSET);
+                         ^
+
+[2022-07-24 18:17:25]	compilation failed at : "c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl\src\tasks\infoupdate.c", exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+./src/tasks/infoupdate.c: In function 'get_comuinfo_imu':
+./src/tasks/infoupdate.c:5:26: error: lvalue required as unary '&' operand
+     ci->tx_imu.yawangle =&(get_INS_angle_point+INS_YAW_ADDRESS_OFFSET);
+                          ^
+
+[2022-07-24 18:17:39]	compilation failed at : "c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl\src\tasks\infoupdate.c", exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+./src/tasks/infoupdate.c: In function 'get_comuinfo_imu':
+./src/tasks/infoupdate.c:5:25: error: incompatible types when assigning to type 'float' from type 'const fp32 * (*)(void)' {aka 'const float * (*)(void)'}
+     ci->tx_imu.yawangle =*(get_INS_angle_point+INS_YAW_ADDRESS_OFFSET);
+                         ^
+
+[2022-07-24 18:19:32]	compilation failed at : "c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl\src\tasks\infoupdate.c", exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+./src/tasks/infoupdate.c: In function 'get_comuinfo_imu':
+./src/tasks/infoupdate.c:6:11: error: assignment to expression with array type
+     angle =get_INS_angle_point;
+           ^
+./src/tasks/infoupdate.c:5:11: warning: variable 'angle' set but not used [-Wunused-but-set-variable]
+     float angle[3];
+           ^~~~~
+
+[2022-07-24 18:22:17]	compilation failed at : "c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl\src\tasks\infoupdate.c", exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+./src/tasks/infoupdate.c: In function 'get_comuinfo_imu':
+./src/tasks/infoupdate.c:6:11: error: assignment to expression with array type
+     angle =get_INS_angle_point;
+           ^
+./src/tasks/infoupdate.c:5:11: warning: variable 'angle' set but not used [-Wunused-but-set-variable]
+     float angle[3];
+           ^~~~~
+
+[2022-07-24 18:23:34]	compilation failed at : "c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl\src\tasks\infoupdate.c", exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+./src/tasks/infoupdate.c: In function 'get_comuinfo_imu':
+./src/tasks/infoupdate.c:6:14: error: incompatible types when assigning to type 'float' from type 'const fp32 * (*)(void)' {aka 'const float * (*)(void)'}
+     angle [0]=*(get_INS_angle_point+INS_YAW_ADDRESS_OFFSET);
+              ^
+./src/tasks/infoupdate.c:5:11: warning: variable 'angle' set but not used [-Wunused-but-set-variable]
+     float angle[3];
+           ^~~~~
+
+[2022-07-24 18:37:30]	[done]
+	build successfully !
+
+[2022-07-24 18:55:05]	[done]
+	build successfully !
+
+[2022-07-24 19:08:25]	[done]
+	build successfully !
+
+[2022-07-24 19:11:33]	compilation failed at : "c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl\src\tasks\infoupdate.c", exit code: 1
+   at unify_builder.Program.compileByMulThread(Int32 thrNum, CmdInfo[] cmds, List`1 errLogs)
+   at unify_builder.Program.Main(String[] args_)
+---
+In file included from Inc/comutask.h:4,
+                 from Inc/main.h:55,
+                 from ./src/tasks/infoupdate.c:1:
+./src/tasks/infoupdate.c: In function 'get_comuinfo_imu':
+Inc/infoupdate.h:6:26: error: 'M_PI' undeclared (first use in this function); did you mean 'MPU'?
+ #define rad2deg(rad) rad/M_PI*180.f
+                          ^~~~
+./src/tasks/infoupdate.c:5:27: note: in expansion of macro 'rad2deg'
+     ci->tx_imu.yawangle = rad2deg(INS_angle[0]);
+                           ^~~~~~~
+Inc/infoupdate.h:6:26: note: each undeclared identifier is reported only once for each function it appears in
+ #define rad2deg(rad) rad/M_PI*180.f
+                          ^~~~
+./src/tasks/infoupdate.c:5:27: note: in expansion of macro 'rad2deg'
+     ci->tx_imu.yawangle = rad2deg(INS_angle[0]);
+                           ^~~~~~~
+
+[2022-07-24 19:13:04]	[done]
+	build successfully !
+
+[2022-07-24 19:13:22]	[done]
+	build successfully !
+
+[2022-07-24 19:20:14]	[done]
+	build successfully !
+
+[2022-07-24 19:21:07]	[done]
+	build successfully !
+
+[2022-07-24 19:23:29]	[done]
+	build successfully !
+
+[2022-07-24 19:23:49]	[done]
+	build successfully !
+
+[2022-07-24 19:27:04]	[done]
+	build successfully !
+
+[2022-07-24 19:29:06]	[done]
+	build successfully !
+
+[2022-07-24 19:33:27]	[done]
+	build successfully !
+
+[2022-07-24 19:33:38]	[done]
+	build successfully !
+

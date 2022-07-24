@@ -182,6 +182,9 @@
                     "path": "src/tasks/devmoni.c"
                   },
                   {
+                    "path": "src/tasks/infoupdate.c"
+                  },
+                  {
                     "path": "src/tasks/INS_task.c"
                   },
                   {
