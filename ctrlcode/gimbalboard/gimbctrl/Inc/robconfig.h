@@ -1,8 +1,8 @@
 #ifndef ROBCFG_H
 #define ROBCFG_H
 
-#define fircmotid_1 0x00000201
-#define fircmotid_2 0x00000202
+#define fricmotid_1 0x00000201
+#define fricmotid_2 0x00000202
 #define trigmotid 0x00000201
 
 #define yawmotid 0x00000207

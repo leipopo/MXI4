@@ -50,3 +50,141 @@
 [2022-07-25 13:50:52]	[done]
 	build successfully !
 
+[2022-07-25 18:56:48]	compilation failed at : "c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl\src\tasks\shoottask.c", exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+./src/tasks/shoottask.c: In function 'init_gimbmot_para':
+./src/tasks/shoottask.c:16:37: error: 'pitreductionratio' undeclared (first use in this function)
+     fric[0]->setup.reductionratio = pitreductionratio;
+                                     ^~~~~~~~~~~~~~~~~
+./src/tasks/shoottask.c:16:37: note: each undeclared identifier is reported only once for each function it appears in
+./src/tasks/shoottask.c: In function 'init_gimbmot_pid':
+./src/tasks/shoottask.c:28:24: error: 'pit' undeclared (first use in this function); did you mean 'rint'?
+     papid->outputMax = pit.setup.speed_limit / pit.setup.reductionratio;
+                        ^~~
+                        rint
+./src/tasks/shoottask.c:36:24: error: 'yaw' undeclared (first use in this function)
+     yapid->outputMax = yaw.setup.speed_limit / yaw.setup.reductionratio;
+                        ^~~
+
+[2022-07-25 18:57:00]	compilation failed at : "c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl\src\tasks\shoottask.c", exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+./src/tasks/shoottask.c: In function 'init_gimbmot_pid':
+./src/tasks/shoottask.c:28:24: error: 'pit' undeclared (first use in this function); did you mean 'rint'?
+     papid->outputMax = pit.setup.speed_limit / pit.setup.reductionratio;
+                        ^~~
+                        rint
+./src/tasks/shoottask.c:28:24: note: each undeclared identifier is reported only once for each function it appears in
+./src/tasks/shoottask.c:36:24: error: 'yaw' undeclared (first use in this function)
+     yapid->outputMax = yaw.setup.speed_limit / yaw.setup.reductionratio;
+                        ^~~
+
+[2022-07-25 20:22:34]	[done]
+	build successfully !
+
+[2022-07-25 23:02:09]	compilation failed at : "c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl\src\tasks\shoottask.c", exit code: 1
+   at unify_builder.Program.compileByMulThread(Int32 thrNum, CmdInfo[] cmds, List`1 errLogs)
+   at unify_builder.Program.Main(String[] args_)
+---
+./src/tasks/shoottask.c: In function 'get_trigangle_comd':
+./src/tasks/shoottask.c:55:9: warning: implicit declaration of function 'ABS' [-Wimplicit-function-declaration]
+     if (ABS(trigapid.err[0]) <= 1 && ABS(trigapid.err[1]) <= 1 && comuinfo.rx_comd.triggeron == 0x01)
+         ^~~
+./src/tasks/shoottask.c: In function 'calc_shootmot_pid':
+./src/tasks/shoottask.c:76:14: warning: passing argument 1 of 'PID_calc' from incompatible pointer type [-Wincompatible-pointer-types]
+     PID_calc(&fspid[0], 1);
+              ^~~~~~~~~
+In file included from Inc/motlib.h:4,
+                 from Inc/main.h:45,
+                 from ./src/tasks/shoottask.c:1:
+Inc/pid.h:45:30: note: expected 'PID_regulator *' {aka 'struct PID_regulator_t *'} but argument is of type 'PID_regulator **' {aka 'struct PID_regulator_t **'}
+ void PID_calc(PID_regulator *pid, float timetick);
+               ~~~~~~~~~~~~~~~^~~
+./src/tasks/shoottask.c:77:14: warning: passing argument 1 of 'PID_calc' from incompatible pointer type [-Wincompatible-pointer-types]
+     PID_calc(&fspid[1], 1);
+              ^~~~~~~~~
+In file included from Inc/motlib.h:4,
+                 from Inc/main.h:45,
+                 from ./src/tasks/shoottask.c:1:
+Inc/pid.h:45:30: note: expected 'PID_regulator *' {aka 'struct PID_regulator_t *'} but argument is of type 'PID_regulator **' {aka 'struct PID_regulator_t **'}
+ void PID_calc(PID_regulator *pid, float timetick);
+               ~~~~~~~~~~~~~~~^~~
+./src/tasks/shoottask.c:84:5: error: too few arguments to function 'calc_mot_aspid'
+     calc_mot_aspid(tapid,tspid);
+     ^~~~~~~~~~~~~~
+In file included from Inc/main.h:45,
+                 from ./src/tasks/shoottask.c:1:
+Inc/motlib.h:184:6: note: declared here
+ void calc_mot_aspid(PID_regulator *apid,
+      ^~~~~~~~~~~~~~
+
+[2022-07-25 23:02:23]	[done]
+	build successfully !
+
+[2022-07-25 23:04:24]	[done]
+	build successfully !
+
+[2022-07-25 23:04:43]	[done]
+	build successfully !
+
+[2022-07-25 23:05:00]	[done]
+	build successfully !
+
+[2022-07-25 23:07:38]	[done]
+	build successfully !
+
+[2022-07-25 23:08:22]	[done]
+	build successfully !
+
+[2022-07-25 23:10:39]	compilation failed at : "c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl\src\tasks\shoottask.c", exit code: 1
+   at unify_builder.Program.compileByMulThread(Int32 thrNum, CmdInfo[] cmds, List`1 errLogs)
+   at unify_builder.Program.Main(String[] args_)
+---
+./src/tasks/shoottask.c: In function 'shoottask':
+./src/tasks/shoottask.c:86:28: error: incompatible type for argument 1 of 'get_fricspeed_comd'
+         get_fricspeed_comd(*fric);
+                            ^~~~~
+./src/tasks/shoottask.c:55:36: note: expected 'MotorInfo **' {aka 'struct _Motor_Info **'} but argument is of type 'MotorInfo' {aka 'struct _Motor_Info'}
+ void get_fricspeed_comd(MotorInfo *fi[2])
+                         ~~~~~~~~~~~^~~~~
+
+[2022-07-25 23:13:19]	compilation failed at : "c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl\src\tasks\shoottask.c", exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+./src/tasks/shoottask.c: In function 'init_shootmot_pid':
+./src/tasks/shoottask.c:29:5: error: invalid type argument of unary '*' (have 'PID_regulator' {aka 'struct PID_regulator_t'})
+     *fspid[1] = *fspid[0];
+     ^~~~~~~~~
+./src/tasks/shoottask.c:29:17: error: invalid type argument of unary '*' (have 'PID_regulator' {aka 'struct PID_regulator_t'})
+     *fspid[1] = *fspid[0];
+                 ^~~~~~~~~
+./src/tasks/shoottask.c: In function 'calc_shootmot_pid':
+./src/tasks/shoottask.c:70:19: error: incompatible type for argument 1 of 'PID_calc'
+     PID_calc(fspid[0], 1);
+              ~~~~~^~~
+In file included from Inc/motlib.h:4,
+                 from Inc/main.h:45,
+                 from ./src/tasks/shoottask.c:1:
+Inc/pid.h:45:30: note: expected 'PID_regulator *' {aka 'struct PID_regulator_t *'} but argument is of type 'PID_regulator' {aka 'struct PID_regulator_t'}
+ void PID_calc(PID_regulator *pid, float timetick);
+               ~~~~~~~~~~~~~~~^~~
+./src/tasks/shoottask.c:71:19: error: incompatible type for argument 1 of 'PID_calc'
+     PID_calc(fspid[1], 1);
+              ~~~~~^~~
+In file included from Inc/motlib.h:4,
+                 from Inc/main.h:45,
+                 from ./src/tasks/shoottask.c:1:
+Inc/pid.h:45:30: note: expected 'PID_regulator *' {aka 'struct PID_regulator_t *'} but argument is of type 'PID_regulator' {aka 'struct PID_regulator_t'}
+ void PID_calc(PID_regulator *pid, float timetick);
+               ~~~~~~~~~~~~~~~^~~
+
+[2022-07-25 23:13:41]	[done]
+	build successfully !
+
+[2022-07-25 23:51:45]	[done]
+	build successfully !
+
+[2022-07-25 23:54:42]	[done]
+	build successfully !
+

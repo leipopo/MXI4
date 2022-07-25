@@ -57,7 +57,7 @@ void gearmotorangle_calc(MotorInfo *mi)
     mi->temp.angle[0] = mi->temp.angle[1];
 }
 
-void clac_mot_aspid(PID_regulator *apid,
+void calc_mot_aspid(PID_regulator *apid,
                     PID_regulator *spid,
                     uint8_t outcircrate)
 {

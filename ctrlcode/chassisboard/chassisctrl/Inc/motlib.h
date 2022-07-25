@@ -181,7 +181,7 @@ MotorInfo motparainit(uint8_t motname);
 void gearmotorangle_calc(MotorInfo *mi);
 uint32_t getmotid(MotorInfo *mi);
 void canrx2motinfo(uint8_t rx[8], MotorInfo *mi);
-void clac_mot_aspid(PID_regulator *apid,
+void calc_mot_aspid(PID_regulator *apid,
                      PID_regulator *spid,
                      uint8_t outcircrate);
 #endif
