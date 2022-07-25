@@ -9,5 +9,5 @@
 #define fricwheelspeed 500.f
 
 #define magopenpusle   2500
-#define magclosepusle  2500
+#define magclosepusle  500
 #endif // !SHOOT

@@ -93,6 +93,18 @@ void pack_shootmot_ctrlmes(int16_t mes1[4], int16_t mes2[4])
     mes2[3] = 0x0000;
 }
 
+void setmag(int8_t mc)
+{
+    if (mc == 1)
+    {
+        __HAL_TIM_SetCompare(&htim1, TIM_CHANNEL_1, magopenpusle);
+    }
+    else
+    {
+        __HAL_TIM_SetCompare(&htim1, TIM_CHANNEL_1, magclosepusle);
+    }
+}
+
 void shoottask()
 {
     for (;;)
@@ -108,10 +120,10 @@ void shoottask()
         }
         else
         {
-             CAN_send(0x200, hcan1, zeromes);
+            CAN_send(0x200, hcan1, zeromes);
             CAN_send(0x200, hcan2, zeromes);
         }
-
+        setmag(comuinfo.rx_comd.magopen);
         osDelayUntil(mottaskperi);
     }
 }

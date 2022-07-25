@@ -43,4 +43,4 @@ build/gimbctrl/src/bsps/bsp_delay.o: src/bsps/bsp_delay.c Inc/bsp_delay.h \
  Inc/motlib.h Inc/pid.h Inc/MahonyAHRS.h Inc/user_lib.h \
  Inc/ist8310driver.h Inc/ist8310driver_middleware.h \
  Inc/BMI088Middleware.h Inc/BMI088driver.h Inc/INS_task.h Inc/comutask.h \
- Inc/infoupdate.h Inc/devmoni.h Inc/robconfig.h Inc/shoottask.h
+ Inc/infoupdate.h Inc/devmoni.h Inc/robconfig.h Inc/shoottask.h Inc/tim.h

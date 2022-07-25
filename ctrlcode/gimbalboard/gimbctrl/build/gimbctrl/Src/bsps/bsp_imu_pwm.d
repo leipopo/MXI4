@@ -44,4 +44,4 @@ build/gimbctrl/src/bsps/bsp_imu_pwm.o: src/bsps/bsp_imu_pwm.c \
  Inc/MahonyAHRS.h Inc/user_lib.h Inc/ist8310driver.h \
  Inc/ist8310driver_middleware.h Inc/BMI088Middleware.h Inc/BMI088driver.h \
  Inc/INS_task.h Inc/comutask.h Inc/infoupdate.h Inc/devmoni.h \
- Inc/robconfig.h Inc/shoottask.h
+ Inc/robconfig.h Inc/shoottask.h Inc/tim.h

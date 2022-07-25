@@ -56,6 +56,7 @@ extern "C" {
 #include "devmoni.h"
 #include "infoupdate.h"
 #include "shoottask.h"
+#include "tim.h"
 
 
 
