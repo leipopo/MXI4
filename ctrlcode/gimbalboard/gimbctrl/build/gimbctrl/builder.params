@@ -4,7 +4,7 @@
     "toolchain": "GCC",
     "toolchainLocation": "C:\\Users\\94736\\.eide\\tools\\gcc_arm",
     "toolchainCfgFile": "..\\cfg\\arm.gcc.model.json",
-    "buildMode": "normal|multhread",
+    "buildMode": "fast|multhread",
     "showRepathOnLog": true,
     "threadNum": 12,
     "rootDir": "c:\\MXI4\\MXI4\\ctrlcode\\gimbalboard\\gimbctrl",

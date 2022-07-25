@@ -7,7 +7,7 @@ make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --quest
 # There is NO WARRANTY, to the extent permitted by law.
  
 
-# Make data base, printed on Sun Jul 24 14:19:52 2022
+# Make data base, printed on Mon Jul 25 12:04:45 2022
 
 # Variables
 
@@ -105,7 +105,7 @@ LDFLAGS = $(MCU) -specs=nano.specs -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BU
 # automatic
 %F = $(notdir $%)
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_8412_MPCNUJEEBSHAEMWS
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_15160_HIHVJLXJRMUEGVXO
 # makefile (from 'Makefile', line 91)
 ASM_SOURCES = startup_stm32f407xx.s
 # environment
@@ -257,7 +257,7 @@ LANG = C
 # environment
 PROCESSOR_LEVEL = 6
 # environment
-VSCODE_PID = 8412
+VSCODE_PID = 15160
 # environment
 EIDE_TOOL_ST_CUBE_PROGRAMER = C:\Users\94736\.eide\tools\st_cube_programer\bin
 # environment
@@ -273,15 +273,15 @@ USERDOMAIN_ROAMINGPROFILE = DESKTOP-CTQBUVL
 
 # Directories
 
-# . (key c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl, mtime 1658643346): 20 files, no impossibilities.
-# Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F (key c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F, mtime 1658643343): 4 files, no impossibilities.
-# Src (key c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl/Src, mtime 1658643342): 11 files, no impossibilities so far.
+# . (key c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl, mtime 1658662002): 20 files, no impossibilities.
+# Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F (key c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F, mtime 1658661999): 4 files, no impossibilities.
+# Src (key c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl/Src, mtime 1658661998): 11 files, no impossibilities so far.
 # build (key c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl/build, mtime 1658506562): 3 files, no impossibilities.
-# Middlewares/Third_Party/FreeRTOS/Source (key c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source, mtime 1658643343): 13 files, no impossibilities.
-# Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 (key c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2, mtime 1658643343): 7 files, no impossibilities.
-# Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang (key c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang, mtime 1658643343): 3 files, no impossibilities.
-# src (key c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl/src, mtime 1658643342): No files, no impossibilities so far.
-# Drivers/STM32F4xx_HAL_Driver/Src (key c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src, mtime 1658643343): 21 files, no impossibilities.
+# Middlewares/Third_Party/FreeRTOS/Source (key c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source, mtime 1658661999): 13 files, no impossibilities.
+# Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 (key c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2, mtime 1658661999): 7 files, no impossibilities.
+# Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang (key c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang, mtime 1658661999): 3 files, no impossibilities.
+# src (key c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl/src, mtime 1658661998): No files, no impossibilities so far.
+# Drivers/STM32F4xx_HAL_Driver/Src (key c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src, mtime 1658661999): 21 files, no impossibilities.
 
 # 82 files, no impossibilities in 9 directories.
 
@@ -431,7 +431,7 @@ build/stm32f4xx_hal.o:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-24 14:15:46
+#  Last modified 2022-07-24 19:26:42
 #  File has been updated.
 #  Successfully updated.
 
@@ -659,6 +659,6 @@ vpath %.c Drivers/STM32F4xx_HAL_Driver/Src;Middlewares/Third_Party/FreeRTOS/Sour
 # strcache performance: lookups = 190 / hit rate = 31%
 # hash-table stats:
 # Load=130/8192=2%, Rehash=0, Collisions=10/190=5%
-# Finished Make data base on Sun Jul 24 14:19:52 2022
+# Finished Make data base on Mon Jul 25 12:04:45 2022
 
  
