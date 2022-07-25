@@ -105,8 +105,7 @@ void pack_pymot_ctrlmes(int16_t mes[4])
 
 void gimbctrl()
 {
-    init_gimbmot_para(&pit, &yaw);
-    init_gimbmot_pid(&pitapid, &yawapid, &pitspid, &yawspid);
+    
     for (;;)
     {
         clac_yawmot_aspid(&yawapid, &yawspid, 2);

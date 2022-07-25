@@ -58,5 +58,6 @@
 ./build/gimbctrl/src/tasks/comutask.o
 ./build/gimbctrl/src/tasks/devmoni.o
 ./build/gimbctrl/src/tasks/infoupdate.o
+./build/gimbctrl/src/tasks/init.o
 ./build/gimbctrl/src/tasks/shoottask.o
 ./build/gimbctrl/startup_stm32f407xx.o -lm

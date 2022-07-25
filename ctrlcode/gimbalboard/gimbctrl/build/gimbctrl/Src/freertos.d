@@ -44,5 +44,6 @@ build/gimbctrl/Src/freertos.o: Src/freertos.c \
  Inc/ist8310driver.h Inc/ist8310driver_middleware.h \
  Inc/BMI088Middleware.h Inc/BMI088driver.h Inc/INS_task.h Inc/comutask.h \
  Inc/infoupdate.h Inc/devmoni.h Inc/robconfig.h Inc/shoottask.h Inc/tim.h \
+ Inc/init.h \
  Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h \
  Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h

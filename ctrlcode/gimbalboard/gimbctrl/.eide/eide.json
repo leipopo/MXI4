@@ -185,6 +185,9 @@
                     "path": "src/tasks/infoupdate.c"
                   },
                   {
+                    "path": "src/tasks/init.c"
+                  },
+                  {
                     "path": "src/tasks/INS_task.c"
                   },
                   {

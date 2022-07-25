@@ -89,6 +89,7 @@
         "src/tasks/comutask.c",
         "src/tasks/devmoni.c",
         "src/tasks/infoupdate.c",
+        "src/tasks/init.c",
         "src/tasks/shoottask.c",
         "startup_stm32f407xx.s"
     ],

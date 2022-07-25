@@ -100,6 +100,7 @@ int main(void)
   MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
   delay_init();
+  userinit();
   /* USER CODE END 2 */
 
   /* Init scheduler */

@@ -62,7 +62,6 @@ ist8310_real_data   0x10              ./build/gimbctrl/src/tasks/INS_task.o
 devicemonitorHandle
                     0x4               ./build/gimbctrl/Src/freertos.o
 hi2c3               0x54              ./build/gimbctrl/Src/i2c.o
-trigspid            0x3c              ./build/gimbctrl/src/tasks/shoottask.o
 can2_mes20x200      0x8               ./build/gimbctrl/src/tasks/shoottask.o
 INS_TASKHandle      0x4               ./build/gimbctrl/Src/freertos.o
 accel_offset        0xc               ./build/gimbctrl/src/tasks/INS_task.o
@@ -79,14 +78,12 @@ pFlash              0x20              ./build/gimbctrl/Drivers/STM32F4xx_HAL_Dri
 fric                0xa8              ./build/gimbctrl/src/tasks/shoottask.o
 infomationupdatHandle
                     0x4               ./build/gimbctrl/Src/freertos.o
-fricspid            0x78              ./build/gimbctrl/src/tasks/shoottask.o
 mag_offset          0xc               ./build/gimbctrl/src/tasks/INS_task.o
 accel_temp_dma_rx_buf
                     0x4               ./build/gimbctrl/src/tasks/INS_task.o
 hcan2               0x28              ./build/gimbctrl/Src/can.o
 accel_cali_offset   0xc               ./build/gimbctrl/src/tasks/INS_task.o
 comuinfo            0x20              ./build/gimbctrl/src/tasks/comutask.o
-trigapid            0x3c              ./build/gimbctrl/src/tasks/shoottask.o
 rsp                 0x4               ./build/gimbctrl/src/tasks/INS_task.o
 communicatetaskHandle
                     0x4               ./build/gimbctrl/Src/freertos.o
@@ -175,10 +172,6 @@ Discarded input sections
                 0x00000000        0x2 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o
  .text.HAL_CAN_MspDeInit
                 0x00000000        0x2 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o
- .text.HAL_CAN_ConfigFilter
-                0x00000000      0x12c ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o
- .text.HAL_CAN_Start
-                0x00000000       0x5c ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o
  .text.HAL_CAN_Stop
                 0x00000000       0x62 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o
  .text.HAL_CAN_DeInit
@@ -199,8 +192,6 @@ Discarded input sections
                 0x00000000       0x26 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o
  .text.HAL_CAN_GetRxFifoFillLevel
                 0x00000000       0x26 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o
- .text.HAL_CAN_ActivateNotification
-                0x00000000       0x24 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o
  .text.HAL_CAN_DeactivateNotification
                 0x00000000       0x26 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o
  .text.HAL_CAN_RxFifo0MsgPendingCallback
@@ -1662,8 +1653,6 @@ Discarded input sections
  .text          0x00000000        0x0 ./build/gimbctrl/src/bsps/can_bsp.o
  .data          0x00000000        0x0 ./build/gimbctrl/src/bsps/can_bsp.o
  .bss           0x00000000        0x0 ./build/gimbctrl/src/bsps/can_bsp.o
- .text.can_filter_init
-                0x00000000       0x5c ./build/gimbctrl/src/bsps/can_bsp.o
  .text          0x00000000        0x0 ./build/gimbctrl/src/bsps/flash_bsp.o
  .data          0x00000000        0x0 ./build/gimbctrl/src/bsps/flash_bsp.o
  .bss           0x00000000        0x0 ./build/gimbctrl/src/bsps/flash_bsp.o
@@ -1679,22 +1668,22 @@ Discarded input sections
                 0x00000000       0xf0 ./build/gimbctrl/src/bsps/flash_bsp.o
  .text.flash_write_single_address
                 0x00000000       0x80 ./build/gimbctrl/src/bsps/flash_bsp.o
- .bss.data_buf.10211
+ .bss.data_buf.10224
                 0x00000000        0x4 ./build/gimbctrl/src/bsps/flash_bsp.o
- .bss.data_len.10212
+ .bss.data_len.10225
                 0x00000000        0x4 ./build/gimbctrl/src/bsps/flash_bsp.o
- .bss.end_address.10210
+ .bss.end_address.10223
                 0x00000000        0x4 ./build/gimbctrl/src/bsps/flash_bsp.o
- .bss.uw_address.10209
+ .bss.uw_address.10222
                 0x00000000        0x4 ./build/gimbctrl/src/bsps/flash_bsp.o
- .debug_info    0x00000000     0x1aa8 ./build/gimbctrl/src/bsps/flash_bsp.o
+ .debug_info    0x00000000     0x1d44 ./build/gimbctrl/src/bsps/flash_bsp.o
  .debug_abbrev  0x00000000      0x329 ./build/gimbctrl/src/bsps/flash_bsp.o
  .debug_loc     0x00000000      0x5a3 ./build/gimbctrl/src/bsps/flash_bsp.o
  .debug_aranges
                 0x00000000       0x48 ./build/gimbctrl/src/bsps/flash_bsp.o
  .debug_ranges  0x00000000       0x38 ./build/gimbctrl/src/bsps/flash_bsp.o
- .debug_line    0x00000000      0x5da ./build/gimbctrl/src/bsps/flash_bsp.o
- .debug_str     0x00000000     0x1111 ./build/gimbctrl/src/bsps/flash_bsp.o
+ .debug_line    0x00000000      0x5fe ./build/gimbctrl/src/bsps/flash_bsp.o
+ .debug_str     0x00000000     0x127f ./build/gimbctrl/src/bsps/flash_bsp.o
  .comment       0x00000000       0x77 ./build/gimbctrl/src/bsps/flash_bsp.o
  .debug_frame   0x00000000       0xa4 ./build/gimbctrl/src/bsps/flash_bsp.o
  .ARM.attributes
@@ -1738,8 +1727,6 @@ Discarded input sections
  .text          0x00000000        0x0 ./build/gimbctrl/src/libs/motlib.o
  .data          0x00000000        0x0 ./build/gimbctrl/src/libs/motlib.o
  .bss           0x00000000        0x0 ./build/gimbctrl/src/libs/motlib.o
- .text.motparainit
-                0x00000000       0x98 ./build/gimbctrl/src/libs/motlib.o
  .text.numcircle
                 0x00000000       0x60 ./build/gimbctrl/src/libs/motlib.o
  .text.gearmotorangle_calc
@@ -1748,7 +1735,6 @@ Discarded input sections
                 0x00000000       0x8c ./build/gimbctrl/src/libs/motlib.o
  .text.getmotid
                 0x00000000        0x4 ./build/gimbctrl/src/libs/motlib.o
- .rodata        0x00000000       0xfc ./build/gimbctrl/src/libs/motlib.o
  .text          0x00000000        0x0 ./build/gimbctrl/src/libs/pid.o
  .data          0x00000000        0x0 ./build/gimbctrl/src/libs/pid.o
  .bss           0x00000000        0x0 ./build/gimbctrl/src/libs/pid.o
@@ -1819,7 +1805,7 @@ Discarded input sections
  .bss           0x00000000        0x0 ./build/gimbctrl/src/tasks/devmoni.o
  .text.can_probe
                 0x00000000       0x2c ./build/gimbctrl/src/tasks/devmoni.o
- .bss.candevsta.10202
+ .bss.candevsta.10215
                 0x00000000        0x1 ./build/gimbctrl/src/tasks/devmoni.o
  .data.can1_idlist
                 0x00000000       0x20 ./build/gimbctrl/src/tasks/devmoni.o
@@ -1828,13 +1814,12 @@ Discarded input sections
  .text          0x00000000        0x0 ./build/gimbctrl/src/tasks/infoupdate.o
  .data          0x00000000        0x0 ./build/gimbctrl/src/tasks/infoupdate.o
  .bss           0x00000000        0x0 ./build/gimbctrl/src/tasks/infoupdate.o
+ .text          0x00000000        0x0 ./build/gimbctrl/src/tasks/init.o
+ .data          0x00000000        0x0 ./build/gimbctrl/src/tasks/init.o
+ .bss           0x00000000        0x0 ./build/gimbctrl/src/tasks/init.o
  .text          0x00000000        0x0 ./build/gimbctrl/src/tasks/shoottask.o
  .data          0x00000000        0x0 ./build/gimbctrl/src/tasks/shoottask.o
  .bss           0x00000000        0x0 ./build/gimbctrl/src/tasks/shoottask.o
- .text.init_shootmot_para
-                0x00000000       0x58 ./build/gimbctrl/src/tasks/shoottask.o
- .text.init_shootmot_pid
-                0x00000000       0x88 ./build/gimbctrl/src/tasks/shoottask.o
  .text          0x00000000       0x14 ./build/gimbctrl/startup_stm32f407xx.o
  .data          0x00000000        0x0 ./build/gimbctrl/startup_stm32f407xx.o
  .bss           0x00000000        0x0 ./build/gimbctrl/startup_stm32f407xx.o
@@ -2002,6 +1987,7 @@ LOAD ./build/gimbctrl/src/tasks/INS_task.o
 LOAD ./build/gimbctrl/src/tasks/comutask.o
 LOAD ./build/gimbctrl/src/tasks/devmoni.o
 LOAD ./build/gimbctrl/src/tasks/infoupdate.o
+LOAD ./build/gimbctrl/src/tasks/init.o
 LOAD ./build/gimbctrl/src/tasks/shoottask.o
 LOAD ./build/gimbctrl/startup_stm32f407xx.o
 LOAD c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a
@@ -2032,7 +2018,7 @@ LOAD c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb
                 0x08000000                g_pfnVectors
                 0x08000188                . = ALIGN (0x4)
 
-.text           0x08000190     0xa978
+.text           0x08000190     0xad38
                 0x08000190                . = ALIGN (0x4)
  *(.text)
  .text          0x08000190       0x40 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard/crtbegin.o
@@ -2104,909 +2090,940 @@ LOAD c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb
  .text.HAL_CAN_Init
                 0x08000f00      0x14c ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o
                 0x08000f00                HAL_CAN_Init
+ .text.HAL_CAN_ConfigFilter
+                0x0800104c      0x12c ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o
+                0x0800104c                HAL_CAN_ConfigFilter
+ .text.HAL_CAN_Start
+                0x08001178       0x5c ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o
+                0x08001178                HAL_CAN_Start
  .text.HAL_CAN_AddTxMessage
-                0x0800104c       0xec ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o
-                0x0800104c                HAL_CAN_AddTxMessage
+                0x080011d4       0xec ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o
+                0x080011d4                HAL_CAN_AddTxMessage
  .text.HAL_CAN_GetRxMessage
-                0x08001138      0x132 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o
-                0x08001138                HAL_CAN_GetRxMessage
+                0x080012c0      0x132 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o
+                0x080012c0                HAL_CAN_GetRxMessage
+ .text.HAL_CAN_ActivateNotification
+                0x080013f2       0x24 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o
+                0x080013f2                HAL_CAN_ActivateNotification
  .text.HAL_CAN_TxMailbox0CompleteCallback
-                0x0800126a        0x2 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o
-                0x0800126a                HAL_CAN_TxMailbox0CompleteCallback
+                0x08001416        0x2 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o
+                0x08001416                HAL_CAN_TxMailbox0CompleteCallback
  .text.HAL_CAN_TxMailbox1CompleteCallback
-                0x0800126c        0x2 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o
-                0x0800126c                HAL_CAN_TxMailbox1CompleteCallback
+                0x08001418        0x2 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o
+                0x08001418                HAL_CAN_TxMailbox1CompleteCallback
  .text.HAL_CAN_TxMailbox2CompleteCallback
-                0x0800126e        0x2 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o
-                0x0800126e                HAL_CAN_TxMailbox2CompleteCallback
+                0x0800141a        0x2 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o
+                0x0800141a                HAL_CAN_TxMailbox2CompleteCallback
  .text.HAL_CAN_TxMailbox0AbortCallback
-                0x08001270        0x2 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o
-                0x08001270                HAL_CAN_TxMailbox0AbortCallback
+                0x0800141c        0x2 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o
+                0x0800141c                HAL_CAN_TxMailbox0AbortCallback
  .text.HAL_CAN_TxMailbox1AbortCallback
-                0x08001272        0x2 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o
-                0x08001272                HAL_CAN_TxMailbox1AbortCallback
+                0x0800141e        0x2 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o
+                0x0800141e                HAL_CAN_TxMailbox1AbortCallback
  .text.HAL_CAN_TxMailbox2AbortCallback
-                0x08001274        0x2 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o
-                0x08001274                HAL_CAN_TxMailbox2AbortCallback
+                0x08001420        0x2 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o
+                0x08001420                HAL_CAN_TxMailbox2AbortCallback
  .text.HAL_CAN_RxFifo0FullCallback
-                0x08001276        0x2 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o
-                0x08001276                HAL_CAN_RxFifo0FullCallback
+                0x08001422        0x2 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o
+                0x08001422                HAL_CAN_RxFifo0FullCallback
  .text.HAL_CAN_RxFifo1MsgPendingCallback
-                0x08001278        0x2 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o
-                0x08001278                HAL_CAN_RxFifo1MsgPendingCallback
+                0x08001424        0x2 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o
+                0x08001424                HAL_CAN_RxFifo1MsgPendingCallback
  .text.HAL_CAN_RxFifo1FullCallback
-                0x0800127a        0x2 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o
-                0x0800127a                HAL_CAN_RxFifo1FullCallback
+                0x08001426        0x2 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o
+                0x08001426                HAL_CAN_RxFifo1FullCallback
  .text.HAL_CAN_SleepCallback
-                0x0800127c        0x2 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o
-                0x0800127c                HAL_CAN_SleepCallback
+                0x08001428        0x2 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o
+                0x08001428                HAL_CAN_SleepCallback
  .text.HAL_CAN_WakeUpFromRxMsgCallback
-                0x0800127e        0x2 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o
-                0x0800127e                HAL_CAN_WakeUpFromRxMsgCallback
+                0x0800142a        0x2 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o
+                0x0800142a                HAL_CAN_WakeUpFromRxMsgCallback
  .text.HAL_CAN_ErrorCallback
-                0x08001280        0x2 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o
-                0x08001280                HAL_CAN_ErrorCallback
+                0x0800142c        0x2 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o
+                0x0800142c                HAL_CAN_ErrorCallback
  .text.HAL_CAN_IRQHandler
-                0x08001282      0x252 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o
-                0x08001282                HAL_CAN_IRQHandler
+                0x0800142e      0x252 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o
+                0x0800142e                HAL_CAN_IRQHandler
  .text.HAL_NVIC_SetPriorityGrouping
-                0x080014d4       0x24 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
-                0x080014d4                HAL_NVIC_SetPriorityGrouping
+                0x08001680       0x24 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
+                0x08001680                HAL_NVIC_SetPriorityGrouping
  .text.HAL_NVIC_SetPriority
-                0x080014f8       0x68 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
-                0x080014f8                HAL_NVIC_SetPriority
+                0x080016a4       0x68 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
+                0x080016a4                HAL_NVIC_SetPriority
  .text.HAL_NVIC_EnableIRQ
-                0x08001560       0x1c ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
-                0x08001560                HAL_NVIC_EnableIRQ
+                0x0800170c       0x1c ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
+                0x0800170c                HAL_NVIC_EnableIRQ
  .text.HAL_SYSTICK_Config
-                0x0800157c       0x2c ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
-                0x0800157c                HAL_SYSTICK_Config
+                0x08001728       0x2c ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
+                0x08001728                HAL_SYSTICK_Config
  .text.DMA_CalcBaseAndBitshift
-                0x080015a8       0x44 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.o
+                0x08001754       0x44 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.o
  .text.DMA_CheckFifoParam
-                0x080015ec       0x8e ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.o
- *fill*         0x0800167a        0x2 
+                0x08001798       0x8e ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.o
+ *fill*         0x08001826        0x2 
  .text.HAL_DMA_Init
-                0x0800167c       0xcc ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.o
-                0x0800167c                HAL_DMA_Init
+                0x08001828       0xcc ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.o
+                0x08001828                HAL_DMA_Init
  .text.HAL_GPIO_Init
-                0x08001748      0x1d4 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o
-                0x08001748                HAL_GPIO_Init
+                0x080018f4      0x1d4 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o
+                0x080018f4                HAL_GPIO_Init
  .text.HAL_GPIO_WritePin
-                0x0800191c        0xc ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o
-                0x0800191c                HAL_GPIO_WritePin
+                0x08001ac8        0xc ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o
+                0x08001ac8                HAL_GPIO_WritePin
  .text.HAL_GPIO_EXTI_IRQHandler
-                0x08001928       0x1c ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o
-                0x08001928                HAL_GPIO_EXTI_IRQHandler
+                0x08001ad4       0x1c ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o
+                0x08001ad4                HAL_GPIO_EXTI_IRQHandler
  .text.I2C_IsAcknowledgeFailed
-                0x08001944       0x32 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.o
+                0x08001af0       0x32 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.o
  .text.I2C_WaitOnFlagUntilTimeout
-                0x08001976       0x70 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.o
+                0x08001b22       0x70 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.o
  .text.I2C_WaitOnMasterAddressFlagUntilTimeout
-                0x080019e6       0xa4 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.o
+                0x08001b92       0xa4 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.o
  .text.I2C_WaitOnTXEFlagUntilTimeout
-                0x08001a8a       0x54 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.o
- *fill*         0x08001ade        0x2 
+                0x08001c36       0x54 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.o
+ *fill*         0x08001c8a        0x2 
  .text.I2C_RequestMemoryWrite
-                0x08001ae0       0xd8 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.o
+                0x08001c8c       0xd8 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.o
  .text.I2C_RequestMemoryRead
-                0x08001bb8      0x14c ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.o
+                0x08001d64      0x14c ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.o
  .text.I2C_WaitOnBTFFlagUntilTimeout
-                0x08001d04       0x54 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.o
+                0x08001eb0       0x54 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.o
  .text.I2C_WaitOnRXNEFlagUntilTimeout
-                0x08001d58       0x6a ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.o
- *fill*         0x08001dc2        0x2 
+                0x08001f04       0x6a ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.o
+ *fill*         0x08001f6e        0x2 
  .text.HAL_I2C_Init
-                0x08001dc4      0x1b8 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.o
-                0x08001dc4                HAL_I2C_Init
+                0x08001f70      0x1b8 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.o
+                0x08001f70                HAL_I2C_Init
  .text.HAL_I2C_Mem_Write
-                0x08001f7c      0x164 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.o
-                0x08001f7c                HAL_I2C_Mem_Write
+                0x08002128      0x164 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.o
+                0x08002128                HAL_I2C_Mem_Write
  .text.HAL_I2C_Mem_Read
-                0x080020e0      0x2d0 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.o
-                0x080020e0                HAL_I2C_Mem_Read
+                0x0800228c      0x2d0 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.o
+                0x0800228c                HAL_I2C_Mem_Read
  .text.HAL_RCC_OscConfig
-                0x080023b0      0x3f8 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o
-                0x080023b0                HAL_RCC_OscConfig
+                0x0800255c      0x3f8 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o
+                0x0800255c                HAL_RCC_OscConfig
  .text.HAL_RCC_GetSysClockFreq
-                0x080027a8       0xa4 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o
-                0x080027a8                HAL_RCC_GetSysClockFreq
+                0x08002954       0xa4 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o
+                0x08002954                HAL_RCC_GetSysClockFreq
  .text.HAL_RCC_ClockConfig
-                0x0800284c      0x160 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o
-                0x0800284c                HAL_RCC_ClockConfig
+                0x080029f8      0x160 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o
+                0x080029f8                HAL_RCC_ClockConfig
  .text.HAL_RCC_GetHCLKFreq
-                0x080029ac        0xc ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o
-                0x080029ac                HAL_RCC_GetHCLKFreq
+                0x08002b58        0xc ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o
+                0x08002b58                HAL_RCC_GetHCLKFreq
  .text.HAL_RCC_GetPCLK1Freq
-                0x080029b8       0x20 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o
-                0x080029b8                HAL_RCC_GetPCLK1Freq
+                0x08002b64       0x20 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o
+                0x08002b64                HAL_RCC_GetPCLK1Freq
  .text.SPI_WaitFlagStateUntilTimeout
-                0x080029d8       0xd0 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.o
+                0x08002b84       0xd0 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.o
  .text.SPI_EndRxTxTransaction
-                0x08002aa8       0x68 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.o
+                0x08002c54       0x68 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.o
  .text.HAL_SPI_Init
-                0x08002b10       0xbe ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.o
-                0x08002b10                HAL_SPI_Init
+                0x08002cbc       0xbe ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.o
+                0x08002cbc                HAL_SPI_Init
  .text.HAL_SPI_TransmitReceive
-                0x08002bce      0x230 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.o
-                0x08002bce                HAL_SPI_TransmitReceive
- *fill*         0x08002dfe        0x2 
+                0x08002d7a      0x230 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.o
+                0x08002d7a                HAL_SPI_TransmitReceive
+ *fill*         0x08002faa        0x2 
  .text.TIM_OC1_SetConfig
-                0x08002e00       0x68 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o
+                0x08002fac       0x68 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o
  .text.TIM_OC3_SetConfig
-                0x08002e68       0x70 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o
+                0x08003014       0x70 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o
  .text.TIM_OC4_SetConfig
-                0x08002ed8       0x50 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o
+                0x08003084       0x50 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o
  .text.TIM_Base_SetConfig
-                0x08002f28       0xc8 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o
-                0x08002f28                TIM_Base_SetConfig
+                0x080030d4       0xc8 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o
+                0x080030d4                TIM_Base_SetConfig
  .text.HAL_TIM_Base_Init
-                0x08002ff0       0x58 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o
-                0x08002ff0                HAL_TIM_Base_Init
+                0x0800319c       0x58 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o
+                0x0800319c                HAL_TIM_Base_Init
  .text.HAL_TIM_PWM_Init
-                0x08003048       0x58 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o
-                0x08003048                HAL_TIM_PWM_Init
+                0x080031f4       0x58 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o
+                0x080031f4                HAL_TIM_PWM_Init
  .text.TIM_OC2_SetConfig
-                0x080030a0       0x70 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o
-                0x080030a0                TIM_OC2_SetConfig
+                0x0800324c       0x70 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o
+                0x0800324c                TIM_OC2_SetConfig
  .text.HAL_TIM_PWM_ConfigChannel
-                0x08003110       0xdc ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o
-                0x08003110                HAL_TIM_PWM_ConfigChannel
+                0x080032bc       0xdc ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o
+                0x080032bc                HAL_TIM_PWM_ConfigChannel
  .text.HAL_TIMEx_MasterConfigSynchronization
-                0x080031ec       0x88 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o
-                0x080031ec                HAL_TIMEx_MasterConfigSynchronization
+                0x08003398       0x88 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o
+                0x08003398                HAL_TIMEx_MasterConfigSynchronization
  .text.HAL_TIMEx_ConfigBreakDeadTime
-                0x08003274       0x52 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o
-                0x08003274                HAL_TIMEx_ConfigBreakDeadTime
- *fill*         0x080032c6        0x2 
+                0x08003420       0x52 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o
+                0x08003420                HAL_TIMEx_ConfigBreakDeadTime
+ *fill*         0x08003472        0x2 
  .text.osKernelInitialize
-                0x080032c8       0x24 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.o
-                0x080032c8                osKernelInitialize
+                0x08003474       0x24 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.o
+                0x08003474                osKernelInitialize
  .text.osKernelStart
-                0x080032ec       0x38 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.o
-                0x080032ec                osKernelStart
+                0x08003498       0x38 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.o
+                0x08003498                osKernelStart
  .text.osThreadNew
-                0x08003324       0xbc ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.o
-                0x08003324                osThreadNew
- .text.osDelay  0x080033e0       0x1c ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.o
-                0x080033e0                osDelay
+                0x080034d0       0xbc ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.o
+                0x080034d0                osThreadNew
+ .text.osDelay  0x0800358c       0x1c ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.o
+                0x0800358c                osDelay
  .text.osDelayUntil
-                0x080033fc       0x30 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.o
-                0x080033fc                osDelayUntil
+                0x080035a8       0x30 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.o
+                0x080035a8                osDelayUntil
  .text.vApplicationGetIdleTaskMemory
-                0x0800342c       0x18 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.o
-                0x0800342c                vApplicationGetIdleTaskMemory
+                0x080035d8       0x18 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.o
+                0x080035d8                vApplicationGetIdleTaskMemory
  .text.vApplicationGetTimerTaskMemory
-                0x08003444       0x18 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.o
-                0x08003444                vApplicationGetTimerTaskMemory
+                0x080035f0       0x18 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.o
+                0x080035f0                vApplicationGetTimerTaskMemory
  .text.vListInitialise
-                0x0800345c       0x16 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/list.o
-                0x0800345c                vListInitialise
+                0x08003608       0x16 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/list.o
+                0x08003608                vListInitialise
  .text.vListInitialiseItem
-                0x08003472        0x6 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/list.o
-                0x08003472                vListInitialiseItem
+                0x0800361e        0x6 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/list.o
+                0x0800361e                vListInitialiseItem
  .text.vListInsertEnd
-                0x08003478       0x16 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/list.o
-                0x08003478                vListInsertEnd
+                0x08003624       0x16 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/list.o
+                0x08003624                vListInsertEnd
  .text.vListInsert
-                0x0800348e       0x34 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/list.o
-                0x0800348e                vListInsert
+                0x0800363a       0x34 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/list.o
+                0x0800363a                vListInsert
  .text.uxListRemove
-                0x080034c2       0x26 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/list.o
-                0x080034c2                uxListRemove
+                0x0800366e       0x26 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/list.o
+                0x0800366e                uxListRemove
  .text.prvTaskExitError
-                0x080034e8       0x40 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
+                0x08003694       0x40 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
  .text.prvPortStartFirstTask
-                0x08003528       0x28 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
+                0x080036d4       0x28 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
  .text.vPortEnableVFP
-                0x08003550       0x14 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
+                0x080036fc       0x14 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
  .text.pxPortInitialiseStack
-                0x08003564       0x2c ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
-                0x08003564                pxPortInitialiseStack
+                0x08003710       0x2c ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
+                0x08003710                pxPortInitialiseStack
+ *fill*         0x0800373c        0x4 
  .text.SVC_Handler
-                0x08003590       0x24 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
-                0x08003590                SVC_Handler
+                0x08003740       0x24 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
+                0x08003740                SVC_Handler
  .text.vPortEnterCritical
-                0x080035b4       0x44 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
-                0x080035b4                vPortEnterCritical
+                0x08003764       0x44 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
+                0x08003764                vPortEnterCritical
  .text.vPortExitCritical
-                0x080035f8       0x2c ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
-                0x080035f8                vPortExitCritical
- *fill*         0x08003624        0xc 
+                0x080037a8       0x2c ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
+                0x080037a8                vPortExitCritical
+ *fill*         0x080037d4        0xc 
  .text.PendSV_Handler
-                0x08003630       0x64 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
-                0x08003630                PendSV_Handler
+                0x080037e0       0x64 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
+                0x080037e0                PendSV_Handler
  .text.xPortSysTickHandler
-                0x08003694       0x2c ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
-                0x08003694                xPortSysTickHandler
+                0x08003844       0x2c ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
+                0x08003844                xPortSysTickHandler
  .text.vPortSetupTimerInterrupt
-                0x080036c0       0x38 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
-                0x080036c0                vPortSetupTimerInterrupt
+                0x08003870       0x38 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
+                0x08003870                vPortSetupTimerInterrupt
  .text.xPortStartScheduler
-                0x080036f8      0x110 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
-                0x080036f8                xPortStartScheduler
+                0x080038a8      0x110 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
+                0x080038a8                xPortStartScheduler
  .text.vPortValidateInterruptPriority
-                0x08003808       0x5c ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
-                0x08003808                vPortValidateInterruptPriority
+                0x080039b8       0x5c ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
+                0x080039b8                vPortValidateInterruptPriority
  .text.prvHeapInit
-                0x08003864       0x64 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
+                0x08003a14       0x64 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
  .text.prvInsertBlockIntoFreeList
-                0x080038c8       0x58 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
+                0x08003a78       0x58 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
  .text.pvPortMalloc
-                0x08003920      0x114 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
-                0x08003920                pvPortMalloc
+                0x08003ad0      0x114 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
+                0x08003ad0                pvPortMalloc
  .text.vPortFree
-                0x08003a34       0x7c ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
-                0x08003a34                vPortFree
+                0x08003be4       0x7c ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
+                0x08003be4                vPortFree
  .text.prvIsQueueFull
-                0x08003ab0       0x1e ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/queue.o
+                0x08003c60       0x1e ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/queue.o
  .text.prvIsQueueEmpty
-                0x08003ace       0x1a ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/queue.o
+                0x08003c7e       0x1a ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/queue.o
  .text.prvCopyDataToQueue
-                0x08003ae8       0x76 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/queue.o
+                0x08003c98       0x76 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/queue.o
  .text.prvCopyDataFromQueue
-                0x08003b5e       0x24 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/queue.o
+                0x08003d0e       0x24 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/queue.o
  .text.prvUnlockQueue
-                0x08003b82       0x6e ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/queue.o
+                0x08003d32       0x6e ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/queue.o
  .text.xQueueGenericReset
-                0x08003bf0       0x84 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/queue.o
-                0x08003bf0                xQueueGenericReset
+                0x08003da0       0x84 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/queue.o
+                0x08003da0                xQueueGenericReset
  .text.prvInitialiseNewQueue
-                0x08003c74       0x22 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/queue.o
+                0x08003e24       0x22 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/queue.o
  .text.xQueueGenericCreateStatic
-                0x08003c96       0x94 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/queue.o
-                0x08003c96                xQueueGenericCreateStatic
- *fill*         0x08003d2a        0x2 
+                0x08003e46       0x94 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/queue.o
+                0x08003e46                xQueueGenericCreateStatic
+ *fill*         0x08003eda        0x2 
  .text.xQueueGenericSend
-                0x08003d2c      0x180 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/queue.o
-                0x08003d2c                xQueueGenericSend
+                0x08003edc      0x180 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/queue.o
+                0x08003edc                xQueueGenericSend
  .text.xQueueGenericSendFromISR
-                0x08003eac       0xd0 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/queue.o
-                0x08003eac                xQueueGenericSendFromISR
+                0x0800405c       0xd0 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/queue.o
+                0x0800405c                xQueueGenericSendFromISR
  .text.xQueueReceive
-                0x08003f7c      0x15c ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/queue.o
-                0x08003f7c                xQueueReceive
+                0x0800412c      0x15c ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/queue.o
+                0x0800412c                xQueueReceive
  .text.vQueueAddToRegistry
-                0x080040d8       0x28 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/queue.o
-                0x080040d8                vQueueAddToRegistry
+                0x08004288       0x28 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/queue.o
+                0x08004288                vQueueAddToRegistry
  .text.vQueueWaitForMessageRestricted
-                0x08004100       0x52 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/queue.o
-                0x08004100                vQueueWaitForMessageRestricted
+                0x080042b0       0x52 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/queue.o
+                0x080042b0                vQueueWaitForMessageRestricted
  .text.prvSearchForNameWithinSingleList
-                0x08004152       0x62 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x08004302       0x62 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
  .text.prvResetNextTaskUnblockTime
-                0x080041b4       0x2c ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x08004364       0x2c ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
  .text.prvInitialiseNewTask
-                0x080041e0       0x9c ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x08004390       0x9c ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
  .text.prvInitialiseTaskLists
-                0x0800427c       0x68 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x0800442c       0x68 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
  .text.prvAddNewTaskToReadyList
-                0x080042e4       0xac ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x08004494       0xac ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
  .text.prvDeleteTCB
-                0x08004390       0x38 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x08004540       0x38 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
  .text.prvCheckTasksWaitingTermination
-                0x080043c8       0x4c ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x08004578       0x4c ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
  .text.prvIdleTask
-                0x08004414       0x28 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x080045c4       0x28 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
  .text.prvAddCurrentTaskToDelayedList
-                0x0800443c       0x84 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x080045ec       0x84 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
  .text.xTaskCreateStatic
-                0x080044c0       0x74 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
-                0x080044c0                xTaskCreateStatic
+                0x08004670       0x74 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x08004670                xTaskCreateStatic
  .text.xTaskCreate
-                0x08004534       0x66 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
-                0x08004534                xTaskCreate
- *fill*         0x0800459a        0x2 
+                0x080046e4       0x66 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x080046e4                xTaskCreate
+ *fill*         0x0800474a        0x2 
  .text.vTaskStartScheduler
-                0x0800459c       0x94 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
-                0x0800459c                vTaskStartScheduler
+                0x0800474c       0x94 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x0800474c                vTaskStartScheduler
  .text.vTaskSuspendAll
-                0x08004630       0x10 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
-                0x08004630                vTaskSuspendAll
+                0x080047e0       0x10 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x080047e0                vTaskSuspendAll
  .text.xTaskGetTickCount
-                0x08004640        0xc ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
-                0x08004640                xTaskGetTickCount
+                0x080047f0        0xc ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x080047f0                xTaskGetTickCount
  .text.pcTaskGetName
-                0x0800464c       0x28 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
-                0x0800464c                pcTaskGetName
+                0x080047fc       0x28 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x080047fc                pcTaskGetName
  .text.xTaskIncrementTick
-                0x08004674      0x11c ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
-                0x08004674                xTaskIncrementTick
+                0x08004824      0x11c ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x08004824                xTaskIncrementTick
  .text.xTaskResumeAll
-                0x08004790       0xf8 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
-                0x08004790                xTaskResumeAll
+                0x08004940       0xf8 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x08004940                xTaskResumeAll
  .text.vTaskDelayUntil
-                0x08004888       0xa4 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
-                0x08004888                vTaskDelayUntil
+                0x08004a38       0xa4 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x08004a38                vTaskDelayUntil
  .text.vTaskDelay
-                0x0800492c       0x4c ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
-                0x0800492c                vTaskDelay
+                0x08004adc       0x4c ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x08004adc                vTaskDelay
  .text.xTaskGetHandle
-                0x08004978       0x98 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
-                0x08004978                xTaskGetHandle
+                0x08004b28       0x98 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x08004b28                xTaskGetHandle
  .text.vTaskSwitchContext
-                0x08004a10       0x9c ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
-                0x08004a10                vTaskSwitchContext
+                0x08004bc0       0x9c ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x08004bc0                vTaskSwitchContext
  .text.vTaskPlaceOnEventList
-                0x08004aac       0x30 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
-                0x08004aac                vTaskPlaceOnEventList
+                0x08004c5c       0x30 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x08004c5c                vTaskPlaceOnEventList
  .text.vTaskPlaceOnEventListRestricted
-                0x08004adc       0x38 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
-                0x08004adc                vTaskPlaceOnEventListRestricted
+                0x08004c8c       0x38 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x08004c8c                vTaskPlaceOnEventListRestricted
  .text.xTaskRemoveFromEventList
-                0x08004b14       0x8c ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
-                0x08004b14                xTaskRemoveFromEventList
+                0x08004cc4       0x8c ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x08004cc4                xTaskRemoveFromEventList
  .text.vTaskInternalSetTimeOutState
-                0x08004ba0       0x18 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
-                0x08004ba0                vTaskInternalSetTimeOutState
+                0x08004d50       0x18 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x08004d50                vTaskInternalSetTimeOutState
  .text.xTaskCheckForTimeOut
-                0x08004bb8       0xa0 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
-                0x08004bb8                xTaskCheckForTimeOut
+                0x08004d68       0xa0 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x08004d68                xTaskCheckForTimeOut
  .text.vTaskMissedYield
-                0x08004c58        0xc ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
-                0x08004c58                vTaskMissedYield
+                0x08004e08        0xc ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x08004e08                vTaskMissedYield
  .text.xTaskGetSchedulerState
-                0x08004c64       0x20 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
-                0x08004c64                xTaskGetSchedulerState
+                0x08004e14       0x20 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x08004e14                xTaskGetSchedulerState
  .text.xTaskPriorityDisinherit
-                0x08004c84       0x90 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
-                0x08004c84                xTaskPriorityDisinherit
+                0x08004e34       0x90 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x08004e34                xTaskPriorityDisinherit
  .text.ulTaskNotifyTake
-                0x08004d14       0x78 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
-                0x08004d14                ulTaskNotifyTake
+                0x08004ec4       0x78 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x08004ec4                ulTaskNotifyTake
  .text.vTaskNotifyGiveFromISR
-                0x08004d8c       0xd0 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
-                0x08004d8c                vTaskNotifyGiveFromISR
+                0x08004f3c       0xd0 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x08004f3c                vTaskNotifyGiveFromISR
  .text.prvGetNextExpireTime
-                0x08004e5c       0x20 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/timers.o
+                0x0800500c       0x20 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/timers.o
  .text.prvInsertTimerInActiveList
-                0x08004e7c       0x48 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/timers.o
+                0x0800502c       0x48 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/timers.o
  .text.prvCheckForValidListAndQueue
-                0x08004ec4       0x70 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/timers.o
+                0x08005074       0x70 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/timers.o
  .text.xTimerCreateTimerTask
-                0x08004f34       0x64 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/timers.o
-                0x08004f34                xTimerCreateTimerTask
+                0x080050e4       0x64 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/timers.o
+                0x080050e4                xTimerCreateTimerTask
  .text.xTimerGenericCommand
-                0x08004f98       0x6c ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/timers.o
-                0x08004f98                xTimerGenericCommand
+                0x08005148       0x6c ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/timers.o
+                0x08005148                xTimerGenericCommand
  .text.prvSwitchTimerLists
-                0x08005004       0x7c ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/timers.o
+                0x080051b4       0x7c ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/timers.o
  .text.prvSampleTimeNow
-                0x08005080       0x2c ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/timers.o
+                0x08005230       0x2c ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/timers.o
  .text.prvProcessExpiredTimer
-                0x080050ac       0x6c ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/timers.o
+                0x0800525c       0x6c ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/timers.o
  .text.prvProcessTimerOrBlockTask
-                0x08005118       0x74 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/timers.o
+                0x080052c8       0x74 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/timers.o
  .text.prvProcessReceivedCommands
-                0x0800518c      0x110 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/timers.o
+                0x0800533c      0x110 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/timers.o
  .text.prvTimerTask
-                0x0800529c       0x16 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/timers.o
- *fill*         0x080052b2        0x2 
+                0x0800544c       0x16 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/timers.o
+ *fill*         0x08005462        0x2 
  .text.MX_CAN1_Init
-                0x080052b4       0x40 ./build/gimbctrl/Src/can.o
-                0x080052b4                MX_CAN1_Init
+                0x08005464       0x40 ./build/gimbctrl/Src/can.o
+                0x08005464                MX_CAN1_Init
  .text.MX_CAN2_Init
-                0x080052f4       0x38 ./build/gimbctrl/Src/can.o
-                0x080052f4                MX_CAN2_Init
+                0x080054a4       0x38 ./build/gimbctrl/Src/can.o
+                0x080054a4                MX_CAN2_Init
  .text.HAL_CAN_MspInit
-                0x0800532c      0x120 ./build/gimbctrl/Src/can.o
-                0x0800532c                HAL_CAN_MspInit
+                0x080054dc      0x120 ./build/gimbctrl/Src/can.o
+                0x080054dc                HAL_CAN_MspInit
  .text.MX_DMA_Init
-                0x0800544c       0x44 ./build/gimbctrl/Src/dma.o
-                0x0800544c                MX_DMA_Init
+                0x080055fc       0x44 ./build/gimbctrl/Src/dma.o
+                0x080055fc                MX_DMA_Init
  .text.MX_FREERTOS_Init
-                0x08005490       0x88 ./build/gimbctrl/Src/freertos.o
-                0x08005490                MX_FREERTOS_Init
+                0x08005640       0x88 ./build/gimbctrl/Src/freertos.o
+                0x08005640                MX_FREERTOS_Init
  .text.MX_GPIO_Init
-                0x08005518      0x198 ./build/gimbctrl/Src/gpio.o
-                0x08005518                MX_GPIO_Init
+                0x080056c8      0x198 ./build/gimbctrl/Src/gpio.o
+                0x080056c8                MX_GPIO_Init
  .text.MX_I2C3_Init
-                0x080056b0       0x3c ./build/gimbctrl/Src/i2c.o
-                0x080056b0                MX_I2C3_Init
+                0x08005860       0x3c ./build/gimbctrl/Src/i2c.o
+                0x08005860                MX_I2C3_Init
  .text.HAL_I2C_MspInit
-                0x080056ec       0xb4 ./build/gimbctrl/Src/i2c.o
-                0x080056ec                HAL_I2C_MspInit
+                0x0800589c       0xb4 ./build/gimbctrl/Src/i2c.o
+                0x0800589c                HAL_I2C_MspInit
  .text.Error_Handler
-                0x080057a0        0x4 ./build/gimbctrl/Src/main.o
-                0x080057a0                Error_Handler
+                0x08005950        0x4 ./build/gimbctrl/Src/main.o
+                0x08005950                Error_Handler
  .text.SystemClock_Config
-                0x080057a4       0xa8 ./build/gimbctrl/Src/main.o
-                0x080057a4                SystemClock_Config
- .text.main     0x0800584c       0x3c ./build/gimbctrl/Src/main.o
-                0x0800584c                main
+                0x08005954       0xa8 ./build/gimbctrl/Src/main.o
+                0x08005954                SystemClock_Config
+ .text.main     0x080059fc       0x40 ./build/gimbctrl/Src/main.o
+                0x080059fc                main
  .text.MX_SPI1_Init
-                0x08005888       0x44 ./build/gimbctrl/Src/spi.o
-                0x08005888                MX_SPI1_Init
+                0x08005a3c       0x44 ./build/gimbctrl/Src/spi.o
+                0x08005a3c                MX_SPI1_Init
  .text.HAL_SPI_MspInit
-                0x080058cc      0x130 ./build/gimbctrl/Src/spi.o
-                0x080058cc                HAL_SPI_MspInit
+                0x08005a80      0x130 ./build/gimbctrl/Src/spi.o
+                0x08005a80                HAL_SPI_MspInit
  .text.HAL_MspInit
-                0x080059fc       0x44 ./build/gimbctrl/Src/stm32f4xx_hal_msp.o
-                0x080059fc                HAL_MspInit
+                0x08005bb0       0x44 ./build/gimbctrl/Src/stm32f4xx_hal_msp.o
+                0x08005bb0                HAL_MspInit
  .text.NMI_Handler
-                0x08005a40        0x2 ./build/gimbctrl/Src/stm32f4xx_it.o
-                0x08005a40                NMI_Handler
+                0x08005bf4        0x2 ./build/gimbctrl/Src/stm32f4xx_it.o
+                0x08005bf4                NMI_Handler
  .text.HardFault_Handler
-                0x08005a42        0x2 ./build/gimbctrl/Src/stm32f4xx_it.o
-                0x08005a42                HardFault_Handler
+                0x08005bf6        0x2 ./build/gimbctrl/Src/stm32f4xx_it.o
+                0x08005bf6                HardFault_Handler
  .text.MemManage_Handler
-                0x08005a44        0x2 ./build/gimbctrl/Src/stm32f4xx_it.o
-                0x08005a44                MemManage_Handler
+                0x08005bf8        0x2 ./build/gimbctrl/Src/stm32f4xx_it.o
+                0x08005bf8                MemManage_Handler
  .text.BusFault_Handler
-                0x08005a46        0x2 ./build/gimbctrl/Src/stm32f4xx_it.o
-                0x08005a46                BusFault_Handler
+                0x08005bfa        0x2 ./build/gimbctrl/Src/stm32f4xx_it.o
+                0x08005bfa                BusFault_Handler
  .text.UsageFault_Handler
-                0x08005a48        0x2 ./build/gimbctrl/Src/stm32f4xx_it.o
-                0x08005a48                UsageFault_Handler
+                0x08005bfc        0x2 ./build/gimbctrl/Src/stm32f4xx_it.o
+                0x08005bfc                UsageFault_Handler
  .text.DebugMon_Handler
-                0x08005a4a        0x2 ./build/gimbctrl/Src/stm32f4xx_it.o
-                0x08005a4a                DebugMon_Handler
+                0x08005bfe        0x2 ./build/gimbctrl/Src/stm32f4xx_it.o
+                0x08005bfe                DebugMon_Handler
  .text.SysTick_Handler
-                0x08005a4c       0x16 ./build/gimbctrl/Src/stm32f4xx_it.o
-                0x08005a4c                SysTick_Handler
+                0x08005c00       0x16 ./build/gimbctrl/Src/stm32f4xx_it.o
+                0x08005c00                SysTick_Handler
  .text.EXTI0_IRQHandler
-                0x08005a62        0xa ./build/gimbctrl/Src/stm32f4xx_it.o
-                0x08005a62                EXTI0_IRQHandler
+                0x08005c16        0xa ./build/gimbctrl/Src/stm32f4xx_it.o
+                0x08005c16                EXTI0_IRQHandler
  .text.EXTI3_IRQHandler
-                0x08005a6c        0xa ./build/gimbctrl/Src/stm32f4xx_it.o
-                0x08005a6c                EXTI3_IRQHandler
+                0x08005c20        0xa ./build/gimbctrl/Src/stm32f4xx_it.o
+                0x08005c20                EXTI3_IRQHandler
  .text.EXTI4_IRQHandler
-                0x08005a76        0xa ./build/gimbctrl/Src/stm32f4xx_it.o
-                0x08005a76                EXTI4_IRQHandler
+                0x08005c2a        0xa ./build/gimbctrl/Src/stm32f4xx_it.o
+                0x08005c2a                EXTI4_IRQHandler
  .text.CAN1_RX0_IRQHandler
-                0x08005a80       0x10 ./build/gimbctrl/Src/stm32f4xx_it.o
-                0x08005a80                CAN1_RX0_IRQHandler
+                0x08005c34       0x10 ./build/gimbctrl/Src/stm32f4xx_it.o
+                0x08005c34                CAN1_RX0_IRQHandler
  .text.EXTI9_5_IRQHandler
-                0x08005a90        0xa ./build/gimbctrl/Src/stm32f4xx_it.o
-                0x08005a90                EXTI9_5_IRQHandler
- *fill*         0x08005a9a        0x2 
+                0x08005c44        0xa ./build/gimbctrl/Src/stm32f4xx_it.o
+                0x08005c44                EXTI9_5_IRQHandler
+ *fill*         0x08005c4e        0x2 
  .text.CAN2_RX0_IRQHandler
-                0x08005a9c       0x10 ./build/gimbctrl/Src/stm32f4xx_it.o
-                0x08005a9c                CAN2_RX0_IRQHandler
+                0x08005c50       0x10 ./build/gimbctrl/Src/stm32f4xx_it.o
+                0x08005c50                CAN2_RX0_IRQHandler
  .text.SystemInit
-                0x08005aac       0x14 ./build/gimbctrl/Src/system_stm32f4xx.o
-                0x08005aac                SystemInit
+                0x08005c60       0x14 ./build/gimbctrl/Src/system_stm32f4xx.o
+                0x08005c60                SystemInit
  .text.HAL_TIM_PWM_MspInit
-                0x08005ac0       0x30 ./build/gimbctrl/Src/tim.o
-                0x08005ac0                HAL_TIM_PWM_MspInit
+                0x08005c74       0x30 ./build/gimbctrl/Src/tim.o
+                0x08005c74                HAL_TIM_PWM_MspInit
  .text.HAL_TIM_Base_MspInit
-                0x08005af0       0x30 ./build/gimbctrl/Src/tim.o
-                0x08005af0                HAL_TIM_Base_MspInit
+                0x08005ca4       0x30 ./build/gimbctrl/Src/tim.o
+                0x08005ca4                HAL_TIM_Base_MspInit
  .text.HAL_TIM_MspPostInit
-                0x08005b20       0x98 ./build/gimbctrl/Src/tim.o
-                0x08005b20                HAL_TIM_MspPostInit
+                0x08005cd4       0x98 ./build/gimbctrl/Src/tim.o
+                0x08005cd4                HAL_TIM_MspPostInit
  .text.MX_TIM1_Init
-                0x08005bb8       0xbc ./build/gimbctrl/Src/tim.o
-                0x08005bb8                MX_TIM1_Init
+                0x08005d6c       0xbc ./build/gimbctrl/Src/tim.o
+                0x08005d6c                MX_TIM1_Init
  .text.MX_TIM10_Init
-                0x08005c74       0x74 ./build/gimbctrl/Src/tim.o
-                0x08005c74                MX_TIM10_Init
+                0x08005e28       0x74 ./build/gimbctrl/Src/tim.o
+                0x08005e28                MX_TIM10_Init
  .text.delay_init
-                0x08005ce8       0x34 ./build/gimbctrl/src/bsps/bsp_delay.o
-                0x08005ce8                delay_init
+                0x08005e9c       0x34 ./build/gimbctrl/src/bsps/bsp_delay.o
+                0x08005e9c                delay_init
  .text.delay_us
-                0x08005d1c       0x3c ./build/gimbctrl/src/bsps/bsp_delay.o
-                0x08005d1c                delay_us
+                0x08005ed0       0x3c ./build/gimbctrl/src/bsps/bsp_delay.o
+                0x08005ed0                delay_us
  .text.imu_pwm_set
-                0x08005d58        0xc ./build/gimbctrl/src/bsps/bsp_imu_pwm.o
-                0x08005d58                imu_pwm_set
+                0x08005f0c        0xc ./build/gimbctrl/src/bsps/bsp_imu_pwm.o
+                0x08005f0c                imu_pwm_set
  .text.SPI1_DMA_init
-                0x08005d64      0x11c ./build/gimbctrl/src/bsps/bsp_spi.o
-                0x08005d64                SPI1_DMA_init
+                0x08005f18      0x11c ./build/gimbctrl/src/bsps/bsp_spi.o
+                0x08005f18                SPI1_DMA_init
  .text.SPI1_DMA_enable
-                0x08005e80     0x1d78 ./build/gimbctrl/src/bsps/bsp_spi.o
-                0x08005e80                SPI1_DMA_enable
+                0x08006034     0x1d78 ./build/gimbctrl/src/bsps/bsp_spi.o
+                0x08006034                SPI1_DMA_enable
+ .text.can_filter_init
+                0x08007dac       0x5c ./build/gimbctrl/src/bsps/can_bsp.o
+                0x08007dac                can_filter_init
  .text.CAN_send
-                0x08007bf8       0x68 ./build/gimbctrl/src/bsps/can_bsp.o
-                0x08007bf8                CAN_send
+                0x08007e08       0x68 ./build/gimbctrl/src/bsps/can_bsp.o
+                0x08007e08                CAN_send
  .text.BMI088_GPIO_init
-                0x08007c60        0x2 ./build/gimbctrl/src/devices/BMI088Middleware.o
-                0x08007c60                BMI088_GPIO_init
+                0x08007e70        0x2 ./build/gimbctrl/src/devices/BMI088Middleware.o
+                0x08007e70                BMI088_GPIO_init
  .text.BMI088_com_init
-                0x08007c62        0x2 ./build/gimbctrl/src/devices/BMI088Middleware.o
-                0x08007c62                BMI088_com_init
+                0x08007e72        0x2 ./build/gimbctrl/src/devices/BMI088Middleware.o
+                0x08007e72                BMI088_com_init
  .text.BMI088_delay_ms
-                0x08007c64        0x8 ./build/gimbctrl/src/devices/BMI088Middleware.o
-                0x08007c64                BMI088_delay_ms
+                0x08007e74        0x8 ./build/gimbctrl/src/devices/BMI088Middleware.o
+                0x08007e74                BMI088_delay_ms
  .text.BMI088_delay_us
-                0x08007c6c        0x8 ./build/gimbctrl/src/devices/BMI088Middleware.o
-                0x08007c6c                BMI088_delay_us
+                0x08007e7c        0x8 ./build/gimbctrl/src/devices/BMI088Middleware.o
+                0x08007e7c                BMI088_delay_us
  .text.BMI088_ACCEL_NS_L
-                0x08007c74       0x14 ./build/gimbctrl/src/devices/BMI088Middleware.o
-                0x08007c74                BMI088_ACCEL_NS_L
+                0x08007e84       0x14 ./build/gimbctrl/src/devices/BMI088Middleware.o
+                0x08007e84                BMI088_ACCEL_NS_L
  .text.BMI088_ACCEL_NS_H
-                0x08007c88       0x14 ./build/gimbctrl/src/devices/BMI088Middleware.o
-                0x08007c88                BMI088_ACCEL_NS_H
+                0x08007e98       0x14 ./build/gimbctrl/src/devices/BMI088Middleware.o
+                0x08007e98                BMI088_ACCEL_NS_H
  .text.BMI088_GYRO_NS_L
-                0x08007c9c       0x14 ./build/gimbctrl/src/devices/BMI088Middleware.o
-                0x08007c9c                BMI088_GYRO_NS_L
+                0x08007eac       0x14 ./build/gimbctrl/src/devices/BMI088Middleware.o
+                0x08007eac                BMI088_GYRO_NS_L
  .text.BMI088_GYRO_NS_H
-                0x08007cb0       0x14 ./build/gimbctrl/src/devices/BMI088Middleware.o
-                0x08007cb0                BMI088_GYRO_NS_H
+                0x08007ec0       0x14 ./build/gimbctrl/src/devices/BMI088Middleware.o
+                0x08007ec0                BMI088_GYRO_NS_H
  .text.BMI088_read_write_byte
-                0x08007cc4       0x2c ./build/gimbctrl/src/devices/BMI088Middleware.o
-                0x08007cc4                BMI088_read_write_byte
+                0x08007ed4       0x2c ./build/gimbctrl/src/devices/BMI088Middleware.o
+                0x08007ed4                BMI088_read_write_byte
  .text.BMI088_write_single_reg
-                0x08007cf0       0x10 ./build/gimbctrl/src/devices/BMI088driver.o
+                0x08007f00       0x10 ./build/gimbctrl/src/devices/BMI088driver.o
  .text.BMI088_read_single_reg
-                0x08007d00       0x16 ./build/gimbctrl/src/devices/BMI088driver.o
+                0x08007f10       0x16 ./build/gimbctrl/src/devices/BMI088driver.o
  .text.BMI088_read_muli_reg
-                0x08007d16       0x22 ./build/gimbctrl/src/devices/BMI088driver.o
+                0x08007f26       0x22 ./build/gimbctrl/src/devices/BMI088driver.o
  .text.bmi088_accel_init
-                0x08007d38      0x134 ./build/gimbctrl/src/devices/BMI088driver.o
-                0x08007d38                bmi088_accel_init
+                0x08007f48      0x134 ./build/gimbctrl/src/devices/BMI088driver.o
+                0x08007f48                bmi088_accel_init
  .text.bmi088_gyro_init
-                0x08007e6c       0xf0 ./build/gimbctrl/src/devices/BMI088driver.o
-                0x08007e6c                bmi088_gyro_init
+                0x0800807c       0xf0 ./build/gimbctrl/src/devices/BMI088driver.o
+                0x0800807c                bmi088_gyro_init
  .text.bmi088_accel_self_test
-                0x08007f5c      0x2fc ./build/gimbctrl/src/devices/BMI088driver.o
-                0x08007f5c                bmi088_accel_self_test
+                0x0800816c      0x2fc ./build/gimbctrl/src/devices/BMI088driver.o
+                0x0800816c                bmi088_accel_self_test
  .text.bmi088_gyro_self_test
-                0x08008258       0xd6 ./build/gimbctrl/src/devices/BMI088driver.o
-                0x08008258                bmi088_gyro_self_test
+                0x08008468       0xd6 ./build/gimbctrl/src/devices/BMI088driver.o
+                0x08008468                bmi088_gyro_self_test
  .text.BMI088_init
-                0x0800832e       0x32 ./build/gimbctrl/src/devices/BMI088driver.o
-                0x0800832e                BMI088_init
+                0x0800853e       0x32 ./build/gimbctrl/src/devices/BMI088driver.o
+                0x0800853e                BMI088_init
  .text.BMI088_temperature_read_over
-                0x08008360       0x32 ./build/gimbctrl/src/devices/BMI088driver.o
-                0x08008360                BMI088_temperature_read_over
- *fill*         0x08008392        0x2 
+                0x08008570       0x32 ./build/gimbctrl/src/devices/BMI088driver.o
+                0x08008570                BMI088_temperature_read_over
+ *fill*         0x080085a2        0x2 
  .text.BMI088_accel_read_over
-                0x08008394       0x88 ./build/gimbctrl/src/devices/BMI088driver.o
-                0x08008394                BMI088_accel_read_over
+                0x080085a4       0x88 ./build/gimbctrl/src/devices/BMI088driver.o
+                0x080085a4                BMI088_accel_read_over
  .text.BMI088_gyro_read_over
-                0x0800841c       0x64 ./build/gimbctrl/src/devices/BMI088driver.o
-                0x0800841c                BMI088_gyro_read_over
+                0x0800862c       0x64 ./build/gimbctrl/src/devices/BMI088driver.o
+                0x0800862c                BMI088_gyro_read_over
  .text.BMI088_read
-                0x08008480      0x164 ./build/gimbctrl/src/devices/BMI088driver.o
-                0x08008480                BMI088_read
+                0x08008690      0x164 ./build/gimbctrl/src/devices/BMI088driver.o
+                0x08008690                BMI088_read
  .text.HAL_CAN_RxFifo0MsgPendingCallback
-                0x080085e4       0x40 ./build/gimbctrl/src/devices/canbus.o
-                0x080085e4                HAL_CAN_RxFifo0MsgPendingCallback
+                0x080087f4       0x40 ./build/gimbctrl/src/devices/canbus.o
+                0x080087f4                HAL_CAN_RxFifo0MsgPendingCallback
  .text.ist8310_init
-                0x08008624       0x80 ./build/gimbctrl/src/devices/ist8310driver.o
-                0x08008624                ist8310_init
+                0x08008834       0x80 ./build/gimbctrl/src/devices/ist8310driver.o
+                0x08008834                ist8310_init
  .text.ist8310_read_mag
-                0x080086a4       0x78 ./build/gimbctrl/src/devices/ist8310driver.o
-                0x080086a4                ist8310_read_mag
+                0x080088b4       0x78 ./build/gimbctrl/src/devices/ist8310driver.o
+                0x080088b4                ist8310_read_mag
  .text.ist8310_GPIO_init
-                0x0800871c        0x2 ./build/gimbctrl/src/devices/ist8310driver_middleware.o
-                0x0800871c                ist8310_GPIO_init
+                0x0800892c        0x2 ./build/gimbctrl/src/devices/ist8310driver_middleware.o
+                0x0800892c                ist8310_GPIO_init
  .text.ist8310_com_init
-                0x0800871e        0x2 ./build/gimbctrl/src/devices/ist8310driver_middleware.o
-                0x0800871e                ist8310_com_init
+                0x0800892e        0x2 ./build/gimbctrl/src/devices/ist8310driver_middleware.o
+                0x0800892e                ist8310_com_init
  .text.ist8310_IIC_read_single_reg
-                0x08008720       0x2c ./build/gimbctrl/src/devices/ist8310driver_middleware.o
-                0x08008720                ist8310_IIC_read_single_reg
+                0x08008930       0x2c ./build/gimbctrl/src/devices/ist8310driver_middleware.o
+                0x08008930                ist8310_IIC_read_single_reg
  .text.ist8310_IIC_write_single_reg
-                0x0800874c       0x2c ./build/gimbctrl/src/devices/ist8310driver_middleware.o
-                0x0800874c                ist8310_IIC_write_single_reg
+                0x0800895c       0x2c ./build/gimbctrl/src/devices/ist8310driver_middleware.o
+                0x0800895c                ist8310_IIC_write_single_reg
  .text.ist8310_IIC_read_muli_reg
-                0x08008778       0x24 ./build/gimbctrl/src/devices/ist8310driver_middleware.o
-                0x08008778                ist8310_IIC_read_muli_reg
+                0x08008988       0x24 ./build/gimbctrl/src/devices/ist8310driver_middleware.o
+                0x08008988                ist8310_IIC_read_muli_reg
  .text.ist8310_delay_ms
-                0x0800879c        0x8 ./build/gimbctrl/src/devices/ist8310driver_middleware.o
-                0x0800879c                ist8310_delay_ms
+                0x080089ac        0x8 ./build/gimbctrl/src/devices/ist8310driver_middleware.o
+                0x080089ac                ist8310_delay_ms
  .text.ist8310_RST_H
-                0x080087a4       0x14 ./build/gimbctrl/src/devices/ist8310driver_middleware.o
-                0x080087a4                ist8310_RST_H
+                0x080089b4       0x14 ./build/gimbctrl/src/devices/ist8310driver_middleware.o
+                0x080089b4                ist8310_RST_H
  .text.ist8310_RST_L
-                0x080087b8       0x14 ./build/gimbctrl/src/devices/ist8310driver_middleware.o
-                0x080087b8                ist8310_RST_L
- .text.invSqrt  0x080087cc       0x30 ./build/gimbctrl/src/libs/MahonyAHRS.o
-                0x080087cc                invSqrt
+                0x080089c8       0x14 ./build/gimbctrl/src/devices/ist8310driver_middleware.o
+                0x080089c8                ist8310_RST_L
+ .text.invSqrt  0x080089dc       0x30 ./build/gimbctrl/src/libs/MahonyAHRS.o
+                0x080089dc                invSqrt
  .text.MahonyAHRSupdateIMU
-                0x080087fc      0x258 ./build/gimbctrl/src/libs/MahonyAHRS.o
-                0x080087fc                MahonyAHRSupdateIMU
+                0x08008a0c      0x258 ./build/gimbctrl/src/libs/MahonyAHRS.o
+                0x08008a0c                MahonyAHRSupdateIMU
  .text.MahonyAHRSupdate
-                0x08008a54      0x3d4 ./build/gimbctrl/src/libs/MahonyAHRS.o
-                0x08008a54                MahonyAHRSupdate
+                0x08008c64      0x3d4 ./build/gimbctrl/src/libs/MahonyAHRS.o
+                0x08008c64                MahonyAHRSupdate
+ .text.motparainit
+                0x08009038       0x98 ./build/gimbctrl/src/libs/motlib.o
+                0x08009038                motparainit
  .text.calc_mot_aspid
-                0x08008e28       0x48 ./build/gimbctrl/src/libs/motlib.o
-                0x08008e28                calc_mot_aspid
+                0x080090d0       0x48 ./build/gimbctrl/src/libs/motlib.o
+                0x080090d0                calc_mot_aspid
  .text.PID_calc
-                0x08008e70       0xf6 ./build/gimbctrl/src/libs/pid.o
-                0x08008e70                PID_calc
- *fill*         0x08008f66        0x2 
+                0x08009118       0xf6 ./build/gimbctrl/src/libs/pid.o
+                0x08009118                PID_calc
+ *fill*         0x0800920e        0x2 
  .text.PID_angle_calc
-                0x08008f68      0x130 ./build/gimbctrl/src/libs/pid.o
-                0x08008f68                PID_angle_calc
+                0x08009210      0x130 ./build/gimbctrl/src/libs/pid.o
+                0x08009210                PID_angle_calc
  .text.imu_cali_slove
-                0x08009098      0x100 ./build/gimbctrl/src/tasks/INS_task.o
+                0x08009340      0x100 ./build/gimbctrl/src/tasks/INS_task.o
  .text.imu_temp_control
-                0x08009198       0x84 ./build/gimbctrl/src/tasks/INS_task.o
+                0x08009440       0x84 ./build/gimbctrl/src/tasks/INS_task.o
  .text.imu_cmd_spi_dma
-                0x0800921c      0x180 ./build/gimbctrl/src/tasks/INS_task.o
+                0x080094c4      0x180 ./build/gimbctrl/src/tasks/INS_task.o
  .text.instemp_PID_init
-                0x0800939c       0x28 ./build/gimbctrl/src/tasks/INS_task.o
-                0x0800939c                instemp_PID_init
+                0x08009644       0x28 ./build/gimbctrl/src/tasks/INS_task.o
+                0x08009644                instemp_PID_init
  .text.AHRS_init
-                0x080093c4       0x10 ./build/gimbctrl/src/tasks/INS_task.o
-                0x080093c4                AHRS_init
+                0x0800966c       0x10 ./build/gimbctrl/src/tasks/INS_task.o
+                0x0800966c                AHRS_init
  .text.AHRS_update
-                0x080093d4       0x2c ./build/gimbctrl/src/tasks/INS_task.o
-                0x080093d4                AHRS_update
+                0x0800967c       0x2c ./build/gimbctrl/src/tasks/INS_task.o
+                0x0800967c                AHRS_update
  .text.get_angle
-                0x08009400       0xbc ./build/gimbctrl/src/tasks/INS_task.o
-                0x08009400                get_angle
+                0x080096a8       0xbc ./build/gimbctrl/src/tasks/INS_task.o
+                0x080096a8                get_angle
  .text.INS_task
-                0x080094bc      0x268 ./build/gimbctrl/src/tasks/INS_task.o
-                0x080094bc                INS_task
+                0x08009764      0x268 ./build/gimbctrl/src/tasks/INS_task.o
+                0x08009764                INS_task
  .text.HAL_GPIO_EXTI_Callback
-                0x08009724       0xd0 ./build/gimbctrl/src/tasks/INS_task.o
-                0x08009724                HAL_GPIO_EXTI_Callback
+                0x080099cc       0xd0 ./build/gimbctrl/src/tasks/INS_task.o
+                0x080099cc                HAL_GPIO_EXTI_Callback
  .text.DMA2_Stream2_IRQHandler
-                0x080097f4      0x6b0 ./build/gimbctrl/src/tasks/INS_task.o
-                0x080097f4                DMA2_Stream2_IRQHandler
+                0x08009a9c      0x6b0 ./build/gimbctrl/src/tasks/INS_task.o
+                0x08009a9c                DMA2_Stream2_IRQHandler
  .text.canrx2comuinfo_comd
-                0x08009ea4       0x16 ./build/gimbctrl/src/tasks/comutask.o
-                0x08009ea4                canrx2comuinfo_comd
- *fill*         0x08009eba        0x2 
+                0x0800a14c       0x16 ./build/gimbctrl/src/tasks/comutask.o
+                0x0800a14c                canrx2comuinfo_comd
+ *fill*         0x0800a162        0x2 
  .text.pack_mes2chas_imu
-                0x08009ebc       0x40 ./build/gimbctrl/src/tasks/comutask.o
-                0x08009ebc                pack_mes2chas_imu
+                0x0800a164       0x40 ./build/gimbctrl/src/tasks/comutask.o
+                0x0800a164                pack_mes2chas_imu
  .text.pack_mes2chas_cv
-                0x08009efc       0x24 ./build/gimbctrl/src/tasks/comutask.o
-                0x08009efc                pack_mes2chas_cv
+                0x0800a1a4       0x24 ./build/gimbctrl/src/tasks/comutask.o
+                0x0800a1a4                pack_mes2chas_cv
  .text.comutask
-                0x08009f20       0x78 ./build/gimbctrl/src/tasks/comutask.o
-                0x08009f20                comutask
- .text.devmoni  0x08009f98       0x30 ./build/gimbctrl/src/tasks/devmoni.o
-                0x08009f98                devmoni
+                0x0800a1c8       0x78 ./build/gimbctrl/src/tasks/comutask.o
+                0x0800a1c8                comutask
+ .text.devmoni  0x0800a240       0x30 ./build/gimbctrl/src/tasks/devmoni.o
+                0x0800a240                devmoni
  .text.get_comuinfo_imu
-                0x08009fc8       0x64 ./build/gimbctrl/src/tasks/infoupdate.o
-                0x08009fc8                get_comuinfo_imu
+                0x0800a270       0x64 ./build/gimbctrl/src/tasks/infoupdate.o
+                0x0800a270                get_comuinfo_imu
  .text.infoupdate
-                0x0800a02c       0x14 ./build/gimbctrl/src/tasks/infoupdate.o
-                0x0800a02c                infoupdate
+                0x0800a2d4       0x14 ./build/gimbctrl/src/tasks/infoupdate.o
+                0x0800a2d4                infoupdate
+ .text.chasmotinit
+                0x0800a2e8       0x2c ./build/gimbctrl/src/tasks/init.o
+                0x0800a2e8                chasmotinit
+ .text.devinit  0x0800a314        0x8 ./build/gimbctrl/src/tasks/init.o
+                0x0800a314                devinit
+ .text.userinit
+                0x0800a31c        0xc ./build/gimbctrl/src/tasks/init.o
+                0x0800a31c                userinit
+ .text.init_shootmot_para
+                0x0800a328       0x50 ./build/gimbctrl/src/tasks/shoottask.o
+                0x0800a328                init_shootmot_para
+ .text.init_shootmot_pid
+                0x0800a378       0x88 ./build/gimbctrl/src/tasks/shoottask.o
+                0x0800a378                init_shootmot_pid
  .text.get_trigangle_comd
-                0x0800a040       0x54 ./build/gimbctrl/src/tasks/shoottask.o
-                0x0800a040                get_trigangle_comd
+                0x0800a400       0x54 ./build/gimbctrl/src/tasks/shoottask.o
+                0x0800a400                get_trigangle_comd
  .text.get_fricspeed_comd
-                0x0800a094       0x24 ./build/gimbctrl/src/tasks/shoottask.o
-                0x0800a094                get_fricspeed_comd
+                0x0800a454       0x24 ./build/gimbctrl/src/tasks/shoottask.o
+                0x0800a454                get_fricspeed_comd
  .text.calc_shootmot_pid
-                0x0800a0b8       0x58 ./build/gimbctrl/src/tasks/shoottask.o
-                0x0800a0b8                calc_shootmot_pid
+                0x0800a478       0x58 ./build/gimbctrl/src/tasks/shoottask.o
+                0x0800a478                calc_shootmot_pid
  .text.pack_shootmot_ctrlmes
-                0x0800a110       0x44 ./build/gimbctrl/src/tasks/shoottask.o
-                0x0800a110                pack_shootmot_ctrlmes
- .text.setmag   0x0800a154       0x20 ./build/gimbctrl/src/tasks/shoottask.o
-                0x0800a154                setmag
+                0x0800a4d0       0x44 ./build/gimbctrl/src/tasks/shoottask.o
+                0x0800a4d0                pack_shootmot_ctrlmes
+ .text.setmag   0x0800a514       0x20 ./build/gimbctrl/src/tasks/shoottask.o
+                0x0800a514                setmag
  .text.shoottask
-                0x0800a174       0xf8 ./build/gimbctrl/src/tasks/shoottask.o
-                0x0800a174                shoottask
+                0x0800a534       0xf8 ./build/gimbctrl/src/tasks/shoottask.o
+                0x0800a534                shoottask
  .text.Reset_Handler
-                0x0800a26c       0x50 ./build/gimbctrl/startup_stm32f407xx.o
-                0x0800a26c                Reset_Handler
+                0x0800a62c       0x50 ./build/gimbctrl/startup_stm32f407xx.o
+                0x0800a62c                Reset_Handler
  .text.Default_Handler
-                0x0800a2bc        0x2 ./build/gimbctrl/startup_stm32f407xx.o
-                0x0800a2bc                RTC_Alarm_IRQHandler
-                0x0800a2bc                HASH_RNG_IRQHandler
-                0x0800a2bc                EXTI2_IRQHandler
-                0x0800a2bc                TIM8_CC_IRQHandler
-                0x0800a2bc                TIM1_CC_IRQHandler
-                0x0800a2bc                DMA2_Stream5_IRQHandler
-                0x0800a2bc                DMA1_Stream5_IRQHandler
-                0x0800a2bc                PVD_IRQHandler
-                0x0800a2bc                SDIO_IRQHandler
-                0x0800a2bc                TAMP_STAMP_IRQHandler
-                0x0800a2bc                CAN2_RX1_IRQHandler
-                0x0800a2bc                TIM8_TRG_COM_TIM14_IRQHandler
-                0x0800a2bc                TIM1_UP_TIM10_IRQHandler
-                0x0800a2bc                TIM8_UP_TIM13_IRQHandler
-                0x0800a2bc                I2C3_ER_IRQHandler
-                0x0800a2bc                I2C2_EV_IRQHandler
-                0x0800a2bc                DMA1_Stream2_IRQHandler
-                0x0800a2bc                FPU_IRQHandler
-                0x0800a2bc                OTG_HS_WKUP_IRQHandler
-                0x0800a2bc                CAN2_SCE_IRQHandler
-                0x0800a2bc                SPI1_IRQHandler
-                0x0800a2bc                TIM6_DAC_IRQHandler
-                0x0800a2bc                TIM1_BRK_TIM9_IRQHandler
-                0x0800a2bc                DCMI_IRQHandler
-                0x0800a2bc                DMA2_Stream3_IRQHandler
-                0x0800a2bc                USART6_IRQHandler
-                0x0800a2bc                USART3_IRQHandler
-                0x0800a2bc                CAN1_RX1_IRQHandler
-                0x0800a2bc                UART5_IRQHandler
-                0x0800a2bc                DMA2_Stream0_IRQHandler
-                0x0800a2bc                TIM4_IRQHandler
-                0x0800a2bc                I2C1_EV_IRQHandler
-                0x0800a2bc                DMA1_Stream6_IRQHandler
-                0x0800a2bc                DMA1_Stream1_IRQHandler
-                0x0800a2bc                UART4_IRQHandler
-                0x0800a2bc                TIM3_IRQHandler
-                0x0800a2bc                RCC_IRQHandler
-                0x0800a2bc                TIM8_BRK_TIM12_IRQHandler
-                0x0800a2bc                Default_Handler
-                0x0800a2bc                EXTI15_10_IRQHandler
-                0x0800a2bc                ADC_IRQHandler
-                0x0800a2bc                DMA1_Stream7_IRQHandler
-                0x0800a2bc                TIM7_IRQHandler
-                0x0800a2bc                CAN2_TX_IRQHandler
-                0x0800a2bc                TIM5_IRQHandler
-                0x0800a2bc                DMA2_Stream7_IRQHandler
-                0x0800a2bc                I2C3_EV_IRQHandler
-                0x0800a2bc                RTC_WKUP_IRQHandler
-                0x0800a2bc                ETH_WKUP_IRQHandler
-                0x0800a2bc                SPI2_IRQHandler
-                0x0800a2bc                OTG_HS_EP1_IN_IRQHandler
-                0x0800a2bc                DMA1_Stream0_IRQHandler
-                0x0800a2bc                CAN1_TX_IRQHandler
-                0x0800a2bc                FSMC_IRQHandler
-                0x0800a2bc                ETH_IRQHandler
-                0x0800a2bc                OTG_HS_EP1_OUT_IRQHandler
-                0x0800a2bc                WWDG_IRQHandler
-                0x0800a2bc                TIM2_IRQHandler
-                0x0800a2bc                OTG_FS_WKUP_IRQHandler
-                0x0800a2bc                TIM1_TRG_COM_TIM11_IRQHandler
-                0x0800a2bc                OTG_HS_IRQHandler
-                0x0800a2bc                EXTI1_IRQHandler
-                0x0800a2bc                USART2_IRQHandler
-                0x0800a2bc                I2C2_ER_IRQHandler
-                0x0800a2bc                DMA2_Stream1_IRQHandler
-                0x0800a2bc                CAN1_SCE_IRQHandler
-                0x0800a2bc                FLASH_IRQHandler
-                0x0800a2bc                DMA2_Stream4_IRQHandler
-                0x0800a2bc                USART1_IRQHandler
-                0x0800a2bc                OTG_FS_IRQHandler
-                0x0800a2bc                SPI3_IRQHandler
-                0x0800a2bc                DMA1_Stream4_IRQHandler
-                0x0800a2bc                I2C1_ER_IRQHandler
-                0x0800a2bc                DMA2_Stream6_IRQHandler
-                0x0800a2bc                DMA1_Stream3_IRQHandler
- *fill*         0x0800a2be        0x2 
- .text.sqrt     0x0800a2c0       0x74 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-w_sqrt.o)
-                0x0800a2c0                sqrt
- .text.asinf    0x0800a334       0x64 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-wf_asin.o)
-                0x0800a334                asinf
- .text.atan2f   0x0800a398        0x4 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-wf_atan2.o)
-                0x0800a398                atan2f
+                0x0800a67c        0x2 ./build/gimbctrl/startup_stm32f407xx.o
+                0x0800a67c                RTC_Alarm_IRQHandler
+                0x0800a67c                HASH_RNG_IRQHandler
+                0x0800a67c                EXTI2_IRQHandler
+                0x0800a67c                TIM8_CC_IRQHandler
+                0x0800a67c                TIM1_CC_IRQHandler
+                0x0800a67c                DMA2_Stream5_IRQHandler
+                0x0800a67c                DMA1_Stream5_IRQHandler
+                0x0800a67c                PVD_IRQHandler
+                0x0800a67c                SDIO_IRQHandler
+                0x0800a67c                TAMP_STAMP_IRQHandler
+                0x0800a67c                CAN2_RX1_IRQHandler
+                0x0800a67c                TIM8_TRG_COM_TIM14_IRQHandler
+                0x0800a67c                TIM1_UP_TIM10_IRQHandler
+                0x0800a67c                TIM8_UP_TIM13_IRQHandler
+                0x0800a67c                I2C3_ER_IRQHandler
+                0x0800a67c                I2C2_EV_IRQHandler
+                0x0800a67c                DMA1_Stream2_IRQHandler
+                0x0800a67c                FPU_IRQHandler
+                0x0800a67c                OTG_HS_WKUP_IRQHandler
+                0x0800a67c                CAN2_SCE_IRQHandler
+                0x0800a67c                SPI1_IRQHandler
+                0x0800a67c                TIM6_DAC_IRQHandler
+                0x0800a67c                TIM1_BRK_TIM9_IRQHandler
+                0x0800a67c                DCMI_IRQHandler
+                0x0800a67c                DMA2_Stream3_IRQHandler
+                0x0800a67c                USART6_IRQHandler
+                0x0800a67c                USART3_IRQHandler
+                0x0800a67c                CAN1_RX1_IRQHandler
+                0x0800a67c                UART5_IRQHandler
+                0x0800a67c                DMA2_Stream0_IRQHandler
+                0x0800a67c                TIM4_IRQHandler
+                0x0800a67c                I2C1_EV_IRQHandler
+                0x0800a67c                DMA1_Stream6_IRQHandler
+                0x0800a67c                DMA1_Stream1_IRQHandler
+                0x0800a67c                UART4_IRQHandler
+                0x0800a67c                TIM3_IRQHandler
+                0x0800a67c                RCC_IRQHandler
+                0x0800a67c                TIM8_BRK_TIM12_IRQHandler
+                0x0800a67c                Default_Handler
+                0x0800a67c                EXTI15_10_IRQHandler
+                0x0800a67c                ADC_IRQHandler
+                0x0800a67c                DMA1_Stream7_IRQHandler
+                0x0800a67c                TIM7_IRQHandler
+                0x0800a67c                CAN2_TX_IRQHandler
+                0x0800a67c                TIM5_IRQHandler
+                0x0800a67c                DMA2_Stream7_IRQHandler
+                0x0800a67c                I2C3_EV_IRQHandler
+                0x0800a67c                RTC_WKUP_IRQHandler
+                0x0800a67c                ETH_WKUP_IRQHandler
+                0x0800a67c                SPI2_IRQHandler
+                0x0800a67c                OTG_HS_EP1_IN_IRQHandler
+                0x0800a67c                DMA1_Stream0_IRQHandler
+                0x0800a67c                CAN1_TX_IRQHandler
+                0x0800a67c                FSMC_IRQHandler
+                0x0800a67c                ETH_IRQHandler
+                0x0800a67c                OTG_HS_EP1_OUT_IRQHandler
+                0x0800a67c                WWDG_IRQHandler
+                0x0800a67c                TIM2_IRQHandler
+                0x0800a67c                OTG_FS_WKUP_IRQHandler
+                0x0800a67c                TIM1_TRG_COM_TIM11_IRQHandler
+                0x0800a67c                OTG_HS_IRQHandler
+                0x0800a67c                EXTI1_IRQHandler
+                0x0800a67c                USART2_IRQHandler
+                0x0800a67c                I2C2_ER_IRQHandler
+                0x0800a67c                DMA2_Stream1_IRQHandler
+                0x0800a67c                CAN1_SCE_IRQHandler
+                0x0800a67c                FLASH_IRQHandler
+                0x0800a67c                DMA2_Stream4_IRQHandler
+                0x0800a67c                USART1_IRQHandler
+                0x0800a67c                OTG_FS_IRQHandler
+                0x0800a67c                SPI3_IRQHandler
+                0x0800a67c                DMA1_Stream4_IRQHandler
+                0x0800a67c                I2C1_ER_IRQHandler
+                0x0800a67c                DMA2_Stream6_IRQHandler
+                0x0800a67c                DMA1_Stream3_IRQHandler
+ *fill*         0x0800a67e        0x2 
+ .text.sqrt     0x0800a680       0x74 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-w_sqrt.o)
+                0x0800a680                sqrt
+ .text.asinf    0x0800a6f4       0x64 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-wf_asin.o)
+                0x0800a6f4                asinf
+ .text.atan2f   0x0800a758        0x4 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-wf_atan2.o)
+                0x0800a758                atan2f
  .text.__ieee754_sqrt
-                0x0800a39c      0x198 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-e_sqrt.o)
-                0x0800a39c                __ieee754_sqrt
+                0x0800a75c      0x198 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-e_sqrt.o)
+                0x0800a75c                __ieee754_sqrt
  .text.__ieee754_asinf
-                0x0800a534      0x1f8 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-ef_asin.o)
-                0x0800a534                __ieee754_asinf
+                0x0800a8f4      0x1f8 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-ef_asin.o)
+                0x0800a8f4                __ieee754_asinf
  .text.__ieee754_atan2f
-                0x0800a72c      0x17c c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-ef_atan2.o)
-                0x0800a72c                __ieee754_atan2f
+                0x0800aaec      0x17c c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-ef_atan2.o)
+                0x0800aaec                __ieee754_atan2f
  .text.__ieee754_sqrtf
-                0x0800a8a8        0x8 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-ef_sqrt.o)
-                0x0800a8a8                __ieee754_sqrtf
- .text.atanf    0x0800a8b0      0x1a4 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_atan.o)
-                0x0800a8b0                atanf
- .text.fabsf    0x0800aa54       0x10 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_fabs.o)
-                0x0800aa54                fabsf
- .text.nanf     0x0800aa64        0xc c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_nan.o)
-                0x0800aa64                nanf
- .text.__errno  0x0800aa70        0xc c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-errno.o)
-                0x0800aa70                __errno
+                0x0800ac68        0x8 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-ef_sqrt.o)
+                0x0800ac68                __ieee754_sqrtf
+ .text.atanf    0x0800ac70      0x1a4 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_atan.o)
+                0x0800ac70                atanf
+ .text.fabsf    0x0800ae14       0x10 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_fabs.o)
+                0x0800ae14                fabsf
+ .text.nanf     0x0800ae24        0xc c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_nan.o)
+                0x0800ae24                nanf
+ .text.__errno  0x0800ae30        0xc c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-errno.o)
+                0x0800ae30                __errno
  .text.__libc_init_array
-                0x0800aa7c       0x48 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-init.o)
-                0x0800aa7c                __libc_init_array
- .text.memcpy   0x0800aac4       0x1c c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memcpy-stub.o)
-                0x0800aac4                memcpy
- .text.memset   0x0800aae0       0x10 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memset.o)
-                0x0800aae0                memset
+                0x0800ae3c       0x48 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-init.o)
+                0x0800ae3c                __libc_init_array
+ .text.memcpy   0x0800ae84       0x1c c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memcpy-stub.o)
+                0x0800ae84                memcpy
+ .text.memset   0x0800aea0       0x10 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memset.o)
+                0x0800aea0                memset
  *(.glue_7)
- .glue_7        0x0800aaf0        0x0 linker stubs
+ .glue_7        0x0800aeb0        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x0800aaf0        0x0 linker stubs
+ .glue_7t       0x0800aeb0        0x0 linker stubs
  *(.eh_frame)
- .eh_frame      0x0800aaf0        0x0 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .eh_frame      0x0800aeb0        0x0 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard/crtbegin.o
  *(.init)
- .init          0x0800aaf0        0x4 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard/crti.o
-                0x0800aaf0                _init
- .init          0x0800aaf4        0x8 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard/crtn.o
+ .init          0x0800aeb0        0x4 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard/crti.o
+                0x0800aeb0                _init
+ .init          0x0800aeb4        0x8 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard/crtn.o
  *(.fini)
- .fini          0x0800aafc        0x4 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard/crti.o
-                0x0800aafc                _fini
- .fini          0x0800ab00        0x8 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard/crtn.o
-                0x0800ab08                . = ALIGN (0x4)
-                0x0800ab08                _etext = .
+ .fini          0x0800aebc        0x4 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard/crti.o
+                0x0800aebc                _fini
+ .fini          0x0800aec0        0x8 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard/crtn.o
+                0x0800aec8                . = ALIGN (0x4)
+                0x0800aec8                _etext = .
 
-.vfp11_veneer   0x0800ab08        0x0
- .vfp11_veneer  0x0800ab08        0x0 linker stubs
+.vfp11_veneer   0x0800aec8        0x0
+ .vfp11_veneer  0x0800aec8        0x0 linker stubs
 
-.v4_bx          0x0800ab08        0x0
- .v4_bx         0x0800ab08        0x0 linker stubs
+.v4_bx          0x0800aec8        0x0
+ .v4_bx         0x0800aec8        0x0 linker stubs
 
-.iplt           0x0800ab08        0x0
- .iplt          0x0800ab08        0x0 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+.iplt           0x0800aec8        0x0
+ .iplt          0x0800aec8        0x0 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.rodata         0x0800ab08      0x19c
-                0x0800ab08                . = ALIGN (0x4)
+.rodata         0x0800aec8      0x298
+                0x0800aec8                . = ALIGN (0x4)
  *(.rodata)
+ .rodata        0x0800aec8       0xfc ./build/gimbctrl/src/libs/motlib.o
  *(.rodata*)
  .rodata.flagBitshiftOffset.8486
-                0x0800ab08        0x8 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.o
+                0x0800afc4        0x8 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.o
  .rodata.vTaskStartScheduler.str1.4
-                0x0800ab10        0x5 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
- *fill*         0x0800ab15        0x3 
+                0x0800afcc        0x5 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+ *fill*         0x0800afd1        0x3 
  .rodata.prvCheckForValidListAndQueue.str1.4
-                0x0800ab18        0x5 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/timers.o
- *fill*         0x0800ab1d        0x3 
+                0x0800afd4        0x5 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/timers.o
+ *fill*         0x0800afd9        0x3 
  .rodata.xTimerCreateTimerTask.str1.4
-                0x0800ab20        0x8 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/timers.o
+                0x0800afdc        0x8 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/timers.o
  .rodata.INS_TASK_attributes
-                0x0800ab28       0x24 ./build/gimbctrl/Src/freertos.o
-                0x0800ab28                INS_TASK_attributes
+                0x0800afe4       0x24 ./build/gimbctrl/Src/freertos.o
+                0x0800afe4                INS_TASK_attributes
  .rodata.Shoottask_attributes
-                0x0800ab4c       0x24 ./build/gimbctrl/Src/freertos.o
-                0x0800ab4c                Shoottask_attributes
+                0x0800b008       0x24 ./build/gimbctrl/Src/freertos.o
+                0x0800b008                Shoottask_attributes
  .rodata.communicatetask_attributes
-                0x0800ab70       0x24 ./build/gimbctrl/Src/freertos.o
-                0x0800ab70                communicatetask_attributes
+                0x0800b02c       0x24 ./build/gimbctrl/Src/freertos.o
+                0x0800b02c                communicatetask_attributes
  .rodata.devicemonitor_attributes
-                0x0800ab94       0x24 ./build/gimbctrl/Src/freertos.o
-                0x0800ab94                devicemonitor_attributes
+                0x0800b050       0x24 ./build/gimbctrl/Src/freertos.o
+                0x0800b050                devicemonitor_attributes
  .rodata.infomationupdat_attributes
-                0x0800abb8       0x24 ./build/gimbctrl/Src/freertos.o
-                0x0800abb8                infomationupdat_attributes
+                0x0800b074       0x24 ./build/gimbctrl/Src/freertos.o
+                0x0800b074                infomationupdat_attributes
  .rodata.str1.4
-                0x0800abdc       0x45 ./build/gimbctrl/Src/freertos.o
- *fill*         0x0800ac21        0x3 
+                0x0800b098       0x45 ./build/gimbctrl/Src/freertos.o
+ *fill*         0x0800b0dd        0x3 
  .rodata.AHBPrescTable
-                0x0800ac24       0x10 ./build/gimbctrl/Src/system_stm32f4xx.o
-                0x0800ac24                AHBPrescTable
+                0x0800b0e0       0x10 ./build/gimbctrl/Src/system_stm32f4xx.o
+                0x0800b0e0                AHBPrescTable
  .rodata.APBPrescTable
-                0x0800ac34        0x8 ./build/gimbctrl/Src/system_stm32f4xx.o
-                0x0800ac34                APBPrescTable
+                0x0800b0f0        0x8 ./build/gimbctrl/Src/system_stm32f4xx.o
+                0x0800b0f0                APBPrescTable
  .rodata.write_BMI088_ACCEL_self_test_Reg_Data_Error.5503
-                0x0800ac3c       0x12 ./build/gimbctrl/src/devices/BMI088driver.o
- *fill*         0x0800ac4e        0x2 
+                0x0800b0f8       0x12 ./build/gimbctrl/src/devices/BMI088driver.o
+ *fill*         0x0800b10a        0x2 
  .rodata.write_BMI088_accel_reg_data_error
-                0x0800ac50       0x12 ./build/gimbctrl/src/devices/BMI088driver.o
- *fill*         0x0800ac62        0x2 
+                0x0800b10c       0x12 ./build/gimbctrl/src/devices/BMI088driver.o
+ *fill*         0x0800b11e        0x2 
  .rodata.write_BMI088_gyro_reg_data_error
-                0x0800ac64       0x12 ./build/gimbctrl/src/devices/BMI088driver.o
- *fill*         0x0800ac76        0x2 
+                0x0800b120       0x12 ./build/gimbctrl/src/devices/BMI088driver.o
+ *fill*         0x0800b132        0x2 
  .rodata.ist8310_write_reg_data_error
-                0x0800ac78        0xc ./build/gimbctrl/src/devices/ist8310driver.o
+                0x0800b134        0xc ./build/gimbctrl/src/devices/ist8310driver.o
  .rodata.asinf.str1.4
-                0x0800ac84       0x48 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-wf_asin.o)
+                0x0800b140       0x48 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-wf_asin.o)
                                   0x1 (size before relaxing)
  .rodata.atanhi
-                0x0800ac84       0x10 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_atan.o)
+                0x0800b140       0x10 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_atan.o)
  .rodata.atanlo
-                0x0800ac94       0x10 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_atan.o)
-                0x0800accc                . = ALIGN (0x4)
+                0x0800b150       0x10 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_atan.o)
+                0x0800b188                . = ALIGN (0x4)
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
 
-.ARM            0x0800aca4        0x8
-                0x0800aca4                __exidx_start = .
+.ARM            0x0800b160        0x8
+                0x0800b160                __exidx_start = .
  *(.ARM.exidx*)
- .ARM.exidx     0x0800aca4        0x8 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
-                0x0800acac                __exidx_end = .
+ .ARM.exidx     0x0800b160        0x8 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
+                0x0800b168                __exidx_end = .
 
-.rel.dyn        0x0800acac        0x0
- .rel.iplt      0x0800acac        0x0 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+.rel.dyn        0x0800b168        0x0
+ .rel.iplt      0x0800b168        0x0 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.preinit_array  0x0800acac        0x0
-                0x0800acac                PROVIDE (__preinit_array_start = .)
+.preinit_array  0x0800b168        0x0
+                0x0800b168                PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x0800acac                PROVIDE (__preinit_array_end = .)
+                0x0800b168                PROVIDE (__preinit_array_end = .)
 
-.init_array     0x0800acac        0x4
-                0x0800acac                PROVIDE (__init_array_start = .)
+.init_array     0x0800b168        0x4
+                0x0800b168                PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array*)
- .init_array    0x0800acac        0x4 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard/crtbegin.o
-                0x0800acb0                PROVIDE (__init_array_end = .)
+ .init_array    0x0800b168        0x4 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+                0x0800b16c                PROVIDE (__init_array_end = .)
 
-.fini_array     0x0800acb0        0x4
+.fini_array     0x0800b16c        0x4
                 [!provide]                PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x0800acb0        0x4 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .fini_array    0x0800b16c        0x4 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard/crtbegin.o
                 [!provide]                PROVIDE (__fini_array_end = .)
-                0x0800acb4                _sidata = LOADADDR (.data)
+                0x0800b170                _sidata = LOADADDR (.data)
 
-.data           0x20000000      0x108 load address 0x0800acb4
+.data           0x20000000      0x108 load address 0x0800b170
                 0x20000000                . = ALIGN (0x4)
                 0x20000000                _sdata = .
  *(.data)
@@ -3061,12 +3078,12 @@ LOAD c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb
                 0x200000a8       0x60 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-impure.o)
                 0x20000108                . = ALIGN (0x4)
                 0x20000108                _edata = .
-                0x0800adbc                _siccmram = LOADADDR (.ccmram)
+                0x0800b278                _siccmram = LOADADDR (.ccmram)
 
-.igot.plt       0x20000108        0x0 load address 0x0800adbc
+.igot.plt       0x20000108        0x0 load address 0x0800b278
  .igot.plt      0x20000108        0x0 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.ccmram         0x10000000        0x0 load address 0x0800adbc
+.ccmram         0x10000000        0x0 load address 0x0800b278
                 0x10000000                . = ALIGN (0x4)
                 0x10000000                _sccmram = .
  *(.ccmram)
@@ -3189,7 +3206,7 @@ LOAD c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb
                 0x20004a6c                integralFBz
  .bss.twoKi     0x20004a70        0x4 ./build/gimbctrl/src/libs/MahonyAHRS.o
                 0x20004a70                twoKi
- .bss.outcirccount.10218
+ .bss.outcirccount.10231
                 0x20004a74        0x1 ./build/gimbctrl/src/libs/motlib.o
  *fill*         0x20004a75        0x3 
  .bss.INS_accel
@@ -3227,10 +3244,10 @@ LOAD c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb
  .bss.mag_update_flag
                 0x20004b18        0x1 ./build/gimbctrl/src/tasks/INS_task.o
                 0x20004b18                mag_update_flag
- .bss.temp_constant_time.10309
+ .bss.temp_constant_time.10322
                 0x20004b19        0x1 ./build/gimbctrl/src/tasks/INS_task.o
  *fill*         0x20004b1a        0x2 
- .bss.xHigherPriorityTaskWoken.10313
+ .bss.xHigherPriorityTaskWoken.10326
                 0x20004b1c        0x4 ./build/gimbctrl/src/tasks/INS_task.o
  .bss.can1devsta
                 0x20004b20        0x1 ./build/gimbctrl/src/tasks/devmoni.o
@@ -3238,59 +3255,62 @@ LOAD c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb
  .bss.can2devsta
                 0x20004b21        0x1 ./build/gimbctrl/src/tasks/devmoni.o
                 0x20004b21                can2devsta
- *(COMMON)
  *fill*         0x20004b22        0x2 
- COMMON         0x20004b24        0x4 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
-                0x20004b24                uwTick
- COMMON         0x20004b28       0x40 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/queue.o
-                0x20004b28                xQueueRegistry
- COMMON         0x20004b68       0x50 ./build/gimbctrl/Src/can.o
-                0x20004b68                hcan2
-                0x20004b90                hcan1
- COMMON         0x20004bb8       0x14 ./build/gimbctrl/Src/freertos.o
-                0x20004bb8                devicemonitorHandle
-                0x20004bbc                INS_TASKHandle
-                0x20004bc0                ShoottaskHandle
-                0x20004bc4                infomationupdatHandle
-                0x20004bc8                communicatetaskHandle
- COMMON         0x20004bcc       0x54 ./build/gimbctrl/Src/i2c.o
-                0x20004bcc                hi2c3
- COMMON         0x20004c20      0x118 ./build/gimbctrl/Src/spi.o
-                0x20004c20                hspi1
-                0x20004c78                hdma_spi1_rx
-                0x20004cd8                hdma_spi1_tx
- COMMON         0x20004d38       0x90 ./build/gimbctrl/Src/tim.o
-                0x20004d38                htim10
-                0x20004d80                htim1
- COMMON         0x20004dc8       0xac ./build/gimbctrl/src/tasks/INS_task.o
-                0x20004dc8                ist8310_real_data
-                0x20004dd8                accel_offset
-                0x20004de4                brsp
-                0x20004de8                ysp
-                0x20004dec                bpsp
-                0x20004df0                accel_dma_rx_buf
-                0x20004dfc                mag_offset
-                0x20004e08                accel_temp_dma_rx_buf
-                0x20004e0c                accel_cali_offset
-                0x20004e18                rsp
-                0x20004e1c                gyro_dma_rx_buf
-                0x20004e24                gyro_offset
-                0x20004e30                bysp
-                0x20004e34                mag_cali_offset
-                0x20004e40                gyro_cali_offset
-                0x20004e4c                bmi088_real_data
-                0x20004e70                psp
- COMMON         0x20004e74       0x30 ./build/gimbctrl/src/tasks/comutask.o
-                0x20004e74                comuinfo
-                0x20004e94                can2_mes2chas_imu
-                0x20004e9c                can2_mes2chas_cv
- COMMON         0x20004ea4      0x1fc ./build/gimbctrl/src/tasks/shoottask.o
-                0x20004ea4                trigspid
-                0x20004ee0                can2_mes20x200
-                0x20004ee8                trig
-                0x20004f3c                fric
-                0x20004fe4                fricspid
-                0x2000505c                trigapid
+ .bss.fricspid  0x20004b24       0x78 ./build/gimbctrl/src/tasks/shoottask.o
+                0x20004b24                fricspid
+ .bss.trigapid  0x20004b9c       0x3c ./build/gimbctrl/src/tasks/shoottask.o
+                0x20004b9c                trigapid
+ .bss.trigspid  0x20004bd8       0x3c ./build/gimbctrl/src/tasks/shoottask.o
+                0x20004bd8                trigspid
+ *(COMMON)
+ COMMON         0x20004c14        0x4 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
+                0x20004c14                uwTick
+ COMMON         0x20004c18       0x40 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/queue.o
+                0x20004c18                xQueueRegistry
+ COMMON         0x20004c58       0x50 ./build/gimbctrl/Src/can.o
+                0x20004c58                hcan2
+                0x20004c80                hcan1
+ COMMON         0x20004ca8       0x14 ./build/gimbctrl/Src/freertos.o
+                0x20004ca8                devicemonitorHandle
+                0x20004cac                INS_TASKHandle
+                0x20004cb0                ShoottaskHandle
+                0x20004cb4                infomationupdatHandle
+                0x20004cb8                communicatetaskHandle
+ COMMON         0x20004cbc       0x54 ./build/gimbctrl/Src/i2c.o
+                0x20004cbc                hi2c3
+ COMMON         0x20004d10      0x118 ./build/gimbctrl/Src/spi.o
+                0x20004d10                hspi1
+                0x20004d68                hdma_spi1_rx
+                0x20004dc8                hdma_spi1_tx
+ COMMON         0x20004e28       0x90 ./build/gimbctrl/Src/tim.o
+                0x20004e28                htim10
+                0x20004e70                htim1
+ COMMON         0x20004eb8       0xac ./build/gimbctrl/src/tasks/INS_task.o
+                0x20004eb8                ist8310_real_data
+                0x20004ec8                accel_offset
+                0x20004ed4                brsp
+                0x20004ed8                ysp
+                0x20004edc                bpsp
+                0x20004ee0                accel_dma_rx_buf
+                0x20004eec                mag_offset
+                0x20004ef8                accel_temp_dma_rx_buf
+                0x20004efc                accel_cali_offset
+                0x20004f08                rsp
+                0x20004f0c                gyro_dma_rx_buf
+                0x20004f14                gyro_offset
+                0x20004f20                bysp
+                0x20004f24                mag_cali_offset
+                0x20004f30                gyro_cali_offset
+                0x20004f3c                bmi088_real_data
+                0x20004f60                psp
+ COMMON         0x20004f64       0x30 ./build/gimbctrl/src/tasks/comutask.o
+                0x20004f64                comuinfo
+                0x20004f84                can2_mes2chas_imu
+                0x20004f8c                can2_mes2chas_cv
+ COMMON         0x20004f94      0x10c ./build/gimbctrl/src/tasks/shoottask.o
+                0x20004f94                can2_mes20x200
+                0x20004f9c                trig
+                0x20004ff0                fric
                 0x20005098                can1_mes20x200
                 0x200050a0                . = ALIGN (0x4)
                 0x200050a0                _ebss = .
@@ -3408,64 +3428,66 @@ LOAD c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb
  .ARM.attributes
                 0x0000090e       0x34 ./build/gimbctrl/src/tasks/infoupdate.o
  .ARM.attributes
-                0x00000942       0x34 ./build/gimbctrl/src/tasks/shoottask.o
+                0x00000942       0x34 ./build/gimbctrl/src/tasks/init.o
  .ARM.attributes
-                0x00000976       0x21 ./build/gimbctrl/startup_stm32f407xx.o
+                0x00000976       0x34 ./build/gimbctrl/src/tasks/shoottask.o
  .ARM.attributes
-                0x00000997       0x34 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-w_sqrt.o)
+                0x000009aa       0x21 ./build/gimbctrl/startup_stm32f407xx.o
  .ARM.attributes
-                0x000009cb       0x34 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-wf_asin.o)
+                0x000009cb       0x34 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-w_sqrt.o)
  .ARM.attributes
-                0x000009ff       0x34 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-wf_atan2.o)
+                0x000009ff       0x34 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-wf_asin.o)
  .ARM.attributes
-                0x00000a33       0x34 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-e_sqrt.o)
+                0x00000a33       0x34 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-wf_atan2.o)
  .ARM.attributes
-                0x00000a67       0x34 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-ef_asin.o)
+                0x00000a67       0x34 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-e_sqrt.o)
  .ARM.attributes
-                0x00000a9b       0x34 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-ef_atan2.o)
+                0x00000a9b       0x34 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-ef_asin.o)
  .ARM.attributes
-                0x00000acf       0x34 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-ef_sqrt.o)
+                0x00000acf       0x34 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-ef_atan2.o)
  .ARM.attributes
-                0x00000b03       0x32 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-s_lib_ver.o)
+                0x00000b03       0x34 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-ef_sqrt.o)
  .ARM.attributes
-                0x00000b35       0x34 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_atan.o)
+                0x00000b37       0x32 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-s_lib_ver.o)
  .ARM.attributes
-                0x00000b69       0x34 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_fabs.o)
+                0x00000b69       0x34 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_atan.o)
  .ARM.attributes
-                0x00000b9d       0x34 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_nan.o)
+                0x00000b9d       0x34 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_fabs.o)
  .ARM.attributes
-                0x00000bd1       0x1e c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_addsubdf3.o)
+                0x00000bd1       0x34 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_nan.o)
  .ARM.attributes
-                0x00000bef       0x1e c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_muldivdf3.o)
+                0x00000c05       0x1e c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_addsubdf3.o)
  .ARM.attributes
-                0x00000c0d       0x1e c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_cmpdf2.o)
+                0x00000c23       0x1e c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_muldivdf3.o)
  .ARM.attributes
-                0x00000c2b       0x1e c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_unorddf2.o)
+                0x00000c41       0x1e c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_cmpdf2.o)
  .ARM.attributes
-                0x00000c49       0x1e c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_truncdfsf2.o)
+                0x00000c5f       0x1e c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_unorddf2.o)
  .ARM.attributes
-                0x00000c67       0x1e c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard\libgcc.a(_aeabi_uldivmod.o)
+                0x00000c7d       0x1e c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_truncdfsf2.o)
  .ARM.attributes
-                0x00000c85       0x34 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
+                0x00000c9b       0x1e c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard\libgcc.a(_aeabi_uldivmod.o)
  .ARM.attributes
-                0x00000cb9       0x1e c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard\libgcc.a(_dvmd_tls.o)
+                0x00000cb9       0x34 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
  .ARM.attributes
-                0x00000cd7       0x34 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-errno.o)
+                0x00000ced       0x1e c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard\libgcc.a(_dvmd_tls.o)
  .ARM.attributes
-                0x00000d0b       0x32 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-impure.o)
+                0x00000d0b       0x34 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-errno.o)
  .ARM.attributes
-                0x00000d3d       0x34 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-init.o)
+                0x00000d3f       0x32 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-impure.o)
  .ARM.attributes
-                0x00000d71       0x34 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memcpy-stub.o)
+                0x00000d71       0x34 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-init.o)
  .ARM.attributes
-                0x00000da5       0x34 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memset.o)
+                0x00000da5       0x34 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memcpy-stub.o)
  .ARM.attributes
-                0x00000dd9       0x17 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-strlen.o)
+                0x00000dd9       0x34 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memset.o)
  .ARM.attributes
-                0x00000df0       0x1e c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard/crtn.o
+                0x00000e0d       0x17 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-strlen.o)
+ .ARM.attributes
+                0x00000e24       0x1e c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard/crtn.o
 OUTPUT(./build/gimbctrl/gimbctrl.elf elf32-littlearm)
 
-.debug_info     0x00000000    0x4d218
+.debug_info     0x00000000    0x523fb
  .debug_info    0x00000000      0xa72 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
  .debug_info    0x00000a72     0x133a ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o
  .debug_info    0x00001dac     0x115f ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
@@ -3483,37 +3505,38 @@ OUTPUT(./build/gimbctrl/gimbctrl.elf elf32-littlearm)
  .debug_info    0x00017899     0x32a2 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/queue.o
  .debug_info    0x0001ab3b     0x3f49 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
  .debug_info    0x0001ea84     0x2400 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/timers.o
- .debug_info    0x00020e84     0x1e78 ./build/gimbctrl/Src/can.o
- .debug_info    0x00022cfc     0x1b01 ./build/gimbctrl/Src/dma.o
- .debug_info    0x000247fd     0x1b21 ./build/gimbctrl/Src/freertos.o
- .debug_info    0x0002631e     0x1e6d ./build/gimbctrl/Src/gpio.o
- .debug_info    0x0002818b     0x1dd0 ./build/gimbctrl/Src/i2c.o
- .debug_info    0x00029f5b     0x2178 ./build/gimbctrl/Src/main.o
- .debug_info    0x0002c0d3     0x1e42 ./build/gimbctrl/Src/spi.o
- .debug_info    0x0002df15     0x1ac9 ./build/gimbctrl/Src/stm32f4xx_hal_msp.o
- .debug_info    0x0002f9de     0x183b ./build/gimbctrl/Src/stm32f4xx_it.o
- .debug_info    0x00031219      0x5b2 ./build/gimbctrl/Src/system_stm32f4xx.o
- .debug_info    0x000317cb     0x1e4a ./build/gimbctrl/Src/tim.o
- .debug_info    0x00033615     0x1822 ./build/gimbctrl/src/bsps/bsp_delay.o
- .debug_info    0x00034e37     0x169a ./build/gimbctrl/src/bsps/bsp_imu_pwm.o
- .debug_info    0x000364d1     0x1a0b ./build/gimbctrl/src/bsps/bsp_spi.o
- .debug_info    0x00037edc     0x1908 ./build/gimbctrl/src/bsps/can_bsp.o
- .debug_info    0x000397e4     0x1bc6 ./build/gimbctrl/src/devices/BMI088Middleware.o
- .debug_info    0x0003b3aa     0x159b ./build/gimbctrl/src/devices/BMI088driver.o
- .debug_info    0x0003c945     0x177f ./build/gimbctrl/src/devices/canbus.o
- .debug_info    0x0003e0c4      0x386 ./build/gimbctrl/src/devices/ist8310driver.o
- .debug_info    0x0003e44a     0x1ce8 ./build/gimbctrl/src/devices/ist8310driver_middleware.o
- .debug_info    0x00040132      0xf67 ./build/gimbctrl/src/libs/MahonyAHRS.o
- .debug_info    0x00041099     0x1c80 ./build/gimbctrl/src/libs/motlib.o
- .debug_info    0x00042d19     0x17eb ./build/gimbctrl/src/libs/pid.o
- .debug_info    0x00044504     0x2a0d ./build/gimbctrl/src/tasks/INS_task.o
- .debug_info    0x00046f11     0x17b1 ./build/gimbctrl/src/tasks/comutask.o
- .debug_info    0x000486c2     0x175b ./build/gimbctrl/src/tasks/devmoni.o
- .debug_info    0x00049e1d     0x16c7 ./build/gimbctrl/src/tasks/infoupdate.o
- .debug_info    0x0004b4e4     0x1d12 ./build/gimbctrl/src/tasks/shoottask.o
- .debug_info    0x0004d1f6       0x22 ./build/gimbctrl/startup_stm32f407xx.o
+ .debug_info    0x00020e84     0x2114 ./build/gimbctrl/Src/can.o
+ .debug_info    0x00022f98     0x1d9d ./build/gimbctrl/Src/dma.o
+ .debug_info    0x00024d35     0x1dbd ./build/gimbctrl/Src/freertos.o
+ .debug_info    0x00026af2     0x2109 ./build/gimbctrl/Src/gpio.o
+ .debug_info    0x00028bfb     0x206c ./build/gimbctrl/Src/i2c.o
+ .debug_info    0x0002ac67     0x2429 ./build/gimbctrl/Src/main.o
+ .debug_info    0x0002d090     0x20de ./build/gimbctrl/Src/spi.o
+ .debug_info    0x0002f16e     0x1d65 ./build/gimbctrl/Src/stm32f4xx_hal_msp.o
+ .debug_info    0x00030ed3     0x1ad7 ./build/gimbctrl/Src/stm32f4xx_it.o
+ .debug_info    0x000329aa      0x5b2 ./build/gimbctrl/Src/system_stm32f4xx.o
+ .debug_info    0x00032f5c     0x20e6 ./build/gimbctrl/Src/tim.o
+ .debug_info    0x00035042     0x1abe ./build/gimbctrl/src/bsps/bsp_delay.o
+ .debug_info    0x00036b00     0x1936 ./build/gimbctrl/src/bsps/bsp_imu_pwm.o
+ .debug_info    0x00038436     0x1ca7 ./build/gimbctrl/src/bsps/bsp_spi.o
+ .debug_info    0x0003a0dd     0x1ba4 ./build/gimbctrl/src/bsps/can_bsp.o
+ .debug_info    0x0003bc81     0x1e62 ./build/gimbctrl/src/devices/BMI088Middleware.o
+ .debug_info    0x0003dae3     0x159b ./build/gimbctrl/src/devices/BMI088driver.o
+ .debug_info    0x0003f07e     0x1a1b ./build/gimbctrl/src/devices/canbus.o
+ .debug_info    0x00040a99      0x386 ./build/gimbctrl/src/devices/ist8310driver.o
+ .debug_info    0x00040e1f     0x1f84 ./build/gimbctrl/src/devices/ist8310driver_middleware.o
+ .debug_info    0x00042da3      0xf67 ./build/gimbctrl/src/libs/MahonyAHRS.o
+ .debug_info    0x00043d0a     0x1cdc ./build/gimbctrl/src/libs/motlib.o
+ .debug_info    0x000459e6     0x19aa ./build/gimbctrl/src/libs/pid.o
+ .debug_info    0x00047390     0x2bcc ./build/gimbctrl/src/tasks/INS_task.o
+ .debug_info    0x00049f5c     0x1a4d ./build/gimbctrl/src/tasks/comutask.o
+ .debug_info    0x0004b9a9     0x19f7 ./build/gimbctrl/src/tasks/devmoni.o
+ .debug_info    0x0004d3a0     0x1963 ./build/gimbctrl/src/tasks/infoupdate.o
+ .debug_info    0x0004ed03     0x1993 ./build/gimbctrl/src/tasks/init.o
+ .debug_info    0x00050696     0x1d43 ./build/gimbctrl/src/tasks/shoottask.o
+ .debug_info    0x000523d9       0x22 ./build/gimbctrl/startup_stm32f407xx.o
 
-.debug_abbrev   0x00000000     0x83a9
+.debug_abbrev   0x00000000     0x863f
  .debug_abbrev  0x00000000      0x219 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
  .debug_abbrev  0x00000219      0x29d ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o
  .debug_abbrev  0x000004b6      0x39b ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
@@ -3558,10 +3581,11 @@ OUTPUT(./build/gimbctrl/gimbctrl.elf elf32-littlearm)
  .debug_abbrev  0x00007773      0x302 ./build/gimbctrl/src/tasks/comutask.o
  .debug_abbrev  0x00007a75      0x323 ./build/gimbctrl/src/tasks/devmoni.o
  .debug_abbrev  0x00007d98      0x2cb ./build/gimbctrl/src/tasks/infoupdate.o
- .debug_abbrev  0x00008063      0x334 ./build/gimbctrl/src/tasks/shoottask.o
- .debug_abbrev  0x00008397       0x12 ./build/gimbctrl/startup_stm32f407xx.o
+ .debug_abbrev  0x00008063      0x287 ./build/gimbctrl/src/tasks/init.o
+ .debug_abbrev  0x000082ea      0x343 ./build/gimbctrl/src/tasks/shoottask.o
+ .debug_abbrev  0x0000862d       0x12 ./build/gimbctrl/startup_stm32f407xx.o
 
-.debug_loc      0x00000000    0x1d774
+.debug_loc      0x00000000    0x1d764
  .debug_loc     0x00000000      0x141 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
  .debug_loc     0x00000141      0xd7e ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o
  .debug_loc     0x00000ebf      0x700 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
@@ -3598,9 +3622,9 @@ OUTPUT(./build/gimbctrl/gimbctrl.elf elf32-littlearm)
  .debug_loc     0x0001d0f7       0xb8 ./build/gimbctrl/src/libs/pid.o
  .debug_loc     0x0001d1af      0x3bb ./build/gimbctrl/src/tasks/INS_task.o
  .debug_loc     0x0001d56a       0x7a ./build/gimbctrl/src/tasks/devmoni.o
- .debug_loc     0x0001d5e4      0x190 ./build/gimbctrl/src/tasks/shoottask.o
+ .debug_loc     0x0001d5e4      0x180 ./build/gimbctrl/src/tasks/shoottask.o
 
-.debug_aranges  0x00000000     0x1d20
+.debug_aranges  0x00000000     0x1d50
  .debug_aranges
                 0x00000000       0xf0 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
  .debug_aranges
@@ -3690,11 +3714,13 @@ OUTPUT(./build/gimbctrl/gimbctrl.elf elf32-littlearm)
  .debug_aranges
                 0x00001c78       0x28 ./build/gimbctrl/src/tasks/infoupdate.o
  .debug_aranges
-                0x00001ca0       0x58 ./build/gimbctrl/src/tasks/shoottask.o
+                0x00001ca0       0x30 ./build/gimbctrl/src/tasks/init.o
  .debug_aranges
-                0x00001cf8       0x28 ./build/gimbctrl/startup_stm32f407xx.o
+                0x00001cd0       0x58 ./build/gimbctrl/src/tasks/shoottask.o
+ .debug_aranges
+                0x00001d28       0x28 ./build/gimbctrl/startup_stm32f407xx.o
 
-.debug_ranges   0x00000000     0x1d30
+.debug_ranges   0x00000000     0x1d50
  .debug_ranges  0x00000000       0xe0 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
  .debug_ranges  0x000000e0      0x128 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o
  .debug_ranges  0x00000208       0xe0 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
@@ -3739,10 +3765,11 @@ OUTPUT(./build/gimbctrl/gimbctrl.elf elf32-littlearm)
  .debug_ranges  0x00001c70       0x28 ./build/gimbctrl/src/tasks/comutask.o
  .debug_ranges  0x00001c98       0x18 ./build/gimbctrl/src/tasks/devmoni.o
  .debug_ranges  0x00001cb0       0x18 ./build/gimbctrl/src/tasks/infoupdate.o
- .debug_ranges  0x00001cc8       0x48 ./build/gimbctrl/src/tasks/shoottask.o
- .debug_ranges  0x00001d10       0x20 ./build/gimbctrl/startup_stm32f407xx.o
+ .debug_ranges  0x00001cc8       0x20 ./build/gimbctrl/src/tasks/init.o
+ .debug_ranges  0x00001ce8       0x48 ./build/gimbctrl/src/tasks/shoottask.o
+ .debug_ranges  0x00001d30       0x20 ./build/gimbctrl/startup_stm32f407xx.o
 
-.debug_line     0x00000000    0x24693
+.debug_line     0x00000000    0x24cfc
  .debug_line    0x00000000      0x540 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
  .debug_line    0x00000540     0x10cd ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o
  .debug_line    0x0000160d      0x779 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
@@ -3760,37 +3787,38 @@ OUTPUT(./build/gimbctrl/gimbctrl.elf elf32-littlearm)
  .debug_line    0x0001518d     0x1f81 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/queue.o
  .debug_line    0x0001710e     0x2fa3 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/tasks.o
  .debug_line    0x0001a0b1      0xeca ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/timers.o
- .debug_line    0x0001af7b      0x55e ./build/gimbctrl/Src/can.o
- .debug_line    0x0001b4d9      0x30f ./build/gimbctrl/Src/dma.o
- .debug_line    0x0001b7e8      0x431 ./build/gimbctrl/Src/freertos.o
- .debug_line    0x0001bc19      0x3ef ./build/gimbctrl/Src/gpio.o
- .debug_line    0x0001c008      0x454 ./build/gimbctrl/Src/i2c.o
- .debug_line    0x0001c45c      0x4d9 ./build/gimbctrl/Src/main.o
- .debug_line    0x0001c935      0x530 ./build/gimbctrl/Src/spi.o
- .debug_line    0x0001ce65      0x31f ./build/gimbctrl/Src/stm32f4xx_hal_msp.o
- .debug_line    0x0001d184      0x4fc ./build/gimbctrl/Src/stm32f4xx_it.o
- .debug_line    0x0001d680      0x263 ./build/gimbctrl/Src/system_stm32f4xx.o
- .debug_line    0x0001d8e3      0x607 ./build/gimbctrl/Src/tim.o
- .debug_line    0x0001deea      0x406 ./build/gimbctrl/src/bsps/bsp_delay.o
- .debug_line    0x0001e2f0      0x2f8 ./build/gimbctrl/src/bsps/bsp_imu_pwm.o
- .debug_line    0x0001e5e8      0xfc1 ./build/gimbctrl/src/bsps/bsp_spi.o
- .debug_line    0x0001f5a9      0x3db ./build/gimbctrl/src/bsps/can_bsp.o
- .debug_line    0x0001f984      0x445 ./build/gimbctrl/src/devices/BMI088Middleware.o
- .debug_line    0x0001fdc9      0xab9 ./build/gimbctrl/src/devices/BMI088driver.o
- .debug_line    0x00020882      0x31a ./build/gimbctrl/src/devices/canbus.o
- .debug_line    0x00020b9c      0x2ac ./build/gimbctrl/src/devices/ist8310driver.o
- .debug_line    0x00020e48      0x47a ./build/gimbctrl/src/devices/ist8310driver_middleware.o
- .debug_line    0x000212c2      0x6ee ./build/gimbctrl/src/libs/MahonyAHRS.o
- .debug_line    0x000219b0      0x51c ./build/gimbctrl/src/libs/motlib.o
- .debug_line    0x00021ecc      0x524 ./build/gimbctrl/src/libs/pid.o
- .debug_line    0x000223f0     0x10bd ./build/gimbctrl/src/tasks/INS_task.o
- .debug_line    0x000234ad      0x405 ./build/gimbctrl/src/tasks/comutask.o
- .debug_line    0x000238b2      0x3b5 ./build/gimbctrl/src/tasks/devmoni.o
- .debug_line    0x00023c67      0x388 ./build/gimbctrl/src/tasks/infoupdate.o
- .debug_line    0x00023fef      0x62c ./build/gimbctrl/src/tasks/shoottask.o
- .debug_line    0x0002461b       0x78 ./build/gimbctrl/startup_stm32f407xx.o
+ .debug_line    0x0001af7b      0x582 ./build/gimbctrl/Src/can.o
+ .debug_line    0x0001b4fd      0x333 ./build/gimbctrl/Src/dma.o
+ .debug_line    0x0001b830      0x455 ./build/gimbctrl/Src/freertos.o
+ .debug_line    0x0001bc85      0x413 ./build/gimbctrl/Src/gpio.o
+ .debug_line    0x0001c098      0x478 ./build/gimbctrl/Src/i2c.o
+ .debug_line    0x0001c510      0x508 ./build/gimbctrl/Src/main.o
+ .debug_line    0x0001ca18      0x554 ./build/gimbctrl/Src/spi.o
+ .debug_line    0x0001cf6c      0x343 ./build/gimbctrl/Src/stm32f4xx_hal_msp.o
+ .debug_line    0x0001d2af      0x520 ./build/gimbctrl/Src/stm32f4xx_it.o
+ .debug_line    0x0001d7cf      0x263 ./build/gimbctrl/Src/system_stm32f4xx.o
+ .debug_line    0x0001da32      0x62b ./build/gimbctrl/Src/tim.o
+ .debug_line    0x0001e05d      0x42a ./build/gimbctrl/src/bsps/bsp_delay.o
+ .debug_line    0x0001e487      0x31c ./build/gimbctrl/src/bsps/bsp_imu_pwm.o
+ .debug_line    0x0001e7a3      0xfe5 ./build/gimbctrl/src/bsps/bsp_spi.o
+ .debug_line    0x0001f788      0x3ff ./build/gimbctrl/src/bsps/can_bsp.o
+ .debug_line    0x0001fb87      0x469 ./build/gimbctrl/src/devices/BMI088Middleware.o
+ .debug_line    0x0001fff0      0xab9 ./build/gimbctrl/src/devices/BMI088driver.o
+ .debug_line    0x00020aa9      0x33e ./build/gimbctrl/src/devices/canbus.o
+ .debug_line    0x00020de7      0x2ac ./build/gimbctrl/src/devices/ist8310driver.o
+ .debug_line    0x00021093      0x49e ./build/gimbctrl/src/devices/ist8310driver_middleware.o
+ .debug_line    0x00021531      0x6ee ./build/gimbctrl/src/libs/MahonyAHRS.o
+ .debug_line    0x00021c1f      0x52b ./build/gimbctrl/src/libs/motlib.o
+ .debug_line    0x0002214a      0x53f ./build/gimbctrl/src/libs/pid.o
+ .debug_line    0x00022689     0x10d8 ./build/gimbctrl/src/tasks/INS_task.o
+ .debug_line    0x00023761      0x429 ./build/gimbctrl/src/tasks/comutask.o
+ .debug_line    0x00023b8a      0x3d9 ./build/gimbctrl/src/tasks/devmoni.o
+ .debug_line    0x00023f63      0x3ac ./build/gimbctrl/src/tasks/infoupdate.o
+ .debug_line    0x0002430f      0x346 ./build/gimbctrl/src/tasks/init.o
+ .debug_line    0x00024655      0x62f ./build/gimbctrl/src/tasks/shoottask.o
+ .debug_line    0x00024c84       0x78 ./build/gimbctrl/startup_stm32f407xx.o
 
-.debug_str      0x00000000     0x96fb
+.debug_str      0x00000000     0x972b
  .debug_str     0x00000000      0xb2c ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
                                 0xb9f (size before relaxing)
  .debug_str     0x00000b2c      0x79b ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o
@@ -3825,63 +3853,65 @@ OUTPUT(./build/gimbctrl/gimbctrl.elf elf32-littlearm)
                                0x1757 (size before relaxing)
  .debug_str     0x00007c4f      0x4e1 ./build/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/timers.o
                                0x1036 (size before relaxing)
- .debug_str     0x00008130      0x1a3 ./build/gimbctrl/Src/can.o
-                               0x1679 (size before relaxing)
- .debug_str     0x000082d3       0x18 ./build/gimbctrl/Src/dma.o
-                               0x1537 (size before relaxing)
- .debug_str     0x000082eb      0x128 ./build/gimbctrl/Src/freertos.o
-                               0x14ee (size before relaxing)
- .debug_str     0x00008413       0x1a ./build/gimbctrl/Src/gpio.o
-                               0x15f1 (size before relaxing)
- .debug_str     0x0000842d       0x29 ./build/gimbctrl/Src/i2c.o
-                               0x13ae (size before relaxing)
- .debug_str     0x00008456       0x6f ./build/gimbctrl/Src/main.o
-                               0x16e3 (size before relaxing)
- .debug_str     0x000084c5       0x30 ./build/gimbctrl/Src/spi.o
-                               0x1341 (size before relaxing)
- .debug_str     0x000084f5       0x1a ./build/gimbctrl/Src/stm32f4xx_hal_msp.o
-                               0x1532 (size before relaxing)
- .debug_str     0x0000850f       0xf8 ./build/gimbctrl/Src/stm32f4xx_it.o
-                               0x10bc (size before relaxing)
- .debug_str     0x00008607       0x44 ./build/gimbctrl/Src/system_stm32f4xx.o
+ .debug_str     0x00008130      0x2f7 ./build/gimbctrl/Src/can.o
+                               0x17e7 (size before relaxing)
+ .debug_str     0x00008427       0x18 ./build/gimbctrl/Src/dma.o
+                               0x16a5 (size before relaxing)
+ .debug_str     0x0000843f      0x128 ./build/gimbctrl/Src/freertos.o
+                               0x165c (size before relaxing)
+ .debug_str     0x00008567       0x1a ./build/gimbctrl/Src/gpio.o
+                               0x175f (size before relaxing)
+ .debug_str     0x00008581       0x29 ./build/gimbctrl/Src/i2c.o
+                               0x151c (size before relaxing)
+ .debug_str     0x000085aa       0x78 ./build/gimbctrl/Src/main.o
+                               0x185a (size before relaxing)
+ .debug_str     0x00008622       0x30 ./build/gimbctrl/Src/spi.o
+                               0x14af (size before relaxing)
+ .debug_str     0x00008652       0x1a ./build/gimbctrl/Src/stm32f4xx_hal_msp.o
+                               0x16a0 (size before relaxing)
+ .debug_str     0x0000866c       0xf8 ./build/gimbctrl/Src/stm32f4xx_it.o
+                               0x122a (size before relaxing)
+ .debug_str     0x00008764       0x44 ./build/gimbctrl/Src/system_stm32f4xx.o
                                 0x408 (size before relaxing)
- .debug_str     0x0000864b       0x51 ./build/gimbctrl/Src/tim.o
-                               0x1364 (size before relaxing)
- .debug_str     0x0000869c       0x2f ./build/gimbctrl/src/bsps/bsp_delay.o
-                                0xfd1 (size before relaxing)
- .debug_str     0x000086cb       0x25 ./build/gimbctrl/src/bsps/bsp_imu_pwm.o
-                                0xf7b (size before relaxing)
- .debug_str     0x000086f0       0x5a ./build/gimbctrl/src/bsps/bsp_spi.o
-                               0x11ba (size before relaxing)
- .debug_str     0x0000874a       0x66 ./build/gimbctrl/src/bsps/can_bsp.o
+ .debug_str     0x000087a8       0x51 ./build/gimbctrl/Src/tim.o
+                               0x14d2 (size before relaxing)
+ .debug_str     0x000087f9       0x2f ./build/gimbctrl/src/bsps/bsp_delay.o
+                               0x113f (size before relaxing)
+ .debug_str     0x00008828       0x25 ./build/gimbctrl/src/bsps/bsp_imu_pwm.o
                                0x10e9 (size before relaxing)
- .debug_str     0x000087b0       0xce ./build/gimbctrl/src/devices/BMI088Middleware.o
-                               0x128f (size before relaxing)
- .debug_str     0x0000887e      0x44f ./build/gimbctrl/src/devices/BMI088driver.o
+ .debug_str     0x0000884d       0x5a ./build/gimbctrl/src/bsps/bsp_spi.o
+                               0x1328 (size before relaxing)
+ .debug_str     0x000088a7       0x66 ./build/gimbctrl/src/bsps/can_bsp.o
+                               0x1257 (size before relaxing)
+ .debug_str     0x0000890d       0xce ./build/gimbctrl/src/devices/BMI088Middleware.o
+                               0x13fd (size before relaxing)
+ .debug_str     0x000089db      0x44f ./build/gimbctrl/src/devices/BMI088driver.o
                                 0x6e0 (size before relaxing)
- .debug_str     0x00008ccd       0x35 ./build/gimbctrl/src/devices/canbus.o
-                                0xff6 (size before relaxing)
- .debug_str     0x00008d02      0x16e ./build/gimbctrl/src/devices/ist8310driver.o
+ .debug_str     0x00008e2a       0x35 ./build/gimbctrl/src/devices/canbus.o
+                               0x1164 (size before relaxing)
+ .debug_str     0x00008e5f      0x16e ./build/gimbctrl/src/devices/ist8310driver.o
                                 0x31c (size before relaxing)
- .debug_str     0x00008e70       0x55 ./build/gimbctrl/src/devices/ist8310driver_middleware.o
-                               0x136c (size before relaxing)
- .debug_str     0x00008ec5       0xef ./build/gimbctrl/src/libs/MahonyAHRS.o
+ .debug_str     0x00008fcd       0x55 ./build/gimbctrl/src/devices/ist8310driver_middleware.o
+                               0x14da (size before relaxing)
+ .debug_str     0x00009022       0xef ./build/gimbctrl/src/libs/MahonyAHRS.o
                                 0x65a (size before relaxing)
- .debug_str     0x00008fb4      0x1c9 ./build/gimbctrl/src/libs/motlib.o
-                               0x116f (size before relaxing)
- .debug_str     0x0000917d       0x34 ./build/gimbctrl/src/libs/pid.o
-                               0x100e (size before relaxing)
- .debug_str     0x000091b1      0x382 ./build/gimbctrl/src/tasks/INS_task.o
-                               0x1877 (size before relaxing)
- .debug_str     0x00009533       0x5d ./build/gimbctrl/src/tasks/comutask.o
-                                0xfd2 (size before relaxing)
- .debug_str     0x00009590       0x2a ./build/gimbctrl/src/tasks/devmoni.o
-                                0xf98 (size before relaxing)
- .debug_str     0x000095ba       0x2a ./build/gimbctrl/src/tasks/infoupdate.o
-                                0xf84 (size before relaxing)
- .debug_str     0x000095e4       0xf1 ./build/gimbctrl/src/tasks/shoottask.o
+ .debug_str     0x00009111       0x9a ./build/gimbctrl/src/libs/motlib.o
+                               0x1194 (size before relaxing)
+ .debug_str     0x000091ab       0x34 ./build/gimbctrl/src/libs/pid.o
+                               0x10fc (size before relaxing)
+ .debug_str     0x000091df      0x382 ./build/gimbctrl/src/tasks/INS_task.o
+                               0x1965 (size before relaxing)
+ .debug_str     0x00009561       0x5d ./build/gimbctrl/src/tasks/comutask.o
+                               0x1140 (size before relaxing)
+ .debug_str     0x000095be       0x2a ./build/gimbctrl/src/tasks/devmoni.o
+                               0x1106 (size before relaxing)
+ .debug_str     0x000095e8       0x2a ./build/gimbctrl/src/tasks/infoupdate.o
+                               0x10f2 (size before relaxing)
+ .debug_str     0x00009612       0x4c ./build/gimbctrl/src/tasks/init.o
+                               0x1115 (size before relaxing)
+ .debug_str     0x0000965e       0xa7 ./build/gimbctrl/src/tasks/shoottask.o
                                0x11e8 (size before relaxing)
- .debug_str     0x000096d5       0x26 ./build/gimbctrl/startup_stm32f407xx.o
+ .debug_str     0x00009705       0x26 ./build/gimbctrl/startup_stm32f407xx.o
                                  0x51 (size before relaxing)
 
 .comment        0x00000000       0x76
@@ -3930,9 +3960,10 @@ OUTPUT(./build/gimbctrl/gimbctrl.elf elf32-littlearm)
  .comment       0x00000076       0x77 ./build/gimbctrl/src/tasks/comutask.o
  .comment       0x00000076       0x77 ./build/gimbctrl/src/tasks/devmoni.o
  .comment       0x00000076       0x77 ./build/gimbctrl/src/tasks/infoupdate.o
+ .comment       0x00000076       0x77 ./build/gimbctrl/src/tasks/init.o
  .comment       0x00000076       0x77 ./build/gimbctrl/src/tasks/shoottask.o
 
-.debug_frame    0x00000000     0x5774
+.debug_frame    0x00000000     0x57cc
  .debug_frame   0x00000000      0x1ec ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
  .debug_frame   0x000001ec      0x2dc ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o
  .debug_frame   0x000004c8      0x15c ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
@@ -3977,25 +4008,26 @@ OUTPUT(./build/gimbctrl/gimbctrl.elf elf32-littlearm)
  .debug_frame   0x000050c4       0x58 ./build/gimbctrl/src/tasks/comutask.o
  .debug_frame   0x0000511c       0x38 ./build/gimbctrl/src/tasks/devmoni.o
  .debug_frame   0x00005154       0x38 ./build/gimbctrl/src/tasks/infoupdate.o
- .debug_frame   0x0000518c       0xd0 ./build/gimbctrl/src/tasks/shoottask.o
- .debug_frame   0x0000525c       0x48 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-w_sqrt.o)
- .debug_frame   0x000052a4       0x48 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-wf_asin.o)
- .debug_frame   0x000052ec       0x20 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-wf_atan2.o)
- .debug_frame   0x0000530c       0x30 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-e_sqrt.o)
- .debug_frame   0x0000533c       0x70 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-ef_asin.o)
- .debug_frame   0x000053ac       0x44 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-ef_atan2.o)
- .debug_frame   0x000053f0       0x20 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-ef_sqrt.o)
- .debug_frame   0x00005410       0x2c c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_atan.o)
- .debug_frame   0x0000543c       0x20 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_fabs.o)
- .debug_frame   0x0000545c       0x20 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_nan.o)
- .debug_frame   0x0000547c       0xac c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_addsubdf3.o)
- .debug_frame   0x00005528       0x50 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_muldivdf3.o)
- .debug_frame   0x00005578       0xc4 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_cmpdf2.o)
- .debug_frame   0x0000563c       0x20 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_unorddf2.o)
- .debug_frame   0x0000565c       0x24 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_truncdfsf2.o)
- .debug_frame   0x00005680       0x2c c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard\libgcc.a(_aeabi_uldivmod.o)
- .debug_frame   0x000056ac       0x34 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
- .debug_frame   0x000056e0       0x20 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-errno.o)
- .debug_frame   0x00005700       0x2c c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-init.o)
- .debug_frame   0x0000572c       0x28 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memcpy-stub.o)
- .debug_frame   0x00005754       0x20 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memset.o)
+ .debug_frame   0x0000518c       0x58 ./build/gimbctrl/src/tasks/init.o
+ .debug_frame   0x000051e4       0xd0 ./build/gimbctrl/src/tasks/shoottask.o
+ .debug_frame   0x000052b4       0x48 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-w_sqrt.o)
+ .debug_frame   0x000052fc       0x48 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-wf_asin.o)
+ .debug_frame   0x00005344       0x20 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-wf_atan2.o)
+ .debug_frame   0x00005364       0x30 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-e_sqrt.o)
+ .debug_frame   0x00005394       0x70 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-ef_asin.o)
+ .debug_frame   0x00005404       0x44 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-ef_atan2.o)
+ .debug_frame   0x00005448       0x20 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-ef_sqrt.o)
+ .debug_frame   0x00005468       0x2c c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_atan.o)
+ .debug_frame   0x00005494       0x20 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_fabs.o)
+ .debug_frame   0x000054b4       0x20 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_nan.o)
+ .debug_frame   0x000054d4       0xac c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_addsubdf3.o)
+ .debug_frame   0x00005580       0x50 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_muldivdf3.o)
+ .debug_frame   0x000055d0       0xc4 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_cmpdf2.o)
+ .debug_frame   0x00005694       0x20 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_unorddf2.o)
+ .debug_frame   0x000056b4       0x24 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_truncdfsf2.o)
+ .debug_frame   0x000056d8       0x2c c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard\libgcc.a(_aeabi_uldivmod.o)
+ .debug_frame   0x00005704       0x34 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
+ .debug_frame   0x00005738       0x20 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-errno.o)
+ .debug_frame   0x00005758       0x2c c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-init.o)
+ .debug_frame   0x00005784       0x28 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memcpy-stub.o)
+ .debug_frame   0x000057ac       0x20 c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memset.o)

@@ -57,6 +57,7 @@ extern "C" {
 #include "infoupdate.h"
 #include "shoottask.h"
 #include "tim.h"
+#include "init.h"
 
 
 

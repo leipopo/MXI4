@@ -197,3 +197,70 @@ Inc/pid.h:45:30: note: expected 'PID_regulator *' {aka 'struct PID_regulator_t *
 [2022-07-26 00:23:49]	[done]
 	build successfully !
 
+[2022-07-26 00:37:51]	[done]
+	build successfully !
+
+[2022-07-26 00:38:57]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Memory region         Used Size  Region Size  %age Used
+             RAM:       22176 B       128 KB     16.92%
+          CCMRAM:          0 GB        64 KB      0.00%
+c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/Src/main.o: in function `main':
+c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl/./Src/main.c:103: undefined reference to `userinit'
+collect2.exe: error: ld returned 1 exit status
+           FLASH:       44480 B         1 MB      4.24%
+
+
+[2022-07-26 00:39:43]	compilation failed at : "c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl\src\tasks\init.c", exit code: 1
+   at unify_builder.Program.compileByMulThread(Int32 thrNum, CmdInfo[] cmds, List`1 errLogs)
+   at unify_builder.Program.Main(String[] args_)
+---
+./src/tasks/init.c: In function 'chasmotinit':
+./src/tasks/init.c:5:24: warning: passing argument 1 of 'init_shootmot_para' from incompatible pointer type [-Wincompatible-pointer-types]
+     init_shootmot_para(fric,trig);
+                        ^~~~
+In file included from Inc/main.h:58,
+                 from ./src/tasks/init.c:1:
+Inc/shoottask.h:17:36: note: expected 'MotorInfo **' {aka 'struct _Motor_Info **'} but argument is of type 'MotorInfo *' {aka 'struct _Motor_Info *'}
+ void init_shootmot_para(MotorInfo *fric[2], MotorInfo *trig);
+                         ~~~~~~~~~~~^~~~~~~
+./src/tasks/init.c:5:29: error: incompatible type for argument 2 of 'init_shootmot_para'
+     init_shootmot_para(fric,trig);
+                             ^~~~
+In file included from Inc/main.h:58,
+                 from ./src/tasks/init.c:1:
+Inc/shoottask.h:17:56: note: expected 'MotorInfo *' {aka 'struct _Motor_Info *'} but argument is of type 'MotorInfo' {aka 'struct _Motor_Info'}
+ void init_shootmot_para(MotorInfo *fric[2], MotorInfo *trig);
+                                             ~~~~~~~~~~~^~~~
+
+[2022-07-26 00:40:03]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Memory region         Used Size  Region Size  %age Used
+             RAM:       22176 B       128 KB     16.92%
+          CCMRAM:          0 GB        64 KB      0.00%
+c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/Src/main.o: in function `main':
+c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl/./Src/main.c:103: undefined reference to `userinit'
+collect2.exe: error: ld returned 1 exit status
+           FLASH:       44480 B         1 MB      4.24%
+
+
+[2022-07-26 00:41:01]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Memory region         Used Size  Region Size  %age Used
+             RAM:       22176 B       128 KB     16.92%
+          CCMRAM:          0 GB        64 KB      0.00%
+c:/users/94736/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/Src/main.o: in function `main':
+c:\MXI4\MXI4\ctrlcode\gimbalboard\gimbctrl/./Src/main.c:103: undefined reference to `userinit'
+collect2.exe: error: ld returned 1 exit status
+           FLASH:       44480 B         1 MB      4.24%
+
+
+[2022-07-26 00:41:32]	[done]
+	build successfully !
+
+[2022-07-26 00:42:26]	[done]
+	build successfully !
+

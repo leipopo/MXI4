@@ -2,12 +2,8 @@
 MotorInfo whe[4];
 void chasmotinit()
 {
-    yaw = motparainit(gm6020);
-    yaw.setup.motid = yawmotid;
-
-    pit = motparainit(gm6020);
-    pit.setup.motid = pitmotid;
-
+    init_gimbmot_para(&pit, &yaw);
+    init_gimbmot_pid(&pitapid, &yawapid, &pitspid, &yawspid);
     for (int8_t i = 0; i < 4; i++)
     {
         whe[i] = motparainit(m3508);
@@ -17,6 +13,13 @@ void chasmotinit()
 
 void devinit()
 {
+
     RC_INIT();
     can_filter_init();
+}
+
+void userinit()
+{
+    devinit();
+    chasmotinit();
 }

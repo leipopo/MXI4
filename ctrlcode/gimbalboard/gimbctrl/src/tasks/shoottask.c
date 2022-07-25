@@ -1,17 +1,17 @@
 #include "main.h"
 
 MotorInfo fric[2], trig;
-PID_regulator fricspid[2], trigapid, trigspid;
+PID_regulator fricspid[2]={pid_default_config, pid_default_config}, trigapid=pid_default_config, trigspid=pid_default_config;
 
-void init_shootmot_para(MotorInfo *fric[2], MotorInfo *trig)
+void init_shootmot_para(MotorInfo fric[2], MotorInfo *trig)
 {
     *trig                         = motparainit(m2006);
     trig->setup.motid             = trigmotid;
-    *fric[0]                      = motparainit(m3508);
-    fric[0]->setup.motid          = fricmotid_1;
-    fric[0]->setup.reductionratio = 1;
-    *fric[1]                      = *fric[0];
-    fric[1]->setup.motid          = fricmotid_2;
+    fric[0]                      = motparainit(m3508);
+    fric[0].setup.motid          = fricmotid_1;
+    fric[0].setup.reductionratio = 1.f;
+    fric[1]                      = fric[0];
+    fric[1].setup.motid          = fricmotid_2;
 }
 
 void init_shootmot_pid(PID_regulator fspid[2],

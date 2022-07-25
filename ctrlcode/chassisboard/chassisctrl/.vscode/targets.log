@@ -7,7 +7,7 @@ make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --quest
 # There is NO WARRANTY, to the extent permitted by law.
  
 
-# Make data base, printed on Mon Jul 25 18:25:54 2022
+# Make data base, printed on Tue Jul 26 00:28:52 2022
 
 # Variables
 
@@ -77,7 +77,7 @@ PROGRAMW6432 = C:\Program Files
 # environment
 PROGRAMDATA = C:\ProgramData
 # environment
-VSCODE_CWD = C:\MXI4\MXI4\ctrlcode\chassisboard\chassisctrl
+VSCODE_CWD = C:\WINDOWS\system32
 # makefile (from 'Makefile', line 25)
 OPT = -Og
 # default
@@ -634,6 +634,6 @@ vpath %.c Drivers/STM32F4xx_HAL_Driver/Src;Middlewares/Third_Party/FreeRTOS/Sour
 # strcache performance: lookups = 171 / hit rate = 28%
 # hash-table stats:
 # Load=122/8192=1%, Rehash=0, Collisions=9/171=5%
-# Finished Make data base on Mon Jul 25 18:25:54 2022
+# Finished Make data base on Tue Jul 26 00:28:52 2022
 
  

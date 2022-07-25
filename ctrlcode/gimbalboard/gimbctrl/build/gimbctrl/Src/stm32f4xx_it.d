@@ -44,4 +44,4 @@ build/gimbctrl/Src/stm32f4xx_it.o: Src/stm32f4xx_it.c Inc/main.h \
  Inc/ist8310driver.h Inc/ist8310driver_middleware.h \
  Inc/BMI088Middleware.h Inc/BMI088driver.h Inc/INS_task.h Inc/comutask.h \
  Inc/infoupdate.h Inc/devmoni.h Inc/robconfig.h Inc/shoottask.h Inc/tim.h \
- Inc/stm32f4xx_it.h
+ Inc/init.h Inc/stm32f4xx_it.h
