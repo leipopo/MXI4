@@ -16,3 +16,20 @@
 
 [2022/7/25 1:7:1 GMT+0800] : launched
 [2022/7/25 11:49:3 GMT+0800] : launched
+[2022/7/27 13:40:11 GMT+0800] : launched
+[Hidden] : spawnSync C:\Users\94736\.eide\bin\utils\stvp_tools\stvp_utils.exe ENOENT
+Error: spawnSync C:\Users\94736\.eide\bin\utils\stvp_tools\stvp_utils.exe ENOENT
+	at Object.spawnSync (node:internal/child_process:1083:20)
+	at spawnSync (node:child_process:832:24)
+	at Object.execFileSync (node:child_process:878:15)
+	at Object.func [as execFileSync] (node:electron/js2c/asar_bundle:5:1812)
+	at T.loadStm8DevList (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2022072601\dist\extension.js:1:14544)
+	at EventEmitter.<anonymous> (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2022072601\dist\extension.js:1:7487)
+	at EventEmitter.emit (node:events:390:28)
+	at Function.emit (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2022072601\dist\extension.js:1:5616)
+	at c:\Users\94736\.vscode\extensions\cl.eide-3.7.2022072601\dist\extension.js:7:68168
+	at Generator.next (<anonymous>)
+	at s (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2022072601\dist\extension.js:7:49155)
+	at processTicksAndRejections (node:internal/process/task_queues:96:5)
+
+

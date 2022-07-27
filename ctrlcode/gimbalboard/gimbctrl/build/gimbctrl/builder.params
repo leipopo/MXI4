@@ -7,7 +7,7 @@
     "buildMode": "fast|multhread",
     "showRepathOnLog": true,
     "threadNum": 12,
-    "rootDir": "c:\\MXI4\\MXI4\\ctrlcode\\gimbalboard\\gimbctrl",
+    "rootDir": "e:\\MXI4\\ctrlcode\\gimbalboard\\gimbctrl",
     "dumpPath": "build\\gimbctrl",
     "outDir": "build\\gimbctrl",
     "ram": 20480,
@@ -94,7 +94,7 @@
         "startup_stm32f407xx.s"
     ],
     "sourceParams": {},
-    "sourceParamsMtime": 1658506148422.1113,
+    "sourceParamsMtime": 1658811993687.8655,
     "options": {
         "version": 4,
         "beforeBuildTasks": [],
@@ -134,7 +134,7 @@
             "LD_FLAGS": "--specs=nosys.specs --specs=nano.specs",
             "LIB_FLAGS": "-lm",
             "link-scatter": [
-                "\"c:/MXI4/MXI4/ctrlcode/gimbalboard/gimbctrl/STM32F407IGHx_FLASH.ld\""
+                "\"e:/MXI4/ctrlcode/gimbalboard/gimbctrl/STM32F407IGHx_FLASH.ld\""
             ]
         }
     },
@@ -145,6 +145,6 @@
         "global": "530378f6177fce883a69f2f1add1ae45",
         "c/cpp-compiler": "fa206523009341103d48c3b84fda4537",
         "asm-compiler": "4e936c1650c2f18609e37408d1cfbb9f",
-        "linker": "b0a7d2642a9d2249aed1f777322f457d"
+        "linker": "352164e36345bf6f07df794146d645d7"
     }
 }

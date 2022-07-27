@@ -24,21 +24,21 @@
 #include "main.h"
 
 #define IMU_temp_PWM(pwm) imu_pwm_set(pwm) // pwm����
-
+/*
 #define BMI088_BOARD_INSTALL_SPIN_MATRIX \
-    {1.0f, 0.0f, 0.0f},                  \
-        {0.0f, 1.0f, 0.0f},             \
+    {0.0f, -1.0f, 0.0f},                  \
+        {1.0f, 0.0f, 0.0f},             \
     {                                    \
         0.0f, 0.0f, 1.0f                \
     }
 #define IST8310_BOARD_INSTALL_SPIN_MATRIX \
-    {1.0f, 0.0f, 0.0f},                   \
-        {0.0f, 1.0f, 0.0f},               \
+    {-1.0f, 0.0f, 0.0f},                   \
+        {0.0f, -1.0f, 0.0f},               \
     {                                     \
         0.0f, 0.0f, 1.0f                 \
     }
+*/
 
-/*
 #define BMI088_BOARD_INSTALL_SPIN_MATRIX \
     {0.0f, 1.0f, 0.0f},                  \
         {-1.0f, 0.0f, 0.0f},             \
@@ -52,7 +52,7 @@
     {                                     \
         0.0f, 0.0f, 1.0f                  \
     }
-*/
+
 /**
  * @brief          control the temperature of bmi088
  * @param[in]      temp: the temperature of bmi088
@@ -64,8 +64,8 @@
  * @retval         none
  */
 static void imu_temp_control(fp32 temp);
-float ysp,psp,rsp;
-float bysp,bpsp,brsp;
+float ysp, psp, rsp;
+float bysp, bpsp, brsp;
 /**
  * @brief          open the SPI DMA accord to the value of imu_update_flag
  * @param[in]      none
@@ -165,8 +165,9 @@ void INS_task()
     }
 
     BMI088_read(bmi088_real_data.gyro, bmi088_real_data.accel, &bmi088_real_data.temp);
+    imu_cali_slove(INS_gyro, INS_accel, INS_mag, &bmi088_real_data, &ist8310_real_data);
     instemp_PID_init(&imu_temp_pid);
-    AHRS_init(INS_quat, bmi088_real_data.accel, ist8310_real_data.mag);
+    AHRS_init(INS_quat, INS_accel, INS_mag);
 
     accel_fliter_1[0] = accel_fliter_2[0] = accel_fliter_3[0] = INS_accel[0];
     accel_fliter_1[1] = accel_fliter_2[1] = accel_fliter_3[1] = INS_accel[1];
@@ -213,14 +214,10 @@ void INS_task()
             BMI088_temperature_read_over(accel_temp_dma_rx_buf + BMI088_ACCEL_RX_BUF_DATA_OFFSET, &bmi088_real_data.temp);
             imu_temp_control(bmi088_real_data.temp);
         }
-        // bysp=bmi088_real_data.gyro[0];
-        // bpsp=bmi088_real_data.gyro[1];
-        // brsp=bmi088_real_data.gyro[2];
+
         // rotate and zero drift
         imu_cali_slove(INS_gyro, INS_accel, INS_mag, &bmi088_real_data, &ist8310_real_data);
-        // ysp=INS_gyro[0];
-        // psp=INS_gyro[1];
-        // rsp=INS_gyro[2];
+
         //加速度计低通滤波
         // accel low-pass filter
         accel_fliter_1[0] = accel_fliter_2[0];
@@ -237,14 +234,9 @@ void INS_task()
         accel_fliter_2[2] = accel_fliter_3[2];
 
         accel_fliter_3[2] = accel_fliter_2[2] * fliter_num[0] + accel_fliter_1[2] * fliter_num[1] + INS_accel[2] * fliter_num[2];
-        
-        AHRS_update(INS_quat, timing_time, bmi088_real_data.gyro, bmi088_real_data.accel, ist8310_real_data.mag);
-        get_angle(INS_quat, INS_angle + INS_YAW_ADDRESS_OFFSET, INS_angle + INS_PITCH_ADDRESS_OFFSET, INS_angle + INS_ROLL_ADDRESS_OFFSET);
 
-        // fp32 cs[3],co[3];
-        //  static uint16_t tc=0;
-        //  INS_cali_gyro(cs,co,&tc);
-        //  //INS_set_cali_gyro(cs,co);
+        AHRS_update(INS_quat, timing_time, INS_gyro, accel_fliter_3, INS_mag);
+        get_angle(INS_quat, INS_angle + INS_YAW_ADDRESS_OFFSET, INS_angle + INS_PITCH_ADDRESS_OFFSET, INS_angle + INS_ROLL_ADDRESS_OFFSET);
 
         // because no use ist8310 and save time, no use
         if (mag_update_flag &= 1 << IMU_DR_SHFITS)
@@ -295,7 +287,7 @@ void AHRS_init(fp32 quat[4], fp32 accel[3], fp32 mag[3])
 
 void AHRS_update(fp32 quat[4], fp32 time, fp32 gyro[3], fp32 accel[3], fp32 mag[3])
 {
-    MahonyAHRSupdate(quat, gyro[0], gyro[1], gyro[2], accel[0], accel[1], accel[2], mag[0], mag[1], mag[2]);
+    MahonyAHRSupdate(quat, gyro[0], gyro[1], gyro[2], accel[0], accel[1], accel[2], 0.f, 0.f, 0.f);
 }
 void get_angle(fp32 q[4], fp32 *yaw, fp32 *pitch, fp32 *roll)
 {
