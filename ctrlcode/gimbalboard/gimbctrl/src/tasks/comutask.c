@@ -3,6 +3,19 @@ int16_t can2_mes2chas_imu[4];
 int16_t can2_mes2chas_cv[4];
 ComuInfo comuinfo;
 
+//遥控器逻辑
+// 1 1 关电机 --> 1 3 开电机/关弹舱/关摩擦轮 --> 1 2 开弹舱
+//                     ||
+//                     ||
+//                     \/
+// 3 1 开摩擦轮 --> 3 3 开电机无动作 --> 3 2 发弹
+//                     ||
+//                     ||
+//                     \/
+// 2 1 开自瞄 --> 2 3 开电机无动作 --> 2 2 开小陀螺
+
+// 3 3 开电机无动作-->2 3 开电机无动作  切换自瞄模式
+
 void canrx2comuinfo_comd(uint8_t rx[8], ComuInfo *ci)
 {
     ci->rx_comd.fricwheelon = rx[0];

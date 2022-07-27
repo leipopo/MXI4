@@ -37,11 +37,11 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 
 void init_robinfo(RobInfo *ri)
 {
-    while (ri->cur.yawangle == 0.f)
+    while (yaw.curmotorinfo.angle == 0.f)
     {
         osDelayUntil(10);
     }
-    ri->tar.yawangle = ri->cur.yawangle;
+    ri->tar.yawangle = yaw.curmotorinfo.angle;
 }
 
 void get_limits(RobInfo *ri)
@@ -141,13 +141,14 @@ void get_zrelangle(RobInfo *ri)
 
 void infoupdate()
 {
-    init_robinfo(&robinfo);
+     init_robinfo(&robinfo);
     for (;;)
     {
         robinfo.robid = get_robot_id();
         get_limits(&robinfo);
         get_gimbtarangle_rc(&robinfo);
         get_gimbcurangle_imu(&robinfo);
+        get_comd_rc(&robinfo);
         get_zrelangle(&robinfo);
 
         osDelayUntil(infotaskperi);

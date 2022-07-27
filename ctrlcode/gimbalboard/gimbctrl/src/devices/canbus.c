@@ -12,10 +12,12 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
         if (rx_header.StdId == fricmotid_1)
         {
             canrx2motinfo(rx_data, fric);
+            can1devsta= can_probe(fricmotid_1,can1_idlist);
         }
         else if (rx_header.StdId == fricmotid_2)
         {
             canrx2motinfo(rx_data, fric+1);
+            can1devsta= can_probe(fricmotid_2,can1_idlist);
         }
     }
     else if (hcan->Instance == CAN2)
@@ -23,6 +25,12 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
         if (rx_header.StdId == chasboardid)
         {
             canrx2comuinfo_comd(rx_data, &comuinfo);
+            can2devsta= can_probe(chasboardid,can2_idlist);
+        }
+        else if (rx_header.StdId == trigmotid)
+        {
+            canrx2motinfo(rx_data, &trig);
+            can2devsta= can_probe(trigmotid,can2_idlist);
         }
     }
 }

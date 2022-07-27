@@ -1,12 +1,23 @@
 #include "main.h"
+//遥控器逻辑
+// 1 1 关电机 --> 1 3 开电机/关弹舱/关摩擦轮 --> 1 2 开弹舱
+//                     ||
+//                     ||
+//                     \/
+// 3 1 开摩擦轮 --> 3 3 开电机无动作 --> 3 2 发弹
+//                     ||
+//                     ||
+//                     \/
+// 2 1 开自瞄 --> 2 3 开电机无动作 --> 2 2 开小陀螺
 
+// 3 3 开电机无动作-->2 3 开电机无动作  切换自瞄模式F
 MotorInfo fric[2], trig;
-PID_regulator fricspid[2]={pid_default_config, pid_default_config}, trigapid=pid_default_config, trigspid=pid_default_config;
+PID_regulator fricspid[2] = {pid_default_config, pid_default_config}, trigapid = pid_default_config, trigspid = pid_default_config;
 
 void init_shootmot_para(MotorInfo fric[2], MotorInfo *trig)
 {
-    *trig                         = motparainit(m2006);
-    trig->setup.motid             = trigmotid;
+    *trig                        = motparainit(m2006);
+    trig->setup.motid            = trigmotid;
     fric[0]                      = motparainit(m3508);
     fric[0].setup.motid          = fricmotid_1;
     fric[0].setup.reductionratio = 1.f;
@@ -97,11 +108,11 @@ void setmag(int8_t mc)
 {
     if (mc == 1)
     {
-        __HAL_TIM_SetCompare(&htim1, TIM_CHANNEL_1, magopenpusle);
+        __HAL_TIM_SetCompare(&htim8, TIM_CHANNEL_3, magopenpusle);
     }
     else
     {
-        __HAL_TIM_SetCompare(&htim1, TIM_CHANNEL_1, magclosepusle);
+        __HAL_TIM_SetCompare(&htim8, TIM_CHANNEL_3, magclosepusle);
     }
 }
 

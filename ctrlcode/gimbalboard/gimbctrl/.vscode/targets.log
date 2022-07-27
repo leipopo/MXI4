@@ -7,7 +7,7 @@ make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --quest
 # There is NO WARRANTY, to the extent permitted by law.
  
 
-# Make data base, printed on Wed Jul 27 13:45:41 2022
+# Make data base, printed on Wed Jul 27 16:01:14 2022
 
 # Variables
 
@@ -48,8 +48,7 @@ SHELL := C:/Users/94736/.eide/bin/builder/msys/bin/sh.exe
 # makefile (from 'Makefile', line 113)
 BIN = $(CP) -O binary -S
 # environment
-WINDIR 
- = C:\WINDOWS
+WINDIR = C:\WINDOWS
 # environment
 VSCODE_NLS_CONFIG = {"locale":"zh-cn","availableLanguages":{"*":"zh-cn"},"_languagePackId":"1d735750dbb1b9066c7513078396ba0f.zh-cn","_translationsConfigFile":"C:\\Users\\94736\\AppData\\Roaming\\Code\\clp\\1d735750dbb1b9066c7513078396ba0f.zh-cn\\tcf.json","_cacheRoot":"C:\\Users\\94736\\AppData\\Roaming\\Code\\clp\\1d735750dbb1b9066c7513078396ba0f.zh-cn","_resolvedLanguagePackCoreLocation":"C:\\Users\\94736\\AppData\\Roaming\\Code\\clp\\1d735750dbb1b9066c7513078396ba0f.zh-cn\\3b889b090b5ad5793f524b5d1d39fda662b96a2a","_corruptedFile":"C:\\Users\\94736\\AppData\\Roaming\\Code\\clp\\1d735750dbb1b9066c7513078396ba0f.zh-cn\\corrupted.info","_languagePackSupport":true}
 # makefile (from 'Makefile', line 110)
@@ -81,7 +80,7 @@ OPT = -Og
 # default
 MAKE_HOST := x86_64-w64-mingw32
 # environment
-PATH = C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Polyspace\R2021a\runtime\win64;C:\Program Files\Polyspace\R2021a\bin;C:\Program Files\Polyspace\R2021a\polyspace\bin;C:\Program Files\MSC.Software\Adams\2020_711253\bin;C:\Program Files\Git\cmd;C:\Program Files\usbipd-win\;C:\Program Files\dotnet\;C:\Program Files (x86)\STMicroelectronics\STM32 ST-LINK Utility\ST-LINK Utility;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Users\94736\AppData\Local\Microsoft\WindowsApps;C:\Users\94736\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\94736\AppData\Local\GitHubDesktop\bin;C:\msys64\mingw64\bin;C:\Program Files (x86)\Arm GNU Toolchain arm-none-eabi\11.2 2022.02\bin;C:\openocd-20211118\OpenOCD-20211118-0.11.0\bin;C:\Program Files (x86)\GNU Arm Embedded Toolchain\10 2021.10\bin;;C:\Users\94736\.eide\bin\builder\bin;C:\Users\94736\.eide\bin\builder\utils;C:\Users\94736\.eide\bin\scripts;C:\Users\94736\.eide\tools\gcc_arm\bin;C:\Users\94736\.eide\tools\jlink;C:\Users\94736\.eide\tools\openocd\bin;C:\Users\94736\.eide\tools\gcc_riscv\bin;C:\Users\94736\.eide\tools\sdcc\bin;C:\Users\94736\.eide\tools\st_cube_programer\bin;C:\Users\94736\.eide\bin\builder\msys\bin
+PATH = C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Polyspace\R2021a\runtime\win64;C:\Program Files\Polyspace\R2021a\bin;C:\Program Files\Polyspace\R2021a\polyspace\bin;C:\Program Files\MSC.Software\Adams\2020_711253\bin;C:\Program Files\Git\cmd;C:\Program Files\usbipd-win\;C:\Program Files\dotnet\;C:\Program Files (x86)\STMicroelectronics\STM32 ST-LINK Utility\ST-LINK Utility;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Users\94736\AppData\Local\Microsoft\WindowsApps;C:\Users\94736\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\94736\AppData\Local\GitHubDesktop\bin;C:\msys64\mingw64\bin;C:\Program Files (x86)\Arm GNU Toolchain arm-none-eabi\11.2 2022.02\bin;C:\Program Files (x86)\GNU Arm Embedded Toolchain\10 2021.10\bin;C:\Program Files (x86)\xpack-openocd-0.11.0-4-win32-x64\xpack-openocd-0.11.0-4\bin;C:\Users\94736\.eide\tools\openocd\bin;;C:\Users\94736\.eide\bin\builder\bin;C:\Users\94736\.eide\bin\builder\utils;C:\Users\94736\.eide\bin\scripts;C:\Users\94736\.eide\tools\gcc_arm\bin;C:\Users\94736\.eide\tools\jlink;C:\Users\94736\.eide\tools\openocd\bin;C:\Users\94736\.eide\tools\gcc_riscv\bin;C:\Users\94736\.eide\tools\sdcc\bin;C:\Users\94736\.eide\tools\st_cube_programer\bin;C:\Users\94736\.eide\bin\builder\msys\bin
 # environment
 COMMONPROGRAMW6432 = C:\Program Files\Common Files
 # environment
@@ -103,8 +102,9 @@ LDFLAGS = $(MCU) -specs=nano.specs -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BU
 # automatic
 %F = $(notdir $%)
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_13600_TUVSQXUBASVPHAOK
-# makefile (from 'Makefile', line 91)
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_9460_VZHCUYELLHPUJHGX
+# makefile ( 
+from 'Makefile', line 91)
 ASM_SOURCES = startup_stm32f407xx.s
 # environment
 EIDE_TOOL_SDCC = C:\Users\94736\.eide\tools\sdcc\bin
@@ -251,7 +251,7 @@ LANG = C
 # environment
 PROCESSOR_LEVEL = 6
 # environment
-VSCODE_PID = 13600
+VSCODE_PID = 9460
 # environment
 EIDE_TOOL_ST_CUBE_PROGRAMER = C:\Users\94736\.eide\tools\st_cube_programer\bin
 # environment
@@ -267,17 +267,17 @@ USERDOMAIN_ROAMINGPROFILE = DESKTOP-Q62RD8I
 
 # Directories
 
-# . (key e:/MXI4/ctrlcode/gimbalboard/gimbctrl, mtime 1658811994): 20 files, no impossibilities.
+# . (key e:/MXI4/ctrlcode/gimbalboard/gimbctrl, mtime 1658907901): 21 files, no impossibilities.
 # Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F (key e:/MXI4/ctrlcode/gimbalboard/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F, mtime 1658215484): 4 files, no impossibilities.
 # Src (key e:/MXI4/ctrlcode/gimbalboard/gimbctrl/Src, mtime 1658811994): 11 files, no impossibilities so far.
-# build (key e:/MXI4/ctrlcode/gimbalboard/gimbctrl/build, mtime 1658811994): 3 files, no impossibilities.
+# build (key e:/MXI4/ctrlcode/gimbalboard/gimbctrl/build, mtime 1658907901): 4 files, no impossibilities.
 # Middlewares/Third_Party/FreeRTOS/Source (key e:/MXI4/ctrlcode/gimbalboard/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source, mtime 1658215484): 13 files, no impossibilities.
 # Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 (key e:/MXI4/ctrlcode/gimbalboard/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2, mtime 1658215483): 7 files, no impossibilities.
 # Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang (key e:/MXI4/ctrlcode/gimbalboard/gimbctrl/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang, mtime 1658215484): 3 files, no impossibilities.
 # src (key e:/MXI4/ctrlcode/gimbalboard/gimbctrl/src, mtime 1658811994): No files, no impossibilities so far.
 # Drivers/STM32F4xx_HAL_Driver/Src (key e:/MXI4/ctrlcode/gimbalboard/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src, mtime 1658215482): 21 files, no impossibilities.
 
-# 82 files, no impossibilities in 9 directories.
+# 84 files, no impossibilities in 9 directories.
 
 # Implicit Rules
 
@@ -309,8 +309,7 @@ build/stm32f4xx_hal_pwr_ex.o:
 #  Modification time never checked.
 #  File has not been updated.
 
-build/main.o: Src/main.c Makefile | build 
-
+build/main.o: Src/main.c Makefile | build
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'main'
 #  File does not exist.
@@ -462,7 +461,7 @@ build/gimbctrl.bin:
 
 build:
 #  Implicit rule search has not been done.
-#  Last modified 2022-07-26 13:06:34
+#  Last modified 2022-07-27 15:45:01
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 212):
@@ -616,8 +615,7 @@ build/can.o:
 
 # Not a target:
 build/gimbctrl.hex:
-#  Implicit rule search has not been done. 
-
+#  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
@@ -649,13 +647,13 @@ vpath %.c Drivers/STM32F4xx_HAL_Driver/Src;Middlewares/Third_Party/FreeRTOS/Sour
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 130 / storage = 2187 B / avg = 16  
-B
-# current buf: size = 8162 B / used = 2187 B / count = 130 / avg = 16 B
+ 
+# strcache buffers: 1 (0) / strings = 132 / storage = 2211 B / avg = 16 B
+# current buf: size = 8162 B / used = 2211 B / count = 132 / avg = 16 B
 
-# strcache performance: lookups = 190 / hit rate = 31%
+# strcache performance: lookups = 192 / hit rate = 31%
 # hash-table stats:
-# Load=130/8192=2%, Rehash=0, Collisions=10/190=5%
-# Finished Make data base on Wed Jul 27 13:45:41 2022
+# Load=132/8192=2%, Rehash=0, Collisions=12/192=6%
+# Finished Make data base on Wed Jul 27 16:01:14 2022
 
  

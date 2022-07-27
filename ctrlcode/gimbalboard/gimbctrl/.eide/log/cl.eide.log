@@ -33,3 +33,181 @@ Error: spawnSync C:\Users\94736\.eide\bin\utils\stvp_tools\stvp_utils.exe ENOENT
 	at processTicksAndRejections (node:internal/process/task_queues:96:5)
 
 
+[2022/7/27 13:45:25 GMT+0800] : launched
+
+
+[2022/7/27 14:46:53 GMT+0800] : launched
+
+
+[2022/7/27 14:48:29 GMT+0800] : launched
+
+
+[2022/7/27 14:57:31 GMT+0800] : launched
+
+
+[2022/7/27 15:1:4 GMT+0800] : launched
+
+
+[2022/7/27 15:2:28 GMT+0800] : launched
+
+
+[2022/7/27 15:28:59 GMT+0800] : launched
+
+
+[2022/7/27 15:40:10 GMT+0800] : launched
+[2022/7/27 15:43:19 GMT+0800] : launched
+
+
+[2022/7/27 15:43:50 GMT+0800] : launched
+
+
+[2022/7/27 16:1:9 GMT+0800] : launched
+
+
+[2022/7/27 16:16:24 GMT+0800] : launched
+[Error] : The project config version is '3.2', but eide is '3.1'. Please update 'eide' to the latest version !
+Error: The project config version is '3.2', but eide is '3.1'. Please update 'eide' to the latest version !
+	at G.<anonymous> (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:1:81924)
+	at Generator.next (<anonymous>)
+	at c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:1:58016
+	at new Promise (<anonymous>)
+	at o (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:1:57761)
+	at G.BeforeLoad (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:1:81715)
+	at G.<anonymous> (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:1:92894)
+	at Generator.next (<anonymous>)
+	at c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:1:58016
+	at new Promise (<anonymous>)
+	at o (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:1:57761)
+	at G.BeforeLoad (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:1:92838)
+	at G.<anonymous> (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:1:71079)
+	at Generator.next (<anonymous>)
+	at c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:1:58016
+	at new Promise (<anonymous>)
+	at o (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:1:57761)
+	at G.Load (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:1:71034)
+	at j.<anonymous> (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:26:164290)
+	at Generator.next (<anonymous>)
+	at c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:26:145661
+	at new Promise (<anonymous>)
+	at o (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:26:145406)
+	at j._OpenProject (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:26:163755)
+	at EventEmitter.<anonymous> (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:26:153509)
+	at Object.onceWrapper (node:events:510:26)
+	at EventEmitter.emit (node:events:390:28)
+	at Function.emit (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:1:5266)
+	at EventEmitter.<anonymous> (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:7:31595)
+	at EventEmitter.emit (node:events:390:28)
+	at Function.emit (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:1:5266)
+	at j.LoadWorkspaceProject (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:26:153558)
+	at new j (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:26:151962)
+	at new t.ProjectExplorer (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:26:174791)
+	at c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:7:41890
+	at Generator.next (<anonymous>)
+	at s (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:7:30457)
+
+
+[2022/7/27 16:18:8 GMT+0800] : launched
+[Error] : The project config version is '3.2', but eide is '3.1'. Please update 'eide' to the latest version !
+Error: The project config version is '3.2', but eide is '3.1'. Please update 'eide' to the latest version !
+	at G.<anonymous> (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:1:81924)
+	at Generator.next (<anonymous>)
+	at c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:1:58016
+	at new Promise (<anonymous>)
+	at o (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:1:57761)
+	at G.BeforeLoad (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:1:81715)
+	at G.<anonymous> (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:1:92894)
+	at Generator.next (<anonymous>)
+	at c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:1:58016
+	at new Promise (<anonymous>)
+	at o (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:1:57761)
+	at G.BeforeLoad (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:1:92838)
+	at G.<anonymous> (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:1:71079)
+	at Generator.next (<anonymous>)
+	at c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:1:58016
+	at new Promise (<anonymous>)
+	at o (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:1:57761)
+	at G.Load (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:1:71034)
+	at j.<anonymous> (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:26:164290)
+	at Generator.next (<anonymous>)
+	at c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:26:145661
+	at new Promise (<anonymous>)
+	at o (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:26:145406)
+	at j._OpenProject (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:26:163755)
+	at EventEmitter.<anonymous> (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:26:153509)
+	at Object.onceWrapper (node:events:510:26)
+	at EventEmitter.emit (node:events:390:28)
+	at Function.emit (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:1:5266)
+	at EventEmitter.<anonymous> (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:7:31595)
+	at EventEmitter.emit (node:events:390:28)
+	at Function.emit (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:1:5266)
+	at j.LoadWorkspaceProject (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:26:153558)
+	at new j (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:26:151962)
+	at new t.ProjectExplorer (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:26:174791)
+	at c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:7:41890
+	at Generator.next (<anonymous>)
+	at s (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:7:30457)
+	at processTicksAndRejections (node:internal/process/task_queues:96:5)
+
+
+[2022/7/27 16:18:57 GMT+0800] : launched
+
+
+[2022/7/27 16:29:3 GMT+0800] : launched
+
+
+[2022/7/27 16:33:25 GMT+0800] : launched
+
+
+[2022/7/27 16:39:59 GMT+0800] : launched
+[Error] : The project config version is '3.2', but eide is '3.1'. Please update 'eide' to the latest version !
+Error: The project config version is '3.2', but eide is '3.1'. Please update 'eide' to the latest version !
+	at G.<anonymous> (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:1:81924)
+	at Generator.next (<anonymous>)
+	at c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:1:58016
+	at new Promise (<anonymous>)
+	at o (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:1:57761)
+	at G.BeforeLoad (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:1:81715)
+	at G.<anonymous> (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:1:92894)
+	at Generator.next (<anonymous>)
+	at c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:1:58016
+	at new Promise (<anonymous>)
+	at o (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:1:57761)
+	at G.BeforeLoad (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:1:92838)
+	at G.<anonymous> (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:1:71079)
+	at Generator.next (<anonymous>)
+	at c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:1:58016
+	at new Promise (<anonymous>)
+	at o (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:1:57761)
+	at G.Load (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:1:71034)
+	at j.<anonymous> (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:26:164290)
+	at Generator.next (<anonymous>)
+	at c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:26:145661
+	at new Promise (<anonymous>)
+	at o (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:26:145406)
+	at j._OpenProject (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:26:163755)
+	at EventEmitter.<anonymous> (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:26:153509)
+	at Object.onceWrapper (node:events:510:26)
+	at EventEmitter.emit (node:events:390:28)
+	at Function.emit (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:1:5266)
+	at EventEmitter.<anonymous> (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:7:31595)
+	at EventEmitter.emit (node:events:390:28)
+	at Function.emit (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:1:5266)
+	at j.LoadWorkspaceProject (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:26:153558)
+	at new j (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:26:151962)
+	at new t.ProjectExplorer (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:26:174791)
+	at c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:7:41890
+	at Generator.next (<anonymous>)
+	at s (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2\dist\extension.js:7:30457)
+
+
+[2022/7/27 16:41:34 GMT+0800] : launched
+
+
+[2022/7/27 16:44:38 GMT+0800] : launched
+
+
+[2022/7/27 17:15:45 GMT+0800] : launched
+
+
+[2022/7/27 17:24:25 GMT+0800] : launched
+[2022/7/27 17:37:34 GMT+0800] : launched

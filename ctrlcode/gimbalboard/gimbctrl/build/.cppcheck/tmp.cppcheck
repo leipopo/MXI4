@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- !!! Embedded IDE: Cppcheck config template !!! -->
+<project version="1">
+    <builddir>build</builddir>
+    <platform>arm32-wchar_t2</platform>
+    <analyze-all-vs-configs>false</analyze-all-vs-configs>
+    <check-headers>true</check-headers>
+    <check-unused-templates>true</check-unused-templates>
+    <max-ctu-depth>2</max-ctu-depth>
+    <max-template-recursion>100</max-template-recursion>
+    <includedir>
+        <!-- !!! DON'T MODIFY THE FLOLLOWING CONTENTS !!! -->
+        <dir name="../../Inc/"/>
+		<dir name="../../Drivers/STM32F4xx_HAL_Driver/Inc/"/>
+		<dir name="../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/"/>
+		<dir name="../../Middlewares/Third_Party/FreeRTOS/Source/include/"/>
+		<dir name="../../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/"/>
+		<dir name="../../Drivers/CMSIS/Device/ST/STM32F4xx/Include/"/>
+		<dir name="../../Drivers/CMSIS/Include/"/>
+		<dir name="../../.cmsis/dsp_lib/"/>
+		<dir name="../../.cmsis/include/"/>
+		<dir name="../../.eide/deps/"/>
+		<dir name="../../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/"/>
+    </includedir>
+    <defines>
+        <!-- example: <define name="DEF=123"/> -->
+        <define name="__VSCODE_CPPTOOL"/>
+		<define name="USE_HAL_DRIVER"/>
+		<define name="STM32F407xx"/>
+    </defines>
+    <undefines>
+        <!-- example: <undefine>UNDEF</undefine> -->
+    </undefines>
+    <paths>
+        <!-- !!! DON'T MODIFY THE FLOLLOWING CONTENTS !!! -->
+        <dir name="../../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c"/>
+		<dir name="../../Middlewares/Third_Party/FreeRTOS/Source/croutine.c"/>
+		<dir name="../../Middlewares/Third_Party/FreeRTOS/Source/event_groups.c"/>
+		<dir name="../../Middlewares/Third_Party/FreeRTOS/Source/list.c"/>
+		<dir name="../../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c"/>
+		<dir name="../../Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c"/>
+		<dir name="../../Middlewares/Third_Party/FreeRTOS/Source/queue.c"/>
+		<dir name="../../Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c"/>
+		<dir name="../../Middlewares/Third_Party/FreeRTOS/Source/tasks.c"/>
+		<dir name="../../Middlewares/Third_Party/FreeRTOS/Source/timers.c"/>
+		<dir name="../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.c"/>
+		<dir name="../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c"/>
+		<dir name="../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c"/>
+		<dir name="../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c"/>
+		<dir name="../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c"/>
+		<dir name="../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c"/>
+		<dir name="../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c"/>
+		<dir name="../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c"/>
+		<dir name="../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c"/>
+		<dir name="../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.c"/>
+		<dir name="../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c"/>
+		<dir name="../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c"/>
+		<dir name="../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c"/>
+		<dir name="../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c"/>
+		<dir name="../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c"/>
+		<dir name="../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c"/>
+		<dir name="../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c"/>
+		<dir name="../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c"/>
+		<dir name="../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c"/>
+		<dir name="../../Src/system_stm32f4xx.c"/>
+		<dir name="../../Src/can.c"/>
+		<dir name="../../Src/dma.c"/>
+		<dir name="../../Src/freertos.c"/>
+		<dir name="../../Src/gpio.c"/>
+		<dir name="../../Src/i2c.c"/>
+		<dir name="../../Src/main.c"/>
+		<dir name="../../Src/spi.c"/>
+		<dir name="../../Src/stm32f4xx_hal_msp.c"/>
+		<dir name="../../Src/stm32f4xx_it.c"/>
+		<dir name="../../Src/tim.c"/>
+		<dir name="../../src/tasks/comutask.c"/>
+		<dir name="../../src/tasks/devmoni.c"/>
+		<dir name="../../src/tasks/infoupdate.c"/>
+		<dir name="../../src/tasks/init.c"/>
+		<dir name="../../src/tasks/INS_task.c"/>
+		<dir name="../../src/tasks/shoottask.c"/>
+		<dir name="../../src/libs/MahonyAHRS.c"/>
+		<dir name="../../src/libs/motlib.c"/>
+		<dir name="../../src/libs/pid.c"/>
+		<dir name="../../src/libs/user_lib.c"/>
+		<dir name="../../src/devices/BMI088driver.c"/>
+		<dir name="../../src/devices/BMI088Middleware.c"/>
+		<dir name="../../src/devices/canbus.c"/>
+		<dir name="../../src/devices/ist8310driver_middleware.c"/>
+		<dir name="../../src/devices/ist8310driver.c"/>
+		<dir name="../../src/bsps/bsp_delay.c"/>
+		<dir name="../../src/bsps/bsp_imu_pwm.c"/>
+		<dir name="../../src/bsps/bsp_spi.c"/>
+		<dir name="../../src/bsps/can_bsp.c"/>
+		<dir name="../../src/bsps/flash_bsp.c"/>
+    </paths>
+    <libraries>
+        <!-- example: <library>gnu</library> -->
+        <library>gnu</library>
+		<library>armgcc</library>
+    </libraries>
+</project>

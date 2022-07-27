@@ -2,7 +2,7 @@
     "name": "gimbctrl",
     "target": "gimbctrl",
     "toolchain": "GCC",
-    "toolchainLocation": "C:\\Users\\94736\\.eide\\tools\\gcc_arm",
+    "toolchainLocation": "C:\\Program Files (x86)\\Arm GNU Toolchain arm-none-eabi\\11.2 2022.02",
     "toolchainCfgFile": "..\\cfg\\arm.gcc.model.json",
     "buildMode": "fast|multhread",
     "showRepathOnLog": true,

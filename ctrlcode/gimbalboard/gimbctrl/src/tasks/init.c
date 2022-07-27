@@ -8,6 +8,7 @@ void chasmotinit()
 void devinit()
 {
     can_filter_init();
+    HAL_TIM_PWM_Start(&htim8, TIM_CHANNEL_3);
 }
 
 void userinit()

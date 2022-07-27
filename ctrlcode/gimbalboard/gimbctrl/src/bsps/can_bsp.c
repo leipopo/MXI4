@@ -5,6 +5,7 @@ static uint8_t CAN_tx_message[8];
 int16_t zeromes[4] = {0x0000, 0x0000, 0x0000, 0x0000};
 void can_filter_init(void)
 {
+
     CAN_FilterTypeDef can_filter_st;
     can_filter_st.FilterActivation     = ENABLE;
     can_filter_st.FilterMode           = CAN_FILTERMODE_IDMASK;

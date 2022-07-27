@@ -53,56 +53,56 @@ osThreadId_t refereereadHandle;
 const osThreadAttr_t refereeread_attributes = {
   .name = "refereeread",
   .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityRealtime,
+  .priority = (osPriority_t) osPriorityNormal,
 };
 /* Definitions for devmonitor */
 osThreadId_t devmonitorHandle;
 const osThreadAttr_t devmonitor_attributes = {
   .name = "devmonitor",
   .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityRealtime,
+  .priority = (osPriority_t) osPriorityNormal,
 };
 /* Definitions for gimbalcontrol */
 osThreadId_t gimbalcontrolHandle;
 const osThreadAttr_t gimbalcontrol_attributes = {
   .name = "gimbalcontrol",
   .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityRealtime,
+  .priority = (osPriority_t) osPriorityNormal,
 };
 /* Definitions for chassiscontrol */
 osThreadId_t chassiscontrolHandle;
 const osThreadAttr_t chassiscontrol_attributes = {
   .name = "chassiscontrol",
   .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityRealtime,
+  .priority = (osPriority_t) osPriorityNormal,
 };
 /* Definitions for boardcommunicat */
 osThreadId_t boardcommunicatHandle;
 const osThreadAttr_t boardcommunicat_attributes = {
   .name = "boardcommunicat",
   .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityRealtime,
+  .priority = (osPriority_t) osPriorityNormal,
 };
 /* Definitions for UIdraw */
 osThreadId_t UIdrawHandle;
 const osThreadAttr_t UIdraw_attributes = {
   .name = "UIdraw",
   .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityRealtime,
+  .priority = (osPriority_t) osPriorityNormal,
 };
 /* Definitions for capsctrol */
 osThreadId_t capsctrolHandle;
 const osThreadAttr_t capsctrol_attributes = {
   .name = "capsctrol",
   .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityRealtime,
+  .priority = (osPriority_t) osPriorityNormal,
 };
 /* Definitions for roboinfoupdate */
 osThreadId_t roboinfoupdateHandle;
 const osThreadAttr_t roboinfoupdate_attributes = {
   .name = "roboinfoupdate",
   .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityRealtime,
+  .priority = (osPriority_t) osPriorityNormal,
 };
 
 /* Private function prototypes -----------------------------------------------*/

@@ -324,7 +324,7 @@ static void imu_temp_control(fp32 temp)
     {
         //��û�дﵽ���õ��¶ȣ�һֱ����ʼ���
         // in beginning, max power
-        if (temp > 45.0f)
+        if (temp > 35.0f)
         {
             temp_constant_time++;
             if (temp_constant_time > 200)

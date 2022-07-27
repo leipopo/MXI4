@@ -98,6 +98,7 @@ int main(void)
   MX_CAN1_Init();
   MX_CAN2_Init();
   MX_TIM1_Init();
+  MX_TIM8_Init();
   /* USER CODE BEGIN 2 */
   delay_init();
   userinit();
