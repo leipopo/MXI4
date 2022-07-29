@@ -46,10 +46,15 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
         {
             can2devsta = can_probe(capsid, can2_idlist);
         }
-        else if (rx_header.StdId == gimbboardid_imu)
+        else if (rx_header.StdId == gimbboardid_imuangle)
         {
-            canrx2comuinfo_rximu(rx_data,&comuinfo);
-            can2devsta = can_probe(gimbboardid_imu, can2_idlist);
+            canrx2comuinfo_rximuangle(rx_data,&comuinfo);
+            can2devsta = can_probe(gimbboardid_imuangle, can2_idlist);
+        }
+        else if (rx_header.StdId == gimbboardid_imuspeed)
+        {
+            canrx2comuinfo_rximuspeed(rx_data,&comuinfo);
+            can2devsta = can_probe(gimbboardid_imuspeed, can2_idlist);
         }
         else if (rx_header.StdId == gimbboardid_cv)
         {

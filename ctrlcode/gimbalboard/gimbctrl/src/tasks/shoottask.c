@@ -86,27 +86,32 @@ void calc_shootmot_pid(PID_regulator fspid[2], PID_regulator *tapid, PID_regulat
     PID_calc(&fspid[0], 1);
     PID_calc(&fspid[1], 1);
 
+    if (comuinfo->rx_comd.magopen == 0x01)
+    {
+        trig.tarmotorinfo.angle = trig.curmotorinfo.angle;
+    }
     tapid->tar = trig.tarmotorinfo.angle;
     tapid->cur = trig.curmotorinfo.angle;
     tspid->tar = tapid->output;
     tspid->cur = trig.curmotorinfo.speed;
 
     calc_mot_aspid(tapid, tspid, 2);
+    if (comuinfo->rx_comd.magopen == 0x01)
+    {
+        tspid->output = 0.f;
+    }
 }
 
 int16_t can1_mes20x200[4];
 int16_t can2_mes20x200[4];
 
-void pack_shootmot_ctrlmes(int16_t mes1[4], int16_t mes2[4])
+void pack_shootmot_ctrlmes(int16_t mes1[4])
 {
     mes1[0] = fricspid[0].output;
     mes1[1] = fricspid[1].output;
-    mes1[2] = 0x0000;
+    mes1[2] = trigspid.output;
     mes1[3] = 0x0000;
-    mes2[0] = trigspid.output;
-    mes2[1] = 0x0000;
-    mes2[2] = 0x0000;
-    mes2[3] = 0x0000;
+    
 }
 
 void setmag(int8_t mc)
@@ -128,18 +133,19 @@ void shoottask()
         get_trigangle_comd(&trig);
         get_fricspeed_comd(fric);
         calc_shootmot_pid(fricspid, &trigapid, &trigspid);
-        pack_shootmot_ctrlmes(can1_mes20x200, can2_mes20x200);
+        pack_shootmot_ctrlmes(can1_mes20x200);
         if (comuinfo[0].rx_comd.moton)
         {
+
             CAN_send(0x200, hcan1, can1_mes20x200);
-            CAN_send(0x200, hcan2, can2_mes20x200);
+            osDelayUntil(mottaskperi);
         }
         else
         {
             CAN_send(0x200, hcan1, zeromes);
-            CAN_send(0x200, hcan2, zeromes);
+            osDelayUntil(mottaskperi);
         }
         setmag(comuinfo[0].rx_comd.magopen);
-        osDelayUntil(mottaskperi);
+        
     }
 }

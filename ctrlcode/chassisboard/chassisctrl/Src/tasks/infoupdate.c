@@ -57,6 +57,7 @@ void get_comd_rc(RobInfo *ri)
     if (RC_Data.rc.s[0] == 1 && RC_Data.rc.s[1] == 1)
     {
         ri->comd.moton = 0x00;
+        ri->comd.fricwheelon = 0x00;
     }
     else
     {
@@ -121,8 +122,9 @@ void get_gimbtarangle_cv(RobInfo *ri)
 
 void get_gimbtarangle_rc(RobInfo *ri)
 {
-    ri->tar.yawangle += RC_Data.rc.ch[0] * yawspenom_rc + RC_Data.mouse.x * yawspenom_ms;
-    ri->tar.pitangle += RC_Data.rc.ch[1] * pitspenom_rc + RC_Data.mouse.y * pitspenom_ms;
+    ri->tar.yawangle += (RC_Data.rc.ch[0] * yawspenom_rc + RC_Data.mouse.x * yawspenom_ms) / fre(mottaskperi) / 100.f;
+    ri->tar.pitangle += (RC_Data.rc.ch[1] * pitspenom_rc + RC_Data.mouse.y * pitspenom_ms) / fre(mottaskperi) / 100.f;
+    ri->tar.yawangle = numcircle(180.f, -180.f, ri->tar.yawangle);
     ri->tar.pitangle = LIMIT(ri->tar.pitangle, pit.setup.angle_limit[0], pit.setup.angle_limit[1]);
 }
 
@@ -141,7 +143,7 @@ void get_zrelangle(RobInfo *ri)
 
 void infoupdate()
 {
-     init_robinfo(&robinfo);
+    init_robinfo(&robinfo);
     for (;;)
     {
         robinfo.robid = get_robot_id();

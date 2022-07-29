@@ -1,109 +1,83 @@
-[2022-07-28 22:06:07]	link failed !, exit code: 1
+[2022-07-29 20:32:38]	[done]
+	build successfully !
+
+[2022-07-29 20:34:11]	[done]
+	build successfully !
+
+[2022-07-29 20:36:46]	[done]
+	build successfully !
+
+[2022-07-29 20:37:12]	[done]
+	build successfully !
+
+[2022-07-29 20:37:58]	[done]
+	build successfully !
+
+[2022-07-29 20:40:17]	[done]
+	build successfully !
+
+[2022-07-29 20:40:43]	[done]
+	build successfully !
+
+[2022-07-29 20:40:49]	[done]
+	build successfully !
+
+[2022-07-29 20:42:14]	[done]
+	build successfully !
+
+[2022-07-29 20:42:48]	[done]
+	build successfully !
+
+[2022-07-29 20:43:43]	[done]
+	build successfully !
+
+[2022-07-29 20:44:26]	[done]
+	build successfully !
+
+[2022-07-29 20:45:42]	[done]
+	build successfully !
+
+[2022-07-29 20:45:52]	[done]
+	build successfully !
+
+[2022-07-29 20:46:12]	[done]
+	build successfully !
+
+[2022-07-29 21:18:04]	compilation failed at : "e:\MXI4\ctrlcode\gimbalboard\gimbctrl\src\devices\canbus.c", exit code: 1
    at unify_builder.Program.Main(String[] args_)
 ---
-c:/program files (x86)/arm gnu toolchain arm-none-eabi/11.2 2022.02/bin/../lib/gcc/arm-none-eabi/11.2.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/src/tasks/shoottask.o: in function `init_shootmot_para':
-e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/shoottask.c:18: multiple definition of `init_shootmot_para'; ./build/gimbctrl/src/tasks/comutask.o:e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/comutask.c:18: first defined here
-c:/program files (x86)/arm gnu toolchain arm-none-eabi/11.2 2022.02/bin/../lib/gcc/arm-none-eabi/11.2.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/src/tasks/shoottask.o: in function `init_shootmot_pid':
-e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/shoottask.c:31: multiple definition of `init_shootmot_pid'; ./build/gimbctrl/src/tasks/comutask.o:e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/comutask.c:31: first defined here
-c:/program files (x86)/arm gnu toolchain arm-none-eabi/11.2 2022.02/bin/../lib/gcc/arm-none-eabi/11.2.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/src/tasks/shoottask.o: in function `get_trigangle_comd':
-e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/shoottask.c:60: multiple definition of `get_trigangle_comd'; ./build/gimbctrl/src/tasks/comutask.o:e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/comutask.c:60: first defined here
-c:/program files (x86)/arm gnu toolchain arm-none-eabi/11.2 2022.02/bin/../lib/gcc/arm-none-eabi/11.2.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/src/tasks/shoottask.o: in function `get_fricspeed_comd':
-e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/shoottask.c:68: multiple definition of `get_fricspeed_comd'; ./build/gimbctrl/src/tasks/comutask.o:e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/comutask.c:68: first defined here
-c:/program files (x86)/arm gnu toolchain arm-none-eabi/11.2 2022.02/bin/../lib/gcc/arm-none-eabi/11.2.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/src/tasks/shoottask.o: in function `calc_shootmot_pid':
-e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/shoottask.c:81: multiple definition of `calc_shootmot_pid'; ./build/gimbctrl/src/tasks/comutask.o:e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/comutask.c:81: first defined here
-c:/program files (x86)/arm gnu toolchain arm-none-eabi/11.2 2022.02/bin/../lib/gcc/arm-none-eabi/11.2.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/src/tasks/shoottask.o: in function `pack_shootmot_ctrlmes':
-e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/shoottask.c:102: multiple definition of `pack_shootmot_ctrlmes'; ./build/gimbctrl/src/tasks/comutask.o:e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/comutask.c:102: first defined here
-c:/program files (x86)/arm gnu toolchain arm-none-eabi/11.2 2022.02/bin/../lib/gcc/arm-none-eabi/11.2.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/src/tasks/shoottask.o: in function `setmag':
-e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/shoottask.c:114: multiple definition of `setmag'; ./build/gimbctrl/src/tasks/comutask.o:e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/comutask.c:114: first defined here
-c:/program files (x86)/arm gnu toolchain arm-none-eabi/11.2 2022.02/bin/../lib/gcc/arm-none-eabi/11.2.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/src/tasks/shoottask.o: in function `shoottask':
-e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/shoottask.c:125: multiple definition of `shoottask'; ./build/gimbctrl/src/tasks/comutask.o:e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/comutask.c:125: first defined here
-c:/program files (x86)/arm gnu toolchain arm-none-eabi/11.2 2022.02/bin/../lib/gcc/arm-none-eabi/11.2.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/src/tasks/shoottask.o:e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/shoottask.c:98: multiple definition of `can2_mes20x200'; ./build/gimbctrl/src/tasks/comutask.o:e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/comutask.c:98: first defined here
-c:/program files (x86)/arm gnu toolchain arm-none-eabi/11.2 2022.02/bin/../lib/gcc/arm-none-eabi/11.2.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/src/tasks/shoottask.o:e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/shoottask.c:97: multiple definition of `can1_mes20x200'; ./build/gimbctrl/src/tasks/comutask.o:e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/comutask.c:97: first defined here
-c:/program files (x86)/arm gnu toolchain arm-none-eabi/11.2 2022.02/bin/../lib/gcc/arm-none-eabi/11.2.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/src/tasks/shoottask.o:e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/shoottask.c:15: multiple definition of `trigspid'; ./build/gimbctrl/src/tasks/comutask.o:e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/comutask.c:15: first defined here
-c:/program files (x86)/arm gnu toolchain arm-none-eabi/11.2 2022.02/bin/../lib/gcc/arm-none-eabi/11.2.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/src/tasks/shoottask.o:e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/shoottask.c:15: multiple definition of `trigapid'; ./build/gimbctrl/src/tasks/comutask.o:e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/comutask.c:15: first defined here
-c:/program files (x86)/arm gnu toolchain arm-none-eabi/11.2 2022.02/bin/../lib/gcc/arm-none-eabi/11.2.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/src/tasks/shoottask.o:e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/shoottask.c:15: multiple definition of `fricspid'; ./build/gimbctrl/src/tasks/comutask.o:e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/comutask.c:15: first defined here
-c:/program files (x86)/arm gnu toolchain arm-none-eabi/11.2 2022.02/bin/../lib/gcc/arm-none-eabi/11.2.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/src/tasks/shoottask.o:e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/shoottask.c:14: multiple definition of `trig'; ./build/gimbctrl/src/tasks/comutask.o:e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/comutask.c:14: first defined here
-c:/program files (x86)/arm gnu toolchain arm-none-eabi/11.2 2022.02/bin/../lib/gcc/arm-none-eabi/11.2.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/src/tasks/shoottask.o:e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/shoottask.c:14: multiple definition of `fric'; ./build/gimbctrl/src/tasks/comutask.o:e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/comutask.c:14: first defined here
-c:/program files (x86)/arm gnu toolchain arm-none-eabi/11.2 2022.02/bin/../lib/gcc/arm-none-eabi/11.2.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/src/devices/canbus.o: in function `HAL_CAN_RxFifo0MsgPendingCallback':
-e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/devices/canbus.c:27: undefined reference to `canrx2comuinfo_comd'
-c:/program files (x86)/arm gnu toolchain arm-none-eabi/11.2 2022.02/bin/../lib/gcc/arm-none-eabi/11.2.1/../../../../arm-none-eabi/bin/ld.exe: e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/devices/canbus.c:28: undefined reference to `comuinfo'
-c:/program files (x86)/arm gnu toolchain arm-none-eabi/11.2 2022.02/bin/../lib/gcc/arm-none-eabi/11.2.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/src/tasks/comutask.o: in function `get_trigangle_comd':
-e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/comutask.c:64: undefined reference to `comuinfo'
-c:/program files (x86)/arm gnu toolchain arm-none-eabi/11.2 2022.02/bin/../lib/gcc/arm-none-eabi/11.2.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/src/tasks/comutask.o: in function `get_fricspeed_comd':
-e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/comutask.c:71: undefined reference to `comuinfo'
-c:/program files (x86)/arm gnu toolchain arm-none-eabi/11.2 2022.02/bin/../lib/gcc/arm-none-eabi/11.2.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/src/tasks/comutask.o: in function `shoottask':
-e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/comutask.c:140: undefined reference to `comuinfo'
-c:/program files (x86)/arm gnu toolchain arm-none-eabi/11.2 2022.02/bin/../lib/gcc/arm-none-eabi/11.2.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/src/tasks/infoupdate.o: in function `infoupdate':
-e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/infoupdate.c:14: undefined reference to `comuinfo'
-Memory region         Used Size  Region Size  %age Used
-             RAM:       22224 B       128 KB     16.96%
-          CCMRAM:          0 GB        64 KB      0.00%
-           FLASH:       47272 B         1 MB      4.51%
-collect2.exe: error: ld returned 1 exit status
+./src/devices/canbus.c: In function 'HAL_CAN_RxFifo0MsgPendingCallback':
+./src/devices/canbus.c:26:13: error: duplicate case value
+   26 |             case trigmotid:
+      |             ^~~~
+./src/devices/canbus.c:14:13: note: previously used here
+   14 |             case fricmotid_1:
+      |             ^~~~
 
-
-[2022-07-28 22:06:36]	link failed !, exit code: 1
-   at unify_builder.Program.Main(String[] args_)
----
-c:/program files (x86)/arm gnu toolchain arm-none-eabi/11.2 2022.02/bin/../lib/gcc/arm-none-eabi/11.2.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/src/tasks/shoottask.o: in function `init_shootmot_para':
-e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/shoottask.c:18: multiple definition of `init_shootmot_para'; ./build/gimbctrl/src/tasks/comutask.o:e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/comutask.c:18: first defined here
-c:/program files (x86)/arm gnu toolchain arm-none-eabi/11.2 2022.02/bin/../lib/gcc/arm-none-eabi/11.2.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/src/tasks/shoottask.o: in function `init_shootmot_pid':
-e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/shoottask.c:31: multiple definition of `init_shootmot_pid'; ./build/gimbctrl/src/tasks/comutask.o:e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/comutask.c:31: first defined here
-c:/program files (x86)/arm gnu toolchain arm-none-eabi/11.2 2022.02/bin/../lib/gcc/arm-none-eabi/11.2.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/src/tasks/shoottask.o: in function `get_trigangle_comd':
-e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/shoottask.c:60: multiple definition of `get_trigangle_comd'; ./build/gimbctrl/src/tasks/comutask.o:e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/comutask.c:60: first defined here
-c:/program files (x86)/arm gnu toolchain arm-none-eabi/11.2 2022.02/bin/../lib/gcc/arm-none-eabi/11.2.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/src/tasks/shoottask.o: in function `get_fricspeed_comd':
-e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/shoottask.c:68: multiple definition of `get_fricspeed_comd'; ./build/gimbctrl/src/tasks/comutask.o:e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/comutask.c:68: first defined here
-c:/program files (x86)/arm gnu toolchain arm-none-eabi/11.2 2022.02/bin/../lib/gcc/arm-none-eabi/11.2.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/src/tasks/shoottask.o: in function `calc_shootmot_pid':
-e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/shoottask.c:81: multiple definition of `calc_shootmot_pid'; ./build/gimbctrl/src/tasks/comutask.o:e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/comutask.c:81: first defined here
-c:/program files (x86)/arm gnu toolchain arm-none-eabi/11.2 2022.02/bin/../lib/gcc/arm-none-eabi/11.2.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/src/tasks/shoottask.o: in function `pack_shootmot_ctrlmes':
-e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/shoottask.c:102: multiple definition of `pack_shootmot_ctrlmes'; ./build/gimbctrl/src/tasks/comutask.o:e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/comutask.c:102: first defined here
-c:/program files (x86)/arm gnu toolchain arm-none-eabi/11.2 2022.02/bin/../lib/gcc/arm-none-eabi/11.2.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/src/tasks/shoottask.o: in function `setmag':
-e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/shoottask.c:114: multiple definition of `setmag'; ./build/gimbctrl/src/tasks/comutask.o:e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/comutask.c:114: first defined here
-c:/program files (x86)/arm gnu toolchain arm-none-eabi/11.2 2022.02/bin/../lib/gcc/arm-none-eabi/11.2.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/src/tasks/shoottask.o: in function `shoottask':
-e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/shoottask.c:125: multiple definition of `shoottask'; ./build/gimbctrl/src/tasks/comutask.o:e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/comutask.c:125: first defined here
-c:/program files (x86)/arm gnu toolchain arm-none-eabi/11.2 2022.02/bin/../lib/gcc/arm-none-eabi/11.2.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/src/tasks/shoottask.o:e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/shoottask.c:98: multiple definition of `can2_mes20x200'; ./build/gimbctrl/src/tasks/comutask.o:e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/comutask.c:98: first defined here
-c:/program files (x86)/arm gnu toolchain arm-none-eabi/11.2 2022.02/bin/../lib/gcc/arm-none-eabi/11.2.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/src/tasks/shoottask.o:e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/shoottask.c:97: multiple definition of `can1_mes20x200'; ./build/gimbctrl/src/tasks/comutask.o:e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/comutask.c:97: first defined here
-c:/program files (x86)/arm gnu toolchain arm-none-eabi/11.2 2022.02/bin/../lib/gcc/arm-none-eabi/11.2.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/src/tasks/shoottask.o:e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/shoottask.c:15: multiple definition of `trigspid'; ./build/gimbctrl/src/tasks/comutask.o:e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/comutask.c:15: first defined here
-c:/program files (x86)/arm gnu toolchain arm-none-eabi/11.2 2022.02/bin/../lib/gcc/arm-none-eabi/11.2.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/src/tasks/shoottask.o:e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/shoottask.c:15: multiple definition of `trigapid'; ./build/gimbctrl/src/tasks/comutask.o:e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/comutask.c:15: first defined here
-c:/program files (x86)/arm gnu toolchain arm-none-eabi/11.2 2022.02/bin/../lib/gcc/arm-none-eabi/11.2.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/src/tasks/shoottask.o:e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/shoottask.c:15: multiple definition of `fricspid'; ./build/gimbctrl/src/tasks/comutask.o:e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/comutask.c:15: first defined here
-c:/program files (x86)/arm gnu toolchain arm-none-eabi/11.2 2022.02/bin/../lib/gcc/arm-none-eabi/11.2.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/src/tasks/shoottask.o:e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/shoottask.c:14: multiple definition of `trig'; ./build/gimbctrl/src/tasks/comutask.o:e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/comutask.c:14: first defined here
-c:/program files (x86)/arm gnu toolchain arm-none-eabi/11.2 2022.02/bin/../lib/gcc/arm-none-eabi/11.2.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/src/tasks/shoottask.o:e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/shoottask.c:14: multiple definition of `fric'; ./build/gimbctrl/src/tasks/comutask.o:e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/comutask.c:14: first defined here
-c:/program files (x86)/arm gnu toolchain arm-none-eabi/11.2 2022.02/bin/../lib/gcc/arm-none-eabi/11.2.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/src/devices/canbus.o: in function `HAL_CAN_RxFifo0MsgPendingCallback':
-e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/devices/canbus.c:27: undefined reference to `canrx2comuinfo_comd'
-c:/program files (x86)/arm gnu toolchain arm-none-eabi/11.2 2022.02/bin/../lib/gcc/arm-none-eabi/11.2.1/../../../../arm-none-eabi/bin/ld.exe: e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/devices/canbus.c:28: undefined reference to `comuinfo'
-c:/program files (x86)/arm gnu toolchain arm-none-eabi/11.2 2022.02/bin/../lib/gcc/arm-none-eabi/11.2.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/src/tasks/comutask.o: in function `get_trigangle_comd':
-e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/comutask.c:64: undefined reference to `comuinfo'
-c:/program files (x86)/arm gnu toolchain arm-none-eabi/11.2 2022.02/bin/../lib/gcc/arm-none-eabi/11.2.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/src/tasks/comutask.o: in function `get_fricspeed_comd':
-e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/comutask.c:71: undefined reference to `comuinfo'
-c:/program files (x86)/arm gnu toolchain arm-none-eabi/11.2 2022.02/bin/../lib/gcc/arm-none-eabi/11.2.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/src/tasks/comutask.o: in function `shoottask':
-e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/comutask.c:140: undefined reference to `comuinfo'
-c:/program files (x86)/arm gnu toolchain arm-none-eabi/11.2 2022.02/bin/../lib/gcc/arm-none-eabi/11.2.1/../../../../arm-none-eabi/bin/ld.exe: ./build/gimbctrl/src/tasks/infoupdate.o: in function `infoupdate':
-e:\MXI4\ctrlcode\gimbalboard\gimbctrl/./src/tasks/infoupdate.c:14: undefined reference to `comuinfo'
-Memory region         Used Size  Region Size  %age Used
-             RAM:       22224 B       128 KB     16.96%
-          CCMRAM:          0 GB        64 KB      0.00%
-           FLASH:       47272 B         1 MB      4.51%
-collect2.exe: error: ld returned 1 exit status
-
-
-[2022-07-28 22:07:43]	[done]
+[2022-07-29 21:23:47]	[done]
 	build successfully !
 
-[2022-07-28 22:11:18]	[done]
+[2022-07-29 21:24:48]	[done]
 	build successfully !
 
-[2022-07-28 22:12:45]	[done]
+[2022-07-29 21:28:23]	[done]
 	build successfully !
 
-[2022-07-28 22:14:13]	[done]
+[2022-07-29 21:28:37]	[done]
 	build successfully !
 
-[2022-07-28 22:14:36]	[done]
+[2022-07-29 21:29:51]	[done]
 	build successfully !
 
-[2022-07-28 22:49:55]	[done]
+[2022-07-29 21:33:31]	[done]
 	build successfully !
 
-[2022-07-28 22:56:36]	[done]
+[2022-07-29 22:13:54]	[done]
+	build successfully !
+
+[2022-07-29 22:20:29]	[done]
+	build successfully !
+
+[2022-07-29 22:23:20]	[done]
 	build successfully !
 

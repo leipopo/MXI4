@@ -9,28 +9,46 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 
     if (hcan->Instance == CAN1)
     {
-        if (rx_header.StdId == fricmotid_1)
+        switch (rx_header.StdId)
         {
-            canrx2motinfo(rx_data, fric);
-            can1devsta= can_probe(fricmotid_1,can1_idlist);
-        }
-        else if (rx_header.StdId == fricmotid_2)
-        {
-            canrx2motinfo(rx_data, fric+1);
-            can1devsta= can_probe(fricmotid_2,can1_idlist);
+            case fricmotid_1:
+            {
+                canrx2motinfo(rx_data, fric);
+                can1devsta = can_probe(fricmotid_1, can1_idlist);
+            }
+            break;
+            case fricmotid_2:
+            {
+                canrx2motinfo(rx_data, fric + 1);
+                can1devsta = can_probe(fricmotid_2, can1_idlist);
+            }
+            break;
+            case trigmotid:
+            {
+                canrx2motinfo(rx_data, &trig);
+                can2devsta = can_probe(trigmotid, can2_idlist);
+            }
+            break;
+
+            default:
+                break;
         }
     }
     else if (hcan->Instance == CAN2)
     {
-        if (rx_header.StdId == chasboardid)
+
+        switch (rx_header.StdId)
         {
-            canrx2comuinfo_comd(rx_data, comuinfo);
-            can2devsta= can_probe(chasboardid,can2_idlist);
-        }
-        else if (rx_header.StdId == trigmotid)
-        {
-            canrx2motinfo(rx_data, &trig);
-            can2devsta= can_probe(trigmotid,can2_idlist);
+            case chasboardid:
+            {
+                canrx2comuinfo_comd(rx_data, comuinfo);
+                can2devsta = can_probe(chasboardid, can2_idlist);
+            }
+            break;
+            
+
+            default:
+                break;
         }
     }
 }

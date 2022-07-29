@@ -1,5 +1,6 @@
 #include "main.h"
-int16_t can2_mes2chas_imu[4];
+int16_t can2_mes2chas_imuangle[4];
+int16_t can2_mes2chas_imuspeed[4];
 int16_t can2_mes2chas_cv[4];
 ComuInfo comuinfo[3];
 
@@ -18,7 +19,7 @@ ComuInfo comuinfo[3];
 
 void canrx2comuinfo_comd(uint8_t rx[8], ComuInfo ci[3])
 {
-    if ((rx[0] == 0x22 && rx[7] == 0x33)&&(rx[6]==(rx[1]+rx[2]+rx[3]+rx[4]+rx[5])))
+    if ((rx[0] == 0x22 && rx[7] == 0x33) && (rx[6] == (rx[1] + rx[2] + rx[3] + rx[4] + rx[5])))
     {
         ci[0].rx_comd.fricwheelon = ci[1].rx_comd.fricwheelon;
         ci[1].rx_comd.fricwheelon = ci[2].rx_comd.fricwheelon;
@@ -47,12 +48,21 @@ void canrx2comuinfo_comd(uint8_t rx[8], ComuInfo ci[3])
     }
 }
 
-void pack_mes2chas_imu(int16_t mes[4])
+void pack_mes2chas_imuangle(int16_t mes[4])
 {
-    mes[0] = (int16_t)comuinfo[0].tx_imu.yawangle;
-    mes[1] = (int16_t)comuinfo[0].tx_imu.pitangle;
-    mes[2] = (int16_t)comuinfo[0].tx_imu.yawspeed;
-    mes[3] = (int16_t)comuinfo[0].tx_imu.pitspeed;
+    mes[1] = (int16_t)comuinfo[0].tx_imu.yawangle;
+    mes[2] = (int16_t)comuinfo[0].tx_imu.pitangle;
+    mes[0] = 0x4321 ;
+    mes[3] = mes[1]+mes[2];
+}
+void pack_mes2chas_imuspeed(int16_t mes[4])
+{
+
+    mes[1] = (int16_t)comuinfo[0].tx_imu.yawspeed;
+    mes[2] = (int16_t)comuinfo[0].tx_imu.pitspeed;
+
+    mes[0] = 0x1234 ;
+    mes[3] = mes[1]+mes[2];
 }
 void pack_mes2chas_cv(int16_t mes[4])
 {
@@ -65,14 +75,19 @@ void comutask()
     for (;;)
     {
 
-        pack_mes2chas_imu(can2_mes2chas_imu);
-        CAN_send(gimbboardid_imu, hcan2, can2_mes2chas_imu);
+        pack_mes2chas_imuangle(can2_mes2chas_imuangle);
+        CAN_send(gimbboardid_imuangle, hcan2, can2_mes2chas_imuangle);
         osDelayUntil(comutaskperi);
 
-        if (comuinfo[0].rx_comd.cvon << 4 != 0x00)
-        {
-            pack_mes2chas_cv(can2_mes2chas_cv);
-            CAN_send(gimbboardid_cv, hcan2, can2_mes2chas_cv);
-        }
+        pack_mes2chas_imuspeed(can2_mes2chas_imuspeed);
+        CAN_send(gimbboardid_imuspeed, hcan2, can2_mes2chas_imuspeed);
+        osDelayUntil(comutaskperi);
+        
+
+        // if (comuinfo[0].rx_comd.cvon << 4 != 0x00)
+        // {
+        //     pack_mes2chas_cv(can2_mes2chas_cv);
+        //     CAN_send(gimbboardid_cv, hcan2, can2_mes2chas_cv);
+        // }
     }
 }

@@ -8,7 +8,7 @@
 
 #define fricwheelspeed -8000.f
 
-#define magopenpusle   1900
+#define magopenpusle   1800
 #define magclosepusle  500
 
 extern MotorInfo fric[2], trig;
