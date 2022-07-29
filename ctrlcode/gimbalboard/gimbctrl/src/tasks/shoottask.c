@@ -29,17 +29,17 @@ void init_shootmot_pid(PID_regulator fspid[2],
                        PID_regulator *tapid,
                        PID_regulator *tspid)
 {
-    fspid[0].kp             = 0;
-    fspid[0].ki             = 0;
+    fspid[0].kp             = 30;
+    fspid[0].ki             = 0.001;
     fspid[0].kd             = 0;
-    fspid[0].outputMax      = fric[0].setup.speed_limit / fric[0].setup.reductionratio;
+    fspid[0].outputMax      = 20000;
     fspid[0].componentKpMax = fspid[0].outputMax;
     fspid[0].componentKiMax = fspid[0].outputMax;
     fspid[0].componentKdMax = fspid[0].outputMax;
 
     fspid[1] = fspid[0];
 
-    tapid->kp             = 0;
+    tapid->kp             = 5;
     tapid->ki             = 0;
     tapid->kd             = 0;
     tapid->outputMax      = trigspeed;
@@ -47,27 +47,32 @@ void init_shootmot_pid(PID_regulator fspid[2],
     tapid->componentKiMax = tapid->outputMax;
     tapid->componentKdMax = tapid->outputMax;
 
-    tspid->kp             = 0;
-    tspid->ki             = 0;
+    tspid->kp             = 120;
+    tspid->ki             = 0.025;
     tspid->kd             = 0;
-    tspid->outputMax      = trig.setup.current_value_limit;
+    tspid->outputMax      = 8000;
     tspid->componentKpMax = tspid->outputMax;
     tspid->componentKiMax = tspid->outputMax;
     tspid->componentKdMax = tspid->outputMax;
 }
 void get_trigangle_comd(MotorInfo *ti)
 {
-    if (fabsf(trigapid.err[0]) <= 1 && fabsf(trigapid.err[1]) <= 1 && comuinfo.rx_comd.triggeron == 0x01)
+    if (fabsf(trigapid.err[0]) <= 10 && fabsf(trigapid.err[1]) <= 10 && comuinfo[0].rx_comd.triggeron == 0x01)
     {
-        ti->tarmotorinfo.angle += trigclickangle;
+        ti->tarmotorinfo.angle = numcircle(180.f, -180.f, ti->tarmotorinfo.angle - trigclickangle);
     }
 }
 
 void get_fricspeed_comd(MotorInfo fi[2])
 {
-    if (comuinfo.rx_comd.fricwheelon == 0x01)
+    if (comuinfo[0].rx_comd.fricwheelon == 0x01)
     {
         fi[0].tarmotorinfo.speed = fricwheelspeed;
+        fi[1].tarmotorinfo.speed = -fi[0].tarmotorinfo.speed;
+    }
+    else if (comuinfo[0].rx_comd.fricwheelon == 0x00)
+    {
+        fi[0].tarmotorinfo.speed = 0;
         fi[1].tarmotorinfo.speed = -fi[0].tarmotorinfo.speed;
     }
 }
@@ -124,7 +129,7 @@ void shoottask()
         get_fricspeed_comd(fric);
         calc_shootmot_pid(fricspid, &trigapid, &trigspid);
         pack_shootmot_ctrlmes(can1_mes20x200, can2_mes20x200);
-        if (comuinfo.rx_comd.moton)
+        if (comuinfo[0].rx_comd.moton)
         {
             CAN_send(0x200, hcan1, can1_mes20x200);
             CAN_send(0x200, hcan2, can2_mes20x200);
@@ -134,7 +139,7 @@ void shoottask()
             CAN_send(0x200, hcan1, zeromes);
             CAN_send(0x200, hcan2, zeromes);
         }
-        setmag(comuinfo.rx_comd.magopen);
+        setmag(comuinfo[0].rx_comd.magopen);
         osDelayUntil(mottaskperi);
     }
 }

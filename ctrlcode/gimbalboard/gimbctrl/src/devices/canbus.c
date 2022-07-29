@@ -24,7 +24,7 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
     {
         if (rx_header.StdId == chasboardid)
         {
-            canrx2comuinfo_comd(rx_data, &comuinfo);
+            canrx2comuinfo_comd(rx_data, comuinfo);
             can2devsta= can_probe(chasboardid,can2_idlist);
         }
         else if (rx_header.StdId == trigmotid)

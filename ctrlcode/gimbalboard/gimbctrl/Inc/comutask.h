@@ -35,6 +35,6 @@ typedef struct COMU_INFO
 
 } ComuInfo;
 
-extern ComuInfo comuinfo;
-void canrx2comuinfo_comd(uint8_t rx[8], ComuInfo *ci);
+extern ComuInfo comuinfo[3];
+void canrx2comuinfo_comd(uint8_t rx[8], ComuInfo ci[3]);
 #endif
