@@ -59,20 +59,19 @@ void gearmotorangle_calc(MotorInfo *mi)
 
 void calc_mot_aspid(PID_regulator *apid,
                     PID_regulator *spid,
-                    uint8_t outcircrate)
+                    MotorInfo *mi)
 {
-    static int8_t outcirccount;
-    if (outcirccount == outcircrate)
+    if (mi->temp.aspidcounter == mi->setup.outcirclerate)
     {
         PID_angle_calc(apid, 1, 300.f);
     }
-    else if (outcirccount >= 0 && outcirccount < outcircrate)
+    else if ((mi->temp.aspidcounter >= 0 )&& (mi->temp.aspidcounter < mi->setup.outcirclerate))
     {
-        outcirccount++;
+        mi->temp.aspidcounter++;
     }
     else
     {
-        outcirccount = 0;
+        mi->temp.aspidcounter = 0;
     }
     PID_calc(spid, 1);
 }

@@ -122,18 +122,22 @@ void get_gimbtarangle_cv(RobInfo *ri)
 
 void get_gimbtarangle_rc(RobInfo *ri)
 {
-    ri->tar.yawangle += (RC_Data.rc.ch[0] * yawspenom_rc + RC_Data.mouse.x * yawspenom_ms) / fre(mottaskperi) / 100.f;
-    ri->tar.pitangle += (RC_Data.rc.ch[1] * pitspenom_rc + RC_Data.mouse.y * pitspenom_ms) / fre(mottaskperi) / 100.f;
+    ri->tar.yawangle += (RC_Data.rc.ch[0] * yawspenom_rc + RC_Data.mouse.x * yawspenom_ms) / fre(mottaskperi) / 5.f;
+    ri->tar.pitangle += (RC_Data.rc.ch[1] * pitspenom_rc + RC_Data.mouse.y * pitspenom_ms) / fre(mottaskperi) / 10.f;
     ri->tar.yawangle = numcircle(180.f, -180.f, ri->tar.yawangle);
     ri->tar.pitangle = LIMIT(ri->tar.pitangle, pit.setup.angle_limit[0], pit.setup.angle_limit[1]);
 }
 
 void get_gimbcurangle_imu(RobInfo *ri)
 {
-    ri->cur.yawangle = comuinfo.rx_imu.yawangle;
-    ri->cur.pitangle = comuinfo.rx_imu.pitangle;
-    ri->cur.yawspeed = comuinfo.rx_imu.yawspeed;
-    ri->cur.pitspeed = comuinfo.rx_imu.pitspeed;
+    ri->cur.yawangle = comuinfo.rx_imu.yawangle*0.5+ri->cur.yawangle*0.5;
+    ri->cur.pitangle = comuinfo.rx_imu.pitangle*0.5+ri->cur.pitangle*0.5;
+}
+
+void get_gimbcurangle_mot(RobInfo *ri)
+{
+    ri->cur.yawspeed = yaw.curmotorinfo.speed*0.3+ri->cur.yawspeed*0.7;
+    ri->cur.pitspeed = pit.curmotorinfo.speed*0.3+ri->cur.pitspeed*0.7;
 }
 
 void get_zrelangle(RobInfo *ri)
@@ -150,6 +154,7 @@ void infoupdate()
         get_limits(&robinfo);
         get_gimbtarangle_rc(&robinfo);
         get_gimbcurangle_imu(&robinfo);
+        get_gimbcurangle_mot(&robinfo);
         get_comd_rc(&robinfo);
         get_zrelangle(&robinfo);
 

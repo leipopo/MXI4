@@ -18,12 +18,16 @@ void init_gimbmot_para(MotorInfo *pi, MotorInfo *yi)
     uint8_t yawinstallangle_fromflash[2];
     flash_read(ADDR_FLASH_SECTOR_11, (uint32_t *)yawinstallangle_fromflash, (2 + 3) / 4);
     yi->setup.installationangle = (int16_t)(yawinstallangle_fromflash[0] << 8 | yawinstallangle_fromflash[1]);
+    yi->setup.outcirclerate=3;
+
 
     *pi = motparainit(gm6020);
     pi->setup.motid = pitmotid;
     pi->setup.reductionratio = pitreductionratio;
     pi->setup.angle_limit[0] = -20.f;
-    pi->setup.angle_limit[1] = 30.f;
+    pi->setup.angle_limit[1] = 36.f;
+    pi->setup.outcirclerate=3;
+    pi->setup.reversed=0x01;
 }
 
 void init_gimbmot_pid(PID_regulator *papid,
@@ -31,15 +35,15 @@ void init_gimbmot_pid(PID_regulator *papid,
                       PID_regulator *pspid,
                       PID_regulator *yspid)
 {
-    papid->kp = 0;
-    papid->ki = 0;
+    papid->kp = 3;
+    papid->ki = 0.0;
     papid->kd = 0;
     papid->outputMax = pit.setup.speed_limit / pit.setup.reductionratio;
     papid->componentKpMax = papid->outputMax;
     papid->componentKiMax = papid->outputMax;
     papid->componentKdMax = papid->outputMax;
 
-    yapid->kp = 10;
+    yapid->kp = 5;
     yapid->ki = 0;
     yapid->kd = 0;
     yapid->outputMax = yaw.setup.speed_limit / yaw.setup.reductionratio;
@@ -47,54 +51,55 @@ void init_gimbmot_pid(PID_regulator *papid,
     yapid->componentKiMax = yapid->outputMax;
     yapid->componentKdMax = yapid->outputMax;
 
-    pspid->kp = 0;
-    pspid->ki = 0;
-    pspid->kd = 0;
+    pspid->kp = 160;
+    pspid->ki = 0.005;
+    pspid->kd = 50;
     pspid->outputMax = pit.setup.current_value_limit;
-    pspid->componentKpMax = pspid->outputMax;
-    pspid->componentKiMax = pspid->outputMax;
-    pspid->componentKdMax = pspid->outputMax;
+    pspid->componentKpMax = 10000;
+    pspid->componentKiMax = 2000;
+    pspid->componentKdMax = 2000;
 
-    yspid->kp = 1000;
-    yspid->ki = 0.5;
+    yspid->kp = 130;
+    yspid->ki = 0.00025;
     yspid->kd = 0;
     yspid->outputMax = yaw.setup.current_value_limit;
-    yspid->componentKpMax = yspid->outputMax;
-    yspid->componentKiMax = yspid->outputMax;
+    yspid->componentKpMax = 10000;
+    yspid->componentKiMax = 6000;
     yspid->componentKdMax = yspid->outputMax;
 }
 
 void clac_pitmot_aspid(PID_regulator *papid,
                        PID_regulator *pspid,
-                       uint8_t outcircrate)
+                       MotorInfo *mi)
 {
     papid->tar = robinfo.tar.pitangle;
     papid->cur = robinfo.cur.pitangle;
 
     pspid->tar = papid->output;
     pspid->cur = robinfo.cur.pitspeed;
-    calc_mot_aspid(papid, pspid, outcircrate);
-    
+    calc_mot_aspid(papid, pspid, mi);
+    pspid->output -=(500*sin((robinfo.cur.pitangle+5.f)/360.f*2.f*3.1415f)+robinfo.cur.yawspeed*120); 
+    pspid->output=-pspid->output;
 }
 
 void clac_yawmot_aspid(PID_regulator *yapid,
                        PID_regulator *yspid,
-                       uint8_t outcircrate)
+                       MotorInfo *mi)
 {
     yapid->tar = robinfo.tar.yawangle;
     yapid->cur = robinfo.cur.yawangle;
 
     yspid->tar = yapid->output;
     yspid->cur = robinfo.cur.yawspeed;
-    calc_mot_aspid(yapid, yspid, outcircrate);
-    // if (yspid->output > 1000.f)
-    // {
-    //     yspid->output += 3000.f;
-    // }
-    // else if (yspid->output < -1000.f)
-    // {
-    //     yspid->output -= 3000.f;
-    // }
+    calc_mot_aspid(yapid, yspid, mi);
+    if (yspid->output > 0.f)
+    {
+        yspid->output += 1000.f;
+    }
+    else if (yspid->output < -0.f)
+    {
+        yspid->output -= 1000.f;
+    }
 }
 
 int16_t can1_mes20x1ff[4];
@@ -102,7 +107,7 @@ void pack_pymot_ctrlmes(int16_t mes[4])
 {
     if (robinfo.comd.moton == 0x01)
     {
-        mes[0] = -6000;
+        mes[0] = yawspid.output;
         mes[1] = pitspid.output;
     }
     else
@@ -117,8 +122,8 @@ void gimbctrl()
 
     for (;;)
     {
-        clac_yawmot_aspid(&yawapid, &yawspid, 2);
-        clac_pitmot_aspid(&pitapid, &pitspid, 3);
+        clac_yawmot_aspid(&yawapid, &yawspid, &yaw);
+        clac_pitmot_aspid(&pitapid, &pitspid, &pit);
         pack_pymot_ctrlmes(can1_mes20x1ff);
         if (robinfo.comd.moton)
         {

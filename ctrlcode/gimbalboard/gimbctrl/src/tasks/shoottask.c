@@ -18,19 +18,22 @@ void init_shootmot_para(MotorInfo fric[2], MotorInfo *trig)
 {
     *trig                        = motparainit(m2006);
     trig->setup.motid            = trigmotid;
+    trig->setup.outcirclerate =2;
+
     fric[0]                      = motparainit(m3508);
     fric[0].setup.motid          = fricmotid_1;
     fric[0].setup.reductionratio = 1.f;
     fric[1]                      = fric[0];
     fric[1].setup.motid          = fricmotid_2;
+
 }
 
 void init_shootmot_pid(PID_regulator fspid[2],
                        PID_regulator *tapid,
                        PID_regulator *tspid)
 {
-    fspid[0].kp             = 30;
-    fspid[0].ki             = 0.001;
+    fspid[0].kp             = 20;
+    fspid[0].ki             = 0.005;
     fspid[0].kd             = 0;
     fspid[0].outputMax      = 20000;
     fspid[0].componentKpMax = fspid[0].outputMax;
@@ -39,7 +42,7 @@ void init_shootmot_pid(PID_regulator fspid[2],
 
     fspid[1] = fspid[0];
 
-    tapid->kp             = 5;
+    tapid->kp             = 3;
     tapid->ki             = 0;
     tapid->kd             = 0;
     tapid->outputMax      = trigspeed;
@@ -48,7 +51,7 @@ void init_shootmot_pid(PID_regulator fspid[2],
     tapid->componentKdMax = tapid->outputMax;
 
     tspid->kp             = 120;
-    tspid->ki             = 0.025;
+    tspid->ki             = 0.01;
     tspid->kd             = 0;
     tspid->outputMax      = 8000;
     tspid->componentKpMax = tspid->outputMax;
@@ -77,7 +80,7 @@ void get_fricspeed_comd(MotorInfo fi[2])
     }
 }
 
-void calc_shootmot_pid(PID_regulator fspid[2], PID_regulator *tapid, PID_regulator *tspid)
+void calc_shootmot_pid(PID_regulator fspid[2], PID_regulator *tapid, PID_regulator *tspid, MotorInfo *mi)
 {
     fspid[0].tar = fric[0].tarmotorinfo.speed;
     fspid[0].cur = fric[0].curmotorinfo.speed;
@@ -95,10 +98,10 @@ void calc_shootmot_pid(PID_regulator fspid[2], PID_regulator *tapid, PID_regulat
     tspid->tar = tapid->output;
     tspid->cur = trig.curmotorinfo.speed;
 
-    calc_mot_aspid(tapid, tspid, 2);
+    calc_mot_aspid(tapid, tspid, mi);
     if (comuinfo->rx_comd.magopen == 0x01)
     {
-        tspid->output = 0.f;
+        tspid->output = 500.f;
     }
 }
 
@@ -111,7 +114,6 @@ void pack_shootmot_ctrlmes(int16_t mes1[4])
     mes1[1] = fricspid[1].output;
     mes1[2] = trigspid.output;
     mes1[3] = 0x0000;
-    
 }
 
 void setmag(int8_t mc)
@@ -132,7 +134,8 @@ void shoottask()
     {
         get_trigangle_comd(&trig);
         get_fricspeed_comd(fric);
-        calc_shootmot_pid(fricspid, &trigapid, &trigspid);
+
+        calc_shootmot_pid(fricspid, &trigapid, &trigspid, &trig);
         pack_shootmot_ctrlmes(can1_mes20x200);
         if (comuinfo[0].rx_comd.moton)
         {
@@ -146,6 +149,5 @@ void shoottask()
             osDelayUntil(mottaskperi);
         }
         setmag(comuinfo[0].rx_comd.magopen);
-        
     }
 }

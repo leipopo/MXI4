@@ -79,9 +79,9 @@ void comutask()
         CAN_send(gimbboardid_imuangle, hcan2, can2_mes2chas_imuangle);
         osDelayUntil(comutaskperi);
 
-        pack_mes2chas_imuspeed(can2_mes2chas_imuspeed);
-        CAN_send(gimbboardid_imuspeed, hcan2, can2_mes2chas_imuspeed);
-        osDelayUntil(comutaskperi);
+        //pack_mes2chas_imuspeed(can2_mes2chas_imuspeed);
+        //CAN_send(gimbboardid_imuspeed, hcan2, can2_mes2chas_imuspeed);
+        //osDelayUntil(comutaskperi);
         
 
         // if (comuinfo[0].rx_comd.cvon << 4 != 0x00)
