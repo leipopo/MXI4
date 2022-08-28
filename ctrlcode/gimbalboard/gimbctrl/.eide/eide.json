@@ -1,73 +1,9 @@
 {
   "name": "gimbctrl",
   "type": "ARM",
-  "mode": "gimbctrl",
-  "toolchain": "GCC",
-  "dependenceList": [
-    {
-      "groupName": "custom",
-      "depList": [
-        {
-          "name": "default",
-          "sourceDirList": [],
-          "libList": [],
-          "incList": [
-            "./Inc",
-            "./Drivers/STM32F4xx_HAL_Driver/Inc",
-            "./Drivers/STM32F4xx_HAL_Driver/Inc/Legacy",
-            "./Middlewares/Third_Party/FreeRTOS/Source/include",
-            "./Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2",
-            "./Drivers/CMSIS/Device/ST/STM32F4xx/Include",
-            "./Drivers/CMSIS/Include",
-            "./.cmsis/dsp_lib",
-            "./.cmsis/include",
-            "./.eide/deps",
-            "./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F"
-          ],
-          "defineList": [
-            "USE_HAL_DRIVER",
-            "STM32F407xx"
-          ]
-        }
-      ]
-    }
-  ],
-  "compileConfig": {
-    "cpuType": "Cortex-M4",
-    "floatingPointHardware": "single",
-    "useCustomScatterFile": false,
-    "scatterFilePath": "STM32F407IGHx_FLASH.ld",
-    "storageLayout": {
-      "RAM": [
-        {
-          "tag": "IRAM",
-          "id": 1,
-          "mem": {
-            "startAddr": "0x20000000",
-            "size": "0x5000"
-          },
-          "isChecked": true,
-          "noInit": false
-        }
-      ],
-      "ROM": [
-        {
-          "tag": "IROM",
-          "id": 1,
-          "mem": {
-            "startAddr": "0x08000000",
-            "size": "0x10000"
-          },
-          "isChecked": true,
-          "isStartup": true
-        }
-      ]
-    },
-    "options": "null"
-  },
-  "uploader": "STLink",
+  "dependenceList": [],
   "srcDirs": [
-    "./.eide/deps"
+    ".eide/deps"
   ],
   "virtualFolder": {
     "name": "<virtual_root>",
@@ -326,111 +262,31 @@
       }
     ]
   },
-  "excludeList": [
-    "<virtual_root>/Application/User/bsps/dma_bsp.c"
-  ],
   "outDir": "build",
   "deviceName": "STM32F407IGHx",
   "packDir": ".pack/Keil/STM32F4xx_DFP.2.14.0",
-  "uploadConfig": {
-    "bin": "",
-    "proType": "SWD",
-    "resetMode": "default",
-    "runAfterProgram": true,
-    "speed": 4000,
-    "address": "0x08000000",
-    "elFile": "None",
-    "optionBytes": ".eide/gimbctrl.st.option.bytes.ini",
-    "otherCmds": ""
-  },
-  "uploadConfigMap": {
-    "JLink": {
-      "bin": "",
-      "baseAddr": "",
-      "cpuInfo": {
-        "vendor": "null",
-        "cpuName": "null"
-      },
-      "proType": 1,
-      "speed": 8000,
-      "otherCmds": ""
-    },
-    "STLink": {
-      "bin": "",
-      "proType": "SWD",
-      "resetMode": "default",
-      "runAfterProgram": true,
-      "speed": 4000,
-      "address": "0x08000000",
-      "elFile": "None",
-      "optionBytes": ".eide/gimbctrl.st.option.bytes.ini",
-      "otherCmds": ""
-    },
-    "OpenOCD": {
-      "bin": "",
-      "target": "stm32f4x",
-      "interface": "stlink",
-      "baseAddr": "0x08000000"
-    }
-  },
   "miscInfo": {
     "uid": "3dbad24db0c90da9e323bb67f35475c0"
   },
   "targets": {
     "gimbctrl": {
+      "excludeList": [
+        "<virtual_root>/Application/User/bsps/dma_bsp.c"
+      ],
+      "toolchain": "GCC",
       "compileConfig": {
         "cpuType": "Cortex-M4",
         "floatingPointHardware": "single",
         "useCustomScatterFile": false,
-        "scatterFilePath": "undefined",
+        "scatterFilePath": "STM32F407IGHx_FLASH.ld",
         "storageLayout": {
           "RAM": [
             {
-              "tag": "RAM",
-              "id": 1,
-              "mem": {
-                "startAddr": "0x0",
-                "size": "0x0"
-              },
-              "isChecked": false,
-              "noInit": false
-            },
-            {
-              "tag": "RAM",
-              "id": 2,
-              "mem": {
-                "startAddr": "0x0",
-                "size": "0x0"
-              },
-              "isChecked": false,
-              "noInit": false
-            },
-            {
-              "tag": "RAM",
-              "id": 3,
-              "mem": {
-                "startAddr": "0x0",
-                "size": "0x0"
-              },
-              "isChecked": false,
-              "noInit": false
-            },
-            {
               "tag": "IRAM",
               "id": 1,
               "mem": {
-                "startAddr": "0x0",
-                "size": "0x0"
-              },
-              "isChecked": true,
-              "noInit": false
-            },
-            {
-              "tag": "IRAM",
-              "id": 2,
-              "mem": {
-                "startAddr": "0x0",
-                "size": "0x0"
+                "startAddr": "0x20000000",
+                "size": "0x5000"
               },
               "isChecked": true,
               "noInit": false
@@ -438,73 +294,61 @@
           ],
           "ROM": [
             {
-              "tag": "ROM",
-              "id": 1,
-              "mem": {
-                "startAddr": "0x0",
-                "size": "0x0"
-              },
-              "isChecked": false,
-              "isStartup": false
-            },
-            {
-              "tag": "ROM",
-              "id": 2,
-              "mem": {
-                "startAddr": "0x0",
-                "size": "0x0"
-              },
-              "isChecked": false,
-              "isStartup": false
-            },
-            {
-              "tag": "ROM",
-              "id": 3,
-              "mem": {
-                "startAddr": "0x0",
-                "size": "0x0"
-              },
-              "isChecked": false,
-              "isStartup": false
-            },
-            {
               "tag": "IROM",
               "id": 1,
               "mem": {
-                "startAddr": "",
-                "size": ""
+                "startAddr": "0x08000000",
+                "size": "0x10000"
               },
               "isChecked": true,
               "isStartup": true
-            },
-            {
-              "tag": "IROM",
-              "id": 2,
-              "mem": {
-                "startAddr": "0x0",
-                "size": "0x0"
-              },
-              "isChecked": true,
-              "isStartup": false
             }
           ]
         },
         "options": "null"
       },
-      "uploader": "JLink",
+      "uploader": "STLink",
       "uploadConfig": {
         "bin": "",
-        "baseAddr": "",
-        "cpuInfo": {
-          "vendor": "null",
-          "cpuName": "null"
-        },
-        "proType": 1,
-        "speed": 8000,
+        "proType": "SWD",
+        "resetMode": "default",
+        "runAfterProgram": true,
+        "speed": 4000,
+        "address": "0x08000000",
+        "elFile": "None",
+        "optionBytes": ".eide/gimbctrl.st.option.bytes.ini",
         "otherCmds": ""
       },
-      "uploadConfigMap": {},
-      "toolchain": "AC5",
+      "uploadConfigMap": {
+        "JLink": {
+          "bin": "",
+          "baseAddr": "",
+          "cpuInfo": {
+            "vendor": "null",
+            "cpuName": "null"
+          },
+          "proType": 1,
+          "speed": 8000,
+          "otherCmds": ""
+        },
+        "STLink": {
+          "bin": "",
+          "proType": "SWD",
+          "resetMode": "default",
+          "runAfterProgram": true,
+          "speed": 4000,
+          "address": "0x08000000",
+          "elFile": "None",
+          "optionBytes": ".eide/gimbctrl.st.option.bytes.ini",
+          "otherCmds": ""
+        },
+        "OpenOCD": {
+          "bin": "",
+          "target": "stm32f4x",
+          "interface": "stlink",
+          "baseAddr": "0x08000000"
+        }
+      },
       "custom_dep": {
         "name": "default",
         "sourceDirList": [],
@@ -513,22 +357,21 @@
           "Inc",
           "Drivers/STM32F4xx_HAL_Driver/Inc",
           "Drivers/STM32F4xx_HAL_Driver/Inc/Legacy",
-          "Middlewares/Third_Party/FreeRTOS/Source/include",
-          "Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2",
-          "Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F",
           "Drivers/CMSIS/Device/ST/STM32F4xx/Include",
           "Drivers/CMSIS/Include",
           ".cmsis/dsp_lib",
           ".cmsis/include",
-          "MDK-ARM/RTE/_gimbctrl"
+          ".eide/deps",
+          "Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2",
+          "Middlewares/Third_Party/FreeRTOS/Source/include",
+          "Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F"
         ],
         "defineList": [
           "USE_HAL_DRIVER",
           "STM32F407xx"
         ]
-      },
-      "excludeList": []
+      }
     }
   },
-  "version": "3.2"
+  "version": "3.3"
 }
