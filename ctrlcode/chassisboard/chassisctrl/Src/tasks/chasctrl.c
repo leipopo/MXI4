@@ -1,5 +1,5 @@
 #include "main.h"
-
+PID_regulator whespid[4];
 //下面是一幅画
 /****************************************************************
 
@@ -25,10 +25,63 @@ void xyzspeed2wheelspeed(MotorInfo mi[4])
     mi[3].tarmotorinfo.speed = xytempspeed[0] - xytempspeed[1] - robinfo.tar.zspeed;
 }
 
+void init_whemot_pid(PID_regulator wspid[4])
+{
+    for (int8_t i = 0; i < 4; i++)
+    {
+        wspid[i].kp = 0;
+        wspid[i].ki = 0;
+        wspid[i].kd = 0;
+        wspid[i].outputMax = 10000;
+    }
+}
+
+void calc_whemot_spid(PID_regulator wspid[4])
+{
+    for (int8_t i = 0; i < 4; i++)
+    {
+        wspid[i].tar = whe[i].tarmotorinfo.speed;
+        wspid[i].cur = whe[i].curmotorinfo.speed;
+        PID_calc(&wspid[i], 1);
+    }
+}
+
+int16_t can1_mes20x200[4];
+
+void pack_whemot_ctrlmes(int16_t mes[4])
+{
+    if (robinfo.comd.moton == 0x01)
+    {
+        for (int8_t i = 0; i < 4; i++)
+        {
+            mes[i] = whespid[i].output;
+        }
+    }
+    else
+    {
+        for (int8_t i = 0; i < 4; i++)
+        {
+            mes[i] = 0;
+        }
+    }
+}
+
 void chasctrl()
 {
+    init_whemot_pid(whespid);
     for (;;)
     {
+        xyzspeed2wheelspeed(whe);
+        calc_whemot_spid(whespid);
+        pack_whemot_ctrlmes(can1_mes20x200);
+        if (robinfo.comd.moton)
+        {
+            CAN_send(0x200, hcan1, can1_mes20x200);
+        }
+        else
+        {
+            CAN_send(0x200, hcan1, zeromes);
+        }
         osDelayUntil(mottaskperi);
     }
 }
