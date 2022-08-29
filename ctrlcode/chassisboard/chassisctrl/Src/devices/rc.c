@@ -34,7 +34,7 @@ void RC_RX_Decoder(uint8_t *sbus_buf, RC_DATA *rc_data, KEY *key)
     rc_data->mouse.press_l = sbus_buf[12];                                  //!< Mouse Left Is Press ?
     rc_data->mouse.press_r = sbus_buf[13];                                  //!< Mouse Right Is Press ?
     rc_data->key.v = sbus_buf[14] | (sbus_buf[15] << 8);                    //!< KeyBoard value
-    rc_data->rc.ch[4] = sbus_buf[16] | (sbus_buf[17] << 8);                 // NULL
+    rc_data->rc.ch[4] = sbus_buf[16] | (sbus_buf[17] << 8);                 //!< rcwheel
 
     rc_data->rc.ch[0] -= RC_CH_VALUE_OFFSET;
     rc_data->rc.ch[1] -= RC_CH_VALUE_OFFSET;

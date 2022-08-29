@@ -3,11 +3,11 @@
 
 #include "stdint.h"
 
-#define yawspenom_rc yaw.setup.speed_limit / 660.f
-#define yawspenom_ms yaw.setup.speed_limit / 0x7fff
+#define mousespeed_normalize(a) ((float)a) / 0x7fff
+#define rcchannel_normalize(a) ((float)a) / 660.f
 
-#define pitspenom_rc pit.setup.speed_limit / 660.f
-#define pitspenom_ms pit.setup.speed_limit / 0x7fff
+#define movespeed 450.f
+#define spinningspeed 450.f
 
 typedef struct COMD
 {
@@ -15,7 +15,8 @@ typedef struct COMD
     uint8_t triggeron;   // 0x01 on
     uint8_t magopen;     // 0x01 open
     uint8_t moton;       // 0x01 on
-    uint8_t cvon;        // 0x01 on
+    uint8_t cvon;        // 0x01 on 0x1x为打符
+    uint8_t spinning;    // 0x01 on
 } Comd;
 
 typedef struct ROB_INFO

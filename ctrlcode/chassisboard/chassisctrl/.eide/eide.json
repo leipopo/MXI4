@@ -1,71 +1,7 @@
 {
   "name": "chassisctrl",
   "type": "ARM",
-  "mode": "chassisctrl",
-  "toolchain": "GCC",
-  "dependenceList": [
-    {
-      "groupName": "custom",
-      "depList": [
-        {
-          "name": "default",
-          "sourceDirList": [],
-          "libList": [],
-          "incList": [
-            "./Inc",
-            "./Drivers/STM32F4xx_HAL_Driver/Inc",
-            "./Drivers/STM32F4xx_HAL_Driver/Inc/Legacy",
-            "./Middlewares/Third_Party/FreeRTOS/Source/include",
-            "./Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2",
-            "./Drivers/CMSIS/Device/ST/STM32F4xx/Include",
-            "./Drivers/CMSIS/Include",
-            "./.cmsis/dsp_lib",
-            "./.cmsis/include",
-            "./.eide/deps",
-            "./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F"
-          ],
-          "defineList": [
-            "USE_HAL_DRIVER",
-            "STM32F427xx"
-          ]
-        }
-      ]
-    }
-  ],
-  "compileConfig": {
-    "cpuType": "Cortex-M4",
-    "floatingPointHardware": "single",
-    "useCustomScatterFile": false,
-    "scatterFilePath": "STM32F427IIHx_FLASH.ld",
-    "storageLayout": {
-      "RAM": [
-        {
-          "tag": "IRAM",
-          "id": 1,
-          "mem": {
-            "startAddr": "0x20000000",
-            "size": "0x5000"
-          },
-          "isChecked": true,
-          "noInit": false
-        }
-      ],
-      "ROM": [
-        {
-          "tag": "IROM",
-          "id": 1,
-          "mem": {
-            "startAddr": "0x08000000",
-            "size": "0x10000"
-          },
-          "isChecked": true,
-          "isStartup": true
-        }
-      ]
-    },
-    "options": "null"
-  },
-  "uploader": "STLink",
+  "dependenceList": [],
   "srcDirs": [],
   "virtualFolder": {
     "name": "<virtual_root>",
@@ -309,92 +245,29 @@
       }
     ]
   },
-  "excludeList": [],
   "outDir": "build",
   "deviceName": "STM32F427IIHx",
   "packDir": ".pack/Keil/STM32F4xx_DFP.2.14.0",
-  "uploadConfig": {
-    "bin": "",
-    "proType": "SWD",
-    "resetMode": "default",
-    "runAfterProgram": true,
-    "speed": 4000,
-    "address": "0x08000000",
-    "elFile": "None",
-    "optionBytes": ".eide/chassisctrl.st.option.bytes.ini",
-    "otherCmds": ""
-  },
-  "uploadConfigMap": {
-    "JLink": {
-      "bin": "",
-      "baseAddr": "0x08000000",
-      "cpuInfo": {
-        "vendor": "ST",
-        "cpuName": "STM32F103C8"
-      },
-      "proType": 1,
-      "speed": 8000,
-      "otherCmds": ""
-    }
-  },
   "miscInfo": {
     "uid": "ee9c4bf45541ae0f459f448bbb189536"
   },
   "targets": {
     "chassisctrl": {
+      "excludeList": [],
+      "toolchain": "GCC",
       "compileConfig": {
         "cpuType": "Cortex-M4",
         "floatingPointHardware": "single",
         "useCustomScatterFile": false,
-        "scatterFilePath": "undefined",
+        "scatterFilePath": "STM32F427IIHx_FLASH.ld",
         "storageLayout": {
           "RAM": [
             {
-              "tag": "RAM",
-              "id": 1,
-              "mem": {
-                "startAddr": "0x0",
-                "size": "0x0"
-              },
-              "isChecked": false,
-              "noInit": false
-            },
-            {
-              "tag": "RAM",
-              "id": 2,
-              "mem": {
-                "startAddr": "0x0",
-                "size": "0x0"
-              },
-              "isChecked": false,
-              "noInit": false
-            },
-            {
-              "tag": "RAM",
-              "id": 3,
-              "mem": {
-                "startAddr": "0x0",
-                "size": "0x0"
-              },
-              "isChecked": false,
-              "noInit": false
-            },
-            {
               "tag": "IRAM",
               "id": 1,
               "mem": {
-                "startAddr": "0x0",
-                "size": "0x0"
-              },
-              "isChecked": true,
-              "noInit": false
-            },
-            {
-              "tag": "IRAM",
-              "id": 2,
-              "mem": {
-                "startAddr": "0x0",
-                "size": "0x0"
+                "startAddr": "0x20000000",
+                "size": "0x5000"
               },
               "isChecked": true,
               "noInit": false
@@ -402,73 +275,44 @@
           ],
           "ROM": [
             {
-              "tag": "ROM",
-              "id": 1,
-              "mem": {
-                "startAddr": "0x0",
-                "size": "0x0"
-              },
-              "isChecked": false,
-              "isStartup": false
-            },
-            {
-              "tag": "ROM",
-              "id": 2,
-              "mem": {
-                "startAddr": "0x0",
-                "size": "0x0"
-              },
-              "isChecked": false,
-              "isStartup": false
-            },
-            {
-              "tag": "ROM",
-              "id": 3,
-              "mem": {
-                "startAddr": "0x0",
-                "size": "0x0"
-              },
-              "isChecked": false,
-              "isStartup": false
-            },
-            {
               "tag": "IROM",
               "id": 1,
               "mem": {
-                "startAddr": "",
-                "size": ""
+                "startAddr": "0x08000000",
+                "size": "0x10000"
               },
               "isChecked": true,
               "isStartup": true
-            },
-            {
-              "tag": "IROM",
-              "id": 2,
-              "mem": {
-                "startAddr": "0x0",
-                "size": "0x0"
-              },
-              "isChecked": true,
-              "isStartup": false
             }
           ]
         },
         "options": "null"
       },
-      "uploader": "JLink",
+      "uploader": "STLink",
       "uploadConfig": {
         "bin": "",
-        "baseAddr": "0x08000000",
-        "cpuInfo": {
-          "vendor": "ST",
-          "cpuName": "STM32F103C8"
-        },
-        "proType": 1,
-        "speed": 8000,
+        "proType": "SWD",
+        "resetMode": "default",
+        "runAfterProgram": true,
+        "speed": 4000,
+        "address": "0x08000000",
+        "elFile": "None",
+        "optionBytes": ".eide/chassisctrl.st.option.bytes.ini",
         "otherCmds": ""
       },
-      "uploadConfigMap": {},
-      "toolchain": "AC5",
+      "uploadConfigMap": {
+        "JLink": {
+          "bin": "",
+          "baseAddr": "0x08000000",
+          "cpuInfo": {
+            "vendor": "ST",
+            "cpuName": "STM32F103C8"
+          },
+          "proType": 1,
+          "speed": 8000,
+          "otherCmds": ""
+        }
+      },
       "custom_dep": {
         "name": "default",
         "sourceDirList": [],
@@ -479,20 +323,19 @@
           "Drivers/STM32F4xx_HAL_Driver/Inc/Legacy",
           "Middlewares/Third_Party/FreeRTOS/Source/include",
           "Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2",
-          "Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F",
           "Drivers/CMSIS/Device/ST/STM32F4xx/Include",
           "Drivers/CMSIS/Include",
           ".cmsis/dsp_lib",
           ".cmsis/include",
-          "MDK-ARM/RTE/_chassisctrl"
+          ".eide/deps",
+          "Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F"
         ],
         "defineList": [
           "USE_HAL_DRIVER",
           "STM32F427xx"
         ]
-      },
-      "excludeList": []
+      }
     }
   },
-  "version": "3.2"
+  "version": "3.3"
 }

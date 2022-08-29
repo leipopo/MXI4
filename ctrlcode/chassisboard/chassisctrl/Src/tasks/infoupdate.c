@@ -11,9 +11,7 @@ float yawzeroangle[2];
 //                     ||
 //                     ||
 //                     \/
-// 2 1 开自瞄 --> 2 3 开电机无动作 --> 2 2 开小陀螺
-
-// 3 3 开电机无动作-->2 3 开电机无动作  切换自瞄模式
+// 2 1 开自瞄 --> 2 3 开电机无动作 --> 2 2 开小陀螺     3 3 开电机无动作-->2 3 开电机无动作
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
@@ -99,7 +97,8 @@ void get_comd_rc(RobInfo *ri)
         ri->comd.cvon = ri->comd.cvon << 4;
     }
 
-    if ((RC_Data.rc.s[0] == 2 && RC_Last_Data.rc.s[0] != 3 && RC_Data.rc.s[1] != 3))
+    if ((RC_Data.rc.s[0] == 2 && RC_Last_Data.rc.s[1] == 3 && RC_Data.rc.s[1] == 1)|| \
+        (Last_Key.key_z==0x00 && Key.key_z==0x01))
     {
         if (ri->comd.cvon == 0x00)
         {
@@ -110,6 +109,18 @@ void get_comd_rc(RobInfo *ri)
             ri->comd.cvon = 0x00;
         }
     }
+
+    if ((RC_Data.rc.s[0] == 2 && RC_Data.rc.s[1] == 2)||(Key.key_c==0x01))
+    {
+        ri->comd.spinning = 0x01;
+    }
+}
+
+void get_chastarspeed_rc(RobInfo *ri)
+{
+    ri->tar.xspeed = (rcchannel_normalize(RC_Data.rc.ch[2]) + (Key.key_w - Key.key_s)) * movespeed;
+    ri->tar.yspeed = (rcchannel_normalize(RC_Data.rc.ch[3]) + (Key.key_d - Key.key_a)) * movespeed;
+    ri->tar.zspeed = (rcchannel_normalize(RC_Data.rc.ch[4]) + (ri->comd.spinning)) * spinningspeed;
 }
 
 void get_gimbtarangle_cv(RobInfo *ri)
@@ -122,22 +133,24 @@ void get_gimbtarangle_cv(RobInfo *ri)
 
 void get_gimbtarangle_rc(RobInfo *ri)
 {
-    ri->tar.yawangle += (RC_Data.rc.ch[0] * yawspenom_rc + RC_Data.mouse.x * yawspenom_ms) / fre(mottaskperi) / 5.f;
-    ri->tar.pitangle += (RC_Data.rc.ch[1] * pitspenom_rc + RC_Data.mouse.y * pitspenom_ms) / fre(mottaskperi) / 10.f;
+    ri->tar.yawangle += (rcchannel_normalize(RC_Data.rc.ch[0]) + mousespeed_normalize(RC_Data.mouse.x)) / fre(mottaskperi) / 5.f;
+    ri->tar.pitangle += (rcchannel_normalize(RC_Data.rc.ch[1]) + mousespeed_normalize(RC_Data.mouse.y)) / fre(mottaskperi) / 10.f;
     ri->tar.yawangle = numcircle(180.f, -180.f, ri->tar.yawangle);
     ri->tar.pitangle = LIMIT(ri->tar.pitangle, pit.setup.angle_limit[0], pit.setup.angle_limit[1]);
 }
 
 void get_gimbcurangle_imu(RobInfo *ri)
 {
-    ri->cur.yawangle = comuinfo.rx_imu.yawangle*0.5+ri->cur.yawangle*0.5;
-    ri->cur.pitangle = comuinfo.rx_imu.pitangle*0.5+ri->cur.pitangle*0.5;
+    ri->cur.yawangle = comuinfo.rx_imu.yawangle * 0.5 + ri->cur.yawangle * 0.5; //低通一下
+    ri->cur.pitangle = comuinfo.rx_imu.pitangle * 0.5 + ri->cur.pitangle * 0.5; //低通一下
 }
 
 void get_gimbcurangle_mot(RobInfo *ri)
 {
-    ri->cur.yawspeed = yaw.curmotorinfo.speed*0.3+ri->cur.yawspeed*0.7;
-    ri->cur.pitspeed = pit.curmotorinfo.speed*0.3+ri->cur.pitspeed*0.7;
+    //本来是有读角度的
+
+    ri->cur.yawspeed = yaw.curmotorinfo.speed * 0.3 + ri->cur.yawspeed * 0.7; //低通一下
+    ri->cur.pitspeed = pit.curmotorinfo.speed * 0.3 + ri->cur.pitspeed * 0.7; //低通一下
 }
 
 void get_zrelangle(RobInfo *ri)
@@ -151,12 +164,14 @@ void infoupdate()
     for (;;)
     {
         robinfo.robid = get_robot_id();
+        
         get_limits(&robinfo);
         get_gimbtarangle_rc(&robinfo);
         get_gimbcurangle_imu(&robinfo);
         get_gimbcurangle_mot(&robinfo);
         get_comd_rc(&robinfo);
         get_zrelangle(&robinfo);
+        get_chastarspeed_rc(&robinfo);
 
         osDelayUntil(infotaskperi);
     }
