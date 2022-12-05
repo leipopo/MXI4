@@ -1,4 +1,4 @@
--mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -T "e:/MXI4/ctrlcode/gimbalboard/gimbctrl/STM32F407IGHx_FLASH.ld" --specs=nosys.specs --specs=nano.specs -Wl,--gc-sections -Wl,--print-memory-usage
+-mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -T "e:/LPGUAIAdsrepo/MXI4/ctrlcode/gimbalboard/gimbctrl/STM32F407IGHx_FLASH.ld" -Wl,--print-memory-usage --specs=nosys.specs --specs=nano.specs
 -Wl,-Map=./build/gimbctrl/gimbctrl.map
 -o ./build/gimbctrl/gimbctrl.elf ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
 ./build/gimbctrl/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o

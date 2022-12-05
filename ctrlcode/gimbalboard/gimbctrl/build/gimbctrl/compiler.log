@@ -1,0 +1,13 @@
+>>> cc
+
+./src/devices/BMI088driver.c: In function 'BMI088_read_accel_who_am_i':
+./src/devices/BMI088driver.c:370:22: warning: variable 'buf' set but not used [-Wunused-but-set-variable]
+  370 |     volatile uint8_t buf;
+      |                      ^~~
+
+>>> ld
+
+Memory region         Used Size  Region Size  %age Used
+             RAM:       22456 B       128 KB     17.13%
+          CCMRAM:          0 GB        64 KB      0.00%
+           FLASH:      114564 B         1 MB     10.93%

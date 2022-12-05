@@ -18,8 +18,6 @@
         "language-cpp": "c++14",
         "optimization": "level-debug",
         "warnings": "all-warnings",
-        "one-elf-section-per-function": true,
-        "one-elf-section-per-data": true,
         "C_FLAGS": "-ffunction-sections -fdata-sections",
         "CXX_FLAGS": "-ffunction-sections -fdata-sections"
     },
@@ -28,7 +26,6 @@
     },
     "linker": {
         "output-format": "elf",
-        "remove-unused-input-sections": true,
         "LD_FLAGS": "--specs=nosys.specs --specs=nano.specs",
         "LIB_FLAGS": "-lm"
     }

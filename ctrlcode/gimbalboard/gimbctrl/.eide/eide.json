@@ -351,8 +351,6 @@
       },
       "custom_dep": {
         "name": "default",
-        "sourceDirList": [],
-        "libList": [],
         "incList": [
           "Inc",
           "Drivers/STM32F4xx_HAL_Driver/Inc",
@@ -366,6 +364,8 @@
           "Middlewares/Third_Party/FreeRTOS/Source/include",
           "Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F"
         ],
+        "libList": [],
+        "sourceDirList": [],
         "defineList": [
           "USE_HAL_DRIVER",
           "STM32F407xx"
