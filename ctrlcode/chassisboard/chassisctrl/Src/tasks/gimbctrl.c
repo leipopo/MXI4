@@ -18,16 +18,15 @@ void init_gimbmot_para(MotorInfo *pi, MotorInfo *yi)
     uint8_t yawinstallangle_fromflash[2];
     flash_read(ADDR_FLASH_SECTOR_11, (uint32_t *)yawinstallangle_fromflash, (2 + 3) / 4);
     yi->setup.installationangle = (int16_t)(yawinstallangle_fromflash[0] << 8 | yawinstallangle_fromflash[1]);
-    yi->setup.outcirclerate=3;
-
+    yi->setup.outcirclerate = 3;
 
     *pi = motparainit(gm6020);
     pi->setup.motid = pitmotid;
     pi->setup.reductionratio = pitreductionratio;
     pi->setup.angle_limit[0] = -20.f;
     pi->setup.angle_limit[1] = 36.f;
-    pi->setup.outcirclerate=3;
-    pi->setup.reversed=0x01;
+    pi->setup.outcirclerate = 3;
+    pi->setup.reversed = 0x01;
 }
 
 void init_gimbmot_pid(PID_regulator *papid,
@@ -72,14 +71,15 @@ void clac_pitmot_aspid(PID_regulator *papid,
                        PID_regulator *pspid,
                        MotorInfo *mi)
 {
-    papid->tar = robinfo.tar.pitangle;
-    papid->cur = robinfo.cur.pitangle;
+    pit.tarmotorinfo.angle = pit.curmotorinfo.angle + (robinfo.tar.pitangle - robinfo.cur.pitangle) + (robinfo.tar.yawangle - robinfo.cur.yawangle);
+    papid->tar = pit.tarmotorinfo.angle;
+    papid->cur = pit.curmotorinfo.angle;
 
     pspid->tar = papid->output;
     pspid->cur = robinfo.cur.pitspeed;
     calc_mot_aspid(papid, pspid, mi);
-    pspid->output -=(500*sin((robinfo.cur.pitangle+5.f)/360.f*2.f*3.1415f)+robinfo.cur.yawspeed*120); 
-    pspid->output=-pspid->output;
+    pspid->output -= (500 * asin(robinfo.cur.pitangle + 5.f));
+    pspid->output = -pspid->output;
 }
 
 void clac_yawmot_aspid(PID_regulator *yapid,
