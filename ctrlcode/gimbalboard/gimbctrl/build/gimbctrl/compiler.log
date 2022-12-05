@@ -1,9 +1,6 @@
 >>> cc
 
-./src/devices/BMI088driver.c: In function 'BMI088_read_accel_who_am_i':
-./src/devices/BMI088driver.c:370:22: warning: variable 'buf' set but not used [-Wunused-but-set-variable]
-  370 |     volatile uint8_t buf;
-      |                      ^~~
+
 
 >>> ld
 
