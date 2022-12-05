@@ -23,19 +23,11 @@ void canrx2comuinfo_rximuangle(uint8_t rx[8], ComuInfo *ci)
     temp[1] = (int16_t)(rx[2] << 8 | rx[3]);
     temp[2] = (int16_t)(rx[4] << 8 | rx[5]);
     temp[3] = (int16_t)(rx[6] << 8 | rx[7]);
-/*
-    // if ((temp[0] == 0x4321) && (temp[3] == (temp[1] + temp[2]))&& \
-    //         ((fabsf(temp[1]-ci->rx_imu.yawangle)<=2.5f)|| \
-    //         (fabsf(temp[1]-ci->rx_imu.yawangle-360.f)<=2.5f)|| \
-    //         (fabsf(temp[1]-ci->rx_imu.yawangle+360.f)<=2.5f))&& \
-    //         ((fabsf(temp[2]-ci->rx_imu.pitangle)<=2.5f)|| \
-    //         (fabsf(temp[2]-ci->rx_imu.pitangle-360.f)<=2.5f)|| \
-    //         (fabsf(temp[2]-ci->rx_imu.pitangle+360.f)<=2.5f))
-*/
+
     if ((temp[0] == 0x4321) && (temp[3] == (temp[1] + temp[2])))
     {
-        ci->rx_imu.yawangle = temp[1];
-        ci->rx_imu.pitangle = temp[2];
+        ci->rx_imu.yawangle = temp[1]/100.f;
+        ci->rx_imu.pitangle = temp[2]/100.f;
     }
 }
 

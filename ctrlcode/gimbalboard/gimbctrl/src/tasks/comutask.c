@@ -50,8 +50,8 @@ void canrx2comuinfo_comd(uint8_t rx[8], ComuInfo ci[3])
 
 void pack_mes2chas_imuangle(int16_t mes[4])
 {
-    mes[1] = (int16_t)comuinfo[0].tx_imu.yawangle;
-    mes[2] = (int16_t)comuinfo[0].tx_imu.pitangle;
+    mes[1] = (int16_t)(comuinfo[0].tx_imu.yawangle*100);
+    mes[2] = (int16_t)(comuinfo[0].tx_imu.pitangle*100);
     mes[0] = 0x4321 ;
     mes[3] = mes[1]+mes[2];
 }
