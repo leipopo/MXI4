@@ -10,3 +10,4 @@ build
 *.eide-template
 
 .pack
+.dist
