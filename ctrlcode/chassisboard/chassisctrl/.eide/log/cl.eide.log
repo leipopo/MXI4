@@ -1,0 +1,85 @@
+[2022/7/16 16:28:12 GMT+0800] : launched
+[2022/7/17 21:2:41 GMT+0800] : launched
+
+
+[2022/7/19 15:19:27 GMT+0800] : launched
+
+
+[2022/7/26 12:47:56 GMT+0800] : launched
+
+
+[2022/7/26 13:11:38 GMT+0800] : launched
+[Hidden] : Command failed: c:\Users\94736\.vscode\extensions\cl.eide-3.7.2022072501\res\tools\win32\stvp_tools\stvp_utils.exe list --mcu
+A fatal error occurred. The required library hostfxr.dll could not be found.
+If this is a self-contained application, that library should exist in [c:\Users\94736\.vscode\extensions\cl.eide-3.7.2022072501\res\tools\win32\stvp_tools\].
+If this is a framework-dependent application, install the runtime in the global location [C:\Program Files (x86)\dotnet] or use the DOTNET_ROOT environment variable to specify the runtime location or register the runtime location in [HKLM\SOFTWARE\dotnet\Setup\InstalledVersions\x86\InstallLocation].
+
+The .NET runtime can be found at:
+  - https://aka.ms/dotnet-core-applaunch?missing_runtime=true&arch=x86&rid=win10-x86&apphost_version=6.0.5
+
+Error: Command failed: c:\Users\94736\.vscode\extensions\cl.eide-3.7.2022072501\res\tools\win32\stvp_tools\stvp_utils.exe list --mcu
+A fatal error occurred. The required library hostfxr.dll could not be found.
+If this is a self-contained application, that library should exist in [c:\Users\94736\.vscode\extensions\cl.eide-3.7.2022072501\res\tools\win32\stvp_tools\].
+If this is a framework-dependent application, install the runtime in the global location [C:\Program Files (x86)\dotnet] or use the DOTNET_ROOT environment variable to specify the runtime location or register the runtime location in [HKLM\SOFTWARE\dotnet\Setup\InstalledVersions\x86\InstallLocation].
+
+The .NET runtime can be found at:
+  - https://aka.ms/dotnet-core-applaunch?missing_runtime=true&arch=x86&rid=win10-x86&apphost_version=6.0.5
+
+	at checkExecSyncError (node:child_process:846:11)
+	at Object.execFileSync (node:child_process:884:15)
+	at Object.func [as execFileSync] (node:electron/js2c/asar_bundle:5:1812)
+	at T.loadStm8DevList (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2022072501\dist\extension.js:1:14461)
+	at EventEmitter.<anonymous> (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2022072501\dist\extension.js:1:7440)
+	at EventEmitter.emit (node:events:390:28)
+	at Function.emit (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2022072501\dist\extension.js:1:5616)
+	at c:\Users\94736\.vscode\extensions\cl.eide-3.7.2022072501\dist\extension.js:7:67783
+	at Generator.next (<anonymous>)
+	at s (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2022072501\dist\extension.js:7:48770)
+	at processTicksAndRejections (node:internal/process/task_queues:96:5)
+
+
+[2022/7/26 16:38:14 GMT+0800] : launched
+[Hidden] : Command failed: c:\Users\94736\.vscode\extensions\cl.eide-3.7.2022072501\res\tools\win32\stvp_tools\stvp_utils.exe list --mcu
+A fatal error occurred. The required library hostfxr.dll could not be found.
+If this is a self-contained application, that library should exist in [c:\Users\94736\.vscode\extensions\cl.eide-3.7.2022072501\res\tools\win32\stvp_tools\].
+If this is a framework-dependent application, install the runtime in the global location [C:\Program Files (x86)\dotnet] or use the DOTNET_ROOT environment variable to specify the runtime location or register the runtime location in [HKLM\SOFTWARE\dotnet\Setup\InstalledVersions\x86\InstallLocation].
+
+The .NET runtime can be found at:
+  - https://aka.ms/dotnet-core-applaunch?missing_runtime=true&arch=x86&rid=win10-x86&apphost_version=6.0.5
+
+Error: Command failed: c:\Users\94736\.vscode\extensions\cl.eide-3.7.2022072501\res\tools\win32\stvp_tools\stvp_utils.exe list --mcu
+A fatal error occurred. The required library hostfxr.dll could not be found.
+If this is a self-contained application, that library should exist in [c:\Users\94736\.vscode\extensions\cl.eide-3.7.2022072501\res\tools\win32\stvp_tools\].
+If this is a framework-dependent application, install the runtime in the global location [C:\Program Files (x86)\dotnet] or use the DOTNET_ROOT environment variable to specify the runtime location or register the runtime location in [HKLM\SOFTWARE\dotnet\Setup\InstalledVersions\x86\InstallLocation].
+
+The .NET runtime can be found at:
+  - https://aka.ms/dotnet-core-applaunch?missing_runtime=true&arch=x86&rid=win10-x86&apphost_version=6.0.5
+
+	at checkExecSyncError (node:child_process:846:11)
+	at Object.execFileSync (node:child_process:884:15)
+	at Object.func [as execFileSync] (node:electron/js2c/asar_bundle:5:1812)
+	at T.loadStm8DevList (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2022072501\dist\extension.js:1:14461)
+	at EventEmitter.<anonymous> (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2022072501\dist\extension.js:1:7440)
+	at EventEmitter.emit (node:events:390:28)
+	at Function.emit (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2022072501\dist\extension.js:1:5616)
+	at c:\Users\94736\.vscode\extensions\cl.eide-3.7.2022072501\dist\extension.js:7:67783
+	at Generator.next (<anonymous>)
+	at s (c:\Users\94736\.vscode\extensions\cl.eide-3.7.2022072501\dist\extension.js:7:48770)
+	at processTicksAndRejections (node:internal/process/task_queues:96:5)
+
+
+[2022/7/27 19:21:41 GMT+0800] : launched
+
+
+[2022/7/28 21:32:44 GMT+0800] : launched
+
+
+[2022/7/29 18:6:44 GMT+0800] : launched
+
+
+[2022/7/29 19:14:26 GMT+0800] : launched
+
+
+[2022/7/31 18:34:32 GMT+0800] : launched
+
+

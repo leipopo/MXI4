@@ -3,11 +3,9 @@
 .eide/log
 
 # project out
-build
+build/
 
 # eide template
 *.ept
 *.eide-template
-
 .pack
-.dist
