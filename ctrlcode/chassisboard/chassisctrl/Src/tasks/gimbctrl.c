@@ -42,28 +42,28 @@ void init_gimbmot_pid(PID_regulator *papid,
     papid->componentKiMax = papid->outputMax;
     papid->componentKdMax = papid->outputMax;
 
-    yapid->kp = 5;
-    yapid->ki = 0;
-    yapid->kd = 0;
+    yapid->kp = 4;
+    yapid->ki = 0.0;
+    yapid->kd = 0.5;
     yapid->outputMax = yaw.setup.speed_limit / yaw.setup.reductionratio;
     yapid->componentKpMax = yapid->outputMax;
     yapid->componentKiMax = yapid->outputMax;
     yapid->componentKdMax = yapid->outputMax;
 
-    pspid->kp = 160;
+    pspid->kp = 150;
     pspid->ki = 0.005;
     pspid->kd = 50;
-    pspid->outputMax = pit.setup.current_value_limit;
+    pspid->outputMax = 0;
     pspid->componentKpMax = 10000;
     pspid->componentKiMax = 2000;
     pspid->componentKdMax = 2000;
 
-    yspid->kp = 130;
-    yspid->ki = 0.00025;
-    yspid->kd = 0;
+    yspid->kp = 150;
+    yspid->ki = 0.25;
+    yspid->kd = 10;
     yspid->outputMax = yaw.setup.current_value_limit;
-    yspid->componentKpMax = 10000;
-    yspid->componentKiMax = 6000;
+    yspid->componentKpMax = 20000;
+    yspid->componentKiMax = 3000;
     yspid->componentKdMax = yspid->outputMax;
 }
 
@@ -71,12 +71,13 @@ void clac_pitmot_aspid(PID_regulator *papid,
                        PID_regulator *pspid,
                        MotorInfo *mi)
 {
-    pit.tarmotorinfo.angle = pit.curmotorinfo.angle + (robinfo.tar.pitangle - robinfo.cur.pitangle) + (robinfo.tar.yawangle - robinfo.cur.yawangle);
+    pit.tarmotorinfo.angle = pit.curmotorinfo.angle + (robinfo.tar.pitangle - robinfo.cur.pitangle) + (robinfo.tar.yawangle - robinfo.cur.yawangle)/yawreductionratio;
     papid->tar = pit.tarmotorinfo.angle;
     papid->cur = pit.curmotorinfo.angle;
 
-    pspid->tar = papid->output;
+    pspid->tar = robinfo.tar.pitspeed;
     pspid->cur = robinfo.cur.pitspeed;
+    
     calc_mot_aspid(papid, pspid, mi);
     pspid->output -= (500 * asin(robinfo.cur.pitangle + 5.f));
     pspid->output = -pspid->output;
@@ -94,11 +95,11 @@ void clac_yawmot_aspid(PID_regulator *yapid,
     calc_mot_aspid(yapid, yspid, mi);
     if (yspid->output > 0.f)
     {
-        yspid->output += 1000.f;
+        yspid->output += 2000.f;
     }
     else if (yspid->output < -0.f)
     {
-        yspid->output -= 1000.f;
+        yspid->output -= 2000.f;
     }
 }
 

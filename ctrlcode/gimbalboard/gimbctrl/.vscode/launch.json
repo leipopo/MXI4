@@ -13,7 +13,8 @@
                 "interface/stlink.cfg",
                 "target/stm32f4x.cfg"
             ],
-            "svdFile": ".pack/Keil/STM32F4xx_DFP.2.14.0/CMSIS/SVD/STM32F40x.svd"
+            "svdFile": ".pack/Keil/STM32F4xx_DFP.2.14.0/CMSIS/SVD/STM32F40x.svd",
+            "toolchainPrefix": "arm-none-eabi"
         }
     ]
 }

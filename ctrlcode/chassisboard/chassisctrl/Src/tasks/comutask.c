@@ -71,6 +71,6 @@ void comutask()
         get_comuinfo_robinfo(&comuinfo);
         pack_2gimb_comdmes(can2_mes2gimb_comd);
         CAN_send(chasboardid, hcan2, can2_mes2gimb_comd);
-        osDelayUntil(comutaskperi * 25);
+        osDelayUntil(comutaskperi);
     }
 }

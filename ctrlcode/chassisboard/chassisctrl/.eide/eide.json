@@ -9,7 +9,11 @@
     "folders": [
       {
         "name": "Application",
-        "files": [],
+        "files": [
+          {
+            "path": "startup_stm32f427xx.s"
+          }
+        ],
         "folders": [
           {
             "name": "User",
@@ -127,11 +131,7 @@
       },
       {
         "name": "Drivers",
-        "files": [
-          {
-            "path": "startup_stm32f427xx.s"
-          }
-        ],
+        "files": [],
         "folders": [
           {
             "name": "CMSIS",
@@ -288,17 +288,12 @@
         },
         "options": "null"
       },
-      "uploader": "STLink",
+      "uploader": "OpenOCD",
       "uploadConfig": {
         "bin": "",
-        "proType": "SWD",
-        "resetMode": "default",
-        "runAfterProgram": true,
-        "speed": 4000,
-        "address": "0x08000000",
-        "elFile": "None",
-        "optionBytes": ".eide/chassisctrl.st.option.bytes.ini",
-        "otherCmds": ""
+        "target": "stm32f4x",
+        "interface": "stlink",
+        "baseAddr": "0x08000000"
       },
       "uploadConfigMap": {
         "JLink": {
@@ -311,6 +306,23 @@
           "proType": 1,
           "speed": 8000,
           "otherCmds": ""
+        },
+        "STLink": {
+          "bin": "",
+          "proType": "SWD",
+          "resetMode": "default",
+          "runAfterProgram": true,
+          "speed": 4000,
+          "address": "0x08000000",
+          "elFile": "None",
+          "optionBytes": ".eide/chassisctrl.st.option.bytes.ini",
+          "otherCmds": ""
+        },
+        "OpenOCD": {
+          "bin": "",
+          "target": "stm32f4x",
+          "interface": "stlink",
+          "baseAddr": "0x08000000"
         }
       },
       "custom_dep": {

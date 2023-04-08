@@ -18,7 +18,7 @@
 #define gimbboardid_cv 0x00000999
 
 #define mottaskperi 2
-#define comutaskperi 2
+#define comutaskperi 50
 #define infotaskperi 2
 #define reftaskperi 10
 #define UIdrawperi 50

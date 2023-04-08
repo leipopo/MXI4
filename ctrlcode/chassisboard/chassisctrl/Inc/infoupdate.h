@@ -6,6 +6,9 @@
 #define mousespeed_normalize(a) ((float)a) / 0x7fff
 #define rcchannel_normalize(a) ((float)a) / 660.f
 
+#define yawspeedconst 30.f
+#define pitspeedconst 15.f
+
 #define movespeed 450.f
 #define spinningspeed 450.f
 

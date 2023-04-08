@@ -33,7 +33,7 @@ void canrx2motinfo(uint8_t rx[8], MotorInfo *mi)
     mi->temp.angle[1] = ((int16_t)((rx[0] << 8) | (rx[1]))) * 360.f / 0x1fff * dir;
     gearmotorangle_calc(mi);
     mi->curmotorinfo.speed = ((int16_t)((rx[2] << 8) | (rx[3]))) / mi->setup.reductionratio * dir;
-    // mi->curmotorinfo.current[4] = ((int16_t)((rx[2] << 8) | (rx[3]))) / 0x1fff * dir;
+    mi->curmotorinfo.current[4] = ((int16_t)((rx[2] << 8) | (rx[3]))) / 0x1fff * dir;
 }
 
 void gearmotorangle_calc(MotorInfo *mi)
