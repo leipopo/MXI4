@@ -118,8 +118,8 @@ void get_comd_rc(RobInfo *ri)
 
 void get_chastarspeed_rc(RobInfo *ri)
 {
-    ri->tar.xspeed = (rcchannel_normalize(RC_Data.rc.ch[2]) + (Key.key_w - Key.key_s)) * movespeed;
-    ri->tar.yspeed = (rcchannel_normalize(RC_Data.rc.ch[3]) + (Key.key_d - Key.key_a)) * movespeed;
+    ri->tar.xspeed = (rcchannel_normalize(RC_Data.rc.ch[3]) + (Key.key_w - Key.key_s)) * movespeed;
+    ri->tar.yspeed = (rcchannel_normalize(RC_Data.rc.ch[2]) + (Key.key_d - Key.key_a)) * movespeed;
     ri->tar.zspeed = (rcchannel_normalize(RC_Data.rc.ch[4]) + (ri->comd.spinning)) * spinningspeed;
 }
 
@@ -133,7 +133,7 @@ void get_gimbtarangle_cv(RobInfo *ri)
 
 void get_gimbtarangle_rc(RobInfo *ri)
 {
-    ri->tar.yawangle += (rcchannel_normalize(RC_Data.rc.ch[0]) + mousespeed_normalize(RC_Data.mouse.x)) / fre(infotaskperi) *yawspeedconst;
+    ri->tar.yawangle += (-rcchannel_normalize(RC_Data.rc.ch[0]) + mousespeed_normalize(RC_Data.mouse.x)) / fre(infotaskperi) *yawspeedconst;
     ri->tar.pitangle += (rcchannel_normalize(RC_Data.rc.ch[1]) + mousespeed_normalize(RC_Data.mouse.y)) / fre(infotaskperi) *pitspeedconst;
     ri->tar.yawangle = numcircle(180.f, -180.f, ri->tar.yawangle);
     ri->tar.pitangle = LIMIT(ri->tar.pitangle, pit.setup.angle_limit[0], pit.setup.angle_limit[1]);
@@ -155,7 +155,7 @@ void get_gimbcurangle_mot(RobInfo *ri)
 
 void get_zrelangle(RobInfo *ri)
 {
-    ri->cur.zrelangle = yaw.curmotorinfo.angle - yaw.setup.installationangle;
+    ri->cur.zrelangle = numcircle(180.f,-180.f,yaw.curmotorinfo.angle - yaw.setup.installationangle-90.f);
 }
 
 void infoupdate()

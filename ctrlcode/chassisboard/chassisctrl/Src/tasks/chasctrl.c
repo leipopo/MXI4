@@ -1,6 +1,6 @@
 #include "main.h"
 PID_regulator whespid[4];
-//下面是一幅画
+// 下面是一幅画
 /****************************************************************
 
 3         2
@@ -17,21 +17,24 @@ PID_regulator whespid[4];
 void xyzspeed2wheelspeed(MotorInfo mi[4])
 {
     float xytempspeed[2] = {0.f, 0.f};
-    xytempspeed[0] = robinfo.tar.xspeed * cos(robinfo.cur.zrelangle / 360.f * 2 * 3.1415f) - robinfo.tar.yspeed * sin(robinfo.cur.zrelangle / 360.f * 2 * 3.1415f);
-    xytempspeed[1] = robinfo.tar.xspeed * sin(robinfo.cur.zrelangle / 360.f * 2 * 3.1415f) + robinfo.tar.yspeed * sin(robinfo.cur.zrelangle / 360.f * 2 * 3.1415f);
-    mi[0].tarmotorinfo.speed = -xytempspeed[0] - xytempspeed[1] - robinfo.tar.zspeed;
-    mi[1].tarmotorinfo.speed = -xytempspeed[0] + xytempspeed[1] - robinfo.tar.zspeed;
-    mi[2].tarmotorinfo.speed = xytempspeed[0] + xytempspeed[1] - robinfo.tar.zspeed;
-    mi[3].tarmotorinfo.speed = xytempspeed[0] - xytempspeed[1] - robinfo.tar.zspeed;
+    xytempspeed[0] = robinfo.tar.xspeed * cos(robinfo.cur.zrelangle / 360.f * 2 * 3.1415f) + robinfo.tar.yspeed * sin(robinfo.cur.zrelangle / 360.f * 2 * 3.1415f);
+    xytempspeed[1] = -robinfo.tar.xspeed * sin(robinfo.cur.zrelangle / 360.f * 2 * 3.1415f) + robinfo.tar.yspeed * cos(robinfo.cur.zrelangle / 360.f * 2 * 3.1415f);
+    mi[0].tarmotorinfo.speed = -xytempspeed[0] - xytempspeed[1] + robinfo.tar.zspeed;
+    mi[1].tarmotorinfo.speed = -xytempspeed[0] + xytempspeed[1] + robinfo.tar.zspeed;
+    mi[2].tarmotorinfo.speed = xytempspeed[0] + xytempspeed[1] + robinfo.tar.zspeed;
+    mi[3].tarmotorinfo.speed = xytempspeed[0] - xytempspeed[1] + robinfo.tar.zspeed;
 }
 
 void init_whemot_pid(PID_regulator wspid[4])
 {
     for (int8_t i = 0; i < 4; i++)
     {
-        wspid[i].kp = 0;
-        wspid[i].ki = 0;
-        wspid[i].kd = 0;
+        wspid[i].kp = 100;
+        wspid[i].ki = 0.5;
+        wspid[i].kd = 10;
+        wspid[i].componentKpMax = 10000;
+        wspid[i].componentKiMax = 3000;
+        wspid[i].componentKdMax = 5000;
         wspid[i].outputMax = 10000;
     }
 }
