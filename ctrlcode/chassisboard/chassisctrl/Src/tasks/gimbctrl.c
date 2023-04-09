@@ -50,20 +50,20 @@ void init_gimbmot_pid(PID_regulator *papid,
     yapid->componentKiMax = yapid->outputMax;
     yapid->componentKdMax = yapid->outputMax;
 
-    pspid->kp = 150;
+    pspid->kp = 180;
     pspid->ki = 0.005;
     pspid->kd = 50;
     pspid->outputMax = pit.setup.current_value_limit;
-    pspid->componentKpMax = 10000;
+    pspid->componentKpMax = 15000;
     pspid->componentKiMax = 2000;
     pspid->componentKdMax = 2000;
 
     yspid->kp = 150;
-    yspid->ki = 0.25;
+    yspid->ki = 0.0025;
     yspid->kd = 10;
     yspid->outputMax = yaw.setup.current_value_limit;
     yspid->componentKpMax = 20000;
-    yspid->componentKiMax = 3000;
+    yspid->componentKiMax = 4000;
     yspid->componentKdMax = yspid->outputMax;
 }
 
@@ -81,7 +81,7 @@ void clac_pitmot_aspid(PID_regulator *papid,
     calc_mot_aspid(papid, pspid, mi);
     double Gangle=robinfo.cur.pitangle + 5.f;
     pspid->output -= (500 * sin(Gangle));
-    pspid->output = -pspid->output+yawspid.cur*100;
+    pspid->output = -pspid->output+yawspid.cur*150;
 }
 
 void clac_yawmot_aspid(PID_regulator *yapid,

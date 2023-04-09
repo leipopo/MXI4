@@ -13,13 +13,19 @@ void chasmotinit()
 
 void devinit()
 {
-
-    RC_INIT();
+    while (RC_ON == 0)
+    {
+        RC_INIT();
+        HAL_Delay(50);
+    }
     can_filter_init();
+    HAL_Delay(50);
 }
 
 void userinit()
 {
     devinit();
+    HAL_Delay(50);
     chasmotinit();
+    HAL_Delay(50);
 }
