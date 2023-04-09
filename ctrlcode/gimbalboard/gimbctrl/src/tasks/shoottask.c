@@ -70,13 +70,13 @@ void get_fricspeed_comd(MotorInfo fi[2])
 {
     if (comuinfo[0].rx_comd.fricwheelon == 0x01)
     {
-        fi[0].tarmotorinfo.speed = fricwheelspeed;
+        fi[0].tarmotorinfo.speed = -fricwheelspeed;
         fi[1].tarmotorinfo.speed = -fi[0].tarmotorinfo.speed;
     }
     else if (comuinfo[0].rx_comd.fricwheelon == 0x00)
     {
         fi[0].tarmotorinfo.speed = 0;
-        fi[1].tarmotorinfo.speed = -fi[0].tarmotorinfo.speed;
+        fi[1].tarmotorinfo.speed = 0;
     }
 }
 
@@ -120,11 +120,11 @@ void setmag(int8_t mc)
 {
     if (mc == 1)
     {
-        __HAL_TIM_SetCompare(&htim8, TIM_CHANNEL_3, magopenpusle);
+        __HAL_TIM_SetCompare(&htim8, TIM_CHANNEL_3, magclosepusle);
     }
     else
     {
-        __HAL_TIM_SetCompare(&htim8, TIM_CHANNEL_3, magclosepusle);
+        __HAL_TIM_SetCompare(&htim8, TIM_CHANNEL_3,magopenpusle );
     }
 }
 
