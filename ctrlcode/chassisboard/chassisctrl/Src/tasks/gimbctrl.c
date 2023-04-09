@@ -34,7 +34,7 @@ void init_gimbmot_pid(PID_regulator *papid,
                       PID_regulator *pspid,
                       PID_regulator *yspid)
 {
-    papid->kp = 3;
+    papid->kp = 4;
     papid->ki = 0.0;
     papid->kd = 0;
     papid->outputMax = pit.setup.speed_limit / pit.setup.reductionratio;
@@ -53,7 +53,7 @@ void init_gimbmot_pid(PID_regulator *papid,
     pspid->kp = 150;
     pspid->ki = 0.005;
     pspid->kd = 50;
-    pspid->outputMax = 0;
+    pspid->outputMax = pit.setup.current_value_limit;
     pspid->componentKpMax = 10000;
     pspid->componentKiMax = 2000;
     pspid->componentKdMax = 2000;
@@ -71,16 +71,17 @@ void clac_pitmot_aspid(PID_regulator *papid,
                        PID_regulator *pspid,
                        MotorInfo *mi)
 {
-    pit.tarmotorinfo.angle = numcircle(pit.curmotorinfo.angle + (robinfo.tar.pitangle - robinfo.cur.pitangle) + (robinfo.tar.yawangle - robinfo.cur.yawangle)/yawreductionratio,-180.f,180.f);
+    pit.tarmotorinfo.angle = numcircle(180.f, -180.f, pit.curmotorinfo.angle + (robinfo.tar.pitangle - robinfo.cur.pitangle) + (robinfo.tar.yawangle - robinfo.cur.yawangle) / yawreductionratio);
     papid->tar = pit.tarmotorinfo.angle;
     papid->cur = pit.curmotorinfo.angle;
 
     pspid->tar = papid->output;
     pspid->cur = robinfo.cur.pitspeed;
-    
+
     calc_mot_aspid(papid, pspid, mi);
-    pspid->output -= (500 * asin(robinfo.cur.pitangle + 5.f));
-    pspid->output = -pspid->output;
+    double Gangle=robinfo.cur.pitangle + 5.f;
+    pspid->output -= (500 * sin(Gangle));
+    pspid->output = -pspid->output+yawspid.cur*100;
 }
 
 void clac_yawmot_aspid(PID_regulator *yapid,
