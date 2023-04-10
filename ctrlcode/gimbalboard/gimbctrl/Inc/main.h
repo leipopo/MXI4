@@ -58,7 +58,9 @@ extern "C" {
 #include "shoottask.h"
 #include "tim.h"
 #include "init.h"
-
+#include "nuc.h"
+#include "dma_bsp.h"
+#include "usart.h"
 
 
 
