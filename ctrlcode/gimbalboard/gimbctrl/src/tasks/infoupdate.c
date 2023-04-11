@@ -9,6 +9,12 @@ void get_comuinfo_imu(ComuInfo *ci)
     ci->tx_imu.pitspeed = radps2rpm(INS_gyro[1]);
 }
 
+void get_comuinfo_cv(ComuInfo *ci)
+{
+    ci->tx_cv.yawangle = NUC_data.yaw;
+    ci->tx_cv.pitangle = NUC_data.pitch;
+}
+
 void infoupdate()
 {
     for (;;)

@@ -9,6 +9,9 @@
 #define yawspeedconst 50.f
 #define pitspeedconst 25.f
 
+// #define yawspeedconst 20.f
+// #define pitspeedconst 10.f
+
 #define movespeed 450.f
 #define spinningspeed 450.f
 

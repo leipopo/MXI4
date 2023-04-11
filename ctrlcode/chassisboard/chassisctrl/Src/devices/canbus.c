@@ -46,22 +46,22 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
         {
             can2devsta = can_probe(capsid, can2_idlist);
         }
-        else if (rx_header.StdId == gimbboardid_imuangle)
+        else if (rx_header.StdId == gimbboardid_angle)
         {
             HAL_IWDG_Refresh(&hiwdg);
-            canrx2comuinfo_rximuangle(rx_data,&comuinfo);
-            can2devsta = can_probe(gimbboardid_imuangle, can2_idlist);
+            canrx2comuinfo_rxangle(rx_data,&comuinfo);
+            can2devsta = can_probe(gimbboardid_angle, can2_idlist);
         }
         // else if (rx_header.StdId == gimbboardid_imuspeed)
         // {
         //     canrx2comuinfo_rximuspeed(rx_data,&comuinfo);
         //     can2devsta = can_probe(gimbboardid_imuspeed, can2_idlist);
         // }
-        else if (rx_header.StdId == gimbboardid_cv)
-        {
+        // else if (rx_header.StdId == gimbboardid_cv)
+        // {
             
-            canrx2comuinfo_rxcv(rx_data,&comuinfo);
-            can2devsta = can_probe(gimbboardid_cv, can2_idlist);
-        }
+        //     canrx2comuinfo_rxcv(rx_data,&comuinfo);
+        //     can2devsta = can_probe(gimbboardid_cv, can2_idlist);
+        // }
     }
 }

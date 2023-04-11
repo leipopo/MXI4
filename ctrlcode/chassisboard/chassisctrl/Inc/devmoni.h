@@ -17,16 +17,16 @@
             0x00000000                \
     }
 
-#define can2idlist           \
-    {                        \
-        capsid,              \
-            gimbboardid_imuangle, \
-            gimbboardid_imuspeed,  \
-            gimbboardid_cv,      \
-            0x00000000,      \
-            0x00000000,      \
-            0x00000000,      \
-            0x00000000       \
+#define can2idlist             \
+    {                          \
+        capsid,                \
+            gimbboardid_angle, \
+            gimbboardid_speed, \
+            gimbboardid_cv,    \
+            0x00000000,        \
+            0x00000000,        \
+            0x00000000,        \
+            0x00000000         \
     }
 
 extern uint32_t can1_idlist[8], can2_idlist[8];

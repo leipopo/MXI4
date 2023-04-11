@@ -13,4 +13,6 @@ typedef struct
 
 } NUC_DATA;
 
+extern NUC_DATA NUC_data;
+
 #endif // !NUC_H

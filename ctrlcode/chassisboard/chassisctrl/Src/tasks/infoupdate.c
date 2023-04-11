@@ -130,8 +130,8 @@ void get_chastarspeed_rc(RobInfo *ri)
 void get_gimbtarangle_cv(RobInfo *ri)
 {
 
-    ri->tar.yawangle += comuinfo.rx_cv.yawangle;
-    ri->tar.pitangle += comuinfo.rx_cv.pitangle;
+    ri->tar.yawangle += numcircle(180.f,-180.f, comuinfo.rx_cv.yawangle*robinfo.comd.cvon);
+    ri->tar.pitangle += comuinfo.rx_cv.pitangle*robinfo.comd.cvon;
     ri->tar.pitangle = LIMIT(ri->tar.pitangle, pit.setup.angle_limit[0], pit.setup.angle_limit[1]);
 }
 
