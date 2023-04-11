@@ -22,7 +22,7 @@ void devmoni()
     {
         if (can1devsta == 0xff && can2devsta == 0x06 && RC_ON == 0x01)
         {
-            // HAL_IWDG_Refresh(&hiwdg);
+            HAL_IWDG_Refresh(&hiwdg);
             zerostate(can1devsta);
             zerostate(can2devsta);
             RC_ON = 0x00;

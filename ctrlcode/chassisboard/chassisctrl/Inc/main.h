@@ -59,6 +59,7 @@ extern "C" {
 #include "protocol.h"
 #include "infoupdate.h"
 #include "flash_bsp.h"
+#include "iwdg.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/

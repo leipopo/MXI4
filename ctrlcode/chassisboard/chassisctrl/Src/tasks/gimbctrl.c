@@ -59,7 +59,7 @@ void init_gimbmot_pid(PID_regulator *papid,
     pspid->componentKdMax = 2000;
 
     yspid->kp = 150;
-    yspid->ki = 0.0025;
+    yspid->ki = 0.00025;
     yspid->kd = 10;
     yspid->outputMax = yaw.setup.current_value_limit;
     yspid->componentKpMax = 20000;
@@ -96,12 +96,14 @@ void clac_yawmot_aspid(PID_regulator *yapid,
     calc_mot_aspid(yapid, yspid, mi);
     if (yspid->output > 0.f)
     {
-        yspid->output += 2000.f;
+        yspid->output += 3000.f;
     }
     else if (yspid->output < -0.f)
     {
-        yspid->output -= 2000.f;
+        yspid->output -= 3000.f;
     }
+    yspid->output += robinfo.tar.zspeed*100.f;
+    //yspid->output +=robinfo.cur.zrelspeed*100.f;
 }
 
 int16_t can1_mes20x1ff[4];

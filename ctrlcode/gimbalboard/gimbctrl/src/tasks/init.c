@@ -7,6 +7,8 @@ void chasmotinit()
 
 void devinit()
 {
+    NUC_INIT();
+    HAL_Delay(50);
     can_filter_init();
     HAL_Delay(50);
     HAL_TIM_PWM_Start(&htim8, TIM_CHANNEL_3);

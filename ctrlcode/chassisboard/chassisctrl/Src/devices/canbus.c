@@ -48,6 +48,7 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
         }
         else if (rx_header.StdId == gimbboardid_imuangle)
         {
+            HAL_IWDG_Refresh(&hiwdg);
             canrx2comuinfo_rximuangle(rx_data,&comuinfo);
             can2devsta = can_probe(gimbboardid_imuangle, can2_idlist);
         }
@@ -58,6 +59,7 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
         // }
         else if (rx_header.StdId == gimbboardid_cv)
         {
+            
             canrx2comuinfo_rxcv(rx_data,&comuinfo);
             can2devsta = can_probe(gimbboardid_cv, can2_idlist);
         }
