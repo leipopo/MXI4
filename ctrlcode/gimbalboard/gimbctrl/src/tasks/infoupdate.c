@@ -19,6 +19,7 @@ void infoupdate()
 {
     for (;;)
     {
+        get_comuinfo_cv(&comuinfo[0]);
         get_comuinfo_imu(&comuinfo[0]);
         osDelayUntil(infotaskperi);
     }

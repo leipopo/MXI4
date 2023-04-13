@@ -18,7 +18,7 @@ void init_gimbmot_para(MotorInfo *pi, MotorInfo *yi)
     uint8_t yawinstallangle_fromflash[2];
     flash_read(ADDR_FLASH_SECTOR_11, (uint32_t *)yawinstallangle_fromflash, (2 + 3) / 4);
     yi->setup.installationangle = (int16_t)(yawinstallangle_fromflash[0] << 8 | yawinstallangle_fromflash[1]);
-    yi->setup.outcirclerate = 3;
+    yi->setup.outcirclerate = 5;
 
     *pi = motparainit(gm6020);
     pi->setup.motid = pitmotid;
@@ -58,12 +58,12 @@ void init_gimbmot_pid(PID_regulator *papid,
     pspid->componentKiMax = 4000;
     pspid->componentKdMax = 2000;
 
-    yspid->kp = 150;
-    yspid->ki = 0.00025;
-    yspid->kd = 10;
+    yspid->kp = 200;
+    yspid->ki = 0.0025;
+    yspid->kd = 50;
     yspid->outputMax = yaw.setup.current_value_limit;
     yspid->componentKpMax = 15000;
-    yspid->componentKiMax = 5000;
+    yspid->componentKiMax = 10000;
     yspid->componentKdMax = yspid->outputMax;
 }
 
@@ -96,11 +96,11 @@ void clac_yawmot_aspid(PID_regulator *yapid,
     calc_mot_aspid(yapid, yspid, mi);
     if (yspid->output > 0.f)
     {
-        yspid->output += 4000.f;
+        yspid->output += 2000.f;
     }
     else if (yspid->output < -0.f)
     {
-        yspid->output -= 4000.f;
+        yspid->output -= 2000.f;
     }
     yspid->output += robinfo.tar.zspeed*100.f;
     //yspid->output +=robinfo.cur.zrelspeed*100.f;
