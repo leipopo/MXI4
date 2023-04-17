@@ -20,6 +20,8 @@ void devinit()
     }
     can_filter_init();
     HAL_Delay(50);
+    REF_INIT();
+    HAL_Delay(50);
 }
 
 void userinit()

@@ -20,7 +20,7 @@ void canrx2comuinfo_rxangle(uint8_t rx[8], ComuInfo *ci)
 {
     float temp[4] = {0.f, 0.f, 0.f, 0.f};
     temp[0] = (int16_t)(rx[0] << 8 | rx[1]);
-    temp[1] = (int16_t)(rx[2] << 8 | rx[3]);
+    temp[1] = -(int16_t)(rx[2] << 8 | rx[3]);
     temp[2] = (int16_t)(rx[4] << 8 | rx[5]);
     temp[3] = (int16_t)(rx[6] << 8 | rx[7]);
 

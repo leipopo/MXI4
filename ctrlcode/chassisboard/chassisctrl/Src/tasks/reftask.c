@@ -151,10 +151,80 @@ void referee_unpack_fifo_data(void)
     }
 }
 
-void REF_INIT(void)
-{
-    DMA_RX_INIT(&huart3, &hdma_usart3_rx, ref_buf[0], ref_buf[1], REF_RX_BUF_LENGHT);
-}
+// void REF_INIT(void)
+// {
+//         //enable the DMA transfer for the receiver and tramsmit request
+//     //Ê¹ÄÜDMA´®¿Ú½ÓÊÕºÍ·¢ËÍ
+//     SET_BIT(huart6.Instance->CR3, USART_CR3_DMAR);
+//     SET_BIT(huart6.Instance->CR3, USART_CR3_DMAT);
+
+//     //enalbe idle interrupt
+//     //Ê¹ÄÜ¿ÕÏÐÖÐ¶Ï
+//     __HAL_UART_ENABLE_IT(&huart6, UART_IT_IDLE);
+
+
+
+//     //disable DMA
+//     //Ê§Ð§DMA
+//     __HAL_DMA_DISABLE(&hdma_usart6_rx);
+    
+//     while(hdma_usart6_rx.Instance->CR & DMA_SxCR_EN)
+//     {
+//         __HAL_DMA_DISABLE(&hdma_usart6_rx);
+//     }
+
+//     __HAL_DMA_CLEAR_FLAG(&hdma_usart6_rx, DMA_LISR_TCIF1);
+
+//     hdma_usart6_rx.Instance->PAR = (uint32_t) & (USART6->DR);
+//     //memory buffer 1
+//     //ÄÚ´æ»º³åÇø1
+//     hdma_usart6_rx.Instance->M0AR = (uint32_t)(rx1_buf);
+//     //memory buffer 2
+//     //ÄÚ´æ»º³åÇø2
+//     hdma_usart6_rx.Instance->M1AR = (uint32_t)(rx2_buf);
+//     //data length
+//     //Êý¾Ý³¤¶È
+//     __HAL_DMA_SET_COUNTER(&hdma_usart6_rx, dma_buf_num);
+
+//     //enable double memory buffer
+//     //Ê¹ÄÜË«»º³åÇø
+//     SET_BIT(hdma_usart6_rx.Instance->CR, DMA_SxCR_DBM);
+
+//     //enable DMA
+//     //Ê¹ÄÜDMA
+//     __HAL_DMA_ENABLE(&hdma_usart6_rx);
+
+
+//     //disable DMA
+//     //Ê§Ð§DMA
+//     __HAL_DMA_DISABLE(&hdma_usart6_tx);
+
+//     while(hdma_usart6_tx.Instance->CR & DMA_SxCR_EN)
+//     {
+//         __HAL_DMA_DISABLE(&hdma_usart6_tx);
+//     }
+
+//     hdma_usart6_tx.Instance->PAR = (uint32_t) & (USART6->DR);
+// }
+
+// void usart6_tx_dma_enable(uint8_t *data, uint16_t len)
+// {
+//     //disable DMA
+//     //Ê§Ð§DMA
+//     __HAL_DMA_DISABLE(&hdma_usart6_tx);
+
+//     while(hdma_usart6_tx.Instance->CR & DMA_SxCR_EN)
+//     {
+//         __HAL_DMA_DISABLE(&hdma_usart6_tx);
+//     }
+
+//     __HAL_DMA_CLEAR_FLAG(&hdma_usart6_tx, DMA_HISR_TCIF6);
+
+//     hdma_usart6_tx.Instance->M0AR = (uint32_t)(data);
+//     __HAL_DMA_SET_COUNTER(&hdma_usart6_tx, len);
+
+//     __HAL_DMA_ENABLE(&hdma_usart6_tx);
+// }
 
 void USART3_IRQHandler(void)
 {
