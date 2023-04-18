@@ -61,6 +61,7 @@ extern "C" {
 #include "nuc.h"
 #include "dma_bsp.h"
 #include "usart.h"
+#include "iwdg.h"
 
 
 

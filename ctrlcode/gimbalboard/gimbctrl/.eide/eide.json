@@ -32,6 +32,9 @@
                 "path": "Src/i2c.c"
               },
               {
+                "path": "src/iwdg.c"
+              },
+              {
                 "path": "Src/main.c"
               },
               {
@@ -199,6 +202,9 @@
                 "path": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c"
               },
               {
+                "path": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_iwdg.c"
+              },
+              {
                 "path": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c"
               },
               {
@@ -282,7 +288,9 @@
   },
   "targets": {
     "gimbctrl": {
-      "excludeList": [],
+      "excludeList": [
+        "<virtual_root>/Application/User/system_stm32f4xx.c"
+      ],
       "toolchain": "GCC",
       "compileConfig": {
         "cpuType": "Cortex-M4",

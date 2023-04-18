@@ -1,5 +1,7 @@
 #include "main.h"
 
+uint8_t CAN_READY=0;
+
 void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 {
     CAN_RxHeaderTypeDef rx_header;
@@ -51,6 +53,7 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
             HAL_IWDG_Refresh(&hiwdg);
             canrx2comuinfo_rxangle(rx_data,&comuinfo);
             can2devsta = can_probe(gimbboardid_angle, can2_idlist);
+            CAN_READY=1;
         }
         // else if (rx_header.StdId == gimbboardid_imuspeed)
         // {
