@@ -46,6 +46,7 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
     {
         if (rx_header.StdId == capsid)
         {
+            canrx2capsinfo(rx_data, &capsinfo);
             can2devsta = can_probe(capsid, can2_idlist);
         }
         else if (rx_header.StdId == gimbboardid_angle)
