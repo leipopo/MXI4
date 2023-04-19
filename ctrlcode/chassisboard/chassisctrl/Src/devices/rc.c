@@ -76,22 +76,20 @@ void USART1_IRQHandler(void)
         if ((hdma_usart1_rx.Instance->CR & DMA_SxCR_CT) == RESET)
         {
             hdma_usart1_rx.Instance->CR |= DMA_SxCR_CT;
-            __HAL_DMA_ENABLE(&hdma_usart1_rx);
             if (this_time_rx_len == RC_FRAME_LENGTH)
             {
                 RC_RX_Decoder(sbus_rx_buf[0], &RC_Data, &Key);
             }
+            __HAL_DMA_ENABLE(&hdma_usart1_rx);
         }
         else
         {
             DMA2_Stream2->CR &= ~(DMA_SxCR_CT);
-            __HAL_DMA_ENABLE(&hdma_usart1_rx);
             if (this_time_rx_len == RC_FRAME_LENGTH)
             {
                 RC_RX_Decoder(sbus_rx_buf[1], &RC_Data, &Key);
             }
+            __HAL_DMA_ENABLE(&hdma_usart1_rx);
         }
     }
 }
-
-
