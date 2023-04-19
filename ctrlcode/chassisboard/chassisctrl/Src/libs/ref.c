@@ -11,8 +11,8 @@ ext_game_robot_HP_t game_robot_HP_t;
 
 ext_event_data_t field_event;
 ext_supply_projectile_action_t supply_projectile_action_t;
-ext_supply_projectile_booking_t supply_projectile_booking_t;
-ext_referee_warning_t referee_warning_t;
+// ext_supply_projectile_booking_t supply_projectile_booking_t;
+// ext_referee_warning_t referee_warning_t;
 
 ext_game_robot_state_t robot_state;
 ext_power_heat_data_t power_heat_data_t;
@@ -35,8 +35,8 @@ void init_referee_struct_data(void)
 
     memset(&field_event, 0, sizeof(ext_event_data_t));
     memset(&supply_projectile_action_t, 0, sizeof(ext_supply_projectile_action_t));
-    memset(&supply_projectile_booking_t, 0, sizeof(ext_supply_projectile_booking_t));
-    memset(&referee_warning_t, 0, sizeof(ext_referee_warning_t));
+    // memset(&supply_projectile_booking_t, 0, sizeof(ext_supply_projectile_booking_t));
+    // memset(&referee_warning_t, 0, sizeof(ext_referee_warning_t));
 
     memset(&robot_state, 0, sizeof(ext_game_robot_state_t));
     memset(&power_heat_data_t, 0, sizeof(ext_power_heat_data_t));
@@ -91,15 +91,15 @@ void referee_data_solve(uint8_t *frame)
         memcpy(&supply_projectile_action_t, frame + index, sizeof(supply_projectile_action_t));
     }
     break;
-    case SUPPLY_PROJECTILE_BOOKING_CMD_ID:
-    {
-        memcpy(&supply_projectile_booking_t, frame + index, sizeof(supply_projectile_booking_t));
-    }
+    // case SUPPLY_PROJECTILE_BOOKING_CMD_ID:
+    // {
+    //     memcpy(&supply_projectile_booking_t, frame + index, sizeof(supply_projectile_booking_t));
+    // }
     break;
-    case REFEREE_WARNING_CMD_ID:
-    {
-        memcpy(&referee_warning_t, frame + index, sizeof(ext_referee_warning_t));
-    }
+    // case REFEREE_WARNING_CMD_ID:
+    // {
+    //     memcpy(&referee_warning_t, frame + index, sizeof(ext_referee_warning_t));
+    // }
     break;
 
     case ROBOT_STATE_CMD_ID:
