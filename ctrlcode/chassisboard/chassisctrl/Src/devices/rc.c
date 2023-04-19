@@ -65,7 +65,7 @@ void USART1_IRQHandler(void)
 {
     if (huart1.Instance->SR & UART_FLAG_RXNE)
     {
-        __HAL_UART_CLEAR_IDLEFLAG(&huart1);
+        __HAL_UART_CLEAR_PEFLAG(&huart1);
     }
     else if (huart1.Instance->SR & UART_FLAG_IDLE)
     {

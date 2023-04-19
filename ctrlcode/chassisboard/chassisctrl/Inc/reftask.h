@@ -18,8 +18,8 @@
 #define REFEREE_USART_TASK_H
 void REF_INIT(void);
 
-#define REF_RX_BUF_LENGHT 512
-#define REFEREE_FIFO_BUF_LENGTH 1024
+#define REF_RX_BUF_LENGHT 48
+#define REFEREE_FIFO_BUF_LENGTH 96
 
 /**
  * @brief          referee task
