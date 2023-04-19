@@ -106,18 +106,18 @@ void clac_yawmot_aspid(PID_regulator *yapid,
     //yspid->output +=robinfo.cur.zrelspeed*100.f;
 }
 
-int16_t can1_mes20x1ff[4];
+int16_t can1_mes20x2ff[4];
 void pack_pymot_ctrlmes(int16_t mes[4])
 {
     if (robinfo.comd.moton == 0x01)
     {
-        mes[0] = yawspid.output;
-        mes[1] = pitspid.output;
+        mes[1] = yawspid.output;
+        mes[2] = pitspid.output;
     }
     else
     {
-        mes[0] = 0x0000;
         mes[1] = 0x0000;
+        mes[2] = 0x0000;
     }
 }
 
@@ -128,14 +128,14 @@ void gimbctrl()
     {
         clac_yawmot_aspid(&yawapid, &yawspid, &yaw);
         clac_pitmot_aspid(&pitapid, &pitspid, &pit);
-        pack_pymot_ctrlmes(can1_mes20x1ff);
+        pack_pymot_ctrlmes(can1_mes20x2ff);
         if (robinfo.comd.moton)
         {
-            CAN_send(0x1ff, hcan1, can1_mes20x1ff);
+            CAN_send(0x2ff, hcan1, can1_mes20x2ff);
         }
         else
         {
-            CAN_send(0x1ff, hcan1, zeromes);
+            CAN_send(0x2ff, hcan1, zeromes);
         }
 
         osDelayUntil(mottaskperi);

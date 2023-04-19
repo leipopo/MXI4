@@ -79,7 +79,14 @@ void get_comd_rc(RobInfo *ri)
 
     if ((RC_Data.mouse.press_l == 0x01) || (RC_Data.rc.s[0] == 3 && RC_Data.rc.s[1] == 2))
     {
-        ri->comd.triggeron = 0x01;
+        if (robinfo.cur.heat0 < robinfo.lim.heat0_limit)
+        {
+            ri->comd.triggeron = 0x01;
+        }
+        else
+        {
+            ri->comd.triggeron = 0x00;
+        }
         ri->comd.fricwheelon = 0x01;
     }
     else
@@ -137,8 +144,8 @@ void get_gimbtarangle_cv(RobInfo *ri)
 
 void get_gimbtarangle_rc(RobInfo *ri)
 {
-    ri->tar.yawangle += (-rcchannel_normalize(RC_Data.rc.ch[0]) + mousespeed_normalize(RC_Data.mouse.x)) / fre(infotaskperi) * yawspeedconst;
-    ri->tar.pitangle += (rcchannel_normalize(RC_Data.rc.ch[1]) + mousespeed_normalize(RC_Data.mouse.y)) / fre(infotaskperi) * pitspeedconst;
+    ri->tar.yawangle += (-rcchannel_normalize(RC_Data.rc.ch[0]) + RC_Data.mouse.x) / fre(infotaskperi) * yawspeedconst;
+    ri->tar.pitangle += (rcchannel_normalize(RC_Data.rc.ch[1]) + RC_Data.mouse.y) / fre(infotaskperi) * pitspeedconst;
     ri->tar.yawangle = numcircle(180.f, -180.f, ri->tar.yawangle);
     ri->tar.pitangle = LIMIT(ri->tar.pitangle, pit.setup.angle_limit[0], pit.setup.angle_limit[1]);
 }

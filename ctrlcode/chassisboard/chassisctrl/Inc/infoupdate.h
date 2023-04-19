@@ -12,9 +12,6 @@
 // #define yawspeedconst 20.f
 // #define pitspeedconst 10.f
 
-#define movespeed 300.f
-#define spinningspeed 200.f
-
 typedef struct COMD
 {
     uint8_t fricwheelon; // 0x01 on

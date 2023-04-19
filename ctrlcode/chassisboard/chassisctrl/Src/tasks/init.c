@@ -26,6 +26,9 @@ void devinit()
 
     REF_INIT();
     HAL_Delay(50);
+
+    REF_INIT();
+    HAL_Delay(50);
 }
 
 void userinit()

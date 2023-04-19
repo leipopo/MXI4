@@ -153,133 +153,42 @@ void referee_unpack_fifo_data(void)
 
 void REF_INIT(void)
 {
-    // enable the DMA transfer for the receiver and tramsmit request
-    huart3.Instance->CR3 |= USART_CR3_DMAR;
-    huart3.Instance->CR3 |= USART_CR3_DMAT;
-
-    //     //enalbe idle interrupt
-    __HAL_UART_ENABLE_IT(&huart3, UART_IT_IDLE);
-
-    //     //disable DMA
-    __HAL_DMA_DISABLE(&hdma_usart3_rx);
-    while (hdma_usart3_rx.Instance->CR & DMA_SxCR_EN)
-    {
-        __HAL_DMA_DISABLE(&hdma_usart3_rx);
-    }
-
-    __HAL_DMA_CLEAR_FLAG(&hdma_usart3_rx, DMA_LISR_TCIF1);
-
-    hdma_usart3_rx.Instance->PAR = (uint32_t) & (USART3->DR);
-    //     //memory buffer 1
-    hdma_usart3_rx.Instance->M0AR = (uint32_t)(ref_buf[0]);
-    // memory buffer 2
-    hdma_usart3_rx.Instance->M1AR = (uint32_t)(ref_buf[1]);
-    //     //data length
-    __HAL_DMA_SET_COUNTER(&hdma_usart3_rx, REF_RX_BUF_LENGHT);
-
-    // enable double memory buffer
-    SET_BIT(hdma_usart3_rx.Instance->CR, DMA_SxCR_DBM);
-
-    // enable DMA
-    __HAL_DMA_ENABLE(&hdma_usart3_rx);
-
-
-    //使能发送
-    // __HAL_DMA_DISABLE(&hdma_usart3_tx);
-
-    // while(hdma_usart3_tx.Instance->CR & DMA_SxCR_EN)
-    // {
-    //     __HAL_DMA_DISABLE(&hdma_usart3_tx);
-    // }
-
-    // __HAL_DMA_CLEAR_FLAG(&hdma_usart3_tx, DMA_LISR_TCIF3);
-
-    // hdma_usart3_tx.Instance->M0AR = (uint32_t)(data);
-    // __HAL_DMA_SET_COUNTER(&hdma_usart3_tx, len);
-
-    // __HAL_DMA_ENABLE(&hdma_usart3_tx);
+    DMA_RX_INIT(&huart3, &hdma_usart3_rx, ref_buf[0], ref_buf[1], REF_RX_BUF_LENGHT);
 }
-
-// void usart6_tx_dma_enable(uint8_t *data, uint16_t len)
-// {
-//     //disable DMA
-//     //Ê§Ð§DMA
-//     __HAL_DMA_DISABLE(&hdma_usart6_tx);
-
-//     while(hdma_usart6_tx.Instance->CR & DMA_SxCR_EN)
-//     {
-//         __HAL_DMA_DISABLE(&hdma_usart6_tx);
-//     }
-
-//     __HAL_DMA_CLEAR_FLAG(&hdma_usart6_tx, DMA_HISR_TCIF6);
-
-//     hdma_usart6_tx.Instance->M0AR = (uint32_t)(data);
-//     __HAL_DMA_SET_COUNTER(&hdma_usart6_tx, len);
-
-//     __HAL_DMA_ENABLE(&hdma_usart6_tx);
-// }
 
 void USART3_IRQHandler(void)
 {
-    // static volatile uint8_t res;
-    if (USART3->SR & UART_FLAG_IDLE)
+
+    if (huart3.Instance->SR & UART_FLAG_RXNE)
     {
         __HAL_UART_CLEAR_PEFLAG(&huart3);
-
+    }
+    else if (huart3.Instance->SR & UART_FLAG_IDLE)
+    {
         static uint16_t this_time_rx_len = 0;
-
-        if ((huart3.hdmarx->Instance->CR & DMA_SxCR_CT) == RESET)
+        __HAL_UART_CLEAR_PEFLAG(&huart3);
+        this_time_rx_len = REF_RX_BUF_LENGHT - hdma_usart3_rx.Instance->NDTR;
+        hdma_usart3_rx.Instance->NDTR = REF_RX_BUF_LENGHT;
+        if ((hdma_usart3_rx.Instance->CR & DMA_SxCR_CT) == RESET)
         {
-            __HAL_DMA_DISABLE(huart3.hdmarx);
-            this_time_rx_len = REF_RX_BUF_LENGHT - __HAL_DMA_GET_COUNTER(huart3.hdmarx);
-            __HAL_DMA_SET_COUNTER(huart3.hdmarx, REF_RX_BUF_LENGHT);
-            huart3.hdmarx->Instance->CR |= DMA_SxCR_CT;
-            __HAL_DMA_ENABLE(huart3.hdmarx);
+            hdma_usart3_rx.Instance->CR |= DMA_SxCR_CT;
             fifo_s_puts(&referee_fifo, (char *)ref_buf[0], this_time_rx_len);
-            // detect_hook(REFEREE_TOE);
+            __HAL_DMA_ENABLE(&hdma_usart3_rx);
         }
         else
         {
-            __HAL_DMA_DISABLE(huart3.hdmarx);
-            this_time_rx_len = REF_RX_BUF_LENGHT - __HAL_DMA_GET_COUNTER(huart3.hdmarx);
-            __HAL_DMA_SET_COUNTER(huart3.hdmarx, REF_RX_BUF_LENGHT);
-            huart3.hdmarx->Instance->CR &= ~(DMA_SxCR_CT);
-            __HAL_DMA_ENABLE(huart3.hdmarx);
+            DMA1_Stream1->CR &= ~(DMA_SxCR_CT);
             fifo_s_puts(&referee_fifo, (char *)ref_buf[1], this_time_rx_len);
-            // detect_hook(REFEREE_TOE);
+            __HAL_DMA_ENABLE(&hdma_usart3_rx);
         }
     }
 }
-
-/**
- * @brief          referee task
- * @param[in]      pvParameters: NULL
- * @retval         none
- */
-/**
- * @brief          ²ÃÅÐÏµÍ³ÈÎÎñ
- * @param[in]      pvParameters: NULL
- * @retval         none
- */
-// void refread(void const *argument)
-// {
-//     init_referee_struct_data();
-//     fifo_s_init(&referee_fifo, referee_fifo_buf, REFEREE_FIFO_BUF_LENGTH);
-//     // usart6_init(usart6_buf[0], usart6_buf[1], USART_RX_BUF_LENGHT);
-//     REF_INIT();
-//     while (1)
-//     {
-
-//         osDelay(10);
-//     }
-// }
 
 void reftask()
 {
     init_referee_struct_data();
     fifo_s_init(&referee_fifo, referee_fifo_buf, REFEREE_FIFO_BUF_LENGTH);
     // usart6_init(usart6_buf[0], usart6_buf[1], USART_RX_BUF_LENGHT);
-    REF_INIT();
     for (;;)
     {
         referee_unpack_fifo_data();

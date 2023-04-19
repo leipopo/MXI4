@@ -35,6 +35,7 @@ typedef struct // 0001
     uint8_t game_type : 4;
     uint8_t game_progress : 4;
     uint16_t stage_remain_time;
+    uint64_t SyncTimeStamp;
 } __attribute__((packed)) ext_game_state_t;
 
 typedef struct // 0002
@@ -50,6 +51,7 @@ typedef struct
     uint16_t red_4_robot_HP;
     uint16_t red_5_robot_HP;
     uint16_t red_7_robot_HP;
+    uint16_t red_outpost_HP;
     uint16_t red_base_HP;
     uint16_t blue_1_robot_HP;
     uint16_t blue_2_robot_HP;
@@ -57,6 +59,7 @@ typedef struct
     uint16_t blue_4_robot_HP;
     uint16_t blue_5_robot_HP;
     uint16_t blue_7_robot_HP;
+    uint16_t blue_outpost_HP;
     uint16_t blue_base_HP;
 } __attribute__((packed)) ext_game_robot_HP_t;
 
@@ -73,18 +76,22 @@ typedef struct // 0x0102
     uint8_t supply_projectile_num;
 } __attribute__((packed)) ext_supply_projectile_action_t;
 
-typedef struct // 0x0103
-{
-    uint8_t supply_projectile_id;
-    uint8_t supply_robot_id;
-    uint8_t supply_num;
-} __attribute__((packed)) ext_supply_projectile_booking_t;
+// typedef struct // 0x0103
+// {
+//     uint8_t supply_projectile_id;
+//     uint8_t supply_robot_id;
+//     uint8_t supply_num;
+// } __attribute__((packed)) ext_supply_projectile_booking_t;
 
-typedef struct
+typedef struct // 0x0105
 {
-    uint8_t level;
-    uint8_t foul_robot_id;
-} __attribute__((packed)) ext_referee_warning_t;
+    uint8_t dart_remaining_time;
+} __attribute__((packed)) ext_dart_remaining_time_t;
+// typedef struct
+// {
+//     uint8_t level;
+//     uint8_t foul_robot_id;
+// } __attribute__((packed)) ext_referee_warning_t;
 
 typedef struct // 0x0201
 {
@@ -133,7 +140,6 @@ typedef struct // 0x0204
 
 typedef struct // 0x0205
 {
-    uint8_t energy_point;
     uint8_t attack_time;
 } __attribute__((packed)) aerial_robot_energy_t;
 
@@ -146,13 +152,21 @@ typedef struct // 0x0206
 typedef struct // 0x0207
 {
     uint8_t bullet_type;
+    uint8_t shooter_id;
     uint8_t bullet_freq;
     float bullet_speed;
 } __attribute__((packed)) ext_shoot_data_t;
-typedef struct
+typedef struct // 0x0208
 {
-    uint8_t bullet_remaining_num;
+    uint16_t bullet_remaining_num_17mm;
+    uint16_t bullet_remaining_num_42mm;
+    uint16_t coin_remaining_num;
 } __attribute__((packed)) ext_bullet_remaining_t;
+
+typedef struct // 0x0209
+{
+    uint32_t rfid_status;
+} __attribute__((packed)) ext_rfid_status_t;
 typedef struct // 0x0301
 {
     uint16_t send_ID;

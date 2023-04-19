@@ -5,8 +5,8 @@
 #define fricmotid_2 0x00000202
 #define trigmotid 0x00000203
 
-#define yawmotid 0x00000205
-#define pitmotid 0x00000206
+#define yawmotid 0x0000020A
+#define pitmotid 0x0000020B
 #define wheid 0x00000201
 #define steid 0x00000205
 
