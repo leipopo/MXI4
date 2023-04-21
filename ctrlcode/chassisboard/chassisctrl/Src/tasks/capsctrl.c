@@ -34,7 +34,7 @@ void powerctrl(uint8_t motornum, PID_regulator whe[], float maxsumcurrentvalue)
     float sumcurrent = 0.f;
     for(uint8_t i=0;i<motornum;i++)
     {
-        sumcurrent += whe[i].output;
+        sumcurrent += fabsf(whe[i].output);
     }
     if(sumcurrent>maxsumcurrentvalue)
     {
