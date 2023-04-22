@@ -18,7 +18,7 @@ typedef struct COMD
     uint8_t triggeron;   // 0x01 on
     uint8_t magopen;     // 0x01 open
     uint8_t moton;       // 0x01 on
-    uint8_t cvon;        // 0x01 on 0x1x为打符
+    uint8_t cvon;        // 0x01 on 
     uint8_t spinning;    // 0x01 on
 } Comd;
 

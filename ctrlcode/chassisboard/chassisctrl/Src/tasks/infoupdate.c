@@ -94,28 +94,24 @@ void get_comd_rc(RobInfo *ri)
         ri->comd.triggeron = 0x00;
     }
 
+    if(Key.key_z == 0x01&&Last_Key.key_z == 0x00)
+    {
+        ri->comd.cvon = 0x01;
+    }
+    else if(Key.key_x == 0x01&&Last_Key.key_x == 0x00)
+    {
+        ri->comd.cvon = 0x08;
+    }
+
     if ((RC_Data.rc.s[0] == 2 && RC_Data.rc.s[1] == 1) || (RC_Data.mouse.press_r == 0x01))
     {
-        ri->comd.cvon |= 0x01;
+        ri->comd.cvon &= 0x0F;
     }
     else
     {
         ri->comd.cvon = ri->comd.cvon >> 4;
         ri->comd.cvon = ri->comd.cvon << 4;
     }
-
-    // if ((RC_Data.rc.s[0] == 2 && RC_Last_Data.rc.s[1] == 3 && RC_Data.rc.s[1] == 1)||
-    //     (Last_Key.key_z==0x00 && Key.key_z==0x01))
-    // {
-    //     if (ri->comd.cvon == 0x00)
-    //     {
-    //         ri->comd.cvon = 0x10;
-    //     }
-    //     else
-    //     {
-    //         ri->comd.cvon = 0x00;
-    //     }
-    // }
 
     if ((RC_Data.rc.s[0] == 2 && RC_Data.rc.s[1] == 2) || (Key.key_c == 0x01))
     {
@@ -125,6 +121,9 @@ void get_comd_rc(RobInfo *ri)
     {
         ri->comd.spinning = 0x00;
     }
+
+    
+
 }
 
 void get_chastarspeed_rc(RobInfo *ri)
@@ -140,6 +139,8 @@ void get_gimbtarangle_cv(RobInfo *ri)
     ri->tar.yawangle -= numcircle(180.f, -180.f, comuinfo.rx_cv.yawangle * robinfo.comd.cvon / fre(infotaskperi));
     ri->tar.pitangle += comuinfo.rx_cv.pitangle * robinfo.comd.cvon / fre(infotaskperi);
     ri->tar.pitangle = LIMIT(ri->tar.pitangle, pit.setup.angle_limit[0], pit.setup.angle_limit[1]);
+
+    HAL_UART_Transmit_IT(&huart1, (uint8_t *)&ri->comd.cvon, sizeof(ri->comd.cvon));
 }
 
 void get_gimbtarangle_rc(RobInfo *ri)
