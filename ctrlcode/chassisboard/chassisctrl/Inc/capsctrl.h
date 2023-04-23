@@ -1,8 +1,11 @@
 #ifndef CAPCTRL_H
 #define CAPCTRL_H
 
-#define deadcapsvoltage 3.0f
-#define slowdowncapsvoltage 10.f
+#define deadcapsvoltage 13.0f
+#define slowdowncapsvoltage 18.f
+#define chasumcurrentlimit_offset 0.5f
+#define safepowerbuff 10.f
+#define maxoutputpower 100.f
 typedef struct CAPSINFO
 {
     float inputvoltage;
@@ -11,7 +14,7 @@ typedef struct CAPSINFO
     float setpower;
 } CAPSInfo;
 
-float calcmaxsumcurrentvalue(CAPSInfo *ci);
+float calcmaxsumcurrentvalue(RobInfo *ri ,CAPSInfo *ci);
 
 void powerctrl(uint8_t motornum, PID_regulator whe[], float maxsumcurrentvalue);
 

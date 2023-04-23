@@ -27,9 +27,9 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
         yaw.setup.installationangle = (yawzeroangle[1] + yawzeroangle[0]) / 2;
         yawzeroangle[0] = 0;
     }
-    uint8_t yawinstallangle_toflash[2];
-    yawinstallangle_toflash[0] = (uint16_t)yaw.setup.installationangle >> 8;
-    yawinstallangle_toflash[1] = (uint16_t)yaw.setup.installationangle;
+    // uint8_t yawinstallangle_toflash[2];
+    // yawinstallangle_toflash[0] = (uint16_t)yaw.setup.installationangle >> 8;
+    // yawinstallangle_toflash[1] = (uint16_t)yaw.setup.installationangle;
     //flash_write_single_address(ADDR_FLASH_SECTOR_11, (uint32_t *)yawinstallangle_toflash, (2 + 3) / 4);
 }
 
@@ -47,6 +47,7 @@ void get_limits(RobInfo *ri)
     get_chassis_power_and_buffer(&ri->cur.chaspower, &ri->cur.powerbuffer, &ri->lim.chaspower_limit);
     get_shoot_heat0_limit_and_heat0(&ri->lim.heat0_limit, &ri->cur.heat0);
     // get_shoot_heat1_limit_and_heat0(ri->lim.heat1_limit,ri->cur.heat1);
+    
 }
 
 void get_comd_rc(RobInfo *ri)

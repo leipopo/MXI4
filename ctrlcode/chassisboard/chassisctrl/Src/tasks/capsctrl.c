@@ -1,46 +1,44 @@
 #include "main.h"
 
-CAPSInfo capsinfo;
+CAPSInfo capsinfo = {0, 0, 0, 0};
 
-float calcmaxsumcurrentvalue(CAPSInfo *ci)
+float calcmaxsumcurrentvalue(RobInfo *ri, CAPSInfo *ci)
 {
-    if(ci->capsvoltage>slowdowncapsvoltage)
+    float chasumcurrentlimit = 0.f;
+    if (ci->capsvoltage == 0.f)
     {
-
-        //功率优先策略
-        // if(robinfo.lim.chaspower_limit>40.f&&robinfo.lim.chaspower_limit<50.f)
-        //     return maxsumcurrentvalue_1;
-        // else if(robinfo.lim.chaspower_limit>=50.f&&robinfo.lim.chaspower_limit<55.f)
-        //     return maxsumcurrentvalue_2;
-        // else if (robinfo.lim.chaspower_limit>=55.f&&robinfo.lim.chaspower_limit<60.f)
-        // {
-        //     return maxsumcurrentvalue_3;
-        // }
-            
-        return maxsumcurrentvalue_3;
-    }
-    else if(ci->capsvoltage>deadcapsvoltage)
-    {
-        return (maxsumcurrentvalue_3-maxsumcurrentvalue_1)*(ci->capsvoltage-deadcapsvoltage)/(slowdowncapsvoltage-deadcapsvoltage)+maxsumcurrentvalue_1;
+        chasumcurrentlimit = (ri->lim.chaspower_limit + ri->cur.powerbuffer - 10.f) / 24.f + chasumcurrentlimit_offset;
     }
     else
     {
-        return maxsumcurrentvalue_1;
+        if (ci->capsvoltage <= deadcapsvoltage)
+        {
+            chasumcurrentlimit = ri->lim.chaspower_limit / ci->capsvoltage + chasumcurrentlimit_offset;
+        }
+        else if (ci->capsvoltage < slowdowncapsvoltage)
+        {
+            chasumcurrentlimit = ((maxoutputpower - ri->lim.chaspower_limit) * (ci->capsvoltage - deadcapsvoltage) / (slowdowncapsvoltage - deadcapsvoltage)+ ri->lim.chaspower_limit) / ci->capsvoltage + chasumcurrentlimit_offset;
+        }
+        else
+        {
+            chasumcurrentlimit = maxoutputpower / ci->capsvoltage + chasumcurrentlimit_offset;
+        }
     }
+    return chasumcurrentlimit / maxcurrent_3508 * maxcurrent_value_3508;
 }
 
 void powerctrl(uint8_t motornum, PID_regulator whe[], float maxsumcurrentvalue)
 {
-    float sumcurrent = 0.f;
-    for(uint8_t i=0;i<motornum;i++)
+    float sumcurrentvalue = 0.f;
+    for (uint8_t i = 0; i < motornum; i++)
     {
-        sumcurrent += fabsf(whe[i].output);
+        sumcurrentvalue += fabsf(whe[i].output);
     }
-    if(sumcurrent>maxsumcurrentvalue)
+    if (sumcurrentvalue > maxsumcurrentvalue)
     {
-        for(uint8_t i=0;i<motornum;i++)
+        for (uint8_t i = 0; i < motornum; i++)
         {
-            whe[i].output = whe[i].output / sumcurrent * maxsumcurrentvalue;
+            whe[i].output = whe[i].output / sumcurrentvalue * maxsumcurrentvalue;
         }
     }
 }
@@ -58,7 +56,7 @@ void capsctrl()
     for (;;)
     {
         int16_t mes[4];
-        capsinfo.setpower = fminf(120, robinfo.lim.chaspower_limit);
+        capsinfo.setpower = fminf(maxoutputpower, robinfo.lim.chaspower_limit + robinfo.cur.powerbuffer - safepowerbuff);
         mes[0] = (int16_t)(capsinfo.setpower * 100);
         CAN_send(0x210, hcan2, mes);
         osDelayUntil(capstaskperi);

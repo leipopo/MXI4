@@ -77,7 +77,7 @@ void chasctrl()
         xyzspeed2wheelspeed(whe);
         calc_whemot_spid(whespid);
         pack_whemot_ctrlmes(can1_mes20x200);
-        powerctrl(4,whespid,calcmaxsumcurrentvalue(&capsinfo));
+        powerctrl(4,whespid,calcmaxsumcurrentvalue(&robinfo, &capsinfo));
         if (robinfo.comd.moton)
         {
             CAN_send(0x200, hcan1, can1_mes20x200);
