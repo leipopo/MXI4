@@ -30,7 +30,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
     uint8_t yawinstallangle_toflash[2];
     yawinstallangle_toflash[0] = (uint16_t)yaw.setup.installationangle >> 8;
     yawinstallangle_toflash[1] = (uint16_t)yaw.setup.installationangle;
-    flash_write_single_address(ADDR_FLASH_SECTOR_11, (uint32_t *)yawinstallangle_toflash, (2 + 3) / 4);
+    //flash_write_single_address(ADDR_FLASH_SECTOR_11, (uint32_t *)yawinstallangle_toflash, (2 + 3) / 4);
 }
 
 void init_robinfo(RobInfo *ri)
