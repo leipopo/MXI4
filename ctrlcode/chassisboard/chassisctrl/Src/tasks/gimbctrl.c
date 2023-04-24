@@ -24,7 +24,7 @@ void init_gimbmot_para(MotorInfo *pi, MotorInfo *yi)
     pi->setup.motid = pitmotid;
     pi->setup.reductionratio = pitreductionratio;
     pi->setup.angle_limit[0] = -20.f;
-    pi->setup.angle_limit[1] = 36.f;
+    pi->setup.angle_limit[1] = 30.f;
     pi->setup.outcirclerate = 3;
     pi->setup.reversed = 0x01;
 }
@@ -58,9 +58,9 @@ void init_gimbmot_pid(PID_regulator *papid,
     pspid->componentKiMax = 4000;
     pspid->componentKdMax = 2000;
 
-    yspid->kp = 200;
-    yspid->ki = 0.0025;
-    yspid->kd = 50;
+    yspid->kp = 300;
+    yspid->ki = 0.005;
+    yspid->kd = 150;
     yspid->outputMax = yaw.setup.current_value_limit;
     yspid->componentKpMax = 15000;
     yspid->componentKiMax = 10000;

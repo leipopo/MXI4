@@ -24,32 +24,32 @@ void canrx2comuinfo_rxangle(uint8_t rx[8], ComuInfo *ci)
     temp[2] = (int16_t)(rx[4] << 8 | rx[5]);
     temp[3] = (int16_t)(rx[6] << 8 | rx[7]);
 
-    // if (ci->rx_imu.yawangle != 0)
-    // {
-    //     if (fabsf(numcircle(180.f, -180.f, ci->rx_imu.yawangle - temp[0] / 100.f)) < 15.f)
-    //     {
-    //         ci->rx_imu.yawangle = temp[0] / 100.f;
-    //     }
-    // }
-    // else
-    // {
-    //     ci->rx_imu.yawangle = temp[0] / 100.f;
-    // }
+    if (ci->rx_imu.yawangle != 0)
+    {
+        if (fabsf(numcircle(180.f, -180.f, ci->rx_imu.yawangle - temp[0] / 100.f)) < 15.f)
+        {
+            ci->rx_imu.yawangle = temp[0] / 100.f;
+        }
+    }
+    else
+    {
+        ci->rx_imu.yawangle = temp[0] / 100.f;
+    }
 
-    // if (ci->rx_imu.pitangle != 0)
-    // {
-    //     if (fabsf(numcircle(180.f, -180.f, ci->rx_imu.pitangle - temp[1] / 100.f)) < 15.f)
-    //     {
-    //         ci->rx_imu.pitangle = temp[1] / 100.f;
-    //     }
-    // }
-    // else
-    // {
-    //     ci->rx_imu.pitangle = temp[1] / 100.f;
-    // }
+    if (ci->rx_imu.pitangle != 0)
+    {
+        if (fabsf(numcircle(180.f, -180.f, ci->rx_imu.pitangle - temp[1] / 100.f)) < 15.f)
+        {
+            ci->rx_imu.pitangle = temp[1] / 100.f;
+        }
+    }
+    else
+    {
+        ci->rx_imu.pitangle = temp[1] / 100.f;
+    }
 
-    ci->rx_imu.yawangle = temp[0] / 100.f;
-    ci->rx_imu.pitangle = temp[1] / 100.f;
+    // ci->rx_imu.yawangle = temp[0] / 100.f;
+    // ci->rx_imu.pitangle = temp[1] / 100.f;
     ci->rx_cv.yawangle = temp[2] / 100.f;
     ci->rx_cv.pitangle = temp[3] / 100.f;
 }

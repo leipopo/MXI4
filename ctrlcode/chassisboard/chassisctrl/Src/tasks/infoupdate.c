@@ -141,7 +141,7 @@ void get_gimbtarangle_cv(RobInfo *ri)
     ri->tar.pitangle += comuinfo.rx_cv.pitangle * robinfo.comd.cvon / fre(infotaskperi);
     ri->tar.pitangle = LIMIT(ri->tar.pitangle, pit.setup.angle_limit[0], pit.setup.angle_limit[1]);
 
-    HAL_UART_Transmit_IT(&huart1, (uint8_t *)&ri->comd.cvon, sizeof(ri->comd.cvon));
+    //HAL_UART_Transmit_IT(&huart1, (uint8_t *)&ri->comd.cvon, sizeof(ri->comd.cvon));
 }
 
 void get_gimbtarangle_rc(RobInfo *ri)

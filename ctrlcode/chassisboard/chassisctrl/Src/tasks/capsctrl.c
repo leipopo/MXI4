@@ -5,19 +5,22 @@ CAPSInfo capsinfo = {0, 0, 0, 0};
 float calcmaxsumcurrentvalue(RobInfo *ri, CAPSInfo *ci)
 {
     float chasumcurrentlimit = 0.f;
+
+
     if (ci->capsvoltage == 0.f)
     {
-        chasumcurrentlimit = (ri->lim.chaspower_limit + ri->cur.powerbuffer - 10.f) / 24.f + chasumcurrentlimit_offset;
+
+        chasumcurrentlimit = (ri->lim.chaspower_limit + powerlimit_offset + (6.f*ri->cur.powerbuffer + safepowerbuff)) / 24.f + chasumcurrentlimit_offset;
     }
     else
     {
         if (ci->capsvoltage <= deadcapsvoltage)
         {
-            chasumcurrentlimit = ri->lim.chaspower_limit / ci->capsvoltage + chasumcurrentlimit_offset;
+            chasumcurrentlimit = (ri->lim.chaspower_limit + powerlimit_offset) / ci->capsvoltage + chasumcurrentlimit_offset;
         }
         else if (ci->capsvoltage < slowdowncapsvoltage)
         {
-            chasumcurrentlimit = ((maxoutputpower - ri->lim.chaspower_limit) * (ci->capsvoltage - deadcapsvoltage) / (slowdowncapsvoltage - deadcapsvoltage)+ ri->lim.chaspower_limit) / ci->capsvoltage + chasumcurrentlimit_offset;
+            chasumcurrentlimit = ((maxoutputpower - ri->lim.chaspower_limit) * (ci->capsvoltage - deadcapsvoltage) / (slowdowncapsvoltage - deadcapsvoltage) + ri->lim.chaspower_limit) / ci->capsvoltage + chasumcurrentlimit_offset;
         }
         else
         {

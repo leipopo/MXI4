@@ -4,8 +4,12 @@
 #define deadcapsvoltage 13.0f
 #define slowdowncapsvoltage 18.f
 #define chasumcurrentlimit_offset 0.5f
-#define safepowerbuff 10.f
+#define powerlimit_offset 0.f
+
+#define safepowerbuff 0.f
 #define maxoutputpower 100.f
+
+
 typedef struct CAPSINFO
 {
     float inputvoltage;
