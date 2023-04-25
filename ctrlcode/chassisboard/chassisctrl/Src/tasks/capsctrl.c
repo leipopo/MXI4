@@ -59,7 +59,7 @@ void capsctrl()
     for (;;)
     {
         int16_t mes[4];
-        capsinfo.setpower = fminf(maxoutputpower, robinfo.lim.chaspower_limit + robinfo.cur.powerbuffer - safepowerbuff);
+        capsinfo.setpower = fminf(maxoutputpower, (robinfo.lim.chaspower_limit + powerlimit_offset + (6.f*robinfo.cur.powerbuffer + safepowerbuff)) / 24.f + chasumcurrentlimit_offset);
         mes[0] = (int16_t)(capsinfo.setpower * 100);
         CAN_send(0x210, hcan2, mes);
         osDelayUntil(capstaskperi);
