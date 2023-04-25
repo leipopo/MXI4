@@ -137,8 +137,8 @@ void get_chastarspeed_rc(RobInfo *ri)
 void get_gimbtarangle_cv(RobInfo *ri)
 {
 
-    ri->tar.yawangle -= numcircle(180.f, -180.f, comuinfo.rx_cv.yawangle * robinfo.comd.cvon / fre(infotaskperi));
-    ri->tar.pitangle += comuinfo.rx_cv.pitangle * robinfo.comd.cvon / fre(infotaskperi);
+    ri->tar.yawangle -= numcircle(180.f, -180.f, comuinfo.rx_cv.yawangle * robinfo.comd.cvon / fre(infotaskperi))/expcvmovetime;
+    ri->tar.pitangle += comuinfo.rx_cv.pitangle * robinfo.comd.cvon / fre(infotaskperi)/expcvmovetime;
     ri->tar.pitangle = LIMIT(ri->tar.pitangle, pit.setup.angle_limit[0], pit.setup.angle_limit[1]);
 
     //HAL_UART_Transmit_IT(&huart1, (uint8_t *)&ri->comd.cvon, sizeof(ri->comd.cvon));
@@ -162,8 +162,8 @@ void get_gimbcurangle_mot(RobInfo *ri)
 {
     // 本来是有读角度的
 
-    ri->cur.yawspeed = yaw.curmotorinfo.speed * 0.3 + ri->cur.yawspeed * 0.7; // 低通一下
-    ri->cur.pitspeed = pit.curmotorinfo.speed * 0.3 + ri->cur.pitspeed * 0.7; // 低通一下
+    ri->cur.yawspeed = yaw.curmotorinfo.speed * 0.7 + ri->cur.yawspeed * 0.3; // 低通一下
+    ri->cur.pitspeed = pit.curmotorinfo.speed * 0.7 + ri->cur.pitspeed * 0.3; // 低通一下
 }
 
 void get_zrelangle(RobInfo *ri)

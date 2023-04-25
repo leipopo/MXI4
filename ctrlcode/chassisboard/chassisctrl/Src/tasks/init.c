@@ -18,17 +18,14 @@ void devinit()
         RC_INIT();
         HAL_Delay(50);
     }
+
+    REF_INIT();
+    HAL_Delay(50);
     while (CAN_READY == 0)
     {
         can_filter_init();
         HAL_Delay(50);
     }
-
-    REF_INIT();
-    HAL_Delay(50);
-
-    REF_INIT();
-    HAL_Delay(50);
 }
 
 void userinit()
@@ -37,5 +34,4 @@ void userinit()
     HAL_Delay(50);
     chasmotinit();
     HAL_Delay(50);
-    MX_IWDG_Init();
 }

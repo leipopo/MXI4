@@ -3,11 +3,13 @@
 
 #define deadcapsvoltage 13.0f
 #define slowdowncapsvoltage 18.f
-#define chasumcurrentlimit_offset 0.5f
+#define chasumcurrentlimit_offset 0.25f
 #define powerlimit_offset 0.f
 
 #define safepowerbuff 0.f
-#define maxoutputpower 100.f
+#define maxoutputpower 120.f
+
+#define exppowerpeaktime 0.15f
 
 
 typedef struct CAPSINFO

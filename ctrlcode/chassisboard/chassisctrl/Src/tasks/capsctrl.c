@@ -10,7 +10,7 @@ float calcmaxsumcurrentvalue(RobInfo *ri, CAPSInfo *ci)
     if (ci->capsvoltage == 0.f)
     {
 
-        chasumcurrentlimit = (ri->lim.chaspower_limit + powerlimit_offset + (6.f*ri->cur.powerbuffer + safepowerbuff)) / 24.f + chasumcurrentlimit_offset;
+        chasumcurrentlimit = (ri->lim.chaspower_limit + powerlimit_offset + (ri->cur.powerbuffer/0.2f + safepowerbuff)) / 24.f + chasumcurrentlimit_offset;
     }
     else
     {
