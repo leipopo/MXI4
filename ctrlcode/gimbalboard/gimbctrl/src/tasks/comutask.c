@@ -74,6 +74,7 @@ void comutask()
 {
     for (;;)
     {
+        HAL_IWDG_Refresh(&hiwdg);
 
         pack_mes2chas_angle(can2_mes2chas_angle);
         CAN_send(gimbboardid_angle, hcan2, can2_mes2chas_angle);

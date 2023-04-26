@@ -15,9 +15,10 @@ void init_gimbmot_para(MotorInfo *pi, MotorInfo *yi)
         yawinstallangle_toflash[1] = 0xbb; // test
         flash_write_single_address(ADDR_FLASH_SECTOR_11, (uint32_t *)yawinstallangle_toflash, (2 + 3) / 4);// test
     ********************************************************************************/
-    uint8_t yawinstallangle_fromflash[2];
-    flash_read(ADDR_FLASH_SECTOR_11, (uint32_t *)yawinstallangle_fromflash, (2 + 3) / 4);
-    yi->setup.installationangle = (int16_t)(yawinstallangle_fromflash[0] << 8 | yawinstallangle_fromflash[1]);
+    //uint8_t yawinstallangle_fromflash[2];
+    //flash_read(ADDR_FLASH_SECTOR_11, (uint32_t *)yawinstallangle_fromflash, (2 + 3) / 4);
+    // yi->setup.installationangle = (int16_t)(yawinstallangle_fromflash[0] << 8 | yawinstallangle_fromflash[1]);
+    yi->setup.installationangle = 0;
     yi->setup.outcirclerate = 5;
 
     *pi = motparainit(gm6020);
@@ -35,35 +36,35 @@ void init_gimbmot_pid(PID_regulator *papid,
                       PID_regulator *yspid)
 {
     papid->kp = 4;
-    papid->ki = 0.0;
-    papid->kd = 0;
+    papid->ki = 0.0000025;
+    papid->kd = 2;
     papid->outputMax = pit.setup.speed_limit / pit.setup.reductionratio;
     papid->componentKpMax = papid->outputMax;
-    papid->componentKiMax = papid->outputMax;
+    papid->componentKiMax = papid->outputMax/3;
     papid->componentKdMax = papid->outputMax;
 
     yapid->kp = 4;
-    yapid->ki = 0.0;
-    yapid->kd = 0.5;
+    yapid->ki = 0.0000025;
+    yapid->kd = 2;
     yapid->outputMax = yaw.setup.speed_limit / yaw.setup.reductionratio;
     yapid->componentKpMax = yapid->outputMax;
-    yapid->componentKiMax = yapid->outputMax;
+    yapid->componentKiMax = yapid->outputMax/3;
     yapid->componentKdMax = yapid->outputMax;
 
-    pspid->kp = 180;
+    pspid->kp = 200;
     pspid->ki = 0.005;
-    pspid->kd = 50;
+    pspid->kd = 300;
     pspid->outputMax = pit.setup.current_value_limit;
-    pspid->componentKpMax = 15000;
-    pspid->componentKiMax = 4000;
-    pspid->componentKdMax = 2000;
+    pspid->componentKpMax = 20000;
+    pspid->componentKiMax = 8000;
+    pspid->componentKdMax = yspid->outputMax;
 
-    yspid->kp = 300;
-    yspid->ki = 0.005;
-    yspid->kd = 150;
+    yspid->kp = 400;
+    yspid->ki = 0.0025;
+    yspid->kd = 500;
     yspid->outputMax = yaw.setup.current_value_limit;
-    yspid->componentKpMax = 15000;
-    yspid->componentKiMax = 10000;
+    yspid->componentKpMax = 20000;
+    yspid->componentKiMax = 8000;
     yspid->componentKdMax = yspid->outputMax;
 }
 
@@ -81,7 +82,7 @@ void clac_pitmot_aspid(PID_regulator *papid,
     calc_mot_aspid(papid, pspid, mi);
     double Gangle=robinfo.cur.pitangle + 5.f;
     pspid->output -= (500 * sin(Gangle/360.f*2*3.141592f));
-    pspid->output = -pspid->output+yawspid.cur*150;
+    pspid->output = -pspid->output+yawspid.cur*200.f;
 }
 
 void clac_yawmot_aspid(PID_regulator *yapid,
@@ -103,7 +104,7 @@ void clac_yawmot_aspid(PID_regulator *yapid,
         yspid->output -= 2000.f;
     }
     yspid->output += robinfo.tar.zspeed*100.f;
-    //yspid->output +=robinfo.cur.zrelspeed*100.f;
+    //yspid->output +=yspid->cur *100.f;
 }
 
 int16_t can1_mes20x2ff[4];

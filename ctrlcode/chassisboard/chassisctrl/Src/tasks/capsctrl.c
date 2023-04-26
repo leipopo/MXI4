@@ -10,7 +10,7 @@ float calcmaxsumcurrentvalue(RobInfo *ri, CAPSInfo *ci)
     if (ci->capsvoltage == 0.f)
     {
 
-        chasumcurrentlimit = (ri->lim.chaspower_limit + powerlimit_offset + (ri->cur.powerbuffer/0.2f + safepowerbuff)) / 24.f + chasumcurrentlimit_offset;
+        chasumcurrentlimit = (ri->lim.chaspower_limit + powerlimit_offset + (ri->cur.powerbuffer/exppowerpeaktime + safepowerbuff)) / 24.f + chasumcurrentlimit_offset;
     }
     else
     {
@@ -59,7 +59,7 @@ void capsctrl()
     for (;;)
     {
         int16_t mes[4];
-        capsinfo.setpower = fminf(maxoutputpower, (robinfo.lim.chaspower_limit + powerlimit_offset + (6.f*robinfo.cur.powerbuffer + safepowerbuff)) / 24.f + chasumcurrentlimit_offset);
+        capsinfo.setpower = fminf(maxoutputpower, robinfo.lim.chaspower_limit + powerlimit_offset + (robinfo.cur.powerbuffer/exppowerpeaktime + safepowerbuff));
         mes[0] = (int16_t)(capsinfo.setpower * 100);
         CAN_send(0x210, hcan2, mes);
         osDelayUntil(capstaskperi);
