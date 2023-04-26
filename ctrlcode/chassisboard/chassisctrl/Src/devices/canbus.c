@@ -51,7 +51,7 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
         }
         else if (rx_header.StdId == gimbboardid_angle)
         {
-            HAL_IWDG_Refresh(&hiwdg);
+            //HAL_IWDG_Refresh(&hiwdg);
             canrx2comuinfo_rxangle(rx_data,&comuinfo);
             can2devsta = can_probe(gimbboardid_angle, can2_idlist);
             CAN_READY=1;

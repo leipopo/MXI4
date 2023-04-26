@@ -48,11 +48,11 @@ void init_gimbmot_pid(PID_regulator *papid,
     yapid->kd = 2;
     yapid->outputMax = yaw.setup.speed_limit / yaw.setup.reductionratio;
     yapid->componentKpMax = yapid->outputMax;
-    yapid->componentKiMax = yapid->outputMax/3;
+    yapid->componentKiMax = yapid->outputMax/2;
     yapid->componentKdMax = yapid->outputMax;
 
-    pspid->kp = 200;
-    pspid->ki = 0.005;
+    pspid->kp = 150;
+    pspid->ki = 0.00025;
     pspid->kd = 300;
     pspid->outputMax = pit.setup.current_value_limit;
     pspid->componentKpMax = 20000;
@@ -60,7 +60,7 @@ void init_gimbmot_pid(PID_regulator *papid,
     pspid->componentKdMax = yspid->outputMax;
 
     yspid->kp = 400;
-    yspid->ki = 0.0025;
+    yspid->ki = 0.00025;
     yspid->kd = 500;
     yspid->outputMax = yaw.setup.current_value_limit;
     yspid->componentKpMax = 20000;
@@ -104,7 +104,7 @@ void clac_yawmot_aspid(PID_regulator *yapid,
         yspid->output -= 2000.f;
     }
     yspid->output += robinfo.tar.zspeed*100.f;
-    //yspid->output +=yspid->cur *100.f;
+    //yspid->output +=yspid->cur *00.f;
 }
 
 int16_t can1_mes20x2ff[4];
@@ -127,6 +127,7 @@ void gimbctrl()
 
     for (;;)
     {
+        //HAL_IWDG_Refresh(&hiwdg);
         clac_yawmot_aspid(&yawapid, &yawspid, &yaw);
         clac_pitmot_aspid(&pitapid, &pitspid, &pit);
         pack_pymot_ctrlmes(can1_mes20x2ff);
