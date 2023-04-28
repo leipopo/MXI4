@@ -6,10 +6,10 @@
 #define trigspeed      shootfreq / forknum * 60.f
 #define trigclickangle 360.f / forknum
 
-#define fricwheelspeed -6000.f
+#define fricwheelspeed -5000.f //-6000.f to 26
 
-#define magopenpusle   1800
-#define magclosepusle  400
+#define magclosepusle   500
+#define magopenpusle  2200
 
 extern MotorInfo fric[2], trig;
 extern PID_regulator fricspid[2], trigapid, trigspid;

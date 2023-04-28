@@ -33,11 +33,11 @@ void init_shootmot_pid(PID_regulator fspid[2],
                        PID_regulator *tspid)
 {
     fspid[0].kp             = 20;
-    fspid[0].ki             = 0.005;
-    fspid[0].kd             = 0;
+    fspid[0].ki             = 0.00025;
+    fspid[0].kd             = 10;
     fspid[0].outputMax      = 20000;
     fspid[0].componentKpMax = fspid[0].outputMax;
-    fspid[0].componentKiMax = fspid[0].outputMax;
+    fspid[0].componentKiMax = fspid[0].outputMax/10;
     fspid[0].componentKdMax = fspid[0].outputMax;
 
     fspid[1] = fspid[0];
@@ -118,13 +118,13 @@ void pack_shootmot_ctrlmes(int16_t mes1[4])
 
 void setmag(int8_t mc)
 {
-    if (mc == 1)
+    if (mc == 0x01)
     {
-        __HAL_TIM_SetCompare(&htim8, TIM_CHANNEL_3, magclosepusle);
+        __HAL_TIM_SetCompare(&htim8, TIM_CHANNEL_3, magopenpusle);
     }
     else
     {
-        __HAL_TIM_SetCompare(&htim8, TIM_CHANNEL_3,magopenpusle );
+        __HAL_TIM_SetCompare(&htim8, TIM_CHANNEL_3,magclosepusle );
     }
 }
 

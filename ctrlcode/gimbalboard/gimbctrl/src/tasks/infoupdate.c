@@ -11,8 +11,16 @@ void get_comuinfo_imu(ComuInfo *ci)
 
 void get_comuinfo_cv(ComuInfo *ci)
 {
-    ci->tx_cv.yawangle = NUC_data.yaw;
-    ci->tx_cv.pitangle = NUC_data.pitch;
+    if (ci->rx_comd.cvon == 0x00)
+    {
+        ci->tx_cv.yawangle = 0.f;
+        ci->tx_cv.pitangle = 0.f;
+    }
+    else
+    {
+        ci->tx_cv.yawangle = NUC_data.yaw;
+        ci->tx_cv.pitangle = NUC_data.pitch;
+    }
 }
 
 void infoupdate()

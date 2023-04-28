@@ -30,7 +30,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
     // uint8_t yawinstallangle_toflash[2];
     // yawinstallangle_toflash[0] = (uint16_t)yaw.setup.installationangle >> 8;
     // yawinstallangle_toflash[1] = (uint16_t)yaw.setup.installationangle;
-    //flash_write_single_address(ADDR_FLASH_SECTOR_11, (uint32_t *)yawinstallangle_toflash, (2 + 3) / 4);
+    // flash_write_single_address(ADDR_FLASH_SECTOR_11, (uint32_t *)yawinstallangle_toflash, (2 + 3) / 4);
 }
 
 void init_robinfo(RobInfo *ri)
@@ -47,7 +47,6 @@ void get_limits(RobInfo *ri)
     get_chassis_power_and_buffer(&ri->cur.chaspower, &ri->cur.powerbuffer, &ri->lim.chaspower_limit);
     get_shoot_heat0_limit_and_heat0(&ri->lim.heat0_limit, &ri->cur.heat0);
     // get_shoot_heat1_limit_and_heat0(ri->lim.heat1_limit,ri->cur.heat1);
-    
 }
 
 void get_comd_rc(RobInfo *ri)
@@ -90,24 +89,25 @@ void get_comd_rc(RobInfo *ri)
             ri->comd.triggeron = 0x00;
         }
         ri->comd.fricwheelon = 0x01;
+        ri->comd.magopen = 0x00;
     }
     else
     {
         ri->comd.triggeron = 0x00;
     }
 
-    if(Key.key_z == 0x01&&Last_Key.key_z == 0x00)
-    {
-        ri->comd.cvon = 0x01;
-    }
-    else if(Key.key_x == 0x01&&Last_Key.key_x == 0x00)
-    {
-        ri->comd.cvon = 0x08;
-    }
+    // if(Key.key_z == 0x01&&Last_Key.key_z == 0x00)
+    // {
+    //     ri->comd.cvon = 0x01;
+    // }
+    // else if(Key.key_x == 0x01&&Last_Key.key_x == 0x00)
+    // {
+    //     ri->comd.cvon = 0x08;
+    // }
 
     if ((RC_Data.rc.s[0] == 2 && RC_Data.rc.s[1] == 1) || (RC_Data.mouse.press_r == 0x01))
     {
-        ri->comd.cvon &= 0x0F;
+        ri->comd.cvon = 0x01;
     }
     else
     {
@@ -123,9 +123,6 @@ void get_comd_rc(RobInfo *ri)
     {
         ri->comd.spinning = 0x00;
     }
-
-    
-
 }
 
 void get_chastarspeed_rc(RobInfo *ri)
@@ -137,18 +134,20 @@ void get_chastarspeed_rc(RobInfo *ri)
 
 void get_gimbtarangle_cv(RobInfo *ri)
 {
-
-    ri->tar.yawangle -= numcircle(180.f, -180.f, comuinfo.rx_cv.yawangle * robinfo.comd.cvon / fre(infotaskperi))/expcvmovetime;
-    ri->tar.pitangle += comuinfo.rx_cv.pitangle * robinfo.comd.cvon / fre(infotaskperi)/expcvmovetime;
+    if (robinfo.comd.cvon == 0x00)
+    {
+        comuinfo.rx_cv.pitangle = 0.f;
+        comuinfo.rx_cv.yawangle = 0.f;
+    }
+    ri->tar.yawangle -= numcircle(180.f, -180.f, comuinfo.rx_cv.yawangle * robinfo.comd.cvon / fre(infotaskperi) / expcvmovetime);
+    ri->tar.pitangle += comuinfo.rx_cv.pitangle * robinfo.comd.cvon / fre(infotaskperi) / expcvmovetime;
     ri->tar.pitangle = LIMIT(ri->tar.pitangle, pit.setup.angle_limit[0], pit.setup.angle_limit[1]);
-
-    //HAL_UART_Transmit_IT(&huart1, (uint8_t *)&ri->comd.cvon, sizeof(ri->comd.cvon));
 }
 
 void get_gimbtarangle_rc(RobInfo *ri)
 {
-    ri->tar.yawangle += (-rcchannel_normalize(RC_Data.rc.ch[0]) - LIMIT(RC_Data.mouse.x,-120,120) / 45.f ) / fre(infotaskperi) * yawspeedconst;
-    ri->tar.pitangle += (rcchannel_normalize(RC_Data.rc.ch[1]) - LIMIT(RC_Data.mouse.y,-50,50) / 100.f) / fre(infotaskperi) * pitspeedconst;
+    ri->tar.yawangle += (-rcchannel_normalize(RC_Data.rc.ch[0]) - LIMIT(RC_Data.mouse.x, -120, 120) / 45.f) / fre(infotaskperi) * yawspeedconst;
+    ri->tar.pitangle += (rcchannel_normalize(RC_Data.rc.ch[1]) - LIMIT(RC_Data.mouse.y, -50, 50) / 100.f) / fre(infotaskperi) * pitspeedconst;
     ri->tar.yawangle = numcircle(180.f, -180.f, ri->tar.yawangle);
     ri->tar.pitangle = LIMIT(ri->tar.pitangle, pit.setup.angle_limit[0], pit.setup.angle_limit[1]);
 }
