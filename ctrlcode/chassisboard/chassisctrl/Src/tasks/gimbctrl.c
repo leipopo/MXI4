@@ -82,7 +82,7 @@ void clac_pitmot_aspid(PID_regulator *papid,
     calc_mot_aspid(papid, pspid, mi);
     double Gangle=robinfo.cur.pitangle + 5.f;
     pspid->output -= (500 * sin(Gangle/360.f*2*3.141592f));
-    pspid->output = -pspid->output+yawspid.cur*150.f;
+    //pspid->output = -pspid->output+yawspid.cur*150.f;
 }
 
 void clac_yawmot_aspid(PID_regulator *yapid,

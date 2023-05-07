@@ -26,7 +26,7 @@ void canrx2comuinfo_rxangle(uint8_t rx[8], ComuInfo *ci)
 
     if (ci->rx_imu.yawangle != 0)
     {
-        if (fabsf(numcircle(180.f, -180.f, ci->rx_imu.yawangle - temp[0] / 100.f)) < 15.f)
+        if (fabsf(numcircle(180.f, -180.f, ci->rx_imu.yawangle - temp[0] / 100.f)) < 5.f)
         {
             ci->rx_imu.yawangle = temp[0] / 100.f;
         }
@@ -38,7 +38,7 @@ void canrx2comuinfo_rxangle(uint8_t rx[8], ComuInfo *ci)
 
     if (ci->rx_imu.pitangle != 0)
     {
-        if (fabsf(numcircle(180.f, -180.f, ci->rx_imu.pitangle - temp[1] / 100.f)) < 15.f)
+        if (fabsf(numcircle(180.f, -180.f, ci->rx_imu.pitangle - temp[1] / 100.f)) < 5.f)
         {
             ci->rx_imu.pitangle = temp[1] / 100.f;
         }

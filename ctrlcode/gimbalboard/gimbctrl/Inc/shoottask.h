@@ -8,8 +8,8 @@
 
 #define fricwheelspeed -5000.f //-6000.f to 26
 
-#define magclosepusle   500
-#define magopenpusle  2200
+#define magopenpusle   500
+#define magclosepusle  2200
 
 extern MotorInfo fric[2], trig;
 extern PID_regulator fricspid[2], trigapid, trigspid;

@@ -147,7 +147,7 @@ void get_gimbtarangle_cv(RobInfo *ri)
 void get_gimbtarangle_rc(RobInfo *ri)
 {
     ri->tar.yawangle += (-rcchannel_normalize(RC_Data.rc.ch[0]) - LIMIT(RC_Data.mouse.x, -120, 120) / 45.f) / fre(infotaskperi) * yawspeedconst;
-    ri->tar.pitangle += (rcchannel_normalize(RC_Data.rc.ch[1]) - LIMIT(RC_Data.mouse.y, -50, 50) / 100.f) / fre(infotaskperi) * pitspeedconst;
+    ri->tar.pitangle += (rcchannel_normalize(RC_Data.rc.ch[1]) - LIMIT(RC_Data.mouse.y, -120, 120) / 45.f) / fre(infotaskperi) * pitspeedconst;
     ri->tar.yawangle = numcircle(180.f, -180.f, ri->tar.yawangle);
     ri->tar.pitangle = LIMIT(ri->tar.pitangle, pit.setup.angle_limit[0], pit.setup.angle_limit[1]);
 }
