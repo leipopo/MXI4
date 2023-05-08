@@ -107,4 +107,6 @@ extern uint32_t verify_CRC16_check_sum(uint8_t *pchMessage, uint32_t dwLength);
   * @retval         none
   */
 extern void append_CRC16_check_sum(uint8_t * pchMessage,uint32_t dwLength);
+extern const uint8_t CRC8_INIT;
+extern uint16_t CRC16_INIT;
 #endif

@@ -3,6 +3,28 @@
 ext_client_custom_graphic_double_t lane;
 ext_client_custom_graphic_double_t bead;
 
+void Append_CRC8_Check_Sum(unsigned char *pchMessage, unsigned int dwLength)
+{
+    unsigned char ucCRC = 0;
+    if((pchMessage == 0) || (dwLength <= 2))
+    {
+        return;
+    }
+    ucCRC = get_CRC8_check_sum((unsigned char *)pchMessage, dwLength - 1, CRC8_INIT);
+    pchMessage[dwLength - 1] = ucCRC;
+}
+void Append_CRC16_Check_Sum(unsigned char *pchMessage, unsigned int dwLength)
+{
+    unsigned short wCRC = 0;
+    if ((pchMessage == 0) || (dwLength <= 2))
+    {
+        return;
+    }
+    wCRC = get_CRC16_check_sum((unsigned char *)pchMessage, dwLength - 2, CRC16_INIT);
+    pchMessage[dwLength - 2] = (unsigned char)(wCRC & 0x00ff);
+    pchMessage[dwLength - 1] = (unsigned char)((wCRC >> 8) & 0x00ff);
+}
+
 void Usart3_Sent_Byte(uint8_t ch)
 {
     USART3->DR = ch;
@@ -65,7 +87,7 @@ void draw_lane()
 void draw_bead(uint32_t x, uint32_t y)
 {
     figure_graphic(&bead.grapic_data_struct[0], "b0", ADD, CIRCLE, 1, WHITE, 0, 0, 3, 0, 0, 0, 240, 240);
-    figure_graphic(&bead.grapic_data_struct[1], "b1", ADD, CIRCLE, 1, WHITE, 0, 0, 3, 0 ,0, 0, 240, 240);
+    figure_graphic(&bead.grapic_data_struct[1], "b1", ADD, CIRCLE, 1, WHITE, 0, 0, 3, 0, 0, 0, 240, 240);
 }
 
 uint8_t CliendTxBuffer[200];
@@ -77,7 +99,7 @@ void bead_draw() // 两个个图像一起更新
     bead.txFrameHeader.data_length = sizeof(ext_client_data_header_t) + sizeof(graphic_data_struct_t) * 2;
     bead.txFrameHeader.seq = 0; // 包序号
     memcpy(CliendTxBuffer, &bead.txFrameHeader, sizeof(STUDENT_INTERACTIVE_DATA_CMD_ID));
-    //Append_CRC8_Check_Sum(CliendTxBuffer, sizeof(std_frame_header_t)); // 头校验
+    Append_CRC8_Check_Sum(CliendTxBuffer, sizeof(frame_header_struct_t)); // 头校验
 
     // 命令码
     bead.CmdID = STUDENT_INTERACTIVE_DATA_CMD_ID;
@@ -92,7 +114,7 @@ void bead_draw() // 两个个图像一起更新
     memcpy(CliendTxBuffer + LEN_FRAME_HEAD, (uint8_t *)&bead.CmdID, LEN_CMD_ID + bead.txFrameHeader.data_length); // 加上命令码长度2
 
     // 帧尾
-    //Append_CRC16_Check_Sum(CliendTxBuffer, sizeof(bead));
+    Append_CRC16_Check_Sum(CliendTxBuffer, sizeof(bead));
 
     Client_Sent_String(CliendTxBuffer, sizeof(bead));
 }
