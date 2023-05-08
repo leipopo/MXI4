@@ -19,8 +19,11 @@ void devinit()
         RC_INIT();
         HAL_Delay(50);
     }
-    can_filter_init();
-    HAL_Delay(50);
+    while (CAN_READY == 0)
+    {
+        can_filter_init();
+        HAL_Delay(50);
+    }
 
     REF_INIT();
     HAL_Delay(50);
@@ -31,5 +34,5 @@ void userinit()
     devinit();
     HAL_Delay(50);
     chasmotinit();
-    HAL_Delay(50);
+    HAL_Delay(1000);
 }

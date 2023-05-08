@@ -93,7 +93,10 @@ void comutask()
     {
         get_comuinfo_robinfo(&comuinfo);
         pack_2gimb_comdmes(can2_mes2gimb_comd);
-        CAN_send(chasboardid, hcan2, can2_mes2gimb_comd);
+        if (robinfo.comd.moton == 0x01)
+        {
+            CAN_send(chasboardid, hcan2, can2_mes2gimb_comd);
+        }
         osDelayUntil(comutaskperi);
     }
 }

@@ -154,16 +154,16 @@ void get_gimbtarangle_rc(RobInfo *ri)
 
 void get_gimbcurangle_imu(RobInfo *ri)
 {
-    ri->cur.yawangle = comuinfo.rx_imu.yawangle * 0.5 + ri->cur.yawangle * 0.5; // 低通一下
-    ri->cur.pitangle = comuinfo.rx_imu.pitangle * 0.5 + ri->cur.pitangle * 0.5; // 低通一下
+    ri->cur.yawangle = comuinfo.rx_imu.yawangle;
+    ri->cur.pitangle = comuinfo.rx_imu.pitangle;
 }
 
 void get_gimbcurangle_mot(RobInfo *ri)
 {
     // 本来是有读角度的
 
-    ri->cur.yawspeed = yaw.curmotorinfo.speed * 0.7 + ri->cur.yawspeed * 0.3; // 低通一下
-    ri->cur.pitspeed = pit.curmotorinfo.speed * 0.7 + ri->cur.pitspeed * 0.3; // 低通一下
+    ri->cur.yawspeed = yaw.curmotorinfo.speed;
+    ri->cur.pitspeed = pit.curmotorinfo.speed;
 }
 
 void get_zrelangle(RobInfo *ri)
