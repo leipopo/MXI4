@@ -21,7 +21,7 @@
 #define comutaskperi 50
 #define infotaskperi 2
 #define reftaskperi 10
-#define UIdrawperi 50
+#define UIdrawperi 100
 #define capstaskperi 100
 
 #define fre(peri) 1000/peri
