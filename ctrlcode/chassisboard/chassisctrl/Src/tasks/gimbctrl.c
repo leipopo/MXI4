@@ -15,9 +15,9 @@ void init_gimbmot_para(MotorInfo *pi, MotorInfo *yi)
         yawinstallangle_toflash[1] = 0xbb; // test
         flash_write_single_address(ADDR_FLASH_SECTOR_11, (uint32_t *)yawinstallangle_toflash, (2 + 3) / 4);// test
     ********************************************************************************/
-    //uint8_t yawinstallangle_fromflash[2];
-    //flash_read(ADDR_FLASH_SECTOR_11, (uint32_t *)yawinstallangle_fromflash, (2 + 3) / 4);
-    // yi->setup.installationangle = (int16_t)(yawinstallangle_fromflash[0] << 8 | yawinstallangle_fromflash[1]);
+    // uint8_t yawinstallangle_fromflash[2];
+    // flash_read(ADDR_FLASH_SECTOR_11, (uint32_t *)yawinstallangle_fromflash, (2 + 3) / 4);
+    //  yi->setup.installationangle = (int16_t)(yawinstallangle_fromflash[0] << 8 | yawinstallangle_fromflash[1]);
     yi->setup.installationangle = 0;
     yi->setup.outcirclerate = 5;
 
@@ -40,7 +40,7 @@ void init_gimbmot_pid(PID_regulator *papid,
     papid->kd = 2;
     papid->outputMax = pit.setup.speed_limit / pit.setup.reductionratio;
     papid->componentKpMax = papid->outputMax;
-    papid->componentKiMax = papid->outputMax/3;
+    papid->componentKiMax = papid->outputMax / 3;
     papid->componentKdMax = papid->outputMax;
 
     yapid->kp = 4;
@@ -48,7 +48,7 @@ void init_gimbmot_pid(PID_regulator *papid,
     yapid->kd = 2;
     yapid->outputMax = yaw.setup.speed_limit / yaw.setup.reductionratio;
     yapid->componentKpMax = yapid->outputMax;
-    yapid->componentKiMax = yapid->outputMax/2;
+    yapid->componentKiMax = yapid->outputMax / 2;
     yapid->componentKdMax = yapid->outputMax;
 
     pspid->kp = 150;
@@ -72,7 +72,7 @@ void clac_pitmot_aspid(PID_regulator *papid,
                        PID_regulator *pspid,
                        MotorInfo *mi)
 {
-    pit.tarmotorinfo.angle = numcircle(180.f, -180.f, pit.curmotorinfo.angle + (robinfo.tar.pitangle - robinfo.cur.pitangle) + (robinfo.tar.yawangle - robinfo.cur.yawangle) / yawreductionratio);
+    pit.tarmotorinfo.angle = numcircle(180.f, -180.f, pit.curmotorinfo.angle + (robinfo.tar.pitangle - robinfo.cur.pitangle) + numcircle(180, -180, robinfo.tar.yawangle - robinfo.cur.yawangle));
     papid->tar = pit.tarmotorinfo.angle;
     papid->cur = pit.curmotorinfo.angle;
 
@@ -80,9 +80,9 @@ void clac_pitmot_aspid(PID_regulator *papid,
     pspid->cur = robinfo.cur.pitspeed;
 
     calc_mot_aspid(papid, pspid, mi);
-    double Gangle=robinfo.cur.pitangle + 5.f;
-    pspid->output -= (500 * sin(Gangle/360.f*2*3.141592f));
-    //pspid->output = -pspid->output+yawspid.cur*150.f;
+    double Gangle = robinfo.cur.pitangle + 5.f;
+    pspid->output -= (500 * sin(Gangle / 360.f * 2 * 3.141592f));
+    // pspid->output = -pspid->output+yawspid.cur*150.f;
 }
 
 void clac_yawmot_aspid(PID_regulator *yapid,
@@ -103,8 +103,8 @@ void clac_yawmot_aspid(PID_regulator *yapid,
     {
         yspid->output -= 2000.f;
     }
-    yspid->output += robinfo.tar.zspeed*100.f;
-    //yspid->output +=yspid->cur *00.f;
+    yspid->output += robinfo.tar.zspeed * 100.f;
+    // yspid->output +=yspid->cur *00.f;
 }
 
 int16_t can1_mes20x2ff[4];
@@ -124,10 +124,16 @@ void pack_pymot_ctrlmes(int16_t mes[4])
 
 void gimbctrl()
 {
+    while (comuinfo.rx_imu.yawangle == 0 || comuinfo.rx_imu.pitangle == 0)
+    {
+        osDelayUntil(10);
+    }
+    robinfo.tar.yawangle = comuinfo.rx_imu.yawangle;
+    robinfo.tar.pitangle = comuinfo.rx_imu.pitangle;
 
     for (;;)
     {
-        //HAL_IWDG_Refresh(&hiwdg);
+        // HAL_IWDG_Refresh(&hiwdg);
         clac_yawmot_aspid(&yawapid, &yawspid, &yaw);
         clac_pitmot_aspid(&pitapid, &pitspid, &pit);
         pack_pymot_ctrlmes(can1_mes20x2ff);

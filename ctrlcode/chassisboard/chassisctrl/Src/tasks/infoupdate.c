@@ -33,15 +33,6 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
     // flash_write_single_address(ADDR_FLASH_SECTOR_11, (uint32_t *)yawinstallangle_toflash, (2 + 3) / 4);
 }
 
-void init_robinfo(RobInfo *ri)
-{
-    while (yaw.curmotorinfo.angle == 0.f)
-    {
-        osDelayUntil(10);
-    }
-    ri->tar.yawangle = yaw.curmotorinfo.angle;
-}
-
 void get_limits(RobInfo *ri)
 {
     get_chassis_power_and_buffer(&ri->cur.chaspower, &ri->cur.powerbuffer, &ri->lim.chaspower_limit);
@@ -130,6 +121,18 @@ void get_chastarspeed_rc(RobInfo *ri)
     ri->tar.xspeed = (rcchannel_normalize(RC_Data.rc.ch[3]) + (Key.key_w - Key.key_s)) * movespeed;
     ri->tar.yspeed = (rcchannel_normalize(RC_Data.rc.ch[2]) + (Key.key_d - Key.key_a)) * movespeed;
     ri->tar.zspeed = (rcchannel_normalize(RC_Data.rc.ch[4]) + (ri->comd.spinning)) * spinningspeed;
+    if (Key.key_shift == 0x01)
+    {
+        if (((int8_t)(ri->cur.zrelangle / 45)) % 2 == 0)
+        {
+            ri->tar.zspeed = spinningspeed;
+        }
+
+        else if (((int8_t)(ri->cur.zrelangle / 45)) % 2 == 1)
+        {
+            ri->tar.zspeed = -spinningspeed;
+        }
+    }
 }
 
 void get_gimbtarangle_cv(RobInfo *ri)
@@ -173,18 +176,16 @@ void get_zrelangle(RobInfo *ri)
 
 void infoupdate()
 {
-    init_robinfo(&robinfo);
     for (;;)
     {
         robinfo.robid = get_robot_id();
-
+        get_zrelangle(&robinfo);
         get_limits(&robinfo);
         get_gimbtarangle_rc(&robinfo);
         get_gimbtarangle_cv(&robinfo);
         get_gimbcurangle_imu(&robinfo);
         get_gimbcurangle_mot(&robinfo);
         get_comd_rc(&robinfo);
-        get_zrelangle(&robinfo);
         get_chastarspeed_rc(&robinfo);
 
         osDelayUntil(infotaskperi);
