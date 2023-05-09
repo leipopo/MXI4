@@ -72,7 +72,7 @@ void clac_pitmot_aspid(PID_regulator *papid,
                        PID_regulator *pspid,
                        MotorInfo *mi)
 {
-    pit.tarmotorinfo.angle = numcircle(180.f, -180.f, pit.curmotorinfo.angle + (robinfo.tar.pitangle - robinfo.cur.pitangle) + numcircle(180, -180, robinfo.tar.yawangle - robinfo.cur.yawangle));
+    pit.tarmotorinfo.angle = numcircle(180.f, -180.f, pit.curmotorinfo.angle + (robinfo.tar.pitangle - robinfo.cur.pitangle + robinfo.tar.yawangle - robinfo.cur.yawangle));
     papid->tar = pit.tarmotorinfo.angle;
     papid->cur = pit.curmotorinfo.angle;
 
