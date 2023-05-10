@@ -102,7 +102,7 @@ int main(void)
   MX_TIM1_Init();
   MX_TIM8_Init();
   MX_USART1_UART_Init();
-  MX_IWDG_Init();
+  //MX_IWDG_Init();
   /* USER CODE BEGIN 2 */
     delay_init();
     userinit();

@@ -25,7 +25,7 @@ typedef struct _COMU_INFO
 
 
 extern ComuInfo comuinfo;
-void canrx2comuinfo_rxcv(uint8_t rx[8], ComuInfo *ci);
-void canrx2comuinfo_rxspeed(uint8_t rx[8], ComuInfo *ci);
-void canrx2comuinfo_rxangle(uint8_t rx[8], ComuInfo *ci);
+// void canrx2comuinfo_rxcv(uint8_t rx[8], ComuInfo *ci);
+void canrx2comuinfo_rxyaw(uint8_t rx[8], ComuInfo *ci);
+void canrx2comuinfo_rxpit(uint8_t rx[8], ComuInfo *ci);
 #endif

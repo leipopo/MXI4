@@ -96,9 +96,10 @@ int main(void)
   MX_CAN2_Init();
   MX_USART1_UART_Init();
   MX_USART3_UART_Init();
-  MX_IWDG_Init();
+  
   /* USER CODE BEGIN 2 */
   userinit();
+  MX_IWDG_Init();
   /* USER CODE END 2 */
 
   /* Init scheduler */

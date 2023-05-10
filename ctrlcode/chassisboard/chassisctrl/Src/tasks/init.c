@@ -34,5 +34,5 @@ void userinit()
     devinit();
     HAL_Delay(50);
     chasmotinit();
-    HAL_Delay(1000);
+    HAL_Delay(1500);
 }

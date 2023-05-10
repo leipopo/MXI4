@@ -139,7 +139,7 @@ void gimbctrl()
         pack_pymot_ctrlmes(can1_mes20x2ff);
         if (robinfo.comd.moton)
         {
-            CAN_send(0x2ff, hcan1, can1_mes20x2ff);
+            CAN_send(0x2ff, hcan1, zeromes);
         }
         else
         {

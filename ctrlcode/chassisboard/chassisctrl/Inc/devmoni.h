@@ -20,8 +20,8 @@
 #define can2idlist             \
     {                          \
         capsid,                \
-            gimbboardid_angle, \
-            gimbboardid_speed, \
+            gimbboardid_yaw, \
+            gimbboardid_pit, \
             gimbboardid_cv,    \
             0x00000000,        \
             0x00000000,        \

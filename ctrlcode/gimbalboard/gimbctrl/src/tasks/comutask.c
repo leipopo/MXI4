@@ -1,7 +1,6 @@
 #include "main.h"
-int16_t can2_mes2chas_angle[4];
-int16_t can2_mes2chas_imuspeed[4];
-int16_t can2_mes2chas_cv[4];
+int16_t can2_mes2chas_yaw[4];
+int16_t can2_mes2chas_pit[4];
 ComuInfo comuinfo[3];
 
 // 遥控器逻辑
@@ -48,37 +47,34 @@ void canrx2comuinfo_comd(uint8_t rx[8], ComuInfo ci[3])
     }
 }
 
-void pack_mes2chas_angle(int16_t mes[4])
+void pack_mes2chas_yaw(int16_t mes[4])
 {
     mes[0] = (int16_t)(comuinfo[0].tx_imu.yawangle * 100);
-    mes[1] = (int16_t)(comuinfo[0].tx_imu.pitangle * 100);
+    mes[1] = (int16_t)(comuinfo[0].tx_imu.yawspeed * 100);
     mes[2] = (int16_t)(comuinfo[0].tx_cv.yawangle * 100);
-    mes[3] = (int16_t)(comuinfo[0].tx_cv.pitangle * 100);
+    mes[3] = mes[0] + mes[1] + mes[2];
 }
-// void pack_mes2chas_imuspeed(int16_t mes[4])
-// {
+void pack_mes2chas_pit(int16_t mes[4])
+{
 
-//     mes[1] = (int16_t)comuinfo[0].tx_imu.yawspeed;
-//     mes[2] = (int16_t)comuinfo[0].tx_imu.pitspeed;
+    mes[0] = (int16_t)(comuinfo[0].tx_imu.pitangle * 100);
+    mes[1] = (int16_t)(comuinfo[0].tx_imu.pitspeed * 100);
 
-//     mes[0] = 0x1234;
-//     mes[3] = mes[1] + mes[2];
-// }
-// void pack_mes2chas_cv(int16_t mes[4])
-// {
-//     mes[0] = (int16_t)comuinfo[0].tx_cv.yawangle;
-//     mes[1] = (int16_t)comuinfo[0].tx_cv.pitangle;
-// }
+    mes[2] = (int16_t)(comuinfo[0].tx_cv.pitangle * 100);
+    mes[3] = mes[0] + mes[1] + mes[2];
+}
 
 void comutask()
 {
     for (;;)
     {
-        
 
-        pack_mes2chas_angle(can2_mes2chas_angle);
-        CAN_send(gimbboardid_angle, hcan2, can2_mes2chas_angle);
-        osDelayUntil(comutaskperi);
+        pack_mes2chas_yaw(can2_mes2chas_yaw);
+        CAN_send(gimbboardid_yaw, hcan2, can2_mes2chas_yaw);
+        osDelayUntil(comutaskperi / 2);
+        pack_mes2chas_pit(can2_mes2chas_pit);
+        CAN_send(gimbboardid_pit, hcan2, can2_mes2chas_pit);
+        osDelayUntil(comutaskperi / 2);
 
         // pack_mes2chas_imuspeed(can2_mes2chas_imuspeed);
         // CAN_send(gimbboardid_imuspeed, hcan2, can2_mes2chas_imuspeed);
