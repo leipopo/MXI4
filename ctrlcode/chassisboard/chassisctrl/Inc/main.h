@@ -51,6 +51,7 @@ extern "C" {
 #include "ref.h"
 #include "gimbctrl.h"
 #include "chasctrl.h"
+#include "clientUI.h"
 #include "UIdrawer.h"
 #include "comutask.h"
 #include "capsctrl.h" 
