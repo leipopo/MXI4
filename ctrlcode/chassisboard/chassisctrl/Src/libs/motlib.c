@@ -63,7 +63,7 @@ void calc_mot_aspid(PID_regulator *apid,
 {
     if (mi->temp.aspidcounter == mi->setup.outcirclerate)
     {
-        PID_angle_calc(apid, 1, 300.f);
+        PID_angle_calc(apid, 1, 180.f);
     }
     else if ((mi->temp.aspidcounter >= 0 )&& (mi->temp.aspidcounter < mi->setup.outcirclerate))
     {

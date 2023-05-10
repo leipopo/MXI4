@@ -59,7 +59,6 @@ void pack_mes2chas_pit(int16_t mes[4])
 
     mes[0] = (int16_t)(comuinfo[0].tx_imu.pitangle * 100);
     mes[1] = (int16_t)(comuinfo[0].tx_imu.pitspeed * 100);
-
     mes[2] = (int16_t)(comuinfo[0].tx_cv.pitangle * 100);
     mes[3] = mes[0] + mes[1] + mes[2];
 }

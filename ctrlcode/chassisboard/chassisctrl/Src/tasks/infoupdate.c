@@ -165,8 +165,8 @@ void get_gimbcurangle_mot(RobInfo *ri)
 {
     // 本来是有读角度的
 
-    ri->cur.yawspeed = yaw.curmotorinfo.speed;
-    ri->cur.pitspeed = pit.curmotorinfo.speed;
+    ri->cur.yawspeed = comuinfo.rx_imu.yawspeed;
+    ri->cur.pitspeed = comuinfo.rx_imu.pitspeed;
 }
 
 void get_zrelangle(RobInfo *ri)
