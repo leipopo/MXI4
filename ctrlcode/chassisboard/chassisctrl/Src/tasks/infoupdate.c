@@ -142,7 +142,7 @@ void get_gimbtarangle_cv(RobInfo *ri)
         comuinfo.rx_cv.pitangle = 0.f;
         comuinfo.rx_cv.yawangle = 0.f;
     }
-    ri->tar.yawangle -= numcircle(180.f, -180.f, comuinfo.rx_cv.yawangle * robinfo.comd.cvon / fre(infotaskperi) / expcvmovetime);
+    ri->tar.yawangle = numcircle(180.f, -180.f, ri->tar.yawangle-comuinfo.rx_cv.yawangle * robinfo.comd.cvon / fre(infotaskperi) / expcvmovetime);
     ri->tar.pitangle += comuinfo.rx_cv.pitangle * robinfo.comd.cvon / fre(infotaskperi) / expcvmovetime;
     ri->tar.pitangle = LIMIT(ri->tar.pitangle, pit.setup.angle_limit[0], pit.setup.angle_limit[1]);
 }
