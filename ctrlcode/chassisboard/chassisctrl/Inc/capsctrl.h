@@ -6,7 +6,7 @@
 #define chasumcurrentlimit_offset 0.25f
 #define powerlimit_offset 0.f
 
-#define safepowerbuff 0.f
+#define safepowerbuff 10.f
 #define maxoutputpower 120.f
 
 #define exppowerpeaktime 0.15f
