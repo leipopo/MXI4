@@ -142,7 +142,7 @@ void get_gimbtarangle_cv(RobInfo *ri)
         comuinfo.rx_cv.pitangle = 0.f;
         comuinfo.rx_cv.yawangle = 0.f;
     }
-    ri->tar.yawangle -= numcircle(180.f, -180.f, comuinfo.rx_cv.yawangle * robinfo.comd.cvon / fre(infotaskperi) / expcvmovetime);
+    ri->tar.yawangle = numcircle(180.f, -180.f, ri->tar.yawangle-comuinfo.rx_cv.yawangle * robinfo.comd.cvon / fre(infotaskperi) / expcvmovetime);
     ri->tar.pitangle += comuinfo.rx_cv.pitangle * robinfo.comd.cvon / fre(infotaskperi) / expcvmovetime;
     ri->tar.pitangle = LIMIT(ri->tar.pitangle, pit.setup.angle_limit[0], pit.setup.angle_limit[1]);
 }
@@ -150,7 +150,7 @@ void get_gimbtarangle_cv(RobInfo *ri)
 void get_gimbtarangle_rc(RobInfo *ri)
 {
     ri->tar.yawangle += (-rcchannel_normalize(RC_Data.rc.ch[0]) - LIMIT(RC_Data.mouse.x, -120, 120) / 45.f) / fre(infotaskperi) * yawspeedconst;
-    ri->tar.pitangle += (rcchannel_normalize(RC_Data.rc.ch[1]) - LIMIT(RC_Data.mouse.y, -120, 120) / 45.f) / fre(infotaskperi) * pitspeedconst;
+    ri->tar.pitangle -= (rcchannel_normalize(RC_Data.rc.ch[1]) - LIMIT(RC_Data.mouse.y, -120, 120) / 45.f) / fre(infotaskperi) * pitspeedconst;
     ri->tar.yawangle = numcircle(180.f, -180.f, ri->tar.yawangle);
     ri->tar.pitangle = LIMIT(ri->tar.pitangle, pit.setup.angle_limit[0], pit.setup.angle_limit[1]);
 }
