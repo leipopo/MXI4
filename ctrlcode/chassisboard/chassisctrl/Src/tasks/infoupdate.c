@@ -71,7 +71,7 @@ void get_comd_rc(RobInfo *ri)
 
     if ((RC_Data.mouse.press_l == 0x01) || (RC_Data.rc.s[0] == 3 && RC_Data.rc.s[1] == 2))
     {
-        if (robinfo.cur.heat0 < robinfo.lim.heat0_limit)
+        if ((robinfo.cur.heat0 < robinfo.lim.heat0_limit) || (Key.key_q == 0x01))
         {
             ri->comd.triggeron = 0x01;
         }
