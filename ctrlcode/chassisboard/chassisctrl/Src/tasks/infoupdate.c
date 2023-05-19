@@ -96,9 +96,26 @@ void get_comd_rc(RobInfo *ri)
     //     ri->comd.cvon = 0x08;
     // }
 
-    if ((RC_Data.rc.s[0] == 2 && RC_Data.rc.s[1] == 1) || (RC_Data.mouse.press_r == 0x01))
+    if ((RC_Data.rc.s[0] == 2) || (RC_Data.mouse.press_r == 0x01))
     {
         ri->comd.cvon = 0x01;
+        if (Key.key_e == 0x01)
+        {
+            ri->comd.cvon |= 0x10;
+        }
+
+        if (RC_Data.rc.s[1] == 1)
+        {
+            ri->comd.fricwheelon = 0x01;
+            if ((fabsf(comuinfo.rx_cv.pitangle) <= 2.f || fabsf(comuinfo.rx_cv.yawangle) <= 2.f) && (fabsf(comuinfo.rx_cv.pitangle) >= 0.1f || fabsf(comuinfo.rx_cv.yawangle) >= 0.1f))
+            {
+                ri->comd.triggeron |= 0x01;
+            }
+            else
+            {
+                ri->comd.triggeron |= 0x00;
+            }
+        }
     }
     else
     {
@@ -106,7 +123,7 @@ void get_comd_rc(RobInfo *ri)
         ri->comd.cvon = ri->comd.cvon << 4;
     }
 
-    if ((RC_Data.rc.s[0] == 2 && RC_Data.rc.s[1] == 2) || (Key.key_c == 0x01))
+    if (Key.key_c == 0x01)
     {
         ri->comd.spinning = 0x01;
     }
@@ -123,15 +140,24 @@ void get_chastarspeed_rc(RobInfo *ri)
     ri->tar.zspeed = (rcchannel_normalize(RC_Data.rc.ch[4]) + (ri->comd.spinning)) * spinningspeed;
     if (Key.key_shift == 0x01)
     {
-        if (((int8_t)(ri->cur.zrelangle / 45)) % 2 == 0)
+        if (((((int8_t)(ri->cur.zrelangle / 45)) % 2 == 0) && (ri->cur.zrelangle > 0)) ||
+            (((int8_t)(ri->cur.zrelangle / 45)) % 2 == -1) ||
+            (((int8_t)(ri->cur.zrelangle / 45)) % 2 == -3))
         {
-            ri->tar.zspeed = spinningspeed;
+            ri->tar.zspeed = -numcircle(45.f, -45.f, ri->cur.zrelangle) * spinningspeed / 2 / 45;
         }
 
-        else if (((int8_t)(ri->cur.zrelangle / 45)) % 2 == 1)
+        else if (((((int8_t)(ri->cur.zrelangle / 45)) % 2 == 0) && (ri->cur.zrelangle < 0)) ||
+                 (((int8_t)(ri->cur.zrelangle / 45)) % 2 == 1) ||
+                 (((int8_t)(ri->cur.zrelangle / 45)) % 2 == 3))
         {
-            ri->tar.zspeed = -spinningspeed;
+            ri->tar.zspeed = -numcircle(45.f, -45.f, ri->cur.zrelangle) * spinningspeed / 2 / 45;
         }
+    }
+
+    if (ri->tar.xspeed != 0 || ri->tar.yspeed != 0)
+    {
+        ri->tar.zspeed = ri->tar.zspeed * 0.5f;
     }
 }
 
@@ -142,9 +168,12 @@ void get_gimbtarangle_cv(RobInfo *ri)
         comuinfo.rx_cv.pitangle = 0.f;
         comuinfo.rx_cv.yawangle = 0.f;
     }
-    ri->tar.yawangle = numcircle(180.f, -180.f, ri->tar.yawangle-comuinfo.rx_cv.yawangle * robinfo.comd.cvon / fre(infotaskperi) / expcvmovetime);
-    ri->tar.pitangle += comuinfo.rx_cv.pitangle * robinfo.comd.cvon / fre(infotaskperi) / expcvmovetime;
-    ri->tar.pitangle = LIMIT(ri->tar.pitangle, pit.setup.angle_limit[0], pit.setup.angle_limit[1]);
+    else
+    {
+        ri->tar.yawangle = numcircle(180.f, -180.f, ri->tar.yawangle - comuinfo.rx_cv.yawangle / fre(infotaskperi) / expcvmovetime);
+        ri->tar.pitangle -= comuinfo.rx_cv.pitangle / fre(infotaskperi) / expcvmovetime;
+        ri->tar.pitangle = LIMIT(ri->tar.pitangle, pit.setup.angle_limit[0], pit.setup.angle_limit[1]);
+    }
 }
 
 void get_gimbtarangle_rc(RobInfo *ri)

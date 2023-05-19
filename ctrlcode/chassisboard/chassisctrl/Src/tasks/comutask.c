@@ -70,26 +70,6 @@ void canrx2comuinfo_rxpit(uint8_t rx[8], ComuInfo *ci)
     }
 }
 
-// void canrx2comuinfo_rximuspeed(uint8_t rx[8], ComuInfo *ci)
-// {
-//     float temp[4] = {0.f, 0.f, 0.f, 0.f};
-//     temp[0] = (int16_t)(rx[0] << 8 | rx[1]);
-//     temp[1] = (int16_t)(rx[2] << 8 | rx[3]);
-//     temp[2] = (int16_t)(rx[4] << 8 | rx[5]);
-//     temp[3] = (int16_t)(rx[6] << 8 | rx[7]);
-//     if ((temp[0] == 0x1234) && (temp[3] == (temp[1] + temp[2])))
-//     {
-//         ci->rx_imu.yawspeed = temp[1];
-//         ci->rx_imu.pitspeed = temp[2];
-//     }
-// }
-
-// void canrx2comuinfo_rxcv(uint8_t rx[8], ComuInfo *ci)
-// {
-//     ci->rx_cv.yawangle = (int16_t)(rx[0] << 8 | rx[1]);
-//     ci->rx_cv.pitangle = (int16_t)(rx[2] << 8 | rx[3]);
-// }
-
 void get_comuinfo_robinfo(ComuInfo *ci)
 {
     ci->tx_comd = robinfo.comd;

@@ -83,14 +83,7 @@ void clac_pitmot_aspid(PID_regulator *papid,
 
     pspid->tar = -papid->output;
     pspid->cur = robinfo.cur.pitspeed;
-    if (robinfo.comd.cvon == 0x01)
-    {
-        papid->outputMax = 100.f;
-    }
-    else
-    {
-        papid->outputMax = pit.setup.speed_limit;
-    }
+    papid->outputMax = pit.setup.speed_limit;
 
     calc_mot_aspid(papid, pspid, mi);
     // double Gangle = robinfo.cur.pitangle + 5.f;
@@ -107,14 +100,9 @@ void clac_yawmot_aspid(PID_regulator *yapid,
 
     yspid->tar = -yapid->output;
     yspid->cur = robinfo.cur.yawspeed;
-    if (robinfo.comd.cvon == 0x01)
-    {
-        yapid->outputMax = 100.f;
-    }
-    else
-    {
-        yapid->outputMax = yaw.setup.speed_limit;
-    }
+
+    yapid->outputMax = yaw.setup.speed_limit;
+
     calc_mot_aspid(yapid, yspid, mi);
     // if (yspid->output > 0.f)
     // {
