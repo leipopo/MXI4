@@ -99,7 +99,7 @@ void get_comd_rc(RobInfo *ri)
     if ((RC_Data.rc.s[0] == 2) || (RC_Data.mouse.press_r == 0x01))
     {
         ri->comd.cvon = 0x01;
-        if (Key.key_e == 0x01)
+        if ((Key.key_e == 0x01) || RC_Data.rc.s[1] == 2)
         {
             ri->comd.cvon |= 0x10;
         }

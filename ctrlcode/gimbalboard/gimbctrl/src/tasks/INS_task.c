@@ -40,10 +40,10 @@
 */
 
 #define BMI088_BOARD_INSTALL_SPIN_MATRIX \
-    {0.0f, 1.0f, 0.0f},                  \
-        {-1.0f, 0.0f, 0.0f},             \
+    {1.0f, 0.0f, 0.0f},                  \
+        {0.0f, -1.0f, 0.0f},             \
     {                                    \
-        0.0f, 0.0f, 1.0f                 \
+        0.0f, 0.0f, -1.0f                 \
     }
 
 #define IST8310_BOARD_INSTALL_SPIN_MATRIX \

@@ -12,7 +12,7 @@ ComuInfo comuinfo[3];
 //                      ||
 //                      ||
 //                      \/
-//  2 1 开自瞄 --> 2 3 开电机无动作 --> 2 2 开小陀螺
+//  2 1 开装甲自瞄发蛋 --> 2 3 开装甲板自瞄不发蛋 --> 2 2 开符自瞄
 
 // 3 3 开电机无动作-->2 3 开电机无动作  切换自瞄模式
 
@@ -63,6 +63,18 @@ void pack_mes2chas_pit(int16_t mes[4])
     mes[3] = mes[0] + mes[1] + mes[2];
 }
 
+void pack_mes2nuc(uint8_t mes[8])
+{
+    mes[0]=0x10;
+    mes[1] = (int16_t)(comuinfo[0].tx_imu.yawangle * 100)>>8;
+    mes[2] = (int16_t)(comuinfo[0].tx_imu.yawangle * 100);
+    mes[3] = (int16_t)(comuinfo[0].tx_imu.pitangle * 100)>>8;
+    mes[4] = (int16_t)(comuinfo[0].tx_imu.pitangle * 100);
+    mes[5] = 'a';
+    mes[6] = '0';
+    mes[7] = '\n';
+}
+
 void comutask()
 {
     for (;;)
@@ -71,6 +83,8 @@ void comutask()
         pack_mes2chas_yaw(can2_mes2chas_yaw);
         CAN_send(gimbboardid_yaw, hcan2, can2_mes2chas_yaw);
         osDelayUntil(comutaskperi / 2);
+
+
         pack_mes2chas_pit(can2_mes2chas_pit);
         CAN_send(gimbboardid_pit, hcan2, can2_mes2chas_pit);
         osDelayUntil(comutaskperi / 2);
