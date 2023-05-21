@@ -25,7 +25,7 @@ void init_gimbmot_para(MotorInfo *pi, MotorInfo *yi)
     *pi = motparainit(gm6020);
     pi->setup.motid = pitmotid;
     pi->setup.reductionratio = pitreductionratio;
-    pi->setup.angle_limit[0] = -40.f;
+    pi->setup.angle_limit[0] = -30.f;
     pi->setup.angle_limit[1] = 20.f;
     pi->setup.speed_limit = pi->setup.speed_limit / pi->setup.reductionratio;
     pi->setup.outcirclerate = 5;

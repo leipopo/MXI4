@@ -3,7 +3,7 @@
 
 #include "usart.h"
 
-extern void usart_printf(DMA_HandleTypeDef *hdma_usartx_tx,const char *fmt,...);
+extern void DMA_TX_INIT(UART_HandleTypeDef *huartx);
 
 
 extern void DMA_RX_INIT(UART_HandleTypeDef *huartx,\

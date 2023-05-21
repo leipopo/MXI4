@@ -40,10 +40,10 @@
 */
 
 #define BMI088_BOARD_INSTALL_SPIN_MATRIX \
-    {1.0f, 0.0f, 0.0f},                  \
-        {0.0f, -1.0f, 0.0f},             \
+    {0.0f, 1.0f, 0.0f},                  \
+        {-1.0f, 0.0f, 0.0f},             \
     {                                    \
-        0.0f, 0.0f, -1.0f                 \
+        0.0f, 0.0f, 1.0f                 \
     }
 
 #define IST8310_BOARD_INSTALL_SPIN_MATRIX \
@@ -120,7 +120,7 @@ fp32 mag_cali_offset[3];
 static uint8_t first_temperate;
 
 static const float timing_time  = 0.001f; // tast run time , unit s.任务运行的时间 单位 s
-//加速度计低通滤波
+// 加速度计低通滤波
 static fp32 accel_fliter_1[3]   = {0.0f, 0.0f, 0.0f};
 static fp32 accel_fliter_2[3]   = {0.0f, 0.0f, 0.0f};
 static fp32 accel_fliter_3[3]   = {0.0f, 0.0f, 0.0f};
@@ -173,7 +173,7 @@ void INS_task()
     accel_fliter_1[1] = accel_fliter_2[1] = accel_fliter_3[1] = INS_accel[1];
     accel_fliter_1[2] = accel_fliter_2[2] = accel_fliter_3[2] = INS_accel[2];
     // get the handle of task
-    //获取当前任务的任务句柄，
+    // 获取当前任务的任务句柄，
     INS_task_local_handler                                    = xTaskGetHandle(pcTaskGetName(NULL));
 
     // set spi frequency
@@ -191,7 +191,7 @@ void INS_task()
     while (1)
     {
         // wait spi DMA tansmit done
-        //等待SPI DMA传输
+        // 等待SPI DMA传输
         while (ulTaskNotifyTake(pdTRUE, portMAX_DELAY) != pdPASS)
         {
         }
@@ -218,8 +218,8 @@ void INS_task()
         // rotate and zero drift
         imu_cali_slove(INS_gyro, INS_accel, INS_mag, &bmi088_real_data, &ist8310_real_data);
 
-        //加速度计低通滤波
-        // accel low-pass filter
+        // 加速度计低通滤波
+        //  accel low-pass filter
         accel_fliter_1[0] = accel_fliter_2[0];
         accel_fliter_2[0] = accel_fliter_3[0];
 
@@ -322,14 +322,14 @@ static void imu_temp_control(fp32 temp)
     }
     else
     {
-        //��û�дﵽ���õ��¶ȣ�һֱ����ʼ���
-        // in beginning, max power
+        // ��û�дﵽ���õ��¶ȣ�һֱ����ʼ���
+        //  in beginning, max power
         if (temp > 35.0f)
         {
             temp_constant_time++;
             if (temp_constant_time > 200)
             {
-                //�ﵽ�����¶ȣ�������������Ϊһ������ʣ���������
+                // �ﵽ�����¶ȣ�������������Ϊһ������ʣ���������
                 //
                 first_temperate          = 1;
                 imu_temp_pid.componentKi = MPU6500_TEMP_PWM_MAX / 2.0f;
@@ -374,7 +374,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
     else if (GPIO_Pin == GPIO_PIN_0)
     {
         // wake up the task
-        //��������
+        // ��������
         if (xTaskGetSchedulerState() != taskSCHEDULER_NOT_STARTED)
         {
             static BaseType_t xHigherPriorityTaskWoken;
@@ -399,7 +399,7 @@ static void imu_cmd_spi_dma(void)
     UBaseType_t uxSavedInterruptStatus;
     uxSavedInterruptStatus = taskENTER_CRITICAL_FROM_ISR();
 
-    //���������ǵ�DMA����
+    // ���������ǵ�DMA����
     if ((gyro_update_flag & (1 << IMU_DR_SHFITS)) && !(hspi1.hdmatx->Instance->CR & DMA_SxCR_EN) && !(hspi1.hdmarx->Instance->CR & DMA_SxCR_EN) && !(accel_update_flag & (1 << IMU_SPI_SHFITS)) && !(accel_temp_update_flag & (1 << IMU_SPI_SHFITS)))
     {
         gyro_update_flag &= ~(1 << IMU_DR_SHFITS);
@@ -410,7 +410,7 @@ static void imu_cmd_spi_dma(void)
         taskEXIT_CRITICAL_FROM_ISR(uxSavedInterruptStatus);
         return;
     }
-    //�������ٶȼƵ�DMA����
+    // �������ٶȼƵ�DMA����
     if ((accel_update_flag & (1 << IMU_DR_SHFITS)) && !(hspi1.hdmatx->Instance->CR & DMA_SxCR_EN) && !(hspi1.hdmarx->Instance->CR & DMA_SxCR_EN) && !(gyro_update_flag & (1 << IMU_SPI_SHFITS)) && !(accel_temp_update_flag & (1 << IMU_SPI_SHFITS)))
     {
         accel_update_flag &= ~(1 << IMU_DR_SHFITS);
@@ -443,7 +443,7 @@ void DMA2_Stream2_IRQHandler(void)
         __HAL_DMA_CLEAR_FLAG(hspi1.hdmarx, __HAL_DMA_GET_TC_FLAG_INDEX(hspi1.hdmarx));
 
         // gyro read over
-        //�����Ƕ�ȡ���
+        // �����Ƕ�ȡ���
         if (gyro_update_flag & (1 << IMU_SPI_SHFITS))
         {
             gyro_update_flag &= ~(1 << IMU_SPI_SHFITS);
@@ -453,7 +453,7 @@ void DMA2_Stream2_IRQHandler(void)
         }
 
         // accel read over
-        //���ٶȼƶ�ȡ���
+        // ���ٶȼƶ�ȡ���
         if (accel_update_flag & (1 << IMU_SPI_SHFITS))
         {
             accel_update_flag &= ~(1 << IMU_SPI_SHFITS);
@@ -462,7 +462,7 @@ void DMA2_Stream2_IRQHandler(void)
             HAL_GPIO_WritePin(CS1_ACCEL_GPIO_Port, CS1_ACCEL_Pin, GPIO_PIN_SET);
         }
         // temperature read over
-        //�¶ȶ�ȡ���
+        // �¶ȶ�ȡ���
         if (accel_temp_update_flag & (1 << IMU_SPI_SHFITS))
         {
             accel_temp_update_flag &= ~(1 << IMU_SPI_SHFITS);

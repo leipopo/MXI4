@@ -155,9 +155,26 @@ void get_chastarspeed_rc(RobInfo *ri)
         }
     }
 
+    if (Key.key_ctrl == 0x01)
+    {
+        if (((((int8_t)(ri->cur.zrelangle / 45)) % 2 == 0) && (ri->cur.zrelangle > 0)) ||
+            (((int8_t)(ri->cur.zrelangle / 45)) % 2 == -1) ||
+            (((int8_t)(ri->cur.zrelangle / 45)) % 2 == -3))
+        {
+            ri->tar.zspeed = numcircle(45.f, -45.f, ri->cur.zrelangle) * spinningspeed / 2 / 45;
+        }
+
+        else if (((((int8_t)(ri->cur.zrelangle / 45)) % 2 == 0) && (ri->cur.zrelangle < 0)) ||
+                 (((int8_t)(ri->cur.zrelangle / 45)) % 2 == 1) ||
+                 (((int8_t)(ri->cur.zrelangle / 45)) % 2 == 3))
+        {
+            ri->tar.zspeed = numcircle(45.f, -45.f, ri->cur.zrelangle) * spinningspeed / 2 / 45;
+        }
+    }
+
     if (ri->tar.xspeed != 0 || ri->tar.yspeed != 0)
     {
-        ri->tar.zspeed = ri->tar.zspeed * 0.5f;
+        ri->tar.zspeed = ri->tar.zspeed * 0.75f;
     }
 }
 

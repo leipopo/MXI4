@@ -1,6 +1,7 @@
 #include "main.h"
 int16_t can2_mes2chas_yaw[4];
 int16_t can2_mes2chas_pit[4];
+uint8_t u1_mes2nuc[10];
 ComuInfo comuinfo[3];
 
 // 遥控器逻辑
@@ -63,17 +64,25 @@ void pack_mes2chas_pit(int16_t mes[4])
     mes[3] = mes[0] + mes[1] + mes[2];
 }
 
-void pack_mes2nuc(uint8_t mes[8])
+void pack_mes2nuc(uint8_t mes[10])
 {
-    mes[0]=0x10;
-    mes[1] = (int16_t)(comuinfo[0].tx_imu.yawangle * 100)>>8;
+    mes[0] = 0x10;
+    mes[1] = (int16_t)(comuinfo[0].tx_imu.yawangle * 100) >> 8;
     mes[2] = (int16_t)(comuinfo[0].tx_imu.yawangle * 100);
-    mes[3] = (int16_t)(comuinfo[0].tx_imu.pitangle * 100)>>8;
+    mes[3] = (int16_t)(comuinfo[0].tx_imu.pitangle * 100) >> 8;
     mes[4] = (int16_t)(comuinfo[0].tx_imu.pitangle * 100);
-    mes[5] = 'a';
+
+    if (comuinfo->rx_comd.cvon == 0x11)
+    {
+        mes[5] = 'a';
+    }
+
     mes[6] = '0';
-    mes[7] = '\n';
+    mes[7] = '0';
+    mes[9] = '\n';
 }
+
+uint8_t nuc_comucount = 0;
 
 void comutask()
 {
@@ -82,12 +91,21 @@ void comutask()
 
         pack_mes2chas_yaw(can2_mes2chas_yaw);
         CAN_send(gimbboardid_yaw, hcan2, can2_mes2chas_yaw);
-        osDelayUntil(comutaskperi / 2);
 
+        if (nuc_comucount == 50)
+        {
+            pack_mes2nuc(u1_mes2nuc);
+            HAL_UART_Transmit(&huart1, (uint8_t *)u1_mes2nuc, sizeof(u1_mes2nuc), 2);
+            nuc_comucount = 0;
+        }
+        else
+        {
+            nuc_comucount++;
+        }
 
         pack_mes2chas_pit(can2_mes2chas_pit);
         CAN_send(gimbboardid_pit, hcan2, can2_mes2chas_pit);
-        osDelayUntil(comutaskperi / 2);
+        osDelayUntil(comutaskperi);
 
         // pack_mes2chas_imuspeed(can2_mes2chas_imuspeed);
         // CAN_send(gimbboardid_imuspeed, hcan2, can2_mes2chas_imuspeed);

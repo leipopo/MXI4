@@ -1,5 +1,11 @@
 #include "main.h"
 
+
+void DMA_TX_INIT(UART_HandleTypeDef *huartx)
+{
+    SET_BIT(huartx->Instance->CR3, USART_CR3_DMAT);
+}
+
 void DMA_RX_INIT(UART_HandleTypeDef *huartx,
 				 DMA_HandleTypeDef *hdma_usartx_rx,
 				 uint8_t *rx1_buf,
