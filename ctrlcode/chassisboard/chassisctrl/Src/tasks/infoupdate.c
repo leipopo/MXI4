@@ -171,11 +171,6 @@ void get_chastarspeed_rc(RobInfo *ri)
             ri->tar.zspeed = numcircle(45.f, -45.f, ri->cur.zrelangle) * spinningspeed / 2 / 45;
         }
     }
-
-    if (ri->tar.xspeed != 0 || ri->tar.yspeed != 0)
-    {
-        ri->tar.zspeed = ri->tar.zspeed * 0.75f;
-    }
 }
 
 void get_gimbtarangle_cv(RobInfo *ri)

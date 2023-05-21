@@ -21,46 +21,79 @@ void xyzspeed2wheelspeed(MotorInfo mi[4])
     xytempspeed[0] = robinfo.tar.xspeed * cos(robinfo.cur.zrelangle / 360.f * 2 * 3.1415f) + robinfo.tar.yspeed * sin(robinfo.cur.zrelangle / 360.f * 2 * 3.1415f);
     xytempspeed[1] = -robinfo.tar.xspeed * sin(robinfo.cur.zrelangle / 360.f * 2 * 3.1415f) + robinfo.tar.yspeed * cos(robinfo.cur.zrelangle / 360.f * 2 * 3.1415f);
 
-    sumspeed[0] = -xytempspeed[0]  -xytempspeed[1] + robinfo.tar.zspeed;
+    sumspeed[0] = -xytempspeed[0] - xytempspeed[1] + robinfo.tar.zspeed;
     sumspeed[1] = -xytempspeed[0] + xytempspeed[1] + robinfo.tar.zspeed;
     sumspeed[2] = xytempspeed[0] + xytempspeed[1] + robinfo.tar.zspeed;
     sumspeed[3] = xytempspeed[0] - xytempspeed[1] + robinfo.tar.zspeed;
 
     if (fabsf(sumspeed[0]) > 400.f)
     {
-        mi[0].tarmotorinfo.speed = -xytempspeed[0] / fabs(sumspeed[0]) * 400.f - xytempspeed[1] / fabs(sumspeed[0]) * 400.f + robinfo.tar.zspeed / fabs(sumspeed[0]) * 400.f;
-    }
-    else
-    {
-        mi[0].tarmotorinfo.speed=sumspeed[0];
+        sumspeed[0] = -xytempspeed[0] / fabs(sumspeed[0]) * 400.f - xytempspeed[1] / fabs(sumspeed[0]) * 400.f + robinfo.tar.zspeed / fabs(sumspeed[0]) * 400.f;
     }
     if (fabsf(sumspeed[1]) > 400.f)
     {
-        mi[1].tarmotorinfo.speed = -xytempspeed[0] / fabs(sumspeed[1]) * 400.f + xytempspeed[1] / fabs(sumspeed[1]) * 400.f + robinfo.tar.zspeed / fabs(sumspeed[1]) * 400.f;
-    }
-    else
-    {
-        mi[1].tarmotorinfo.speed=sumspeed[1];
+        sumspeed[1] = -xytempspeed[0] / fabs(sumspeed[1]) * 400.f + xytempspeed[1] / fabs(sumspeed[1]) * 400.f + robinfo.tar.zspeed / fabs(sumspeed[1]) * 400.f;
     }
     if (fabsf(sumspeed[2]) > 400.f)
     {
-        mi[2].tarmotorinfo.speed = xytempspeed[0] / fabs(sumspeed[2]) * 400.f + xytempspeed[1] / fabs(sumspeed[2]) * 400.f + robinfo.tar.zspeed / fabs(sumspeed[2]) * 400.f;
-    }
-    else
-    {
-        mi[2].tarmotorinfo.speed=sumspeed[2];
+        sumspeed[2] = xytempspeed[0] / fabs(sumspeed[2]) * 400.f + xytempspeed[1] / fabs(sumspeed[2]) * 400.f + robinfo.tar.zspeed / fabs(sumspeed[2]) * 400.f;
     }
     if (fabsf(sumspeed[3]) > 400.f)
     {
-        mi[3].tarmotorinfo.speed = xytempspeed[0] / fabs(sumspeed[3]) * 400.f - xytempspeed[1] / fabs(sumspeed[3]) * 400.f + robinfo.tar.zspeed / fabs(sumspeed[3]) * 400.f;
+        sumspeed[3] = xytempspeed[0] / fabs(sumspeed[3]) * 400.f - xytempspeed[1] / fabs(sumspeed[3]) * 400.f + robinfo.tar.zspeed / fabs(sumspeed[3]) * 400.f;
+    }
+
+    if (sumspeed[0] - mi[0].tarmotorinfo.speed > movespeed / fre(mottaskperi) / acctime)
+    {
+        mi[0].tarmotorinfo.speed += movespeed / fre(mottaskperi) / acctime;
+    }
+    else if (sumspeed[0] - mi[0].tarmotorinfo.speed < -movespeed / fre(mottaskperi) / acctime)
+    {
+        mi[0].tarmotorinfo.speed -= movespeed / fre(mottaskperi) / acctime;
     }
     else
     {
-        mi[3].tarmotorinfo.speed=sumspeed[3];
+        mi[0].tarmotorinfo.speed = sumspeed[0];
     }
 
-    if()
+    if (sumspeed[1] - mi[1].tarmotorinfo.speed > movespeed / fre(mottaskperi) / acctime)
+    {
+        mi[1].tarmotorinfo.speed += movespeed / fre(mottaskperi) / acctime;
+    }
+    else if (sumspeed[1] - mi[1].tarmotorinfo.speed < -movespeed / fre(mottaskperi) / acctime)
+    {
+        mi[1].tarmotorinfo.speed -= movespeed / fre(mottaskperi) / acctime;
+    }
+    else
+    {
+        mi[1].tarmotorinfo.speed = sumspeed[1];
+    }
 
+    if (sumspeed[2] - mi[2].tarmotorinfo.speed > movespeed / fre(mottaskperi) / acctime)
+    {
+        mi[2].tarmotorinfo.speed += movespeed / fre(mottaskperi) / acctime;
+    }
+    else if (sumspeed[2] - mi[2].tarmotorinfo.speed < -movespeed / fre(mottaskperi) / acctime)
+    {
+        mi[2].tarmotorinfo.speed -= movespeed / fre(mottaskperi) / acctime;
+    }
+    else
+    {
+        mi[2].tarmotorinfo.speed = sumspeed[2];
+    }
+
+    if (sumspeed[3] - mi[3].tarmotorinfo.speed > movespeed / fre(mottaskperi) / acctime)
+    {
+        mi[3].tarmotorinfo.speed += movespeed / fre(mottaskperi) / acctime;
+    }
+    else if (sumspeed[3] - mi[3].tarmotorinfo.speed < -movespeed / fre(mottaskperi) / acctime)
+    {
+        mi[3].tarmotorinfo.speed -= movespeed / fre(mottaskperi) / acctime;
+    }
+    else
+    {
+        mi[3].tarmotorinfo.speed = sumspeed[3];
+    }
 
 }
 
@@ -74,7 +107,7 @@ void init_whemot_pid(PID_regulator wspid[4])
         wspid[i].componentKpMax = 10000;
         wspid[i].componentKiMax = 3000;
         wspid[i].componentKdMax = 5000;
-        wspid[i].outputMax = 15000;
+        wspid[i].outputMax = 4000;
     }
 }
 
