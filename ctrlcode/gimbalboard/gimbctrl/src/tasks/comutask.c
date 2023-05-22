@@ -74,6 +74,10 @@ void pack_mes2nuc(uint8_t mes[10])
 
     if (comuinfo->rx_comd.cvon == 0x11)
     {
+        mes[5] = 's';
+    }
+    else
+    {
         mes[5] = 'a';
     }
 
