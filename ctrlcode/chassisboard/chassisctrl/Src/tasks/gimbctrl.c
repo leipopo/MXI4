@@ -37,12 +37,12 @@ void init_gimbmot_pid(PID_regulator *papid,
                       PID_regulator *pspid,
                       PID_regulator *yspid)
 {
-    papid->kp = 6;
-    papid->ki = 0.00005;
-    papid->kd = 20.0;
+    papid->kp = 5;
+    papid->ki = 0.0;
+    papid->kd = 3.0;
     papid->outputMax = pit.setup.speed_limit;
     papid->componentKpMax = papid->outputMax;
-    papid->componentKiMax = papid->outputMax / 3;
+    papid->componentKiMax = papid->outputMax / 10;
     papid->componentKdMax = papid->outputMax;
 
     yapid->kp = 5;
@@ -54,16 +54,16 @@ void init_gimbmot_pid(PID_regulator *papid,
     yapid->componentKdMax = yapid->outputMax;
 
     pspid->kp = 500;
-    pspid->ki = 0.005;
+    pspid->ki = 0.0005;
     pspid->kd = 2000;
     pspid->outputMax = pit.setup.current_value_limit;
     pspid->componentKpMax = 30000;
     pspid->componentKiMax = 20000;
     pspid->componentKdMax = 20000;
 
-    yspid->kp = 1500;
+    yspid->kp = 1200;
     yspid->ki = 0.0005;
-    yspid->kd = 2000;
+    yspid->kd = 1000;
     yspid->outputMax = yaw.setup.current_value_limit;
     yspid->componentKpMax = 30000;
     yspid->componentKiMax = 20000;

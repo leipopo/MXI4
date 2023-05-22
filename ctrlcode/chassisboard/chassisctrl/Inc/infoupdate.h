@@ -6,7 +6,7 @@
 #define mousespeed_normalize(a) ((float)a) / 0x7fff
 #define rcchannel_normalize(a) ((float)a) / 660.f
 
-#define yawspeedconst 20.f
+#define yawspeedconst 10.f
 #define pitspeedconst 10.f
 
 #define expcvmovetime 1.5f
