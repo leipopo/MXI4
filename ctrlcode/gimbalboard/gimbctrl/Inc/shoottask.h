@@ -6,7 +6,9 @@
 #define trigspeed      shootfreq / forknum * 60.f
 #define trigclickangle 360.f / forknum
 
-#define fricwheelspeed -5000.f //-6000.f to 26
+#define fricwheelspeed_30 -6500.f
+#define fricwheelspeed_18 -5000.f 
+#define fricwheelspeed_15 -4200.f
 
 #define magopenpusle   500
 #define magclosepusle  2200
