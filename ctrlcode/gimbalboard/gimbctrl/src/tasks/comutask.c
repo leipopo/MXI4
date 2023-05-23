@@ -99,8 +99,10 @@ void comutask()
         if (nuc_comucount == 50)
         {
             pack_mes2nuc(u1_mes2nuc);
-            HAL_UART_Transmit(&huart1, (uint8_t *)u1_mes2nuc, sizeof(u1_mes2nuc), 2);
+            memset(NUC_rx_buf,0,NUC_RX_BUF_NUM);
+            HAL_UART_Transmit_DMA(&huart1, (uint8_t *)u1_mes2nuc, sizeof(u1_mes2nuc));
             nuc_comucount = 0;
+            //HAL_UART_Receive_DMA(&huart1, NUC_rx_buf, NUC_RX_BUF_NUM);
         }
         else
         {

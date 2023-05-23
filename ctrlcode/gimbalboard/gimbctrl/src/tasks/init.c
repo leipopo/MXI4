@@ -15,8 +15,8 @@ void devinit()
     HAL_Delay(50);
     HAL_TIM_PWM_Start(&htim10, TIM_CHANNEL_1);
     HAL_Delay(50);
-    // DMA_TX_INIT(&huart1);
-    // HAL_Delay(50);
+    DMA_TX_INIT(&huart1);
+    HAL_Delay(50);
 }
 
 void userinit()

@@ -14,5 +14,6 @@ typedef struct
 } NUC_DATA;
 
 extern NUC_DATA NUC_data;
+extern uint8_t NUC_rx_buf[2][NUC_RX_BUF_NUM];
 
 #endif // !NUC_H
