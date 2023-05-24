@@ -127,6 +127,13 @@ void get_chastarspeed_rc(RobInfo *ri)
 {
     ri->tar.xspeed = (rcchannel_normalize(RC_Data.rc.ch[3]) + (Key.key_w - Key.key_s)) * movespeed;
     ri->tar.yspeed = (rcchannel_normalize(RC_Data.rc.ch[2]) + (Key.key_d - Key.key_a)) * movespeed;
+
+    if (robinfo.tar.zspeed != 0)
+    {
+        robinfo.tar.xspeed /= 4.f;
+        robinfo.tar.yspeed /= 4.f;
+    }
+
     ri->tar.zspeed = (rcchannel_normalize(RC_Data.rc.ch[4]) + (ri->comd.spinning)) * spinningspeed;
     if (Key.key_shift == 0x01)
     {

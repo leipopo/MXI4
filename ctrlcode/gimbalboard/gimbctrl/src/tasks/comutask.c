@@ -44,7 +44,7 @@ void canrx2comuinfo_comd(uint8_t rx[8], ComuInfo ci[3])
         ci[0].rx_comd.cvon = ci[1].rx_comd.cvon;
         ci[1].rx_comd.cvon = ci[2].rx_comd.cvon;
         ci[2].rx_comd.cvon = rx[5];
-        // ci[0].rx_comd.cvon = ci[0].rx_comd.cvon | ci[1].rx_comd.cvon | ci[2].rx_comd.cvon;
+        ci[0].rx_comd.cvon = ci[0].rx_comd.cvon & ci[1].rx_comd.cvon & ci[2].rx_comd.cvon;
     }
 }
 

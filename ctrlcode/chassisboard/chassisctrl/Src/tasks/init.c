@@ -13,17 +13,15 @@ void chasmotinit()
 
 void devinit()
 {
-    
+
     while (RC_ON == 0)
     {
         RC_INIT();
         HAL_Delay(50);
     }
-    while (CAN_READY == 0)
-    {
-        can_filter_init();
-        HAL_Delay(50);
-    }
+
+    can_filter_init();
+    HAL_Delay(50);
 
     REF_INIT();
     HAL_Delay(50);

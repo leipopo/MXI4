@@ -9,7 +9,7 @@
 #define yawspeedconst 10.f
 #define pitspeedconst 10.f
 
-#define expcvmovetime 1.5f
+#define expcvmovetime 2.f
 
 // #define yawspeedconst 20.f
 // #define pitspeedconst 10.f

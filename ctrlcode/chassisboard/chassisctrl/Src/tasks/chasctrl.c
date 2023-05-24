@@ -18,8 +18,10 @@ void xyzspeed2wheelspeed(MotorInfo mi[4])
 {
     float xytempspeed[2] = {0.f, 0.f};
     float sumspeed[4] = {0.f, 0.f, 0.f, 0.f};
-    xytempspeed[0] = robinfo.tar.xspeed * cos(robinfo.cur.zrelangle / 360.f * 2 * 3.1415f) + robinfo.tar.yspeed * sin(robinfo.cur.zrelangle / 360.f * 2 * 3.1415f);
-    xytempspeed[1] = -robinfo.tar.xspeed * sin(robinfo.cur.zrelangle / 360.f * 2 * 3.1415f) + robinfo.tar.yspeed * cos(robinfo.cur.zrelangle / 360.f * 2 * 3.1415f);
+    float czrangle=numcircle(180.f,-180.f,robinfo.cur.zrelangle+yaw.curmotorinfo.speed*0.3f) ;
+    
+    xytempspeed[0] = robinfo.tar.xspeed * cos(czrangle / 360.f * 2 * 3.1415f) + robinfo.tar.yspeed * sin(czrangle / 360.f * 2 * 3.1415f);
+    xytempspeed[1] = -robinfo.tar.xspeed * sin(czrangle / 360.f * 2 * 3.1415f) + robinfo.tar.yspeed * cos(czrangle / 360.f * 2 * 3.1415f);
 
     sumspeed[0] = -xytempspeed[0] - xytempspeed[1] + robinfo.tar.zspeed;
     sumspeed[1] = -xytempspeed[0] + xytempspeed[1] + robinfo.tar.zspeed;
@@ -94,6 +96,7 @@ void xyzspeed2wheelspeed(MotorInfo mi[4])
     {
         mi[3].tarmotorinfo.speed = sumspeed[3];
     }
+
 
 }
 
