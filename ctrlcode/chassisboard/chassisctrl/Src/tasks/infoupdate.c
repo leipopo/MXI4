@@ -71,7 +71,7 @@ void get_comd_rc(RobInfo *ri)
 
     if ((RC_Data.mouse.press_l == 0x01) || (RC_Data.rc.s[0] == 3 && RC_Data.rc.s[1] == 2))
     {
-        if (robinfo.cur.heat0 < robinfo.lim.heat0_limit-10)
+        if (robinfo.cur.heat0 < robinfo.lim.heat0_limit - 10)
         {
             ri->comd.triggeron = 0x01;
         }
@@ -98,16 +98,19 @@ void get_comd_rc(RobInfo *ri)
 
     if ((RC_Data.rc.s[0] == 2) || (RC_Data.mouse.press_r == 0x01))
     {
-        ri->comd.cvon = 0x01;
+
         if ((Key.key_e == 0x01) || RC_Data.rc.s[1] == 2)
         {
-            ri->comd.cvon |= 0x10;
+            ri->comd.cvon = 0x11;
+        }
+        else
+        {
+            ri->comd.cvon = 0x01;
         }
     }
     else
     {
-        ri->comd.cvon = ri->comd.cvon >> 4;
-        ri->comd.cvon = ri->comd.cvon << 4;
+        ri->comd.cvon = 0x00;
     }
 
     if (Key.key_c == 0x01)
