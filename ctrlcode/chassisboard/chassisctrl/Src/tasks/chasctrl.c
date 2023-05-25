@@ -18,7 +18,8 @@ void xyzspeed2wheelspeed(MotorInfo mi[4])
 {
     float xytempspeed[2] = {0.f, 0.f};
     float sumspeed[4] = {0.f, 0.f, 0.f, 0.f};
-    float czrangle=numcircle(180.f,-180.f,robinfo.cur.zrelangle+yaw.curmotorinfo.speed*0.3f) ;
+    //float czrangle=numcircle(180.f,-180.f,robinfo.cur.zrelangle+yaw.curmotorinfo.speed*0.3f) ;
+    float czrangle=robinfo.cur.zrelangle;
     
     xytempspeed[0] = robinfo.tar.xspeed * cos(czrangle / 360.f * 2 * 3.1415f) + robinfo.tar.yspeed * sin(czrangle / 360.f * 2 * 3.1415f);
     xytempspeed[1] = -robinfo.tar.xspeed * sin(czrangle / 360.f * 2 * 3.1415f) + robinfo.tar.yspeed * cos(czrangle / 360.f * 2 * 3.1415f);
@@ -30,72 +31,88 @@ void xyzspeed2wheelspeed(MotorInfo mi[4])
 
     if (fabsf(sumspeed[0]) > 400.f)
     {
-        sumspeed[0] = -xytempspeed[0] / fabs(sumspeed[0]) * 400.f - xytempspeed[1] / fabs(sumspeed[0]) * 400.f + robinfo.tar.zspeed / fabs(sumspeed[0]) * 400.f;
-    }
-    if (fabsf(sumspeed[1]) > 400.f)
-    {
-        sumspeed[1] = -xytempspeed[0] / fabs(sumspeed[1]) * 400.f + xytempspeed[1] / fabs(sumspeed[1]) * 400.f + robinfo.tar.zspeed / fabs(sumspeed[1]) * 400.f;
-    }
-    if (fabsf(sumspeed[2]) > 400.f)
-    {
-        sumspeed[2] = xytempspeed[0] / fabs(sumspeed[2]) * 400.f + xytempspeed[1] / fabs(sumspeed[2]) * 400.f + robinfo.tar.zspeed / fabs(sumspeed[2]) * 400.f;
-    }
-    if (fabsf(sumspeed[3]) > 400.f)
-    {
-        sumspeed[3] = xytempspeed[0] / fabs(sumspeed[3]) * 400.f - xytempspeed[1] / fabs(sumspeed[3]) * 400.f + robinfo.tar.zspeed / fabs(sumspeed[3]) * 400.f;
-    }
-
-    if (sumspeed[0] - mi[0].tarmotorinfo.speed > movespeed / fre(mottaskperi) / acctime)
-    {
-        mi[0].tarmotorinfo.speed += movespeed / fre(mottaskperi) / acctime;
-    }
-    else if (sumspeed[0] - mi[0].tarmotorinfo.speed < -movespeed / fre(mottaskperi) / acctime)
-    {
-        mi[0].tarmotorinfo.speed -= movespeed / fre(mottaskperi) / acctime;
+        mi[0].tarmotorinfo.speed = -xytempspeed[0] / fabs(sumspeed[0]) * 400.f - xytempspeed[1] / fabs(sumspeed[0]) * 400.f + robinfo.tar.zspeed / fabs(sumspeed[0]) * 400.f;
     }
     else
     {
         mi[0].tarmotorinfo.speed = sumspeed[0];
     }
-
-    if (sumspeed[1] - mi[1].tarmotorinfo.speed > movespeed / fre(mottaskperi) / acctime)
+    if (fabsf(sumspeed[1]) > 400.f)
     {
-        mi[1].tarmotorinfo.speed += movespeed / fre(mottaskperi) / acctime;
-    }
-    else if (sumspeed[1] - mi[1].tarmotorinfo.speed < -movespeed / fre(mottaskperi) / acctime)
-    {
-        mi[1].tarmotorinfo.speed -= movespeed / fre(mottaskperi) / acctime;
+        mi[1].tarmotorinfo.speed = -xytempspeed[0] / fabs(sumspeed[1]) * 400.f + xytempspeed[1] / fabs(sumspeed[1]) * 400.f + robinfo.tar.zspeed / fabs(sumspeed[1]) * 400.f;
     }
     else
     {
         mi[1].tarmotorinfo.speed = sumspeed[1];
     }
-
-    if (sumspeed[2] - mi[2].tarmotorinfo.speed > movespeed / fre(mottaskperi) / acctime)
+    if (fabsf(sumspeed[2]) > 400.f)
     {
-        mi[2].tarmotorinfo.speed += movespeed / fre(mottaskperi) / acctime;
-    }
-    else if (sumspeed[2] - mi[2].tarmotorinfo.speed < -movespeed / fre(mottaskperi) / acctime)
-    {
-        mi[2].tarmotorinfo.speed -= movespeed / fre(mottaskperi) / acctime;
+        mi[2].tarmotorinfo.speed = xytempspeed[0] / fabs(sumspeed[2]) * 400.f + xytempspeed[1] / fabs(sumspeed[2]) * 400.f + robinfo.tar.zspeed / fabs(sumspeed[2]) * 400.f;
     }
     else
     {
         mi[2].tarmotorinfo.speed = sumspeed[2];
     }
-
-    if (sumspeed[3] - mi[3].tarmotorinfo.speed > movespeed / fre(mottaskperi) / acctime)
+    if (fabsf(sumspeed[3]) > 400.f)
     {
-        mi[3].tarmotorinfo.speed += movespeed / fre(mottaskperi) / acctime;
-    }
-    else if (sumspeed[3] - mi[3].tarmotorinfo.speed < -movespeed / fre(mottaskperi) / acctime)
-    {
-        mi[3].tarmotorinfo.speed -= movespeed / fre(mottaskperi) / acctime;
+         mi[3].tarmotorinfo.speed = xytempspeed[0] / fabs(sumspeed[3]) * 400.f - xytempspeed[1] / fabs(sumspeed[3]) * 400.f + robinfo.tar.zspeed / fabs(sumspeed[3]) * 400.f;
     }
     else
     {
         mi[3].tarmotorinfo.speed = sumspeed[3];
     }
+
+    // if (sumspeed[0] - mi[0].tarmotorinfo.speed > movespeed / fre(mottaskperi) / acctime)
+    // {
+    //     mi[0].tarmotorinfo.speed += movespeed / fre(mottaskperi) / acctime;
+    // }
+    // else if (sumspeed[0] - mi[0].tarmotorinfo.speed < -movespeed / fre(mottaskperi) / acctime)
+    // {
+    //     mi[0].tarmotorinfo.speed -= movespeed / fre(mottaskperi) / acctime;
+    // }
+    // else
+    // {
+    //     mi[0].tarmotorinfo.speed = sumspeed[0];
+    // }
+
+    // if (sumspeed[1] - mi[1].tarmotorinfo.speed > movespeed / fre(mottaskperi) / acctime)
+    // {
+    //     mi[1].tarmotorinfo.speed += movespeed / fre(mottaskperi) / acctime;
+    // }
+    // else if (sumspeed[1] - mi[1].tarmotorinfo.speed < -movespeed / fre(mottaskperi) / acctime)
+    // {
+    //     mi[1].tarmotorinfo.speed -= movespeed / fre(mottaskperi) / acctime;
+    // }
+    // else
+    // {
+    //     mi[1].tarmotorinfo.speed = sumspeed[1];
+    // }
+
+    // if (sumspeed[2] - mi[2].tarmotorinfo.speed > movespeed / fre(mottaskperi) / acctime)
+    // {
+    //     mi[2].tarmotorinfo.speed += movespeed / fre(mottaskperi) / acctime;
+    // }
+    // else if (sumspeed[2] - mi[2].tarmotorinfo.speed < -movespeed / fre(mottaskperi) / acctime)
+    // {
+    //     mi[2].tarmotorinfo.speed -= movespeed / fre(mottaskperi) / acctime;
+    // }
+    // else
+    // {
+    //     mi[2].tarmotorinfo.speed = sumspeed[2];
+    // }
+
+    // if (sumspeed[3] - mi[3].tarmotorinfo.speed > movespeed / fre(mottaskperi) / acctime)
+    // {
+    //     mi[3].tarmotorinfo.speed += movespeed / fre(mottaskperi) / acctime;
+    // }
+    // else if (sumspeed[3] - mi[3].tarmotorinfo.speed < -movespeed / fre(mottaskperi) / acctime)
+    // {
+    //     mi[3].tarmotorinfo.speed -= movespeed / fre(mottaskperi) / acctime;
+    // }
+    // else
+    // {
+    //     mi[3].tarmotorinfo.speed = sumspeed[3];
+    // }
 
 
 }

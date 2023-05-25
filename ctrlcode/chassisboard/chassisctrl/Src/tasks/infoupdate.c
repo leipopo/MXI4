@@ -125,8 +125,35 @@ void get_comd_rc(RobInfo *ri)
 
 void get_chastarspeed_rc(RobInfo *ri)
 {
-    ri->tar.xspeed = (rcchannel_normalize(RC_Data.rc.ch[3]) + (Key.key_w - Key.key_s)) * movespeed;
-    ri->tar.yspeed = (rcchannel_normalize(RC_Data.rc.ch[2]) + (Key.key_d - Key.key_a)) * movespeed;
+    float tempspeed[2];
+    tempspeed[0] = (rcchannel_normalize(RC_Data.rc.ch[3]) + (Key.key_w - Key.key_s)) * movespeed;
+    tempspeed[1] = (rcchannel_normalize(RC_Data.rc.ch[2]) + (Key.key_d - Key.key_a)) * movespeed;
+
+    if (tempspeed[0] - ri->tar.xspeed > movespeed / fre(mottaskperi) / acctime)
+    {
+        ri->tar.xspeed += movespeed / fre(mottaskperi) / acctime;
+    }
+    else if (tempspeed[0] - ri->tar.xspeed < -movespeed / fre(mottaskperi) / acctime)
+    {
+        ri->tar.xspeed -= movespeed / fre(mottaskperi) / acctime;
+    }
+    else
+    {
+        ri->tar.xspeed = tempspeed[0];
+    }
+
+    if (tempspeed[1] - ri->tar.yspeed > movespeed / fre(mottaskperi) / acctime)
+    {
+        ri->tar.yspeed += movespeed / fre(mottaskperi) / acctime;
+    }
+    else if (tempspeed[1] - ri->tar.yspeed < -movespeed / fre(mottaskperi) / acctime)
+    {
+        ri->tar.yspeed -= movespeed / fre(mottaskperi) / acctime;
+    }
+    else
+    {
+        ri->tar.yspeed = tempspeed[1];
+    }
 
     if (robinfo.tar.zspeed != 0)
     {
