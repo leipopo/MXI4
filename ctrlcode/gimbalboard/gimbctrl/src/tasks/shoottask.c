@@ -31,9 +31,9 @@ void init_shootmot_pid(PID_regulator fspid[2],
                        PID_regulator *tapid,
                        PID_regulator *tspid)
 {
-    fspid[0].kp             = 50;
-    fspid[0].ki             = 0.00025;
-    fspid[0].kd             = 10;
+    fspid[0].kp             = 25;
+    fspid[0].ki             = 0.00005;
+    fspid[0].kd             = 50;
     fspid[0].outputMax      = 20000;
     fspid[0].componentKpMax = fspid[0].outputMax;
     fspid[0].componentKiMax = fspid[0].outputMax / 10;

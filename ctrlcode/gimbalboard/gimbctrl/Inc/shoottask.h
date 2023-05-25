@@ -8,7 +8,7 @@
 
 #define fricwheelspeed_30 -6500.f
 #define fricwheelspeed_18 -5000.f 
-#define fricwheelspeed_15 -4200.f
+#define fricwheelspeed_15 -4250.f
 
 #define magopenpusle   500
 #define magclosepusle  2200
