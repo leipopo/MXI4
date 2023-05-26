@@ -155,11 +155,11 @@ void get_chastarspeed_rc(RobInfo *ri)
         ri->tar.yspeed = tempspeed[1];
     }
 
-    if (robinfo.tar.zspeed != 0)
-    {
-        robinfo.tar.xspeed /= 4.f;
-        robinfo.tar.yspeed /= 4.f;
-    }
+    // if (robinfo.tar.zspeed != 0)
+    // {
+    //     robinfo.tar.xspeed /= 4.f;
+    //     robinfo.tar.yspeed /= 4.f;
+    // }
 
     ri->tar.zspeed = (rcchannel_normalize(RC_Data.rc.ch[4]) + (ri->comd.spinning)) * spinningspeed;
     if (Key.key_shift == 0x01)
@@ -179,20 +179,20 @@ void get_chastarspeed_rc(RobInfo *ri)
         }
     }
 
-    if (Key.key_ctrl == 0x01)
+    else if (Key.key_ctrl == 0x01)
     {
         if (((((int8_t)(ri->cur.zrelangle / 45)) % 2 == 0) && (ri->cur.zrelangle > 0)) ||
             (((int8_t)(ri->cur.zrelangle / 45)) % 2 == -1) ||
             (((int8_t)(ri->cur.zrelangle / 45)) % 2 == -3))
         {
-            ri->tar.zspeed = numcircle(45.f, -45.f, ri->cur.zrelangle) * spinningspeed / 2 / 45;
+            ri->tar.zspeed = (45.f-numcircle(45.f, -45.f, ri->cur.zrelangle)) * spinningspeed / 2 / 45;
         }
 
         else if (((((int8_t)(ri->cur.zrelangle / 45)) % 2 == 0) && (ri->cur.zrelangle < 0)) ||
                  (((int8_t)(ri->cur.zrelangle / 45)) % 2 == 1) ||
                  (((int8_t)(ri->cur.zrelangle / 45)) % 2 == 3))
         {
-            ri->tar.zspeed = numcircle(45.f, -45.f, ri->cur.zrelangle) * spinningspeed / 2 / 45;
+            ri->tar.zspeed = (-45.f-numcircle(45.f, -45.f, ri->cur.zrelangle)) * spinningspeed / 2 / 45;
         }
     }
 }

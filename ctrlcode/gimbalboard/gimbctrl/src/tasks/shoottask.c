@@ -53,9 +53,9 @@ void init_shootmot_pid(PID_regulator fspid[2],
     tspid->ki             = 0.001;
     tspid->kd             = 100;
     tspid->outputMax      = 12000;
-    tspid->componentKpMax = tspid->outputMax/2;
-    tspid->componentKiMax = tspid->outputMax/3;
-    tspid->componentKdMax = tspid->outputMax/3;
+    tspid->componentKpMax = tspid->outputMax / 2;
+    tspid->componentKiMax = tspid->outputMax / 3;
+    tspid->componentKdMax = tspid->outputMax / 3;
 }
 void get_trigangle_comd(MotorInfo *ti)
 {
@@ -79,7 +79,7 @@ void get_fricspeed_comd(MotorInfo fi[2])
 {
     if (comuinfo[0].rx_comd.fricwheelon == 0x01)
     {
-        fi[0].tarmotorinfo.speed = -fricwheelspeed_15; 
+        fi[0].tarmotorinfo.speed = -fricwheelspeed_15;
         fi[1].tarmotorinfo.speed = -fi[0].tarmotorinfo.speed;
     }
     else if (comuinfo[0].rx_comd.fricwheelon == 0x00)
@@ -123,6 +123,11 @@ void pack_shootmot_ctrlmes(int16_t mes1[4])
     mes1[1] = fricspid[1].output;
     mes1[2] = trigspid.output;
     mes1[3] = 0x0000;
+
+    // mes1[0] = 0x0000;
+    // mes1[1] = 0x0000;
+    // mes1[2] = trigspid.output;
+    // mes1[3] = 0x0000;
 }
 
 void setmag(int8_t mc)

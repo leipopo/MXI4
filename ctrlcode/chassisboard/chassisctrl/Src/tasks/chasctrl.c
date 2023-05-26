@@ -127,7 +127,7 @@ void init_whemot_pid(PID_regulator wspid[4])
         wspid[i].componentKpMax = 10000;
         wspid[i].componentKiMax = 3000;
         wspid[i].componentKdMax = 5000;
-        wspid[i].outputMax = 4000;
+        wspid[i].outputMax = 8000;
     }
 }
 

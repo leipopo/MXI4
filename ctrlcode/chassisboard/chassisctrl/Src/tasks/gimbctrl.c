@@ -25,8 +25,8 @@ void init_gimbmot_para(MotorInfo *pi, MotorInfo *yi)
     *pi = motparainit(gm6020);
     pi->setup.motid = pitmotid;
     pi->setup.reductionratio = pitreductionratio;
-    pi->setup.angle_limit[0] = -30.f;
-    pi->setup.angle_limit[1] = 20.f;
+    pi->setup.angle_limit[0] = -40.f;
+    pi->setup.angle_limit[1] = 25.f;
     pi->setup.speed_limit = pi->setup.speed_limit / pi->setup.reductionratio;
     pi->setup.outcirclerate = 5;
     pi->setup.reversed = 0x00;
@@ -88,7 +88,7 @@ void clac_pitmot_aspid(PID_regulator *papid,
     calc_mot_aspid(papid, pspid, mi);
     // double Gangle = robinfo.cur.pitangle + 5.f;
     // pspid->output -= (500 * sin(Gangle / 360.f * 2 * 3.141592f));
-    // pspid->output = -pspid->output+yawspid.cur*150.f;
+    pspid->output = pspid->output -yaw.curmotorinfo.speed * 100.f;
 }
 
 void clac_yawmot_aspid(PID_regulator *yapid,
@@ -131,6 +131,18 @@ void pack_pymot_ctrlmes(int16_t mes[4])
     }
 }
 
+void minpitangle_calc(MotorInfo *pi)
+{
+    if (Key.key_ctrl == 0x01)
+    {
+        pi->setup.angle_limit[1] = 30.f;
+    }
+    else
+    {
+        pi->setup.angle_limit[1] = 25.f;
+    }
+}
+
 void gimbctrl()
 {
     while (comuinfo.rx_imu.yawangle == 0 || comuinfo.rx_imu.pitangle == 0)
@@ -142,6 +154,7 @@ void gimbctrl()
 
     for (;;)
     {
+        minpitangle_calc(&pit);
         // HAL_IWDG_Refresh(&hiwdg);
         clac_yawmot_aspid(&yawapid, &yawspid, &yaw);
         clac_pitmot_aspid(&pitapid, &pitspid, &pit);
