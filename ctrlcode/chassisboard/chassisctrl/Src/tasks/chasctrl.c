@@ -18,9 +18,9 @@ void xyzspeed2wheelspeed(MotorInfo mi[4])
 {
     float xytempspeed[2] = {0.f, 0.f};
     float sumspeed[4] = {0.f, 0.f, 0.f, 0.f};
-    //float czrangle=numcircle(180.f,-180.f,robinfo.cur.zrelangle+yaw.curmotorinfo.speed*0.3f) ;
-    float czrangle=robinfo.cur.zrelangle;
-    
+    // float czrangle=numcircle(180.f,-180.f,robinfo.cur.zrelangle+yaw.curmotorinfo.speed*0.3f) ;
+    float czrangle = robinfo.cur.zrelangle;
+
     xytempspeed[0] = robinfo.tar.xspeed * cos(czrangle / 360.f * 2 * 3.1415f) + robinfo.tar.yspeed * sin(czrangle / 360.f * 2 * 3.1415f);
     xytempspeed[1] = -robinfo.tar.xspeed * sin(czrangle / 360.f * 2 * 3.1415f) + robinfo.tar.yspeed * cos(czrangle / 360.f * 2 * 3.1415f);
 
@@ -29,36 +29,18 @@ void xyzspeed2wheelspeed(MotorInfo mi[4])
     sumspeed[2] = xytempspeed[0] + xytempspeed[1] + robinfo.tar.zspeed;
     sumspeed[3] = xytempspeed[0] - xytempspeed[1] + robinfo.tar.zspeed;
 
-    if (fabsf(sumspeed[0]) > 400.f)
+    if (fabsf(sumspeed[0]) > mi[0].setup.speed_limit || fabsf(sumspeed[1]) > mi[1].setup.speed_limit || fabsf(sumspeed[2]) > mi[2].setup.speed_limit || fabsf(sumspeed[3]) > mi[3].setup.speed_limit)
     {
-        mi[0].tarmotorinfo.speed = -xytempspeed[0] / fabs(sumspeed[0]) * 400.f - xytempspeed[1] / fabs(sumspeed[0]) * 400.f + robinfo.tar.zspeed / fabs(sumspeed[0]) * 400.f;
+        mi[0].tarmotorinfo.speed = -xytempspeed[0] / fabs(sumspeed[0]) * mi[0].setup.speed_limit - xytempspeed[1] / fabs(sumspeed[0]) * mi[0].setup.speed_limit + robinfo.tar.zspeed / fabs(sumspeed[0]) * mi[0].setup.speed_limit;
+        mi[1].tarmotorinfo.speed = -xytempspeed[0] / fabs(sumspeed[1]) * mi[1].setup.speed_limit + xytempspeed[1] / fabs(sumspeed[1]) * mi[1].setup.speed_limit + robinfo.tar.zspeed / fabs(sumspeed[1]) * mi[1].setup.speed_limit;
+        mi[2].tarmotorinfo.speed = xytempspeed[0] / fabs(sumspeed[2]) * mi[2].setup.speed_limit + xytempspeed[1] / fabs(sumspeed[2]) * mi[2].setup.speed_limit + robinfo.tar.zspeed / fabs(sumspeed[2]) * mi[2].setup.speed_limit;
+        mi[3].tarmotorinfo.speed = xytempspeed[0] / fabs(sumspeed[3]) * mi[3].setup.speed_limit - xytempspeed[1] / fabs(sumspeed[3]) * mi[3].setup.speed_limit + robinfo.tar.zspeed / fabs(sumspeed[3]) * mi[3].setup.speed_limit;
     }
     else
     {
         mi[0].tarmotorinfo.speed = sumspeed[0];
-    }
-    if (fabsf(sumspeed[1]) > 400.f)
-    {
-        mi[1].tarmotorinfo.speed = -xytempspeed[0] / fabs(sumspeed[1]) * 400.f + xytempspeed[1] / fabs(sumspeed[1]) * 400.f + robinfo.tar.zspeed / fabs(sumspeed[1]) * 400.f;
-    }
-    else
-    {
         mi[1].tarmotorinfo.speed = sumspeed[1];
-    }
-    if (fabsf(sumspeed[2]) > 400.f)
-    {
-        mi[2].tarmotorinfo.speed = xytempspeed[0] / fabs(sumspeed[2]) * 400.f + xytempspeed[1] / fabs(sumspeed[2]) * 400.f + robinfo.tar.zspeed / fabs(sumspeed[2]) * 400.f;
-    }
-    else
-    {
         mi[2].tarmotorinfo.speed = sumspeed[2];
-    }
-    if (fabsf(sumspeed[3]) > 400.f)
-    {
-         mi[3].tarmotorinfo.speed = xytempspeed[0] / fabs(sumspeed[3]) * 400.f - xytempspeed[1] / fabs(sumspeed[3]) * 400.f + robinfo.tar.zspeed / fabs(sumspeed[3]) * 400.f;
-    }
-    else
-    {
         mi[3].tarmotorinfo.speed = sumspeed[3];
     }
 
@@ -113,8 +95,6 @@ void xyzspeed2wheelspeed(MotorInfo mi[4])
     // {
     //     mi[3].tarmotorinfo.speed = sumspeed[3];
     // }
-
-
 }
 
 void init_whemot_pid(PID_regulator wspid[4])
